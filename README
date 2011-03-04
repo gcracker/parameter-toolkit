@@ -1,0 +1,144 @@
+-------------------------------
+INTRODUCTION
+-------------------------------
+
+Thank you for trying out the ParaMeter tool!  This tool is still very
+much an alpha release, so be patient.  The good news is that it is
+actively being developed, so it should become more stable and feature
+rich.
+
+ParaMeter is a rapid trace analysis tool.  It uses trace data sets
+that have been encoded into reduced, ordered, binary diagrams.  This
+allows for rapid visualization and the potential to perform a wide
+array of analysis methods.
+
+-------------------------------
+RECOMMENDED SYSTEM
+-------------------------------
+
+Linux (or other *nix) operating system.  Four gigabytes of RAM or
+more.  Latest, greatest CPU.
+
+--------------------------------
+LIBRARIES and PARTS
+--------------------------------
+
+The ParaMeter tool needs a few other software tools and libraries in
+order to compile.  This tool set comes shipped with the following
+items:
+
+Adamantium - a trace analysis tool
+TMT - a dynamic trace collection tool
+SVT - a graphing library (not used much)
+ParaMeter - a BDD-trace based program analysis tool
+
+This tool set also requires the user to have Pin, QT, bzip2, and bfd,
+xmu, freetype development libraries installed.
+
+Using Linux with aptitude package manager, the required packages can be installed with the command:
+apt-get install libqt4-dev libgmp3-dev binutils-dev libxmu-dev libfreetype6-dev libbz2-dev libglib2.0-dev g++
+
+Also, sometimes Pin issues can be cleared up by installing ia32-libs:
+apt-get install ia32-libs
+
+--------------------------------
+OVERVIEW
+--------------------------------
+
+Here is a outline of how ParaMeter analyzes an application:
+
+1) A dynamic trace of the application is collected with a TMT, which is 
+   Pin tool (more on Pin later).
+
+2) Adamantium converts the dynamic trace information into BDDs.  
+
+3) ParaMeter reads in the BDDs, plots data, and can perform BDD-based
+   analysis.
+
+--------------------------------
+INSTALLATION
+--------------------------------
+
+Make sure you have Pin, qt, bzip2, and bfd development libraries
+installed first. These can be found in most distro repositories, or
+you can download them at:
+
+Pin - rogue.colorado.edu/pin (version 2.2)
+QT - www.trolltech.com
+bzip2 - www.bzip.org
+bfd - sources.redhat.com/binutils/
+
+You also need to set the QTDIR environment variable.  This points to
+the base of the QT development directory.  As an alternative to
+setting an environment variable, you can also alter the QTDIR variable
+in ParaMeter/ParaMeter-0.0.1/Makefile around line 100.
+
+There is a top level Makefile in ParaMeter/Makefile that will build
+all necessary libraries and parts of ParaMeter.  After this initial
+build it is much faster to only build the portion of ParaMeter you
+have modified.
+
+NOTE: This tool set is sensitive to 64 bit extensions. The top level
+makefile is set to build the 64 bit version of all parts of ParaMeter.
+You can change this by changing the SYSTEM variable from "x86_64" to
+"x86."  However, it is a good idea to run ParaMeter on a 64 bit
+machine in order for your system to have enough RAM to properly run
+Adamantium and ParaMeter.  ParaMeter should be run on a system with at
+least two gigabytes of RAM. However, four or more gigabytes is highly
+recommended.
+
+--------------------------------
+BDD TYPES
+--------------------------------
+
+The trace BDDs contain trace information in the form of (X,Y) tuples.
+There are currently are currently three types of BDD tuples: 
+
+a) (DIN, RDY) - this holds the dynamic instruction number (DIN) and the
+   ready time.  The ready time is the earliest time that an instruction
+   can be scheduled to execute on an ideal machine.
+
+b) (DIN, SIN) - DIN in this tuple is the same as in a).  The SIN is
+   the static instruction number, which is the static program address
+   of the instruction.  This tuple can be used to find program
+   locations of DINs.
+
+c) (DIN, DIN) - The first DIN is the the same as in a) and b).
+   However, the second DIN is the dynamic instruction number of an
+   instruction that depends on the current (first) DIN.  Sorry about
+   the unfortunately confusing naming scheme.  This tuple set is used
+   to perform data dependence slicing.
+
+--------------------------------
+TOOLS
+--------------------------------
+
+TMT generates dynamic traces using the Intel Pin dynamic tracing tool.
+Pin can change dramatically with each version.  Version 2.2 appears to
+work with no issues, therefore it is recommended.
+
+It is a good idea to cut out initial startup trace information.  You
+can do this with TMT by using the command line options --linestart and
+--filestart.  You then specify the first line of the program by line
+number and file name.
+
+Adamantium can perform a number of useful analysis functions. However,
+ParaMeter primarily uses Adamantium to generate BDDs.  The default
+variable order used by Adamantium in the BDD trace collection is an
+interlaced most-significant-bit to least-significant-bit order.  This
+variable order is also required by ParaMeter to perform visualization
+operations.
+
+There are a number of command line options to tweak BDD creation with
+Adamantium.  Here is a simple example:
+
+adamantium -p program.bz2 -t trace.bz2 --bdddinvsrdy dinrdy.bdd --maxopcount 500000000
+
+This will use the trace data program.bz2 and trace.bz2 and create the
+(DIN,RDY) BDD that is saved in the file dinrdy.bdd.  Adamantium will
+stop BDD creation when it reaches an opcount of 500,000,000.
+
+You are now ready to run ParaMeter!  Yeah!  Fire up ParaMeter, click
+on the downward arrow looking icon and select your dinrdy.bdd file.
+After ParaMeter has loaded your BDD, it will create generate a DIN x
+RDY plot.
