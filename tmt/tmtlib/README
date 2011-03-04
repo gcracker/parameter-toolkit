@@ -1,0 +1,82 @@
+---------------------------------------------------------------------------
+                     TMT (Trace Making Thing) Library
+---------------------------------------------------------------------------
+
+I. Introduction
+
+TMT is the supporting library for a set of PIN tools to generate compact
+binary traces for both x86 and Itanium executables.  TMT provides both
+a read and write interface.  Traces are stored in the form of a 
+trace file and a program file.  The trace file contains dynamic program
+information such as memory addresses and register values.  The program
+file contains static program information such as instruction address,
+op-code, and registers.
+
+TMT uses libbzip2 to compress both the trace file and program file.
+It achieves an excellent compression ratio of approximately 100:1.
+
+II. Installing
+
+- checkout tmt from the cvs repository
+- type 'make' to build the library libtmt.a
+- include "tmt.h" and link to libtmt.a to build applications
+
+III. Using TMT to generate a trace
+
+TMT divides a execution trace into static and dynamic information to 
+reduce trace size and decrease trace generation time.  To begin a 
+new trace, you must open a write context as shown below:
+
+TmtWriteContext * ctxt;
+ctxt = tmt_writecontext_new("mytrace.bz2", "myprog.bz2");
+
+This creates a new trace write context and opens the files specified.
+To add information to the trace, use the following two procedure calls:
+
+void
+tmt_writecontext_write_static( TmtWriteContext * ctxt,
+                               guint64 ip,
+                               guint op,
+                               guint num_src_regs,
+                               guint num_dst_regs,
+                               guint num_mem_refs,
+                               guint * src,
+                               guint * dst,
+                               guint * mem_size );
+ 
+void
+tmt_writecontext_write_dynamic( TmtWriteContext * ctxt,
+                                guint64 ip,
+                                guint64 * ea );
+
+
+These calls are used to add static and dynamic trace information, 
+respectively.  The developer must setup the src, dst, and mem_size 
+arrays, and also the ea array.  The array sizes must be at least as
+large as num_src_regs, num_dst_regs, or num_mem_refs variables.
+
+Once all trace information has been written, the trace is flushed
+and closed with the command:
+
+tmt_writecontext_free(ctxt);
+
+IV. Using TMT to read a trace
+
+Reading from a TMT trace is simple.  Consider the following example
+code:
+
+TmtReadContext * ctxt;
+TmtOper oper;
+gint tmterror;
+
+ctxt = tmt_readcontext_new("trace.bz2", "prog.bz2");
+
+while(tmterror == TMT_OK) {
+  tmt_readcontext_read(&tmterror, ctxt, &oper);
+  // do something with the oper
+}
+
+// either an error occurred (TMT_ERROR) or the end-of-file (TMT_EOF) 
+// was encountered
+tmt_readcontext_free(ctxt);
+

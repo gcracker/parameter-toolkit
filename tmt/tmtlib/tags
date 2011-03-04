@@ -1,0 +1,725 @@
+BOOL	tmt_ia64.h	316
+BZ_BLOCKSIZE100K	tmtio.c	13
+BZ_BLOCKSIZE100K_MAX	tmtio.c	12
+BZ_BLOCKSIZE100K_MIN	tmtio.c	11
+BZ_READ_FAST	tmtio.c	19
+BZ_READ_SLOW	tmtio.c	18
+BZ_VERBOSITY_SILENT	tmtio.c	15
+BZ_WORKFACTOR_DEFAULT	tmtio.c	16
+F0type	TCgen.h	12
+F1type	TCgen.h	13
+F2type	TCgen.h	14
+F3type	TCgen.h	15
+F4type	TCgen.h	16
+F5type	TCgen.h	17
+F6type	TCgen.h	18
+F7type	TCgen.h	19
+IA64RegStackInfo	tmt_ia64.h	19
+IA64_GRTOBASE	tmt_ia64.h	/^#define IA64_GRTOBASE(reg) ((reg) - REG_GBASE)$/
+IA64_RENBASE	tmt_ia64.h	4
+IA64_isa	tmt_isa.h	8
+IMPL_REG	tmt_ia64.h	311
+IMPL_REGS	tmt_ia64.h	314
+IMPL_REG_ALLAT	tmt_ia64.h	307
+IMPL_REG_AR_BSP	tmt_ia64.h	278
+IMPL_REG_AR_BSPSTORE	tmt_ia64.h	279
+IMPL_REG_AR_CCV	tmt_ia64.h	282
+IMPL_REG_AR_EC	tmt_ia64.h	289
+IMPL_REG_AR_FPSR	tmt_ia64.h	284
+IMPL_REG_AR_IA32	tmt_ia64.h	291
+IMPL_REG_AR_ITC	tmt_ia64.h	285
+IMPL_REG_AR_KR0	tmt_ia64.h	268
+IMPL_REG_AR_KR1	tmt_ia64.h	269
+IMPL_REG_AR_KR2	tmt_ia64.h	270
+IMPL_REG_AR_KR3	tmt_ia64.h	271
+IMPL_REG_AR_KR4	tmt_ia64.h	272
+IMPL_REG_AR_KR5	tmt_ia64.h	273
+IMPL_REG_AR_KR6	tmt_ia64.h	274
+IMPL_REG_AR_KR7	tmt_ia64.h	275
+IMPL_REG_AR_LC	tmt_ia64.h	288
+IMPL_REG_AR_PFS	tmt_ia64.h	287
+IMPL_REG_AR_RNAT	tmt_ia64.h	280
+IMPL_REG_AR_RSC	tmt_ia64.h	277
+IMPL_REG_AR_UNAT	tmt_ia64.h	283
+IMPL_REG_BARRIER	tmt_ia64.h	310
+IMPL_REG_CFM	tmt_ia64.h	297
+IMPL_REG_CR	tmt_ia64.h	293
+IMPL_REG_IP	tmt_ia64.h	298
+IMPL_REG_MEMORY	tmt_ia64.h	308
+IMPL_REG_MR	tmt_ia64.h	294
+IMPL_REG_PREDICATES	tmt_ia64.h	309
+IMPL_REG_PSR	tmt_ia64.h	296
+IMPL_REG_SYSTEMMASK	tmt_ia64.h	300
+IMPL_REG_USERMASK	tmt_ia64.h	299
+LL	tmt_ia64.h	268
+LL	tmt_ia64.h	268
+LL	tmt_ia64.h	269
+LL	tmt_ia64.h	269
+LL	tmt_ia64.h	270
+LL	tmt_ia64.h	270
+LL	tmt_ia64.h	271
+LL	tmt_ia64.h	271
+LL	tmt_ia64.h	272
+LL	tmt_ia64.h	272
+LL	tmt_ia64.h	273
+LL	tmt_ia64.h	273
+LL	tmt_ia64.h	274
+LL	tmt_ia64.h	274
+LL	tmt_ia64.h	275
+LL	tmt_ia64.h	275
+LL	tmt_ia64.h	277
+LL	tmt_ia64.h	277
+LL	tmt_ia64.h	278
+LL	tmt_ia64.h	278
+LL	tmt_ia64.h	279
+LL	tmt_ia64.h	279
+LL	tmt_ia64.h	280
+LL	tmt_ia64.h	280
+LL	tmt_ia64.h	282
+LL	tmt_ia64.h	282
+LL	tmt_ia64.h	283
+LL	tmt_ia64.h	283
+LL	tmt_ia64.h	284
+LL	tmt_ia64.h	284
+LL	tmt_ia64.h	285
+LL	tmt_ia64.h	285
+LL	tmt_ia64.h	287
+LL	tmt_ia64.h	287
+LL	tmt_ia64.h	288
+LL	tmt_ia64.h	288
+LL	tmt_ia64.h	289
+LL	tmt_ia64.h	289
+LL	tmt_ia64.h	291
+LL	tmt_ia64.h	291
+LL	tmt_ia64.h	293
+LL	tmt_ia64.h	293
+LL	tmt_ia64.h	294
+LL	tmt_ia64.h	294
+LL	tmt_ia64.h	297
+LL	tmt_ia64.h	297
+LL	tmt_ia64.h	298
+LL	tmt_ia64.h	298
+LL	tmt_ia64.h	299
+LL	tmt_ia64.h	299
+LL	tmt_ia64.h	300
+LL	tmt_ia64.h	300
+LL	tmt_ia64.h	307
+LL	tmt_ia64.h	307
+LL	tmt_ia64.h	308
+LL	tmt_ia64.h	308
+LL	tmt_ia64.h	309
+LL	tmt_ia64.h	309
+MYMIN	tmtio.c	/^#define MYMIN(x,y) (((x)<=(y))?(x):(y))$/
+Mmore_dests	more_dests.c	/^int main(int argc, char *argv[])$/
+PCtype	TCgen.h	20
+PPC_isa	tmt_isa.h	8
+REG	tmt_ia64.h	264
+REG_ABASE	tmt_ia64.h	122
+REG_ABASE	tmt_ia64.h	124
+REG_ABASE	tmt_ia64.h	125
+REG_ABASE	tmt_ia64.h	126
+REG_ABASE	tmt_ia64.h	127
+REG_ABASE	tmt_ia64.h	128
+REG_ABASE	tmt_ia64.h	129
+REG_ABASE	tmt_ia64.h	130
+REG_ABASE	tmt_ia64.h	131
+REG_ABASE	tmt_ia64.h	133
+REG_ABASE	tmt_ia64.h	135
+REG_ABASE	tmt_ia64.h	136
+REG_ABASE	tmt_ia64.h	137
+REG_ABASE	tmt_ia64.h	138
+REG_ABASE	tmt_ia64.h	140
+REG_ABASE	tmt_ia64.h	142
+REG_ABASE	tmt_ia64.h	144
+REG_ABASE	tmt_ia64.h	145
+REG_ABASE	tmt_ia64.h	146
+REG_AR_BSP	tmt_ia64.h	136
+REG_AR_BSPSTORE	tmt_ia64.h	137
+REG_AR_CSD	tmt_ia64.h	133
+REG_AR_EC	tmt_ia64.h	146
+REG_AR_FPSR	tmt_ia64.h	142
+REG_AR_KR0	tmt_ia64.h	124
+REG_AR_KR1	tmt_ia64.h	125
+REG_AR_KR2	tmt_ia64.h	126
+REG_AR_KR3	tmt_ia64.h	127
+REG_AR_KR4	tmt_ia64.h	128
+REG_AR_KR5	tmt_ia64.h	129
+REG_AR_KR6	tmt_ia64.h	130
+REG_AR_KR7	tmt_ia64.h	131
+REG_AR_LC	tmt_ia64.h	145
+REG_AR_PFS	tmt_ia64.h	144
+REG_AR_RNAT	tmt_ia64.h	138
+REG_AR_RSC	tmt_ia64.h	135
+REG_AR_UNAT	tmt_ia64.h	140
+REG_B0	tmt_ia64.h	34
+REG_B1	tmt_ia64.h	35
+REG_B2	tmt_ia64.h	36
+REG_B3	tmt_ia64.h	37
+REG_B4	tmt_ia64.h	38
+REG_B5	tmt_ia64.h	39
+REG_B6	tmt_ia64.h	40
+REG_B7	tmt_ia64.h	41
+REG_BBASE	tmt_ia64.h	33
+REG_BBASE	tmt_ia64.h	34
+REG_BBASE	tmt_ia64.h	35
+REG_BBASE	tmt_ia64.h	36
+REG_BBASE	tmt_ia64.h	37
+REG_BBASE	tmt_ia64.h	38
+REG_BBASE	tmt_ia64.h	39
+REG_BBASE	tmt_ia64.h	40
+REG_BBASE	tmt_ia64.h	41
+REG_BR_SCR1	tmt_ia64.h	171
+REG_CBASE	tmt_ia64.h	120
+REG_CFM	tmt_ia64.h	151
+REG_COMES_FROM	tmt_ia64.h	174
+REG_COMP	tmt_ia64.h	154
+REG_COMP	tmt_ia64.h	155
+REG_COMP	tmt_ia64.h	156
+REG_COMP	tmt_ia64.h	157
+REG_COMP	tmt_ia64.h	158
+REG_COMP_DC	tmt_ia64.h	158
+REG_COMP_DC	tmt_ia64.h	159
+REG_COMP_LAST	tmt_ia64.h	159
+REG_F01	tmt_ia64.h	101
+REG_F02	tmt_ia64.h	102
+REG_F03	tmt_ia64.h	103
+REG_F04	tmt_ia64.h	104
+REG_F05	tmt_ia64.h	105
+REG_F06	tmt_ia64.h	106
+REG_F07	tmt_ia64.h	107
+REG_F08	tmt_ia64.h	108
+REG_F08	tmt_ia64.h	241
+REG_F08	tmt_ia64.h	255
+REG_F09	tmt_ia64.h	109
+REG_F09	tmt_ia64.h	242
+REG_F09	tmt_ia64.h	256
+REG_F10	tmt_ia64.h	110
+REG_F10	tmt_ia64.h	243
+REG_F10	tmt_ia64.h	257
+REG_F11	tmt_ia64.h	111
+REG_F11	tmt_ia64.h	244
+REG_F11	tmt_ia64.h	258
+REG_F12	tmt_ia64.h	112
+REG_F12	tmt_ia64.h	245
+REG_F12	tmt_ia64.h	259
+REG_F127	tmt_ia64.h	117
+REG_F13	tmt_ia64.h	113
+REG_F13	tmt_ia64.h	246
+REG_F13	tmt_ia64.h	260
+REG_F14	tmt_ia64.h	114
+REG_F14	tmt_ia64.h	247
+REG_F14	tmt_ia64.h	261
+REG_F15	tmt_ia64.h	115
+REG_F15	tmt_ia64.h	248
+REG_F15	tmt_ia64.h	262
+REG_F32	tmt_ia64.h	116
+REG_FBASE	tmt_ia64.h	98
+REG_FBASE	tmt_ia64.h	99
+REG_FBASE	tmt_ia64.h	100
+REG_FBASE	tmt_ia64.h	101
+REG_FBASE	tmt_ia64.h	102
+REG_FBASE	tmt_ia64.h	103
+REG_FBASE	tmt_ia64.h	104
+REG_FBASE	tmt_ia64.h	105
+REG_FBASE	tmt_ia64.h	106
+REG_FBASE	tmt_ia64.h	107
+REG_FBASE	tmt_ia64.h	108
+REG_FBASE	tmt_ia64.h	109
+REG_FBASE	tmt_ia64.h	110
+REG_FBASE	tmt_ia64.h	111
+REG_FBASE	tmt_ia64.h	112
+REG_FBASE	tmt_ia64.h	113
+REG_FBASE	tmt_ia64.h	114
+REG_FBASE	tmt_ia64.h	115
+REG_FBASE	tmt_ia64.h	116
+REG_FBASE	tmt_ia64.h	117
+REG_FONE	tmt_ia64.h	100
+REG_FP_ARG0	tmt_ia64.h	241
+REG_FP_ARG1	tmt_ia64.h	242
+REG_FP_ARG2	tmt_ia64.h	243
+REG_FP_ARG3	tmt_ia64.h	244
+REG_FP_ARG4	tmt_ia64.h	245
+REG_FP_ARG5	tmt_ia64.h	246
+REG_FP_ARG6	tmt_ia64.h	247
+REG_FP_ARG7	tmt_ia64.h	248
+REG_FP_RET0	tmt_ia64.h	255
+REG_FP_RET1	tmt_ia64.h	256
+REG_FP_RET2	tmt_ia64.h	257
+REG_FP_RET3	tmt_ia64.h	258
+REG_FP_RET4	tmt_ia64.h	259
+REG_FP_RET5	tmt_ia64.h	260
+REG_FP_RET6	tmt_ia64.h	261
+REG_FP_RET7	tmt_ia64.h	262
+REG_FZERO	tmt_ia64.h	99
+REG_G02	tmt_ia64.h	52
+REG_G03	tmt_ia64.h	53
+REG_G04	tmt_ia64.h	54
+REG_G05	tmt_ia64.h	55
+REG_G06	tmt_ia64.h	56
+REG_G07	tmt_ia64.h	57
+REG_G08	tmt_ia64.h	58
+REG_G08	tmt_ia64.h	250
+REG_G09	tmt_ia64.h	59
+REG_G09	tmt_ia64.h	251
+REG_G10	tmt_ia64.h	60
+REG_G10	tmt_ia64.h	252
+REG_G105	tmt_ia64.h	94
+REG_G106	tmt_ia64.h	95
+REG_G11	tmt_ia64.h	61
+REG_G11	tmt_ia64.h	253
+REG_G127	tmt_ia64.h	96
+REG_G14	tmt_ia64.h	64
+REG_G15	tmt_ia64.h	65
+REG_G16	tmt_ia64.h	66
+REG_G17	tmt_ia64.h	67
+REG_G18	tmt_ia64.h	68
+REG_G19	tmt_ia64.h	69
+REG_G20	tmt_ia64.h	70
+REG_G21	tmt_ia64.h	71
+REG_G22	tmt_ia64.h	72
+REG_G23	tmt_ia64.h	73
+REG_G24	tmt_ia64.h	74
+REG_G25	tmt_ia64.h	75
+REG_G26	tmt_ia64.h	76
+REG_G27	tmt_ia64.h	77
+REG_G28	tmt_ia64.h	78
+REG_G29	tmt_ia64.h	79
+REG_G30	tmt_ia64.h	80
+REG_G31	tmt_ia64.h	81
+REG_G32	tmt_ia64.h	82
+REG_G32	tmt_ia64.h	232
+REG_G33	tmt_ia64.h	83
+REG_G33	tmt_ia64.h	233
+REG_G34	tmt_ia64.h	84
+REG_G34	tmt_ia64.h	234
+REG_G35	tmt_ia64.h	85
+REG_G35	tmt_ia64.h	235
+REG_G36	tmt_ia64.h	86
+REG_G36	tmt_ia64.h	236
+REG_G37	tmt_ia64.h	87
+REG_G37	tmt_ia64.h	237
+REG_G38	tmt_ia64.h	88
+REG_G38	tmt_ia64.h	238
+REG_G39	tmt_ia64.h	89
+REG_G39	tmt_ia64.h	239
+REG_G40	tmt_ia64.h	90
+REG_G41	tmt_ia64.h	91
+REG_G42	tmt_ia64.h	92
+REG_G43	tmt_ia64.h	93
+REG_GBASE	tmt_ia64.h	49
+REG_GBASE	tmt_ia64.h	50
+REG_GBASE	tmt_ia64.h	51
+REG_GBASE	tmt_ia64.h	52
+REG_GBASE	tmt_ia64.h	53
+REG_GBASE	tmt_ia64.h	54
+REG_GBASE	tmt_ia64.h	55
+REG_GBASE	tmt_ia64.h	56
+REG_GBASE	tmt_ia64.h	57
+REG_GBASE	tmt_ia64.h	58
+REG_GBASE	tmt_ia64.h	59
+REG_GBASE	tmt_ia64.h	60
+REG_GBASE	tmt_ia64.h	61
+REG_GBASE	tmt_ia64.h	62
+REG_GBASE	tmt_ia64.h	63
+REG_GBASE	tmt_ia64.h	64
+REG_GBASE	tmt_ia64.h	65
+REG_GBASE	tmt_ia64.h	66
+REG_GBASE	tmt_ia64.h	67
+REG_GBASE	tmt_ia64.h	68
+REG_GBASE	tmt_ia64.h	69
+REG_GBASE	tmt_ia64.h	70
+REG_GBASE	tmt_ia64.h	71
+REG_GBASE	tmt_ia64.h	72
+REG_GBASE	tmt_ia64.h	73
+REG_GBASE	tmt_ia64.h	74
+REG_GBASE	tmt_ia64.h	75
+REG_GBASE	tmt_ia64.h	76
+REG_GBASE	tmt_ia64.h	77
+REG_GBASE	tmt_ia64.h	78
+REG_GBASE	tmt_ia64.h	79
+REG_GBASE	tmt_ia64.h	80
+REG_GBASE	tmt_ia64.h	81
+REG_GBASE	tmt_ia64.h	82
+REG_GBASE	tmt_ia64.h	83
+REG_GBASE	tmt_ia64.h	84
+REG_GBASE	tmt_ia64.h	85
+REG_GBASE	tmt_ia64.h	86
+REG_GBASE	tmt_ia64.h	87
+REG_GBASE	tmt_ia64.h	88
+REG_GBASE	tmt_ia64.h	89
+REG_GBASE	tmt_ia64.h	90
+REG_GBASE	tmt_ia64.h	91
+REG_GBASE	tmt_ia64.h	92
+REG_GBASE	tmt_ia64.h	93
+REG_GBASE	tmt_ia64.h	94
+REG_GBASE	tmt_ia64.h	95
+REG_GBASE	tmt_ia64.h	96
+REG_GP	tmt_ia64.h	51
+REG_GP_ARG0	tmt_ia64.h	232
+REG_GP_ARG1	tmt_ia64.h	233
+REG_GP_ARG2	tmt_ia64.h	234
+REG_GP_ARG3	tmt_ia64.h	235
+REG_GP_ARG4	tmt_ia64.h	236
+REG_GP_ARG5	tmt_ia64.h	237
+REG_GP_ARG6	tmt_ia64.h	238
+REG_GP_ARG7	tmt_ia64.h	239
+REG_GP_RET0	tmt_ia64.h	250
+REG_GP_RET1	tmt_ia64.h	251
+REG_GP_RET2	tmt_ia64.h	252
+REG_GP_RET3	tmt_ia64.h	253
+REG_GP_SCR1	tmt_ia64.h	167
+REG_GP_SCR2	tmt_ia64.h	168
+REG_GZERO	tmt_ia64.h	50
+REG_IMMBASE	tmt_ia64.h	28
+REG_IMMBASE	tmt_ia64.h	29
+REG_IMMBASE	tmt_ia64.h	30
+REG_IMMBASE	tmt_ia64.h	31
+REG_IMM_BBL	tmt_ia64.h	30
+REG_IMM_LIT	tmt_ia64.h	29
+REG_IMM_REL	tmt_ia64.h	31
+REG_INST_BASE	tmt_ia64.h	179
+REG_INST_BASE	tmt_ia64.h	180
+REG_INST_BASE	tmt_ia64.h	181
+REG_INST_BASE	tmt_ia64.h	182
+REG_INST_BASE	tmt_ia64.h	183
+REG_INST_BASE	tmt_ia64.h	184
+REG_INST_BASE	tmt_ia64.h	185
+REG_INST_BASE	tmt_ia64.h	186
+REG_INST_BASE	tmt_ia64.h	187
+REG_INST_BASE	tmt_ia64.h	188
+REG_INST_BASE	tmt_ia64.h	189
+REG_INST_BASE	tmt_ia64.h	191
+REG_INST_BASE	tmt_ia64.h	192
+REG_INST_BASE	tmt_ia64.h	193
+REG_INST_BASE	tmt_ia64.h	194
+REG_INST_BASE	tmt_ia64.h	195
+REG_INST_BASE	tmt_ia64.h	196
+REG_INST_BASE	tmt_ia64.h	197
+REG_INST_BASE	tmt_ia64.h	198
+REG_INST_BASE	tmt_ia64.h	199
+REG_INST_BASE	tmt_ia64.h	200
+REG_INST_G0	tmt_ia64.h	180
+REG_INST_G1	tmt_ia64.h	181
+REG_INST_G2	tmt_ia64.h	182
+REG_INST_G3	tmt_ia64.h	183
+REG_INST_G4	tmt_ia64.h	184
+REG_INST_G5	tmt_ia64.h	185
+REG_INST_G6	tmt_ia64.h	186
+REG_INST_G7	tmt_ia64.h	187
+REG_INST_G8	tmt_ia64.h	188
+REG_INST_G9	tmt_ia64.h	189
+REG_INST_LAST	tmt_ia64.h	202
+REG_INST_LAST	tmt_ia64.h	204
+REG_INST_P0	tmt_ia64.h	191
+REG_INST_P1	tmt_ia64.h	192
+REG_INST_P2	tmt_ia64.h	193
+REG_INST_P3	tmt_ia64.h	194
+REG_INST_P4	tmt_ia64.h	195
+REG_INST_P5	tmt_ia64.h	196
+REG_INST_P6	tmt_ia64.h	197
+REG_INST_P7	tmt_ia64.h	198
+REG_INST_P8	tmt_ia64.h	199
+REG_INST_P9	tmt_ia64.h	200
+REG_INST_P9	tmt_ia64.h	202
+REG_INST_PFS1	tmt_ia64.h	163
+REG_INST_PFS2	tmt_ia64.h	164
+REG_INST_RA	tmt_ia64.h	165
+REG_INST_RA_SAVE	tmt_ia64.h	166
+REG_INVALID	tmt_ia64.h	26
+REG_IN_SIGNAL	tmt_ia64.h	173
+REG_IP	tmt_ia64.h	152
+REG_LAST	tmt_ia64.h	220
+REG_NATIVECALL_RA	tmt_ia64.h	177
+REG_NBASE	tmt_ia64.h	222
+REG_NBASE	tmt_ia64.h	223
+REG_NLAST	tmt_ia64.h	223
+REG_NONE	tmt_ia64.h	27
+REG_ORIGFUNADDR	tmt_ia64.h	175
+REG_ORIGFUNGP	tmt_ia64.h	176
+REG_PBASE	tmt_ia64.h	43
+REG_PBASE	tmt_ia64.h	44
+REG_PBASE	tmt_ia64.h	45
+REG_PBASE	tmt_ia64.h	46
+REG_PBASE	tmt_ia64.h	47
+REG_PR	tmt_ia64.h	150
+REG_PR0	tmt_ia64.h	44
+REG_PR1	tmt_ia64.h	45
+REG_PR15	tmt_ia64.h	46
+REG_PR63	tmt_ia64.h	47
+REG_PR_SCR1	tmt_ia64.h	169
+REG_PR_TRUE	tmt_ia64.h	170
+REG_PSP	tmt_ia64.h	155
+REG_RA_SCR1	tmt_ia64.h	156
+REG_RA_SCR2	tmt_ia64.h	157
+REG_SBASE	tmt_ia64.h	148
+REG_SBASE	tmt_ia64.h	150
+REG_SBASE	tmt_ia64.h	151
+REG_SBASE	tmt_ia64.h	152
+REG_SP	tmt_ia64.h	62
+REG_THREAD_ID	tmt_ia64.h	172
+REG_TP	tmt_ia64.h	63
+REG_TYPE_BR	tmt_ia64.h	229
+REG_TYPE_FP	tmt_ia64.h	226
+REG_TYPE_GP	tmt_ia64.h	227
+REG_TYPE_GP_NS	tmt_ia64.h	228
+REG_TYPE_HARD	tmt_ia64.h	225
+REG_TYPE_PR	tmt_ia64.h	230
+REG_VBASE	tmt_ia64.h	161
+REG_VBASE	tmt_ia64.h	162
+REG_VBASE	tmt_ia64.h	163
+REG_VBASE	tmt_ia64.h	164
+REG_VBASE	tmt_ia64.h	165
+REG_VBASE	tmt_ia64.h	166
+REG_VBASE	tmt_ia64.h	167
+REG_VBASE	tmt_ia64.h	168
+REG_VBASE	tmt_ia64.h	169
+REG_VBASE	tmt_ia64.h	170
+REG_VBASE	tmt_ia64.h	171
+REG_VBASE	tmt_ia64.h	172
+REG_VBASE	tmt_ia64.h	173
+REG_VBASE	tmt_ia64.h	174
+REG_VBASE	tmt_ia64.h	175
+REG_VBASE	tmt_ia64.h	176
+REG_VBASE	tmt_ia64.h	177
+REG_VBASE	tmt_ia64.h	179
+REG_VBBASE	tmt_ia64.h	213
+REG_VBBASE	tmt_ia64.h	214
+REG_VBLAST	tmt_ia64.h	214
+REG_VBLAST	tmt_ia64.h	216
+REG_VFBASE	tmt_ia64.h	216
+REG_VFBASE	tmt_ia64.h	217
+REG_VFLAST	tmt_ia64.h	217
+REG_VFLAST	tmt_ia64.h	219
+REG_VGABASE	tmt_ia64.h	204
+REG_VGABASE	tmt_ia64.h	205
+REG_VGALAST	tmt_ia64.h	205
+REG_VGALAST	tmt_ia64.h	207
+REG_VGBASE	tmt_ia64.h	210
+REG_VGBASE	tmt_ia64.h	211
+REG_VGLAST	tmt_ia64.h	211
+REG_VGLAST	tmt_ia64.h	213
+REG_VLAST	tmt_ia64.h	219
+REG_VLAST	tmt_ia64.h	220
+REG_VPBASE	tmt_ia64.h	207
+REG_VPBASE	tmt_ia64.h	208
+REG_VPLAST	tmt_ia64.h	208
+REG_VPLAST	tmt_ia64.h	210
+REG_VUNAT	tmt_ia64.h	162
+REG_is_ar	tmt_ia64.h	/^static inline BOOL REG_is_ar(REG reg){ return (reg/
+REG_is_br	tmt_ia64.h	/^static inline BOOL REG_is_br(REG reg){ return (reg/
+REG_is_br0	tmt_ia64.h	/^static inline BOOL REG_is_br0(REG reg){ return (re/
+REG_is_cr	tmt_ia64.h	/^static inline BOOL REG_is_cr(REG reg){ return (reg/
+REG_is_fr	tmt_ia64.h	/^static inline BOOL REG_is_fr(REG reg){ return (reg/
+REG_is_fr_rot	tmt_ia64.h	/^static inline BOOL REG_is_fr_rot(REG reg){ return /
+REG_is_gr	tmt_ia64.h	/^static inline BOOL REG_is_gr(REG reg){ return (reg/
+REG_is_gr_low	tmt_ia64.h	/^static inline BOOL REG_is_gr_low(REG reg){ return /
+REG_is_imm	tmt_ia64.h	/^static inline BOOL REG_is_imm(REG reg){ return (re/
+REG_is_imm_lit	tmt_ia64.h	/^static inline BOOL REG_is_imm_lit(REG reg) { retur/
+REG_is_nat	tmt_ia64.h	/^static inline BOOL REG_is_nat(REG reg){ return (re/
+REG_is_none	tmt_ia64.h	/^static inline BOOL REG_is_none(REG reg) { return (/
+REG_is_pr	tmt_ia64.h	/^static inline BOOL REG_is_pr(REG reg){ return (reg/
+REG_is_pr_rot	tmt_ia64.h	/^static inline BOOL REG_is_pr_rot(REG reg){ return /
+REG_is_reg	tmt_ia64.h	/^static inline BOOL REG_is_reg(REG reg){ return (re/
+REG_is_reg_or_none	tmt_ia64.h	/^static inline BOOL REG_is_reg_or_none(REG reg){ re/
+REG_is_retval	tmt_ia64.h	/^static inline BOOL REG_is_retval(REG reg) { return/
+REG_is_sp	tmt_ia64.h	/^static inline BOOL REG_is_sp(REG reg){ return (reg/
+REG_is_special	tmt_ia64.h	/^static inline BOOL REG_is_special(REG reg){ return/
+REG_is_stacked	tmt_ia64.h	/^static inline BOOL REG_is_stacked(REG reg) { retur/
+REG_valid	tmt_ia64.h	/^static inline BOOL REG_valid(REG reg){ return reg /
+TCGEN_H	TCgen.h	5
+TCgen_Decode_attr	TCgen.h	/^#define TCgen_Decode_attr(code, pc, val)          /
+TCgen_Decode_dst_ea0	TCgen.h	/^#define TCgen_Decode_dst_ea0(code, pc, val)       /
+TCgen_Decode_mem_read_size	TCgen.h	/^#define TCgen_Decode_mem_read_size(code, pc, val) /
+TCgen_Decode_mem_write_size	TCgen.h	/^#define TCgen_Decode_mem_write_size(code, pc, val)/
+TCgen_Decode_oper_id	TCgen.h	/^#define TCgen_Decode_oper_id(code, val)           /
+TCgen_Decode_src_ea0	TCgen.h	/^#define TCgen_Decode_src_ea0(code, pc, val)       /
+TCgen_Decode_src_ea1	TCgen.h	/^#define TCgen_Decode_src_ea1(code, pc, val)       /
+TCgen_Decode_sys	TCgen.h	/^#define TCgen_Decode_sys(code, pc, val)           /
+TCgen_Encode_attr	TCgen.h	/^#define TCgen_Encode_attr(pc, val)            F1En/
+TCgen_Encode_dst_ea0	TCgen.h	/^#define TCgen_Encode_dst_ea0(pc, val)         F4En/
+TCgen_Encode_mem_read_size	TCgen.h	/^#define TCgen_Encode_mem_read_size(pc, val)   F5En/
+TCgen_Encode_mem_write_size	TCgen.h	/^#define TCgen_Encode_mem_write_size(pc, val)  F6En/
+TCgen_Encode_oper_id	TCgen.h	/^#define TCgen_Encode_oper_id(val)             F0En/
+TCgen_Encode_src_ea0	TCgen.h	/^#define TCgen_Encode_src_ea0(pc, val)         F2En/
+TCgen_Encode_src_ea1	TCgen.h	/^#define TCgen_Encode_src_ea1(pc, val)         F3En/
+TCgen_Encode_sys	TCgen.h	/^#define TCgen_Encode_sys(pc, val)             F7En/
+TMTFILE	tmtio.h	19
+TMTIO_EOF	tmtio.h	41
+TMTIO_ERROR	tmtio.h	39
+TMTIO_H	tmtio.h	5
+TMTIO_OK	tmtio.h	40
+TMT_BRANCH	tmtoper.h	42
+TMT_BRANCH_CALL	tmtoper.h	45
+TMT_BRANCH_DIRECT	tmtoper.h	43
+TMT_BRANCH_INDIRECT	tmtoper.h	44
+TMT_BRANCH_RETURN	tmtoper.h	46
+TMT_BRANCH_TAKEN	tmtoper.h	63
+TMT_H	tmt.h	5
+TMT_HASH_H	tmthash.h	5
+TMT_ISA	tmt_isa.h	8
+TMT_IS_SYSCALL	tmtoper.h	64
+TMT_MAX_MEM_DST	tmtoper.h	31
+TMT_MAX_MEM_SRC	tmtoper.h	30
+TMT_MAX_OPCODE_LEN	tmtoper.h	32
+TMT_MAX_REG_DST	tmtoper.h	25
+TMT_MAX_REG_DST_OLD	tmtoper.h	26
+TMT_MAX_REG_SRC	tmtoper.h	24
+TMT_MAX_SYSNO	tmtoper.h	33
+TMT_MEMORY	tmtoper.h	47
+TMT_OPER_H	tmtoper.h	8
+TMT_PREDICATED	tmtoper.h	50
+TMT_PREDICATE_VALUE	tmtoper.h	62
+TMT_READ_BUF_SIZE	tmtio.h	21
+TMT_STACK_READ	tmtoper.h	48
+TMT_STACK_WRITE	tmtoper.h	49
+TMT_SYSCALL	tmtoper.h	54
+TMT_TRACE_EOF	tmtoper.h	53
+TMT_TRACE_EOF_INSTR_CATEGORY	tmtoper.h	34
+TMT_VAR_MEM_READ	tmtoper.h	51
+TMT_VAR_MEM_WRITE	tmtoper.h	52
+TMT_WRITECONTEXT_FILESIZE_CHECK_PERIOD	tmt.h	19
+TMT_WRITECONTEXT_TRACE_FILE_MAX	tmt.h	20
+TmtIA64SideTrace	tmtoper.h	139
+TmtIpMapEntry	tmt.c	20
+TmtOper	tmtoper.h	126
+TmtReadContext	tmt.h	26
+TmtStaticOper	tmtoper.h	73
+TmtStaticOperOld	tmtoper.h	94
+TmtTypedStaticOper	tmtoper.h	114
+TmtWriteContext	tmt.h	25
+_TMTFILE	tmtio.h	26
+_TMT_IA64_H_	tmt_ia64.h	2
+_TMT_ISA_H_	tmt_isa.h	2
+_TmtIA64SideTrace	tmtoper.h	140
+_TmtIpMapEntry	tmt.c	21
+_TmtOper	tmtoper.h	127
+_TmtReadContext	tmt.h	45
+_TmtStaticOper	tmtoper.h	74
+_TmtStaticOperOld	tmtoper.h	95
+_TmtTypedStaticOper	tmtoper.h	115
+_TmtWriteContext	tmt.h	31
+bzfp	tmtio.h	29
+bzip_file_ended	tmtio.h	33
+cfm	tmt_ia64.h	18
+cfmpfs	tmtoper.h	142
+ec	tmtoper.h	145
+extract_frrb_from_pfs	tmt_ia64.h	/^static inline guint extract_frrb_from_pfs(guint64 /
+extract_grrb_from_pfs	tmt_ia64.h	/^static inline guint extract_grrb_from_pfs(guint64 /
+extract_prrb_from_pfs	tmt_ia64.h	/^static inline guint extract_prrb_from_pfs(guint64 /
+extract_sol_from_cfm	tmt_ia64.h	/^static inline guint extract_sol_from_cfm(guint64 v/
+extract_sol_from_pfs	tmt_ia64.h	/^static inline guint extract_sol_from_pfs(guint64 v/
+extract_sor_from_cfm	tmt_ia64.h	/^static inline guint extract_sor_from_cfm(guint64 v/
+extract_sor_from_imm	tmt_ia64.h	/^static inline guint extract_sor_from_imm(guint64 v/
+extract_sor_from_pfs	tmt_ia64.h	/^static inline guint extract_sor_from_pfs(guint64 v/
+fp	tmtio.h	28
+framebase	tmt_ia64.h	12
+frrb	tmt_ia64.h	14
+grrb	tmt_ia64.h	16
+ia64_cmp_type	tmtoper.h	118
+ia64_init_regstackinfo	tmt_ia64.c	/^void ia64_init_regstackinfo(IA64RegStackInfo *runt/
+ia64_translate_regs	tmt_ia64.c	/^guint ia64_translate_regs(IA64RegStackInfo * runti/
+ia64_update_renameinfo	tmt_ia64.c	/^void ia64_update_renameinfo(TMTFILE *ia64_stfp, IA/
+imm	tmtoper.h	143
+instr_attr	tmtoper.h	79
+instr_attr	tmtoper.h	100
+instr_category	tmtoper.h	78
+instr_category	tmtoper.h	99
+instr_size	tmtoper.h	80
+instr_size	tmtoper.h	101
+instruction_has_effect_when_qp0	tmt_ia64.h	/^static inline int instruction_has_effect_when_qp0(/
+instruction_is_nop	tmt_isa.h	/^static inline int instruction_is_nop(TMT_ISA isa,$/
+ip	tmt.c	23
+ip	tmtoper.h	75
+ip	tmtoper.h	96
+ip	tmtoper.h	141
+ip_hashtable	tmt.h	34
+ip_memchunk	tmt.h	35
+is_syscall	tmtoper.h	133
+lc	tmtoper.h	144
+mem_dst	tmtoper.h	135
+mem_dst_size	tmtoper.h	86
+mem_dst_size	tmtoper.h	107
+mem_dst_size	tmtoper.h	130
+mem_src	tmtoper.h	134
+mem_src_size	tmtoper.h	85
+mem_src_size	tmtoper.h	106
+mem_src_size	tmtoper.h	129
+misc	tmtoper.h	146
+num_mem_dst	tmtoper.h	84
+num_mem_dst	tmtoper.h	105
+num_mem_src	tmtoper.h	83
+num_mem_src	tmtoper.h	104
+num_reg_dst	tmtoper.h	82
+num_reg_dst	tmtoper.h	103
+num_reg_src	tmtoper.h	81
+num_reg_src	tmtoper.h	102
+opcode	tmtoper.h	87
+opcode	tmtoper.h	108
+oper_id	tmt.c	24
+oper_table	tmt.h	36
+oper_table	tmt.h	47
+oper_table_size	tmt.h	37
+oper_table_size	tmt.h	48
+oper_table_written	tmt.h	38
+path	tmt.h	49
+prog_fp	tmt.h	33
+prrb	tmt_ia64.h	15
+qp	tmtoper.h	131
+read_buffer	tmtio.h	30
+read_buffer_cur	tmtio.h	32
+read_buffer_remaining	tmtio.h	31
+reg_dst	tmtoper.h	77
+reg_dst	tmtoper.h	98
+reg_src	tmtoper.h	76
+reg_src	tmtoper.h	97
+soper	tmtoper.h	116
+soper	tmtoper.h	128
+sor	tmt_ia64.h	17
+sysno	tmtoper.h	136
+taken	tmtoper.h	132
+tmt_dynamic_oper_get_attr	tmtoper.c	/^tmt_dynamic_oper_get_attr( guint32 attr,$/
+tmt_dynamic_oper_set_attr	tmtoper.c	/^tmt_dynamic_oper_set_attr( gboolean qp,$/
+tmt_file_free	tmtio.c	/^tmt_file_free(TMTFILE * tmtfp)$/
+tmt_file_new	tmtio.c	/^tmt_file_new()$/
+tmt_file_remove_extension	tmt.c	/^tmt_file_remove_extension(gchar * filename)$/
+tmt_flag_get_value	tmtoper.h	/^#define tmt_flag_get_value(flag, bit_index) \\$/
+tmt_flag_set_value	tmtoper.h	/^#define tmt_flag_set_value(flag, bit_index, value)/
+tmt_ia64_readcontext_type_opers	tmt.c	/^tmt_ia64_readcontext_type_opers(TmtReadContext * c/
+tmt_ia64sidetrace_read	tmt.c	/^void tmt_ia64sidetrace_read(gint *tmterror, TMTFIL/
+tmt_ia64sidetrace_read_close	tmt.c	/^void tmt_ia64sidetrace_read_close(gint *tmterror, /
+tmt_ia64sidetrace_read_open	tmt.c	/^TMTFILE * tmt_ia64sidetrace_read_open(gchar *filen/
+tmt_io_get_file_size	tmtio.c	/^guint64 tmt_io_get_file_size(TMTFILE * tmtfp)$/
+tmt_oper_build	tmtoper.c	/^tmt_oper_build( TmtOper * oper,$/
+tmt_ppc64_readcontext_type_opers	tmt.c	/^tmt_ppc64_readcontext_type_opers(TmtReadContext * /
+tmt_read	tmtio.c	/^void tmt_read( gint *tmterror, TMTFILE * tmtfp, gp/
+tmt_read_close	tmtio.c	/^void tmt_read_close( gint *tmterror, TMTFILE * tmt/
+tmt_read_open	tmtio.c	/^TMTFILE * tmt_read_open( gint * tmterror, gchar * /
+tmt_readcontext_build_oper_table	tmt.c	/^tmt_readcontext_build_oper_table(TmtReadContext * /
+tmt_readcontext_build_oper_table_old	tmt.c	/^tmt_readcontext_build_oper_table_old(GArray * tabl/
+tmt_readcontext_free	tmt.c	/^tmt_readcontext_free( TmtReadContext * ctxt )$/
+tmt_readcontext_new	tmt.c	/^tmt_readcontext_new( gchar * trace_filename, gchar/
+tmt_readcontext_read	tmt.c	/^tmt_readcontext_read( gint * tmterror, $/
+tmt_static_oper_get_attr	tmtoper.c	/^tmt_static_oper_get_attr( guint16 attr,$/
+tmt_static_oper_set_attr	tmtoper.c	/^tmt_static_oper_set_attr( gboolean is_branch,$/
+tmt_static_oper_set_opcode	tmtoper.c	/^tmt_static_oper_set_opcode( TmtStaticOper * soper,/
+tmt_uint64_equal	tmthash.c	/^tmt_uint64_equal( gconstpointer a, gconstpointer b/
+tmt_uint64_hash	tmthash.c	/^tmt_uint64_hash( gconstpointer key )$/
+tmt_write	tmtio.c	/^void tmt_write( gint *tmterror, TMTFILE * tmtfp, g/
+tmt_write_close	tmtio.c	/^void tmt_write_close( gint *tmterror, TMTFILE * tm/
+tmt_write_open	tmtio.c	/^TMTFILE * tmt_write_open( gint * tmterror, gchar */
+tmt_writecontext_free	tmt.c	/^tmt_writecontext_free( TmtWriteContext * ctxt )$/
+tmt_writecontext_new	tmt.c	/^tmt_writecontext_new( gchar * trace_filename, gcha/
+tmt_writecontext_open_next_trace_file	tmt.c	/^tmt_writecontext_open_next_trace_file( TmtWriteCon/
+tmt_writecontext_write_dynamic	tmt.c	/^tmt_writecontext_write_dynamic( TmtWriteContext * /
+tmt_writecontext_write_oper_table	tmt.c	/^tmt_writecontext_write_oper_table( TmtWriteContext/
+tmt_writecontext_write_static	tmt.c	/^tmt_writecontext_write_static( TmtWriteContext * c/
+tmt_x86_readcontext_type_opers	tmt.c	/^tmt_x86_readcontext_type_opers(TmtReadContext * ct/
+trace_file_max	tmt.h	40
+trace_file_no	tmt.h	39
+trace_file_prefix	tmt.h	42
+trace_file_size	tmt.h	41
+trace_fp	tmt.h	32
+trace_fp	tmt.h	46
+type	tmtoper.h	117
+window_count	tmtoper.h	119
+x86_isa	tmt_isa.h	8

@@ -1,0 +1,25 @@
+No program file specified... using prog.bz2
+No trace file specified... using trace.bz2
+makefile
+makefile~
+newfile
+new.txt
+output.txt
+pin.log
+prog.bz2
+tmt-x86
+tmt-x86.C
+tmt-x86.o
+trace.bz2
+E: Missing application name
+Pin 2.6
+Copyright (c) 2003-2009, Intel Corporation
+VERSION: 27863 BUILDER: BUILDER DATE: Jun 18 2009
+Usage: pin [OPTION] [-t <tool> [<toolargs>]] -- <command line>
+Use -help for a description of options
+E: Missing application name
+Pin 2.6
+Copyright (c) 2003-2009, Intel Corporation
+VERSION: 27863 BUILDER: BUILDER DATE: Jun 18 2009
+Usage: pin [OPTION] [-t <tool> [<toolargs>]] -- <command line>
+Use -help for a description of options

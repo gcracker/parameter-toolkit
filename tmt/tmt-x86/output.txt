@@ -1,0 +1,3 @@
+No program file specified... using prog.bz2
+No trace file specified... using trace.bz2
+C:Tool (or Pin) caused signal 11 at PC 0x3cacdc3

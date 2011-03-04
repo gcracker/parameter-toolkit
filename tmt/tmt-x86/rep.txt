@@ -1,0 +1,122 @@
+No program file specified... using prog.bz2
+No trace file specified... using trace.bz2
+syscallcnt 1 syscallnum 122
+syscallcnt 1 syscallnum 45
+syscallcnt 1 syscallnum 33
+syscallcnt 1 syscallnum 5
+syscallcnt 1 syscallnum 197
+syscallcnt 1 syscallnum 90
+syscallcnt 1 syscallnum 6
+syscallcnt 2 syscallnum 5
+syscallcnt 1 syscallnum 3
+syscallcnt 2 syscallnum 197
+syscallcnt 2 syscallnum 90
+syscallcnt 3 syscallnum 90
+syscallcnt 4 syscallnum 90
+syscallcnt 2 syscallnum 6
+syscallcnt 3 syscallnum 5
+syscallcnt 2 syscallnum 3
+syscallcnt 3 syscallnum 197
+syscallcnt 5 syscallnum 90
+syscallcnt 6 syscallnum 90
+syscallcnt 7 syscallnum 90
+syscallcnt 3 syscallnum 6
+syscallcnt 4 syscallnum 5
+syscallcnt 3 syscallnum 3
+syscallcnt 4 syscallnum 197
+syscallcnt 8 syscallnum 90
+syscallcnt 9 syscallnum 90
+syscallcnt 4 syscallnum 6
+syscallcnt 5 syscallnum 5
+syscallcnt 4 syscallnum 3
+syscallcnt 5 syscallnum 197
+syscallcnt 10 syscallnum 90
+syscallcnt 11 syscallnum 90
+syscallcnt 12 syscallnum 90
+syscallcnt 5 syscallnum 6
+syscallcnt 6 syscallnum 5
+syscallcnt 5 syscallnum 3
+syscallcnt 6 syscallnum 197
+syscallcnt 13 syscallnum 90
+syscallcnt 14 syscallnum 90
+syscallcnt 15 syscallnum 90
+syscallcnt 6 syscallnum 6
+syscallcnt 7 syscallnum 5
+syscallcnt 6 syscallnum 3
+syscallcnt 7 syscallnum 197
+syscallcnt 16 syscallnum 90
+syscallcnt 17 syscallnum 90
+syscallcnt 7 syscallnum 6
+syscallcnt 18 syscallnum 90
+syscallcnt 19 syscallnum 90
+syscallcnt 1 syscallnum 125
+syscallcnt 2 syscallnum 125
+syscallcnt 3 syscallnum 125
+syscallcnt 4 syscallnum 125
+syscallcnt 1 syscallnum 243
+syscallcnt 1 syscallnum 91
+syscallcnt 23520005 syscallnum 258
+syscallcnt 1 syscallnum 174
+syscallcnt 2 syscallnum 174
+syscallcnt 1 syscallnum 175
+syscallcnt 1 syscallnum 191
+syscallcnt 1 syscallnum 149
+syscallcnt 2 syscallnum 33
+syscallcnt 2 syscallnum 45
+syscallcnt 3 syscallnum 45
+syscallcnt 8 syscallnum 5
+syscallcnt 8 syscallnum 197
+syscallcnt 1 syscallnum 192
+syscallcnt 7 syscallnum 3
+syscallcnt 8 syscallnum 6
+syscallcnt 2 syscallnum 91
+syscallcnt 9 syscallnum 5
+syscallcnt 9 syscallnum 197
+syscallcnt 2 syscallnum 192
+syscallcnt 8 syscallnum 3
+syscallcnt 9 syscallnum 3
+syscallcnt 9 syscallnum 6
+syscallcnt 3 syscallnum 91
+syscallcnt 10 syscallnum 5
+syscallcnt 10 syscallnum 197
+syscallcnt 3 syscallnum 192
+syscallcnt 10 syscallnum 6
+syscallcnt 11 syscallnum 5
+syscallcnt 10 syscallnum 3
+syscallcnt 11 syscallnum 6
+syscallcnt 1 syscallnum 54
+syscallcnt 2 syscallnum 54
+syscallcnt 12 syscallnum 5
+syscallcnt 11 syscallnum 197
+syscallcnt 1 syscallnum 221
+syscallcnt 1 syscallnum 220
+syscallcnt 2 syscallnum 220
+syscallcnt 12 syscallnum 6
+syscallcnt 13 syscallnum 5
+syscallcnt 12 syscallnum 197
+syscallcnt 4 syscallnum 192
+syscallcnt 11 syscallnum 3
+syscallcnt 13 syscallnum 6
+syscallcnt 4 syscallnum 91
+syscallcnt 14 syscallnum 5
+syscallcnt 13 syscallnum 197
+syscallcnt 5 syscallnum 192
+syscallcnt 12 syscallnum 3
+syscallcnt 14 syscallnum 6
+syscallcnt 5 syscallnum 91
+syscallcnt 14 syscallnum 197
+syscallcnt 6 syscallnum 192
+syscallcnt 1 syscallnum 4
+makefile
+makefile~
+mtool1.out
+newfile
+pin.log
+prog.bz2
+rep.txt
+tmt-x86
+tmt-x86.C
+tmt-x86main.C
+tmt-x86.o
+trace.bz2
+syscallcnt 15 syscallnum 6
