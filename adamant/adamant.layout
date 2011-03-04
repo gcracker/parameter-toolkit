@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="debug" />
+	<File name="adamant.c" open="1" top="0" tabpos="1">
+		<Cursor position="1964" topLine="45" />
+	</File>
+	<File name="adamant_zdd.c" open="1" top="0" tabpos="3">
+		<Cursor position="27602" topLine="982" />
+	</File>
+	<File name="adamant_zdd_test.c" open="1" top="1" tabpos="2">
+		<Cursor position="3177" topLine="56" />
+	</File>
+</CodeBlocks_layout_file>

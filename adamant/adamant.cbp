@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="adamant" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="debug">
+				<Option output="adamantium_debug" prefix_auto="1" extension_auto="1" />
+				<Option object_output="/home/pricegd/cmpopp/adamant/.objs" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters='--ddslice &quot;/home/pricegd/demo/lsdinrdy.dd,/home/pricegd/demo/lsdindin.dd,/home/pricegd/demo/lsdinslice.dd&quot;' />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="release">
+				<Option output="adamantium" prefix_auto="1" extension_auto="1" />
+				<Option object_output="/home/pricegd/cmpopp/adamant/.objs" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters='--ddslice &quot;/home/pricegd/demo/lsdinrdy.dd,/home/pricegd/demo/lsdindin.dd,/home/pricegd/demo/lsdinslice.dd&quot;' />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="adamant.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant.h" />
+		<Unit filename="adamant_bdd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bdd.h" />
+		<Unit filename="adamant_bdd_bucketlayer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bdd_bucketlayer.h" />
+		<Unit filename="adamant_bdd_buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bdd_buffer.h" />
+		<Unit filename="adamant_bdd_layer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bdd_layer.h" />
+		<Unit filename="adamant_bdd_sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bdd_sort.h" />
+		<Unit filename="adamant_bfd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_bfd.h" />
+		<Unit filename="adamant_branch_prediction.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_branch_prediction.h" />
+		<Unit filename="adamant_cd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_cd.h" />
+		<Unit filename="adamant_cd_impl.h" />
+		<Unit filename="adamant_config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_config.h" />
+		<Unit filename="adamant_dd_hot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_dd_hot.h" />
+		<Unit filename="adamant_dd_types.h" />
+		<Unit filename="adamant_latency.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_latency.h" />
+		<Unit filename="adamant_meminfo_pagetable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_meminfo_pagetable.h" />
+		<Unit filename="adamant_optimize.h" />
+		<Unit filename="adamant_optimize_type.h" />
+		<Unit filename="adamant_plot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_plot.h" />
+		<Unit filename="adamant_runtime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_runtime.h" />
+		<Unit filename="adamant_schedule.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_schedule.h" />
+		<Unit filename="adamant_split_oper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_stats.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_stats.h" />
+		<Unit filename="adamant_window.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_window.h" />
+		<Unit filename="adamant_zdd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_zdd.h" />
+		<Unit filename="adamant_zdd_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="adamant_zdd_test.h" />
+		<Unit filename="heap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="heap.h" />
+		<Unit filename="misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="misc.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
