@@ -1,0 +1,151 @@
+<HTML>
+<HEAD><TITLE>The cuplus package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#cuplus.h"><CODE>cuplus.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#cuplusInt.h"><CODE>cuplusInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#cuplusAndAbs.c"><CODE>cuplusAndAbs.c</CODE></A>
+ <DD> Optimized AndAbstract.
+ <DT> <A HREF="#cuplusCofexist.c"><CODE>cuplusCofexist.c</CODE></A>
+ <DD> Managing exist cofactor.
+ <DT> <A HREF="#cuplusOpWithAbort.c"><CODE>cuplusOpWithAbort.c</CODE></A>
+ <DD> Enable operation abort within recursive calls
+ <DT> <A HREF="#cuplusProfile.c"><CODE>cuplusProfile.c</CODE></A>
+ <DD> Managing Activity profiles.
+</DL><HR>
+<A NAME="cuplus.h"><H1>cuplus.h</H1></A>
+External header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="cuplusInt.h"><H1>cuplusInt.h</H1></A>
+Internal header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="cuplusAndAbs.c"><H1>cuplusAndAbs.c</H1></A>
+Optimized AndAbstract. <P>
+<B>By: Gianpiero Cabodi</B><P>
+<DL>
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_bddAndAbstract" TARGET="MAIN"><CODE>Cuplus_bddAndAbstract()</CODE></A>
+ <DD> Takes the AND of two BDDs and simultaneously abstracts the
+  variables in cube.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusBddAndAbstractRecur" TARGET="MAIN"><CODE>cuplusBddAndAbstractRecur()</CODE></A>
+ <DD> Takes the AND of two BDDs and simultaneously abstracts the
+  variables in cube.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusBddAndAbstractSimplify" TARGET="MAIN"><CODE>cuplusBddAndAbstractSimplify()</CODE></A>
+ <DD> simplifies first factor of AndAbstract.
+
+</DL>
+<HR>
+<A NAME="cuplusCofexist.c"><H1>cuplusCofexist.c</H1></A>
+Managing exist cofactor. <P>
+<B>By: Gianpiero Cabodi</B><P>
+<DL>
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_CofexistMask" TARGET="MAIN"><CODE>Cuplus_CofexistMask()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusCofexistMaskRecur" TARGET="MAIN"><CODE>cuplusCofexistMaskRecur()</CODE></A>
+ <DD> Recursive step of cofexist mask generation.
+
+</DL>
+<HR>
+<A NAME="cuplusOpWithAbort.c"><H1>cuplusOpWithAbort.c</H1></A>
+Enable operation abort within recursive calls <P>
+<B>By: Gianpiero Cabodi</B><P>
+<DL>
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_bddOpEnableAbortOnSift" TARGET="MAIN"><CODE>Cuplus_bddOpEnableAbortOnSift()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_bddOpDisableAbortOnSift" TARGET="MAIN"><CODE>Cuplus_bddOpDisableAbortOnSift()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_DoAbortHookFun" TARGET="MAIN"><CODE>Cuplus_DoAbortHookFun()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="cuplusProfile.c"><H1>cuplusProfile.c</H1></A>
+Managing Activity profiles. <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+This file includes routines for creating activity profiles,
+    collecting statistics within recursive And-Abstract operations,
+    pruning BDDs using activity profiles.
+    Since CUDD does not provide room for extra pointers within
+    the BDD node structure, we use hashing (st package)
+    to implement the correspondence between a node and a profile
+    info. <P>
+<DL>
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileAndAbstract" TARGET="MAIN"><CODE>Cuplus_ProfileAndAbstract()</CODE></A>
+ <DD> Takes the AND of two BDDs and simultaneously abstracts the
+    variables in cube.
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileSetCurrentPart" TARGET="MAIN"><CODE>Cuplus_ProfileSetCurrentPart()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileReadCurrentPart" TARGET="MAIN"><CODE>Cuplus_ProfileReadCurrentPart()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfilePrune" TARGET="MAIN"><CODE>Cuplus_ProfilePrune()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileInfoGen" TARGET="MAIN"><CODE>Cuplus_ProfileInfoGen()</CODE></A>
+ <DD> Create a new profile
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileInfoFree" TARGET="MAIN"><CODE>Cuplus_ProfileInfoFree()</CODE></A>
+ <DD> Free a profile
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileInfoPrint" TARGET="MAIN"><CODE>Cuplus_ProfileInfoPrint()</CODE></A>
+ <DD> Print global profile statistics
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileInfoPrintOriginal" TARGET="MAIN"><CODE>Cuplus_ProfileInfoPrintOriginal()</CODE></A>
+ <DD> Print global profile statistics
+
+ <DT> <A HREF="cuplusAllDet.html#Cuplus_ProfileInfoPrintByVar" TARGET="MAIN"><CODE>Cuplus_ProfileInfoPrintByVar()</CODE></A>
+ <DD> Print global profile statistics
+
+ <DT> <A HREF="cuplusAllDet.html#ProfileTotalSummary" TARGET="MAIN"><CODE>ProfileTotalSummary()</CODE></A>
+ <DD> Routine computing global profile statistics.
+
+ <DT> <A HREF="cuplusAllDet.html#ProfileCentralSummary" TARGET="MAIN"><CODE>ProfileCentralSummary()</CODE></A>
+ <DD> Profile summary using node statistics.
+
+ <DT> <A HREF="cuplusAllDet.html#ProfileNodeSummary" TARGET="MAIN"><CODE>ProfileNodeSummary()</CODE></A>
+ <DD> Node statistic summary.
+
+ <DT> <A HREF="cuplusAllDet.html#ProfileInfoItemFree" TARGET="MAIN"><CODE>ProfileInfoItemFree()</CODE></A>
+ <DD> Frees the memory used for info items.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusProfileAndAbstractRecur" TARGET="MAIN"><CODE>cuplusProfileAndAbstractRecur()</CODE></A>
+ <DD> Recursive stap of AndAbstract with profile handling.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusPruneProfiledRecur" TARGET="MAIN"><CODE>cuplusPruneProfiledRecur()</CODE></A>
+ <DD> Recursive step of BDD pruning based on profiles.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusPruneProfiledByVar" TARGET="MAIN"><CODE>cuplusPruneProfiledByVar()</CODE></A>
+ <DD> Pruning Based on Profiles By Variable.
+
+ <DT> <A HREF="cuplusAllDet.html#cuplusCollectProfileSummaryRecur" TARGET="MAIN"><CODE>cuplusCollectProfileSummaryRecur()</CODE></A>
+ <DD> DFV visit with statistics upgrading.
+
+ <DT> <A HREF="cuplusAllDet.html#BfvProfiles" TARGET="MAIN"><CODE>BfvProfiles()</CODE></A>
+ <DD> Undocumented
+
+ <DT> <A HREF="cuplusAllDet.html#ProfileInfoByVars" TARGET="MAIN"><CODE>ProfileInfoByVars()</CODE></A>
+ <DD> Undocumented
+
+ <DT> <A HREF="cuplusAllDet.html#ddClearFlag" TARGET="MAIN"><CODE>ddClearFlag()</CODE></A>
+ <DD> Performs a DFS from f, clearing the LSB of the next
+    pointers.
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

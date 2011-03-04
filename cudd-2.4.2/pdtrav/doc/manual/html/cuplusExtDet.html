@@ -1,0 +1,226 @@
+<HTML>
+<HEAD><TITLE>The cuplus package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Cuplus_CofexistMask"></A>
+DdNode * <I></I>
+<B>Cuplus_CofexistMask</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_DoAbortHookFun"></A>
+int <I></I>
+<B>Cuplus_DoAbortHookFun</B>(
+  DdManager * <b>manager</b>, <i></i>
+  char * <b>str</b>, <i></i>
+  void * <b>heuristic</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileAndAbstract"></A>
+DdNode * <I></I>
+<B>Cuplus_ProfileAndAbstract</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> A patched version of the original CUDD function.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoFree"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoFree</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Free a profile struct and the associated symbol table.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoGen"></A>
+cuplus_profile_info_t * <I></I>
+<B>Cuplus_ProfileInfoGen</B>(
+  unsigned char  <b>dac99Compatible</b>, <i></i>
+  int  <b>nVar</b>, <i></i>
+  int  <b>nPart</b> <i></i>
+)
+</pre>
+<dd> Allocate a structure for global statistics of a profile.
+    Initialize fields. Create a symbol table for the correspondence
+    node-profile info. The dac99Compatible flag must be 1
+    for experimental results as in the dac99 paper. It must be set
+    now.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrintByVar"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrintByVar</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrintOriginal"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrintOriginal</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+    Profile By Node (original profile) Section
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrint"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrint</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfilePrune"></A>
+DdNode * <I></I>
+<B>Cuplus_ProfilePrune</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  Cuplus_PruneHeuristic_e  <b>pruneHeuristic</b>, <i></i>
+  int  <b>threshold</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileReadCurrentPart"></A>
+int <I></I>
+<B>Cuplus_ProfileReadCurrentPart</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileSetCurrentPart"></A>
+void <I></I>
+<B>Cuplus_ProfileSetCurrentPart</B>(
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  int  <b>currentPart</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_bddAndAbstract"></A>
+DdNode * <I></I>
+<B>Cuplus_bddAndAbstract</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> Takes the AND of two BDDs and simultaneously abstracts
+  the variables in cube. The variables are existentially abstracted.
+  Returns a pointer to the result is successful; NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<dt><pre>
+<A NAME="Cuplus_bddOpDisableAbortOnSift"></A>
+void <I></I>
+<B>Cuplus_bddOpDisableAbortOnSift</B>(
+  DdManager * <b>manager</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Cuplus_bddOpEnableAbortOnSift"></A>
+void <I></I>
+<B>Cuplus_bddOpEnableAbortOnSift</B>(
+  DdManager * <b>manager</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

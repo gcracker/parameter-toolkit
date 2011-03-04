@@ -1,0 +1,517 @@
+#----------------------------------------------------------------------------#
+# Makefile for the PdTrav distribution kit                                   #
+# Version 2.0                                                                #
+#----------------------------------------------------------------------------#
+
+# Commands Available:
+# make
+#    all (the default) -
+#    it makes all: compiles cudd, create pdtrav library, makes pdtrav,
+#    makes test
+# make pdt
+#    it makes all but test: compiles cudd, create pdtrav library,
+#    makes pdtrav
+# make test
+#    it makes all byt pdtrav: compiles cudd, create pdtrav library,
+#    makes test
+# make lib
+#    it makes pdtrav library: compiles cudd and create pdtrav library
+# make clean
+#    it cleans pdtrav only (not cudd)
+# make cleanAll
+#    it cleans pdtrav and cudd
+# make distclean
+#    it cleans pdtrav only (not cudd) with libraries and executable
+#    files
+# make distcleanAll
+#    it cleans pdtrav and cudd with libraries and executable files
+# make proto
+#    it creates prototypes (with the ext package)
+# make document
+#    it creates documentation (with the ext package) - to check
+# make expRun
+#    it creates a link to the pdtrav executable in the bin directory
+#    and the cmdHelp.txt file in the cmd directory for each
+#    "exp" directories
+# make expDel
+#    it deletes link created by make expRun
+
+#----------------------------------------------------------------------------#
+# Configuration Section                                                      #
+# uncomment the desired options/sections                                     #
+#----------------------------------------------------------------------------#
+
+#------------------#
+# Memory libraries #
+#------------------#
+
+# Option 1
+#MNEMLIB	=
+
+# Option 2
+# MNEMLIB	= /usr/lib/libdmalloc.a
+
+#------------------#
+# ReadLine Library #
+#------------------#
+
+# Option 1: No readline
+READLINEFLAGS =
+
+# Option 2: readline present
+#READLINEFLAGS = -DHAVE_LIBREADLINE -DHAVE_READLINE_READLINE_H -DHAVE_READLINE_HISTORY_H
+#PDTRAVLIBS += -lreadline
+
+# Option 3: readline present but for systems without <readline/history.h>
+# Such systems reguire the following setting
+#READLINEFLAGS = -DHAVE_LIBREADLINE -DHAVE_READLINE_READLINE_H
+#PDTRAVLIBS += -lreadline
+
+#----------------------------------------------------------#
+# Level of Self-Checking and Verbosity of the CUDD Package #
+#----------------------------------------------------------#
+
+# Option 1: No Options
+#DDDEBUG =
+
+# Option 2: Full Options
+#DDDEBUG = -DDD_DEBUG -DDD_VERBOSE -DDD_STATS -DDD_CACHE_PROFILE -DDD_UNIQUE_PROFILE -DDD_COUNT -DDDDMP_DEBUG 
+
+DDDEBUG = -DDDDMP_DEBUG 
+
+#--------------------------------------------------------#
+# Specify machine-independent compilation flags (ICFLAG) #
+# -O = optimized code                                    #
+# -Wall = all warning indicated                          #
+#--------------------------------------------------------#
+
+# These three are typical settings for cc.
+ICFLAGS        =
+#ICFLAGS        = -O
+
+# These two are typical settings for optimized code with gcc.
+#ICFLAGS = -g -O6
+#ICFLAGS        = -g -O6 -Wall
+
+#----------------------------------------------------------------------------#
+# Configuration Section ... END                                              #
+#----------------------------------------------------------------------------#
+
+#-------------#
+# Directories #
+#-------------#
+
+pdtrav_dir 	= @pdtrav_dir@
+# expand current directory
+PDTRAV_DIR 	= $(shell cd $(pdtrav_dir);pwd)
+
+cudd_dir	= @cudd_dir@
+# compute absolute cudd root
+CUDD_DIR 	= $(shell cd $(cudd_dir);pwd)
+CUDD_DIRS	= $(CUDD_DIR)
+
+#-----------------#
+# Executable code #
+#-----------------#
+
+PDTRAV = pdtrav
+TARGET  = $(PDTRAV_DIR)/src/$(CMD)/$(PDTRAV)$(EXE)
+
+# qui inizia vis ...
+
+PDTLIB 	= $(PDTRAV_DIR)/lib/pdtlib.a
+
+.PHONY : default
+
+default : all
+
+#----------------------------------------------------------------------
+# The list of packages to compile.  Change this if you are only compiling
+# part of VIS
+#----------------------------------------------------------------------
+
+#PKGS = tst
+PKGS = pdtutil cuplus ddi fsm part tr trav expr  
+
+#------------#
+# For safety #
+#------------#
+
+SHELL = /bin/sh
+.SUFFIXES:
+
+#-----------------------------------------#
+# The name of the product and its version #
+#-----------------------------------------#
+
+PRODUCT = pdtrav
+TESTPRODUCT = testPdtrav
+VERSION = 2.0Beta
+
+# Compile and version information
+#
+# CUR_DATE and CUR_VER are strings surrounded by double quotes that contain
+# spaces, e.g., "vis release 1.0"
+
+VERDATE := -DCUR_DATE="\"$(shell date)\"" -DCUR_VER="\"$(PRODUCT) release $(VERSION)\""
+
+#-------------#
+# Directories #
+#-------------#
+
+# Directory where object files will be placed during the build
+objectdir =	$(PDTRAV_DIR)/obj
+
+# Directories where documentation will be placed during the build
+docdir =	$(PDTRAV_DIR)/doc
+htmldocdir =	$(docdir)/manual/html
+txtdocdir =	$(docdir)/manual/txt
+
+#----------------------------------------------------------------------
+# Defaults for CUDD library and header files
+#----------------------------------------------------------------------
+
+cuddincdir = $(CUDD_DIR)/include
+cuddlibdir = $(CUDD_DIR)/dddmp/libdddmp.a \
+	$(CUDD_DIR)/cudd/libcudd.a \
+	$(CUDD_DIR)/mtr/libmtr.a \
+	$(CUDD_DIR)/st/libst.a  \
+	$(CUDD_DIR)/util/libutil.a
+
+# Name of the library to create
+LIBRARY =	lib$(PRODUCT).a
+
+# Directory in which to install architecture-independent files
+# Set by ./configure --prefix=...
+prefix =	@prefix@
+
+# Directory in which to install architecture-dependent files
+# Set by ./configure --exec-prefix=...
+exec_prefix =	@exec_prefix@
+
+# Directory in which to install binaries
+bindir =	$(PDTRAV_DIR)/bin
+
+# Directory in which to install libraries
+libdir =	$(PDTRAV_DIR)/lib
+
+# Directory in which to install headers
+includedir =	$(PDTRAV_DIR)/include
+
+#----------------------------------------------------------------------
+# The following are set by the configure script
+#----------------------------------------------------------------------
+
+AC_FLAGS =	@DEFS@
+LIBDIRS =	@LIBDIRS@
+RANLIB =	@RANLIB@
+CC =		@CC@
+
+#
+# Define the linker for the executable with "memory_profile" activated
+#
+
+LINKER =	@LINKER@
+LDFLAGS =	@LDFLAGS@
+CFLAGS =	@CFLAGS@
+OTHERLIBS =	-lm @LIBS@ @LEXLIB@
+YACC =		@YACC@
+LEX =		@LEX@
+NAWK =		@AWK@
+INSTALL =	@INSTALL@
+AR =		@AR@
+
+#----------------------------------------------------------------------
+# Distributed files in the doc directory
+#----------------------------------------------------------------------
+
+DOCUMENTATION = pdtrav.ps
+
+#----------------------------------------------------------------------
+# Include the make templates from all the packages
+#
+# Each of these templates (e.g., array/array.make) should contains lines
+# of the form
+#
+# CSRC += source1.c source2.c
+# LEXSRC += file1.l
+# YACCSRC += file2.y
+# GENERATEDCSRC += ctlpLex.c ctlpRead.c
+#----------------------------------------------------------------------
+
+MAKEINCLUDES = $(foreach package, $(PKGS), \
+	$(PDTRAV_DIR)/src/$(package)/$(package).make)
+
+include $(MAKEINCLUDES)
+
+OBJECTS = $(addprefix $(objectdir)/,$(GENERATEDCSRC:.c=.o) $(CSRC:.c=.o))
+
+#----------------------------------------------------------------------
+# Include the dependency files from each package directory.
+# A missing dependency file does not produce an error.
+#----------------------------------------------------------------------
+
+DEPENDENCIES = $(foreach package, $(PKGS), \
+	$(PDTRAV_DIR)/src/$(package)/$(package).d)
+
+-include $(DEPENDENCIES)
+
+#----------------------------------------------------------------------
+# Header files and library search paths and names
+#----------------------------------------------------------------------
+
+INCLUDEDIRS = -I$(includedir) -I$(objectdir)        
+
+LIBRARYDIRS = $(cuddlibdir)
+
+#--------------------------------------------------------------#
+# Form the the list of directories to search for header files. #
+#--------------------------------------------------------------#
+
+VPATH = $(PDTRAV_DIR): \
+	$(objectdir): \
+	$(addprefix :$(PDTRAV_DIR)/src/,$(PKGS))
+
+#----------------#
+# Implicit rules #
+#----------------#
+
+ALLCFLAGS = $(CFLAGS) $(AC_FLAGS) $(VERDATE)
+
+# For compiling a source file into the object directory
+
+$(objectdir)/%.o : %.c 
+	umask 2 ; $(CC) -c $(ALLCFLAGS) $(INCLUDEDIRS) -o $@ $<
+
+# Place object files into an archive
+
+%.a :
+	rm -f $@
+	umask 2; $(AR) cq $@ $^
+	$(RANLIB) $@
+
+#------------------------------------------------------#
+# Rules to compile and build libraries and executables #
+#------------------------------------------------------#
+
+.PHONY : all allprods library allprods-mp exe-mp
+
+$(PDTLIB): $(OBJECTS) 
+	ar rv $@ $?
+	$(RANLIB) $@
+
+MISCPDTLIB = $(objectdir) $(includedir) $(libdir) $(bindir)
+
+cuddLib:
+	@for dir in $(CUDD_DIRS); do \
+		(cd $$dir; \
+		echo ... Making $$dir ...; \
+		make CC=$(CC) RANLIB=$(RANLIB) MFLAG= MNEMLIB="$(MNEMLIB)" ICFLAGS="$(ICFLAGS)" XCFLAGS="$(CFLAGS) $(AC_FLAGS)" DDDEBUG="$(DDDEBUG)" MTRDEBUG="$(MTRDEBUG)" LDFLAGS="$(LDFLAGS)" PURE="$(PURE)" EXE="$(EXE)" CUDD_DIRS="$(CUDD_DIRS)" PDTRAV="$(PDTRAV)" )\
+	done
+
+pdtLib :  cuddLib $(MISCPDTLIB) $(PDTLIB)
+
+#-----------------------#
+# Rules to  Make Pdtrav #
+#-----------------------#
+
+PDTSRC     = ./src/cmd/cmdMain.c \
+	./src/cmd/cmdCommand.c \
+	./src/cmd/cmdTable.c \
+	./src/cmd/cmdMgr.c
+PDTHDR     = ./src/cmd/cmdInt.h ./src/cmd/cmd.h
+
+$(PRODUCT) : $(PDTLIB) $(CUDD_DIR)/dddmp/libdddmp.a $(CUDD_DIR)/cudd/libcudd.a $(CUDD_DIR)/mtr/libmtr.a $(CUDD_DIR)/st/libst.a $(CUDD_DIR)/util/libutil.a
+	umask 2 ; $(CC) $(ALLCFLAGS) -o ./bin/$(PRODUCT) $(INCLUDEDIRS) -I./src/cmd $(PDTSRC) $(PDTLIB) $(LIBRARYDIRS) -lm
+
+pdt :  cuddLib $(MISCPDTLIB) $(PRODUCT)
+
+#---------------------------#
+# Rules for Make TestPdtrav #
+#---------------------------#
+
+TESTSRC     = ./src/test/test.c \
+	./src/test/testFsm.c \
+	./src/test/testTrav.c \
+	./src/test/testDdi.c \
+	./src/test/testTr.c
+TESTHDR     = ./src/test/test.h  ./src/test/testInt.h
+
+$(TESTPRODUCT) : $(PDTLIB) $(CUDD_DIR)/dddmp/libdddmp.a $(CUDD_DIR)/cudd/libcudd.a $(CUDD_DIR)/mtr/libmtr.a $(CUDD_DIR)/st/libst.a $(CUDD_DIR)/util/libutil.a
+	umask 2 ; $(CC) $(ALLCFLAGS) -o ./bin/$(TESTPRODUCT) $(INCLUDEDIRS) -I./src/test $(TESTSRC) $(PDTLIB) $(LIBRARYDIRS) -lm
+
+test :  cuddLib $(MISCPDTLIB) $(TESTPRODUCT)
+
+#--------------------#
+# Rules for Make All #
+#--------------------#
+
+all : pdtLib $(PRODUCT) test
+
+#--------------------#
+# Rules for cleaning #
+#--------------------#
+
+.PHONY : clean distclean
+
+#:
+#: clean -- Remove every file created by building
+
+clean:
+	rm -rf $(objectdir) $(includedir) $(bindir) $(libdir)
+	rm -rf $(LIBRARY) $(PRODUCT)
+
+distclean:
+	@for dir in $(CUDD_DIRS); do \
+		(cd $$dir; \
+		make clean )\
+	done
+	rm -rf $(objectdir) $(includedir) $(bindir) $(libdir)
+	rm -rf $(LIBRARY) $(PRODUCT)
+	rm -f $(PDTRAV_DIR)/src/*/#*
+	rm -f $(PDTRAV_DIR)/src/*/*~
+	rm -f $(PDTRAV_DIR)/src/*/*.d
+
+#----------------------------------------------------------------------
+# Rule for generating function prototypes for all the
+# source and header files in all the PKGS
+#
+# Note: This requires "extproto," part of the ext package available from
+# ftp://ic.eecs.berkeley.edu/pub/Ext
+#----------------------------------------------------------------------
+
+.PHONY : proto
+
+#:
+#: proto -- Regenerate all the function prototypes in the packages
+#:	    Useful during development.  You may want to invoke it with
+#:	      gmake "PKGS=tst tbl" proto
+
+proto :
+	@cd $(PDTRAV_DIR)/src ; \
+	for pkg in $(PKGS); \
+	do \
+	  cd $$pkg ; \
+	  extproto *.h *.c ; \
+	  cd .. ; \
+	done
+
+#----------------------------------------------------------------------
+# Rules for generating the documentation and command help files
+# for all the packages
+#
+# Note: This requires "extdoc," part of the ext package, and
+# lynx, a textual WWW browser
+#----------------------------------------------------------------------
+
+.PHONY : allDoc doc indices helpfiles cleandoc
+
+#:
+#: allDoc -- Extract all the documentation (runs doc, indices, and helpfiles)
+
+allDoc : cleandoc doc indices helpfiles
+
+#: doc -- Extract HTML and text documentation on all the functions
+
+doc : $(htmldocdir) $(txtdocdir)
+	for pkg in $(PKGS); \
+	do \
+	  umask 2 ; extdoc --html=$(htmldocdir) --text=$(txtdocdir) \
+		$(PDTRAV_DIR)/src/$$pkg/$$pkg; \
+	done
+
+#: indices -- Generate function and command indices for the HTML documentation
+
+indices : $(htmldocdir)
+	umask 2 ; extindex $(htmldocdir)
+
+#: helpfiles -- Generate the help files from the HTML documentation
+
+helpfiles : $(helpdir)
+	for file in $(htmldocdir)/*Cmd.html ; \
+	do \
+	  echo Converting $$file ; \
+	  umask 2 ; lynx -dump $$file > $(helpdir)/`basename $$file .html`.txt ; \
+	done
+
+#: cleandoc -- Remove all the documentation generated by "allDoc"
+
+cleandoc :
+	-rm -f $(htmldocdir)/*.html 
+	-rm -f $(txtdocdir)/*.txt 
+	-rm -f $(helpdir)/*Cmd.txt
+
+$(objectdir) :
+	- umask 2 ; mkdir $(objectdir)
+
+$(includedir) :
+	- umask 2 ; mkdir $(includedir)
+	ln -s $(cuddincdir)/*.h $(includedir)
+	@for dir in $(PKGS); do \
+		(ln -s $(PDTRAV_DIR)/src/$$dir/*.h $(includedir); )\
+	done
+
+$(libdir) :
+	- umask 2 ; mkdir $(libdir)
+
+$(bindir) :
+	- umask 2 ; mkdir $(bindir)
+
+$(htmldocdir) :
+	- umask 2 ; mkdir $(htmldocdir)
+
+$(txtdocdir) :
+	- umask 2 ; mkdir $(txtdocdir)
+
+$(helpdir) :
+	- umask 2 ; mkdir $(helpdir)
+
+
+#----------------------------------------------------------------------
+# Rules that produce/delete the dependency file for every package
+#----------------------------------------------------------------------
+
+.PHONY : dependencies cleandependencies
+
+#:
+#: dependencies -- Create a list of dependency files.
+#:                 Useful when modifying header files.
+
+# Invoke the "dependency.make" Makefile on each package subdirectory,
+# passing the path, etc. to it.
+#
+# There's a strange feature in autoconf where lines of the form " VPATH="
+# are removed from the Makefile.  Thus, a flag is placed before the 
+# VPATH= argument below.
+
+dependencies:
+ifeq ($(CC),gcc)
+	for pkg in $(PKGS) ; \
+	do \
+	  $(MAKE) --no-print-directory \
+		-f $(PDTRAV_DIR)/helpers/dependency.make \
+		CC="$(CC)" \
+		CFLAGS="$(CFLAGS)" VPATH="$(PDTRAV_DIR)/src/$$pkg" \
+		AC_FLAGS="$(AC_FLAGS)" \
+		INCLUDEDIRS="$(INCLUDEDIRS)" objectdir=$(objectdir) \
+		PKGNAME=$(PDTRAV_DIR)/src/$$pkg/$$pkg \
+		$(PDTRAV_DIR)/src/$$pkg/$$pkg.d ; \
+	done
+else
+	@echo "dependency requires gcc"
+	@echo "Reconfigure with gcc"
+endif
+
+cleandependencies:
+	rm -f $(PDTRAV_DIR)/src/*/*.d
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+The expr package
+
+expression management
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Expr_ExprLoad()                Load EXPRESSION from file
+
+Expr_WriteTree()               Print EXPRESSION to file
+
+**********************************************************************
+
+
+
+Ddi_Expr_t *
+Expr_ExprLoad(
+  Ddi_BddMgr *      dd,              dd manager
+  char *            filename,        file name
+  FILE *            fp               file pointer
+)
+  Load EXPRESSION from file
+
+  Side Effects: None
+
+void
+Expr_WriteTree(
+  FILE *            fout,
+  Ddi_Expr_t *      tnode
+)
+  Print EXPRESSION to file
+
+  Side Effects: None
+

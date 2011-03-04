@@ -1,0 +1,21 @@
+x1*z1*y1*y2*z2*x2
+xy1 = x1 ^ y1
+xy2 = x2 ^ y2
+xz1 = x1 ^ z1
+xz2 = x2 ^ z2
+yl = xy1 ^ xy2
+ym = xy1 * xy2
+zl = xz1 ^ xz2
+zm = xz1 * xz2
+k1 = yl' + zl
+k2 = ym' + zm
+k3 = k1 * k2
+k4 = ym' * zm
+YnftZ = k3 + k4
+vy1 = x1 ^ y1'
+vz1 = x1 ^ y1 ^ z1
+vy2 = x2 ^ y2'
+F1 = YnftZ / y1 <- vy1
+F2 = F1 / z1 <- vz1
+F3 = F2 / y2 <- vy2
+[YnftZ]

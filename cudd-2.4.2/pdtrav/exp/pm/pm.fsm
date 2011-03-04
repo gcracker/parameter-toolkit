@@ -1,0 +1,32 @@
+.Fsm pm
+
+.Size
+   .i 4
+   .o 1
+   .l 6
+.EndSize
+
+.Ord
+   .ordFile pmFSM.ord
+.EndOrd
+
+.Name
+   .i G0 G1 G2 G3 
+   .o G17-xor-G17 
+   .ps fsm1-G5 fsm2-fsm1-G5 fsm1-G6 fsm2-fsm1-G6 fsm1-G7 fsm2-fsm1-G7 
+.EndName
+
+.Index
+   .i 0 1 2 3 
+   .ps 4 10 5 11 6 12 
+.EndIndex
+
+.Delta
+   .bddFile pmdelta.bdd
+.EndDelta
+
+.Lambda
+   .bddFile pmlambda.bdd
+.EndLambda
+
+.EndFsm

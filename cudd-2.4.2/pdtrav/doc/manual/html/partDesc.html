@@ -1,0 +1,71 @@
+<HTML>
+<HEAD><TITLE>The part package: Overview</TITLE></HEAD>
+<BODY>
+
+<H1>The part package</H1>
+<H2>Partitioning Module</H2>
+<H3>By Gianpiero Cabodi and Stefano Quer</H3>
+
+<UL>
+ <LI> <A HREF="partExt.html" TARGET="_top">
+    Information for programmers</A>
+ <LI> <A HREF="partAllByFunc.html" TARGET="_top">
+    Information for developers sorted by function</A>
+ <LI> <A HREF="partAllByFile.html" TARGET="_top">
+    Information for developers sorted by file</A>
+</UL>
+
+<HR>
+
+This <b>part</b> package provides functions to partition BDDs.
+    in a discjunctive or conjunctive form. "Internal" partitioning routines
+    are provided (see Cabodi et. al ICCAD'96, and Cabodi et. al TCAD - to
+    Appear). Moreover a link to Cudd partitioning routines is provided
+    too.<br>
+    The following method are actually provided:
+    <ul>
+    <li>PdTrav Methods
+      <ul>
+      <li>Part_MethodManual_c, partitioning variable choose manually
+      <li>Part_MethodCofactor_c, use standard cofactor to evaluate the
+      best splitting variable
+      <li>Part_MethodEstimate_c, use original ICCAD'96 method to estimate
+      the codactors of a function
+      <li>Part_MethodEstimateComplex_c, modification to the previous one
+      (Somenzi, Private Communication, 1996)
+      <li>Part_MethodEstimateFast_c, fast "linear" heuristic TCAD'99
+      <li>Part_MethodEstimateFreeOrder_c, heuristic to move from BDD
+      to FBDD (TCAD'99)
+      <li>Part_MethodComparison_c, comparison routine (debugging purpose
+      mainly).
+      </ul>
+    To notice that up to now (June 01, 1999) not all the funcions
+    are tested, as they have been taken, sometimes too verbatim, from
+    old code versions.
+    <li>Cudd Based Methods
+      <ul>
+      <li>Part_MethodAppCon_c, routine Cudd_bddApproxConjDecomp
+      <li>Part_MethodAppDis_c, routine Cudd_bddApproxDisjDecomp
+      <li>Part_MethodGenCon_c, routine Cudd_bddGenConjDecomp
+      <li>Part_MethodGenDis_c, routine Cudd_bddGenDisjDecomp
+      <li>Part_MethodIteCon_c, routine Cudd_bddIterConjDecomp
+      <li>Part_MethodIteDis_c, routine Cudd_bddIterDisjDecomp
+      <li>Part_MethodVarCon_c, routine Cudd_bddVarConjDecomp
+      <li>Part_MethodVarDis_c, routine Cudd_bddVarDisjDecomp
+      </ul>
+   see Cudd for further details.
+   </ul>
+   These methods are called with the command option:<br>
+   none, manual, cofactor, estimate, complex, fast, free,
+   comparison, cuddAppCon, cuddAppDis, cuddGenCon, cuddGenDis,
+   cuddIteCon, cuddIteDis, cuddVarCon, cuddVarDis.<br>
+   Notice that this module contains both a direct link both to the ddi
+   and to the cudd package.<br>
+   This structure should be revised.
+
+<HR>
+
+Last updated on 1010515 11h48
+
+</BODY>
+</HTML>

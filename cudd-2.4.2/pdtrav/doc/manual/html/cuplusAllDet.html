@@ -1,0 +1,530 @@
+<html>
+<head><title>The cuplus package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BfvProfiles"></A>
+static void <I></I>
+<B>BfvProfiles</B>(
+  DdManager * <b>manager</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Undocumented
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_CofexistMask"></A>
+DdNode * <I></I>
+<B>Cuplus_CofexistMask</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusCofexist.c"TARGET="ABSTRACT"><CODE>cuplusCofexist.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_DoAbortHookFun"></A>
+int <I></I>
+<B>Cuplus_DoAbortHookFun</B>(
+  DdManager * <b>manager</b>, <i></i>
+  char * <b>str</b>, <i></i>
+  void * <b>heuristic</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusOpWithAbort.c"TARGET="ABSTRACT"><CODE>cuplusOpWithAbort.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileAndAbstract"></A>
+DdNode * <I></I>
+<B>Cuplus_ProfileAndAbstract</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> A patched version of the original CUDD function.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoFree"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoFree</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Free a profile struct and the associated symbol table.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoGen"></A>
+cuplus_profile_info_t * <I></I>
+<B>Cuplus_ProfileInfoGen</B>(
+  unsigned char  <b>dac99Compatible</b>, <i></i>
+  int  <b>nVar</b>, <i></i>
+  int  <b>nPart</b> <i></i>
+)
+</pre>
+<dd> Allocate a structure for global statistics of a profile.
+    Initialize fields. Create a symbol table for the correspondence
+    node-profile info. The dac99Compatible flag must be 1
+    for experimental results as in the dac99 paper. It must be set
+    now.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrintByVar"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrintByVar</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrintOriginal"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrintOriginal</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+    Profile By Node (original profile) Section
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileInfoPrint"></A>
+void <I></I>
+<B>Cuplus_ProfileInfoPrint</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Print some global statistics about a profile, e.g. average and
+    max values of activity indicators.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfilePrune"></A>
+DdNode * <I></I>
+<B>Cuplus_ProfilePrune</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  Cuplus_PruneHeuristic_e  <b>pruneHeuristic</b>, <i></i>
+  int  <b>threshold</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileReadCurrentPart"></A>
+int <I></I>
+<B>Cuplus_ProfileReadCurrentPart</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_ProfileSetCurrentPart"></A>
+void <I></I>
+<B>Cuplus_ProfileSetCurrentPart</B>(
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  int  <b>currentPart</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_bddAndAbstract"></A>
+DdNode * <I></I>
+<B>Cuplus_bddAndAbstract</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> Takes the AND of two BDDs and simultaneously abstracts
+  the variables in cube. The variables are existentially abstracted.
+  Returns a pointer to the result is successful; NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusAndAbs.c"TARGET="ABSTRACT"><CODE>cuplusAndAbs.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_bddOpDisableAbortOnSift"></A>
+void <I></I>
+<B>Cuplus_bddOpDisableAbortOnSift</B>(
+  DdManager * <b>manager</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusOpWithAbort.c"TARGET="ABSTRACT"><CODE>cuplusOpWithAbort.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cuplus_bddOpEnableAbortOnSift"></A>
+void <I></I>
+<B>Cuplus_bddOpEnableAbortOnSift</B>(
+  DdManager * <b>manager</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusOpWithAbort.c"TARGET="ABSTRACT"><CODE>cuplusOpWithAbort.c</CODE></A>
+
+<dt><pre>
+<A NAME="ProfileCentralSummary"></A>
+static enum st_retval <I></I>
+<B>ProfileCentralSummary</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>value</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Profile summary using node statistics. Computing total and
+    max values.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="ProfileInfoByVars"></A>
+static enum st_retval <I></I>
+<B>ProfileInfoByVars</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>value</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Undocumented
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="ProfileInfoItemFree"></A>
+static enum st_retval <I></I>
+<B>ProfileInfoItemFree</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>value</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Frees the memory used for info items.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="ProfileNodeSummary"></A>
+static enum st_retval <I></I>
+<B>ProfileNodeSummary</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>value</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Node statistic summary. Preparing average statistics
+    and node normalized size costs.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="ProfileTotalSummary"></A>
+static void <I></I>
+<B>ProfileTotalSummary</B>(
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Collect final global profile statistics at the end of the
+    learning phase.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusBddAndAbstractRecur"></A>
+DdNode * <I></I>
+<B>cuplusBddAndAbstractRecur</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> Takes the AND of two BDDs and simultaneously abstracts
+  the variables in cube. The variables are existentially abstracted.
+  Returns a pointer to the result is successful; NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusAndAbs.c"TARGET="ABSTRACT"><CODE>cuplusAndAbs.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusBddAndAbstractSimplify"></A>
+DdNode * <I></I>
+<B>cuplusBddAndAbstractSimplify</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> simplifies first factor of AndAbstract.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cuplus_bddAndAbstract">Cuplus_bddAndAbstract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusAndAbs.c"TARGET="ABSTRACT"><CODE>cuplusAndAbs.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusCofexistMaskRecur"></A>
+static DdNode * <I></I>
+<B>cuplusCofexistMaskRecur</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>cube</b> <i></i>
+)
+</pre>
+<dd> .
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusCofexist.c"TARGET="ABSTRACT"><CODE>cuplusCofexist.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusCollectProfileSummaryRecur"></A>
+static void <I></I>
+<B>cuplusCollectProfileSummaryRecur</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> This is rather a template for BDD visit. Only BDD size by
+    variable index is collected so far.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusProfileAndAbstractRecur"></A>
+static DdNode * <I></I>
+<B>cuplusProfileAndAbstractRecur</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  DdNode * <b>g</b>, <i></i>
+  DdNode * <b>cube</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b> <i></i>
+)
+</pre>
+<dd> Takes the AND of two BDDs and simultaneously abstracts
+    the variables in cube. The variables are existentially abstracted.
+    Returns a pointer to the result is successful; NULL otherwise.
+    Profile statistics are upgraded. Profile is associated to the g operand.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_bddAndAbstract">Cudd_bddAndAbstract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusPruneProfiledByVar"></A>
+static DdNode * <I></I>
+<B>cuplusPruneProfiledByVar</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  Cuplus_PruneHeuristic_e  <b>pruneHeuristic</b>, <i></i>
+  int  <b>threshold</b> <i></i>
+)
+</pre>
+<dd> Pruning Based on Profiles By Variable.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="cuplusPruneProfiledRecur"></A>
+static DdNode * <I></I>
+<B>cuplusPruneProfiledRecur</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>f</b>, <i></i>
+  cuplus_profile_info_t * <b>profile</b>, <i></i>
+  Cuplus_PruneHeuristic_e  <b>pruneHeuristic</b>, <i></i>
+  int  <b>threshold</b>, <i></i>
+  int  <b>upperActivity</b> <i></i>
+)
+</pre>
+<dd> Several heuristics are allowed to bias the pruning/clipping
+    process:
+    <ul>
+    <li>1: recursions
+    <li>2: recursions on active nodes,
+    <li>3: size
+    <li>4: normalized sizelight (prune lighter branch, recur on heavier one)
+    <li>5: normalized sizeheavy (prune heavier branch, recur on lighter),
+    <li>6: sizelight (prune lighter branch, recur on heavier one),
+    <li>7: sizeheavy (prune heavier branch, recur on lighter),
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+<dt><pre>
+<A NAME="ddClearFlag"></A>
+static void <I></I>
+<B>ddClearFlag</B>(
+  DdNode * <b>f</b> <i></i>
+)
+</pre>
+<dd> Performs a DFS from f, clearing the LSB of the next
+    pointers.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ddSupportStep">ddSupportStep</a>
+<a href="#ddDagInt">ddDagInt</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cuplusAllFile.html#cuplusProfile.c"TARGET="ABSTRACT"><CODE>cuplusProfile.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

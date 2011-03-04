@@ -1,0 +1,40 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:575: checking configure options
+configure:578: checking whether to debug
+configure:638: checking for CUDD directory
+configure:654: checking for mainPdTrav directory
+configure:668: checking for extdoc and extproto directory
+configure:681: checking whether to build
+configure:745: checking for gawk
+configure:787: checking for a BSD compatible install
+configure:841: checking for programs
+configure:846: checking for ar
+configure:883: checking for ranlib
+configure:912: checking whether ln -s works
+configure:961: checking host system type
+configure:982: checking target system type
+configure:1000: checking build system type
+configure:1040: checking for gcc
+configure:1153: checking whether the C compiler (gcc  ) works
+configure:1169: gcc -o conftest    conftest.c  1>&5
+configure:1195: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1200: checking whether we are using GNU C
+configure:1228: checking whether gcc accepts -g
+configure:1265: checking for Cygwin environment
+configure:1298: checking for mingw32 environment
+configure:1329: checking for executable suffix
+configure:1370: checking for flex
+configure:1404: checking for yywrap in -lfl
+configure:1446: checking if flex accepts the -o and -P options
+configure:1470: checking for bison
+configure:1501: checking if bison -y accepts the -p, -t, and -o options
+configure:1662: checking for libraries
+configure:1665: checking for main in -lm
+configure:1759: checking for header files
+configure:1762: checking how to run the C preprocessor
+configure:1842: checking for ANSI C header files
+configure:2004: checking other characteristics
+configure:2007: checking for working const
+configure:2085: checking for strstr

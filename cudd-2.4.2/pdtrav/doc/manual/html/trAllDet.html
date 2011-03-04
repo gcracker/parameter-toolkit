@@ -1,0 +1,1256 @@
+<html>
+<head><title>The tr package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BddSizeCompare"></A>
+static int <I></I>
+<B>BddSizeCompare</B>(
+  const void * <b>s1</b>, <i></i>
+  const void * <b>s2</b> <i></i>
+)
+</pre>
+<dd> The function compares two BDDs and return:<BR>
+    1, if size of 1st BDD is greater then 2nd<BR>
+    -1, if size of 1st BDD is smaller then 2nd<BR>
+    0, if both 1st and 2nd BDD have the same size.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Tr_BddarraySort()">Tr_BddarraySort()</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trSort.c"TARGET="ABSTRACT"><CODE>trSort.c</CODE></A>
+
+<dt><pre>
+<A NAME="MaxMinVSupportCompare"></A>
+static int <I></I>
+<B>MaxMinVSupportCompare</B>(
+  const void * <b>s1</b>, <i></i>
+  const void * <b>s2</b> <i></i>
+)
+</pre>
+<dd> Compares BDDs for MAX-MIN-V-SORTING method.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Tr_BddarraySort()">Tr_BddarraySort()</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trSort.c"TARGET="ABSTRACT"><CODE>trSort.c</CODE></A>
+
+<dt><pre>
+<A NAME="SetSortWeights"></A>
+static void <I></I>
+<B>SetSortWeights</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Traversal Manager</i>
+  char * <b>weights</b> <i>Weights</i>
+)
+</pre>
+<dd> Set sort settings in the Transition Relation Manager
+    reading them from a string.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="ShowSortWeights"></A>
+static char * <I></I>
+<B>ShowSortWeights</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Traversal Manager</i>
+)
+</pre>
+<dd> Show sort settings reading them from the Transition
+    Relation manager. Return a string containing them.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrAlloc"></A>
+Tr_Tr_t * <I></I>
+<B>TrAlloc</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i></i>
+)
+</pre>
+<dd> insert a TR in TR manager list.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrBuildTransClosure"></A>
+Ddi_Bdd_t * <I></I>
+<B>TrBuildTransClosure</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>TR manager</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>Transition Relation</i>
+  Ddi_Vararray_t * <b>s</b>, <i>Present state vars</i>
+  Ddi_Vararray_t * <b>y</b>, <i>Next state vars</i>
+  Ddi_Vararray_t * <b>z</b> <i>Intermediate state vars</i>
+)
+</pre>
+<dd> Internal procedure to build the transitive closure of 
+    a transition relation. This can now handle a Monolithic TR
+    as well as a disjunctively partitioned one. In the latter case
+    closure is only partial: it is operated within single partitions.
+    The iterative squaring method, expressed by
+    the following recurrence equations:
+    <p>
+    T(0)(s,y) = TR(s,y) <br>
+    T(i+1)(s,y)= TR(s,y) + Exist(z) ( T(i)(s,z) * T(i)(z,y) )
+    <p>
+    The least fixed point is T* (<em>transitive closure</em>)
+    and the number of iterations required to compute T* is 
+    logarithmic in the sequential depth of TR (the diameter of
+    the state transition graph represented by TR).<br>
+    The transitive closure describes the pairs of states that are
+    connected by at least one path in the state graph of FSM.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TrCompose">TrCompose</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trClosure.c"TARGET="ABSTRACT"><CODE>trClosure.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrCompose"></A>
+static Ddi_Bdd_t * <I></I>
+<B>TrCompose</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  Ddi_Bdd_t * <b>f</b>, <i>first function</i>
+  Ddi_Bdd_t * <b>g</b>, <i>second function</i>
+  Ddi_Vararray_t * <b>s</b>, <i>array of s variables</i>
+  Ddi_Vararray_t * <b>y</b>, <i>array of y variables</i>
+  Ddi_Vararray_t * <b>z</b>, <i>array of z variables</i>
+  Ddi_Varset_t * <b>suppZ</b> <i>z variables as a set</i>
+)
+</pre>
+<dd> Computes the relational composition of f(s,z) and g(z,y), 
+    after proper variable substitutions on the initial
+    f(s,y): initially both f and g are expressed as functions
+    of (s,y).
+    This is the basic step of iterative squaring using monolithic
+    transition relations.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trClosure.c"TARGET="ABSTRACT"><CODE>trClosure.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrImgApproxConjPartTr"></A>
+static Ddi_Bdd_t * <I></I>
+<B>TrImgApproxConjPartTr</B>(
+  Tr_Mgr_t * <b>TrMgr</b>, <i>Tr manager</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>from</b>, <i>Input state set</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>Array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>Array of next state variables</i>
+  Ddi_Varset_t * <b>smoothV</b> <i>Variables to be abstracted</i>
+)
+</pre>
+<dd> Compute approx image of a conjunctively partitioned transition 
+    relation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trImg.c"TARGET="ABSTRACT"><CODE>trImg.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrImgConjPartTr"></A>
+static Ddi_Bdd_t * <I></I>
+<B>TrImgConjPartTr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr manager</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>from</b>, <i>Input constrain</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>Array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>Array of next state variables</i>
+  Ddi_Varset_t * <b>smoothV</b> <i>Variables to be abstracted</i>
+)
+</pre>
+<dd> Internal image computation function.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trImg.c"TARGET="ABSTRACT"><CODE>trImg.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrImgDisjPartSet"></A>
+static Ddi_Bdd_t * <I></I>
+<B>TrImgDisjPartSet</B>(
+  Tr_Mgr_t * <b>TrMgr</b>, <i>Tr manager</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>part_from</b>, <i>Input state set</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>Array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>Array of next state variables</i>
+  Ddi_Varset_t * <b>smoothV</b> <i>Variables to be abstracted</i>
+)
+</pre>
+<dd> Compute image of a disjunctively partitioned from set.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trImg.c"TARGET="ABSTRACT"><CODE>trImg.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrImgDisjPartTr"></A>
+static Ddi_Bdd_t * <I></I>
+<B>TrImgDisjPartTr</B>(
+  Tr_Mgr_t * <b>TrMgr</b>, <i>Tr manager</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>from</b>, <i>Input state set</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>Array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>Array of next state variables</i>
+  Ddi_Varset_t * <b>smoothV</b> <i>Variables to be abstracted</i>
+)
+</pre>
+<dd> Compute image of a disjunctively partitioned transition
+    relation
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trImg.c"TARGET="ABSTRACT"><CODE>trImg.c</CODE></A>
+
+<dt><pre>
+<A NAME="TrTrRelWrite"></A>
+Tr_Tr_t * <I></I>
+<B>TrTrRelWrite</B>(
+  Tr_Tr_t * <b>tr</b>, <i></i>
+  Ddi_Bdd_t * <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Write (replace) Bdd relation.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_ImgMethodEnum2String"></A>
+char * <I></I>
+<B>Tr_ImgMethodEnum2String</B>(
+  Tr_ImgMethod_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trUtil.c"TARGET="ABSTRACT"><CODE>trUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_ImgMethodString2Enum"></A>
+Tr_ImgMethod_e <I></I>
+<B>Tr_ImgMethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trUtil.c"TARGET="ABSTRACT"><CODE>trUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_Img"></A>
+Ddi_Bdd_t * <I></I>
+<B>Tr_Img</B>(
+  Tr_Tr_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>from</b> <i>Input constrain</i>
+)
+</pre>
+<dd> Compute image of a conjunctively partitioned transition
+    relation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_BddarrayMultiwayAndExist">Part_BddarrayMultiwayAndExist</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trImg.c"TARGET="ABSTRACT"><CODE>trImg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrInit"></A>
+Tr_Mgr_t * <I></I>
+<B>Tr_MgrInit</B>(
+  char * <b>trName</b>, <i>Name of the FSM structure</i>
+  Ddi_Mgr_t * <b>dd</b> <i>Decision Diagram Manager</i>
+)
+</pre>
+<dd> Creates a DdManager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrQuit">Ddi_MgrQuit</a>
+<a href="#Fsm_MgrQuit">Fsm_MgrQuit</a>
+<a href="#Trav_MgrQuit">Trav_MgrQuit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrOperation"></A>
+int <I></I>
+<B>Tr_MgrOperation</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>TR Manager</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlagP</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> Performs an Operation on a Transition Relation Manager.
+    The allowed operations are specified by the enumerated type
+    Pdtutil_MgrOp_t. Returns the result of the operation, the enumerated
+    type Pdtutil_MgrRet_t.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CmdMgrOperation">CmdMgrOperation</a>
+<a href="#CmdRegOperation">CmdRegOperation</a>
+<a href="#Fsm_MgrOperation">Fsm_MgrOperation</a>
+<a href="#Trav_MgrOperation">Trav_MgrOperation</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrPrintStats"></A>
+int <I></I>
+<B>Tr_MgrPrintStats</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr manager</i>
+)
+</pre>
+<dd> Prints Statistics on a Transition Relation Manager on
+    standard output.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrQuit"></A>
+void <I></I>
+<B>Tr_MgrQuit</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr manager</i>
+)
+</pre>
+<dd> Closes a Transition Relation Manager freeing all the
+    correlated fields.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddiMgrInit">Ddi_BddiMgrInit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadClustThreshold"></A>
+int <I></I>
+<B>Tr_MgrReadClustThreshold</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read cluster threshold
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadDdiMgrDefault"></A>
+Ddi_Mgr_t * <I></I>
+<B>Tr_MgrReadDdiMgrDefault</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>trersal manager</i>
+)
+</pre>
+<dd> Read default DDi Mgr
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadImgMethod"></A>
+Tr_ImgMethod_e <I></I>
+<B>Tr_MgrReadImgMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read the image method selection
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadI"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadI</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read PI array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadMaxIter"></A>
+int <I></I>
+<B>Tr_MgrReadMaxIter</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read the maximum number of closure iterations.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadNS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadNS</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read NS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadPS</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read PS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartThFrom"></A>
+int <I></I>
+<B>Tr_MgrReadPartThFrom</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read partitioning threshold for from
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartThTr"></A>
+int <I></I>
+<B>Tr_MgrReadPartThTr</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read partitioning threshold for TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartitionMethod"></A>
+Part_Method_e <I></I>
+<B>Tr_MgrReadPartitionMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSortMethod"></A>
+Tr_Sort_e <I></I>
+<B>Tr_MgrReadSortMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read sort method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSortW"></A>
+double <I></I>
+<B>Tr_MgrReadSortW</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Read sort weight
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSquaringMethod"></A>
+int <I></I>
+<B>Tr_MgrReadSquaringMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read the squaring method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadTrName"></A>
+char * <I></I>
+<B>Tr_MgrReadTrName</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadTr"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_MgrReadTr</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read TR in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrReadVerbosity"></A>
+Pdtutil_VerbLevel_e <I></I>
+<B>Tr_MgrReadVerbosity</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetAuxFuns"></A>
+void <I></I>
+<B>Tr_MgrSetAuxFuns</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Bddarray_t * <b>auxFuns</b> <i>Array of functions</i>
+)
+</pre>
+<dd> Set the auxVars array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetAuxVars"></A>
+void <I></I>
+<B>Tr_MgrSetAuxVars</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>auxVars</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the auxVars array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetClustSmoothPi"></A>
+void <I></I>
+<B>Tr_MgrSetClustSmoothPi</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>val</b> <i></i>
+)
+</pre>
+<dd> Set the cluster smoothPi flag
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetClustThreshold"></A>
+void <I></I>
+<B>Tr_MgrSetClustThreshold</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>ClustThreshold</b> <i>Threshold</i>
+)
+</pre>
+<dd> Set the cluster threshold
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetDdiMgrDefault"></A>
+void <I></I>
+<B>Tr_MgrSetDdiMgrDefault</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>trersal manager</i>
+  Ddi_Mgr_t * <b>mgr</b> <i>dd Manager</i>
+)
+</pre>
+<dd> Set default DDi Mgr on the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetImgMethod"></A>
+void <I></I>
+<B>Tr_MgrSetImgMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  Tr_ImgMethod_e  <b>imgMethod</b> <i>Image Method</i>
+)
+</pre>
+<dd> Set the image method selection
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetImgSmoothPi"></A>
+void <I></I>
+<B>Tr_MgrSetImgSmoothPi</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>val</b> <i></i>
+)
+</pre>
+<dd> Set the image smoothPi flag
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetI"></A>
+void <I></I>
+<B>Tr_MgrSetI</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>i</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the PI array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetMaxIter"></A>
+void <I></I>
+<B>Tr_MgrSetMaxIter</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>maxIter</b> <i>max iterations</i>
+)
+</pre>
+<dd> Set the maximum number of closure iterations
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetNS"></A>
+void <I></I>
+<B>Tr_MgrSetNS</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>ns</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the NS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPS"></A>
+void <I></I>
+<B>Tr_MgrSetPS</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>ps</b> <i>Array of Variables</i>
+)
+</pre>
+<dd> Set the PS array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartThFrom"></A>
+void <I></I>
+<B>Tr_MgrSetPartThFrom</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  int  <b>threshold</b> <i>Threshold value (-1 for no threshold)</i>
+)
+</pre>
+<dd> Set partitioning threshold for from
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartThTr"></A>
+void <I></I>
+<B>Tr_MgrSetPartThTr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  int  <b>threshold</b> <i>Threshold value (-1 for no threshold)</i>
+)
+</pre>
+<dd> Set partitioning threshold for TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartitionMethod"></A>
+void <I></I>
+<B>Tr_MgrSetPartitionMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  Part_Method_e  <b>partitionMethod</b> <i>Partition Method</i>
+)
+</pre>
+<dd> Set
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSortMethod"></A>
+void <I></I>
+<B>Tr_MgrSetSortMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Tr_Sort_e  <b>sortMethod</b> <i>Method</i>
+)
+</pre>
+<dd> Set the sort Method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSortW"></A>
+void <I></I>
+<B>Tr_MgrSetSortW</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>i</b>, <i></i>
+  double  <b>SortW</b> <i>Weight</i>
+)
+</pre>
+<dd> Set the sort weight
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSquaringMethod"></A>
+void <I></I>
+<B>Tr_MgrSetSquaringMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>method</b> <i>Method</i>
+)
+</pre>
+<dd> Set the squaring method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetTrName"></A>
+void <I></I>
+<B>Tr_MgrSetTrName</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  char * <b>trName</b> <i>Traversal Manager Name</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetTr"></A>
+void <I></I>
+<B>Tr_MgrSetTr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Tr_Tr_t * <b>tr</b> <i>Transition Relation</i>
+)
+</pre>
+<dd> Set the Transition Relation in the Transition Relation
+    Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_MgrSetVerbosity"></A>
+void <I></I>
+<B>Tr_MgrSetVerbosity</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity</i>
+)
+</pre>
+<dd> Set the period for verbosity enabling.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trMgr.c"TARGET="ABSTRACT"><CODE>trMgr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_RemoveLambdaLatches"></A>
+void <I></I>
+<B>Tr_RemoveLambdaLatches</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Remove the so-called lambda-latches following the strategy
+    presented at ICCAD'96 by Cabodi, Camurati, Quer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_BuildClusteredTR">Trav_BuildClusteredTR</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trBuild.c"TARGET="ABSTRACT"><CODE>trBuild.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrBdd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Tr_TrBdd</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Return Bdd relation field
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrDup"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrDup</B>(
+  Tr_Tr_t * <b>old</b> <i></i>
+)
+</pre>
+<dd> Duplicate a TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrFree"></A>
+void <I></I>
+<B>Tr_TrFree</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Release a TR.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrMakeFromExpr"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakeFromExpr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Expr_t * <b>expr</b> <i></i>
+)
+</pre>
+<dd> Create a TR from expression.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrMakeFromRel"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakeFromRel</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Create a TR from relation.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrMakePartConjFromFuns"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakePartConjFromFuns</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Bddarray_t * <b>Fa</b>, <i></i>
+  Ddi_Vararray_t * <b>Va</b> <i></i>
+)
+</pre>
+<dd> Create a conjunctively partitioned TR from array of functions.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrMgr"></A>
+Tr_Mgr_t * <I></I>
+<B>Tr_TrMgr</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Return tr Manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrReverseAcc"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrReverseAcc</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Reverse a TR by swapping present/next state variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrReverse"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrReverse</B>(
+  Tr_Tr_t * <b>old</b> <i></i>
+)
+</pre>
+<dd> Reverse a TR by swapping present/next state variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrSetClustered"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrSetClustered</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Transform tr to clustered form.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrSetMono"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrSetMono</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Reduce tr from partitioned/clustered to monolithic.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trTr.c"TARGET="ABSTRACT"><CODE>trTr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrSortEnum2String"></A>
+char * <I></I>
+<B>Tr_TrSortEnum2String</B>(
+  Tr_Sort_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trUtil.c"TARGET="ABSTRACT"><CODE>trUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrSortIwls95"></A>
+int <I></I>
+<B>Tr_TrSortIwls95</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Given an BDDs'array , the function sorts the BDDs in the
+    array in order to find the best sort for compute esistential
+    abstraction of BDDs product. The smoothing variable set should
+    include the quantifying ones, too.
+    It returns 1 if successfully sorted, 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trSort.c"TARGET="ABSTRACT"><CODE>trSort.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TrSortString2Enum"></A>
+Tr_Sort_e <I></I>
+<B>Tr_TrSortString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the verbosity enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trUtil.c"TARGET="ABSTRACT"><CODE>trUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Tr_TransClosure"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TransClosure</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Transitive closure of a Monolithic or Disjunctively 
+    partitioned Transition Relation is operated using the iterative squaring
+    method, expressed by the following recurrence equations:
+    <p>
+    T(0)(s,y) = TR(s,y) <br>
+    T(i+1)(s,y)= TR(s,y) + Exist(z) ( T(i)(s,z) * T(i)(z,y) )
+    <p>
+    The least fixed point is T* (<em>transitive closure</em>)
+    and the number of iterations required to compute T* is 
+    logarithmic in the sequential depth of TR (the diameter of
+    the state transition graph represented by TR).<br>
+    The transitive closure describes the pairs of states that are
+    connected by at least one path in the state graph of FSM.
+    This function is a shell to TrBuildTransClosure, where the
+    job is really done. Nothing is done here if the array of
+    "intermediate" z variables is not NULL, whereas
+    a temporary BDD manager is created (and destroyed when
+    the job is done) if z is NULL, to avoid
+    creating new variables in the original manager.
+    Primary input variables (NON quantifying and NON state
+    variables) are not taken into account. This means that they
+    are NOT duplicated at every step as in standart squaring.
+    They should (since they could) be quantifyed out from a 
+    monolithic or disjunctively partitioned TR. Otherwise the
+    algorithm only closes paths with constant input values.
+<p>
+
+<dd> <b>Side Effects</b> A Ddi Manager (a BDD manager) is temporarily allocated 
+    if required for all the operations involved, if  
+    the auxiliary set of variables (Zs) must be created.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TrBuildTransClosure">TrBuildTransClosure</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trClosure.c"TARGET="ABSTRACT"><CODE>trClosure.c</CODE></A>
+
+<dt><pre>
+<A NAME="WeightedSort"></A>
+static int <I></I>
+<B>WeightedSort</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr manager</i>
+  Ddi_Mgr_t * <b>dd</b>, <i>dd manager</i>
+  PartitionInfo_t ** <b>FSa</b>, <i>array of Partition Infos</i>
+  int  <b>nPart</b>, <i>number of partitions</i>
+  Tr_Sort_e  <b>method</b> <i>sorting method</i>
+)
+</pre>
+<dd> The method of sorting is the heuristic method of Ranjan
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Tr_BddarraySort()">Tr_BddarraySort()</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="trAllFile.html#trSort.c"TARGET="ABSTRACT"><CODE>trSort.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

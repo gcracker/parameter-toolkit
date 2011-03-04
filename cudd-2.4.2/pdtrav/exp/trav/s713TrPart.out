@@ -1,0 +1,98 @@
+# Running Date: Thu Jun 17 00:29:08 CEST 1999
+# HostName: localhost.localdomain
+# Command: ../bin/pdtrav 
+# PdTrav Version: 1.2
+# DD Version: Cudd-2.3.0
+Cmd Manager Init ... Done
+Reading Commands File stdin
+PdTrav> #
+@stdin: #
+PdTrav> # PdTRAV-1.2 package
+@stdin: #
+PdTrav> # Revision: Version 1.2 June 01, 1999
+@stdin: #
+PdTrav> # Authors: Gianpiero Cabodi and Stefano Quer
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # This Script File Creates the Monolothic Transition Relation for
+@stdin: #
+PdTrav> # circuit s713 and then partition it.
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # Usage: run pdtrav, then on the pdtrav prompt type
+@stdin: #
+PdTrav> # @s713TrPart.cmd
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> ### Script starts here #################################################
+@stdin: #
+PdTrav> 
+PdTrav>   # Initialize Decision Diagram Manager
+@stdin: #
+PdTrav> 
+PdTrav> ddm_init
+@stdin: ddm_init
+Dd Manager Init ... Done
+PdTrav> 
+PdTrav>   # Read blif file and create BDD for deltas and lambdas with default
+@stdin: #
+PdTrav>   # variable order
+@stdin: #
+PdTrav> 
+PdTrav> fsm_read --blif s713.blif
+@stdin: fsm_read --blif s713.blif
+1352 non-zero DD reference counts after building DDs
+FSM Manager Init ... Done
+FSM Loading ...
+Done
+PdTrav> tr_init --build
+@stdin: tr_init --build
+Transition Relation Manager Init ... Done
+PdTrav> tr_cluster --mono
+@stdin: tr_cluster --mono
+PdTrav> 
+PdTrav>   # Get Statistics on Transition Relation and Manager
+@stdin: #
+PdTrav> 
+PdTrav> stats tr.tr
+@stdin: stats tr.tr
+Monolitic BDD
+Size:    4112
+Density:    477.1
+PdTrav> stats tr
+@stdin: stats tr
+Transition Relation Manager Name tr
+Total CPU Time: 0.32 sec
+PdTrav> 
+PdTrav>   # Partition the transition relation using one among different
+@stdin: #
+PdTrav>   # possible paritition methods.
+@stdin: #
+PdTrav> 
+PdTrav> #part_make --verbosity devMax --method cofactor --threshold 1000 tr.tr
+@stdin: #
+PdTrav> #part_make --verbosity devMax --method estimate --threshold 1000 tr.tr
+@stdin: #
+PdTrav> part_make --verbosity devMax --method fast --threshold 1000 tr.tr
+@stdin: part_make --verbosity devMax --method fast --threshold 1000 tr.tr
+[4112--->2381,1812(id:54/name:G64$NS)(estimateCost:1.103)(time:0.02 sec)]
+[2381--->1533,855(id:56/name:G66$NS)(estimateCost:1.174)(time:0.02 sec)]
+[1533--->1055,739(id:58/name:G68$NS)(estimateCost:1.294)(time:0.00 sec)]
+[1055--->778,276(id:57/name:G67$NS)(estimateCost:1.285)(time:0.01 sec)]
+[1812--->1358,459(id:56/name:G66$NS)(estimateCost:1.300)(time:0.01 sec)]
+[1358--->1119,239(id:55/name:G65$NS)(estimateCost:1.389)(time:0.01 sec)]
+[1119--->872,236(id:57/name:G67$NS)(estimateCost:1.331)(time:0.00 sec)]
+PARTITIONING (4112) ==> [782+280+742+857+876+240+242+461+=4095](time:0.08 sec)
+PdTrav> 
+PdTrav> stats tr.tr
+@stdin: stats tr.tr
+Disjunctive Partitioned BDD
+Number of Partitions : 8
+Sharing Size         : 4179
+Partition Size       : 801+287+754+860+902+245+246+464+=4559
+PdTrav> quit
+@stdin: quit
+PdTrav end!

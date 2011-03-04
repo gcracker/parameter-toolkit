@@ -1,0 +1,21 @@
+This is a directory for examples and experiments.
+
+* test is a directory to run testPdtrav programs (source in src/test). 
+Example usage:
+
+cd test
+../../bin/testPdtrav ddi
+../../bin/testPdtrav tr
+../../bin/testPdtrav fsm
+../../bin/testPdtrav trav
+
+* trav contains blif descriptions and script files to run pdtrav through
+the interactive user interface (source in src/cmd).
+Example usage:
+
+cd trav
+../../bin/pdtrav
+@trav.cmd s713
+
+* blif contains some blif descriptions
+

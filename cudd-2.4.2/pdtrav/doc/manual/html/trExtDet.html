@@ -1,0 +1,867 @@
+<HTML>
+<HEAD><TITLE>The tr package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Tr_ImgMethodEnum2String"></A>
+char * <I></I>
+<B>Tr_ImgMethodEnum2String</B>(
+  Tr_ImgMethod_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_ImgMethodString2Enum"></A>
+Tr_ImgMethod_e <I></I>
+<B>Tr_ImgMethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_Img"></A>
+Ddi_Bdd_t * <I></I>
+<B>Tr_Img</B>(
+  Tr_Tr_t * <b>TR</b>, <i>Partitioned TR</i>
+  Ddi_Bdd_t * <b>from</b> <i>Input constrain</i>
+)
+</pre>
+<dd> Compute image of a conjunctively partitioned transition
+    relation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_BddarrayMultiwayAndExist">Part_BddarrayMultiwayAndExist</a>
+</code>
+
+<dt><pre>
+<A NAME="Tr_MgrInit"></A>
+Tr_Mgr_t * <I></I>
+<B>Tr_MgrInit</B>(
+  char * <b>trName</b>, <i>Name of the FSM structure</i>
+  Ddi_Mgr_t * <b>dd</b> <i>Decision Diagram Manager</i>
+)
+</pre>
+<dd> Creates a DdManager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrQuit">Ddi_MgrQuit</a>
+<a href="#Fsm_MgrQuit">Fsm_MgrQuit</a>
+<a href="#Trav_MgrQuit">Trav_MgrQuit</a>
+</code>
+
+<dt><pre>
+<A NAME="Tr_MgrOperation"></A>
+int <I></I>
+<B>Tr_MgrOperation</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>TR Manager</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlagP</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> Performs an Operation on a Transition Relation Manager.
+    The allowed operations are specified by the enumerated type
+    Pdtutil_MgrOp_t. Returns the result of the operation, the enumerated
+    type Pdtutil_MgrRet_t.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CmdMgrOperation">CmdMgrOperation</a>
+<a href="#CmdRegOperation">CmdRegOperation</a>
+<a href="#Fsm_MgrOperation">Fsm_MgrOperation</a>
+<a href="#Trav_MgrOperation">Trav_MgrOperation</a>
+</code>
+
+<dt><pre>
+<A NAME="Tr_MgrPrintStats"></A>
+int <I></I>
+<B>Tr_MgrPrintStats</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr manager</i>
+)
+</pre>
+<dd> Prints Statistics on a Transition Relation Manager on
+    standard output.
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrQuit"></A>
+void <I></I>
+<B>Tr_MgrQuit</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr manager</i>
+)
+</pre>
+<dd> Closes a Transition Relation Manager freeing all the
+    correlated fields.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddiMgrInit">Ddi_BddiMgrInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Tr_MgrReadClustThreshold"></A>
+int <I></I>
+<B>Tr_MgrReadClustThreshold</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read cluster threshold
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadDdiMgrDefault"></A>
+Ddi_Mgr_t * <I></I>
+<B>Tr_MgrReadDdiMgrDefault</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>trersal manager</i>
+)
+</pre>
+<dd> Read default DDi Mgr
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadImgMethod"></A>
+Tr_ImgMethod_e <I></I>
+<B>Tr_MgrReadImgMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read the image method selection
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadI"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadI</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read PI array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadMaxIter"></A>
+int <I></I>
+<B>Tr_MgrReadMaxIter</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read the maximum number of closure iterations.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadNS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadNS</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read NS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Tr_MgrReadPS</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>tr manager</i>
+)
+</pre>
+<dd> Read PS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartThFrom"></A>
+int <I></I>
+<B>Tr_MgrReadPartThFrom</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read partitioning threshold for from
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartThTr"></A>
+int <I></I>
+<B>Tr_MgrReadPartThTr</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read partitioning threshold for TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadPartitionMethod"></A>
+Part_Method_e <I></I>
+<B>Tr_MgrReadPartitionMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Tr Manager</i>
+)
+</pre>
+<dd> Read
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSortMethod"></A>
+Tr_Sort_e <I></I>
+<B>Tr_MgrReadSortMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read sort method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSortW"></A>
+double <I></I>
+<B>Tr_MgrReadSortW</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Read sort weight
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadSquaringMethod"></A>
+int <I></I>
+<B>Tr_MgrReadSquaringMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read the squaring method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadTrName"></A>
+char * <I></I>
+<B>Tr_MgrReadTrName</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadTr"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_MgrReadTr</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read TR in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrReadVerbosity"></A>
+Pdtutil_VerbLevel_e <I></I>
+<B>Tr_MgrReadVerbosity</B>(
+  Tr_Mgr_t * <b>trMgr</b> <i>Transition Relation Manager</i>
+)
+</pre>
+<dd> Read verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetAuxFuns"></A>
+void <I></I>
+<B>Tr_MgrSetAuxFuns</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Bddarray_t * <b>auxFuns</b> <i>Array of functions</i>
+)
+</pre>
+<dd> Set the auxVars array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetAuxVars"></A>
+void <I></I>
+<B>Tr_MgrSetAuxVars</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>auxVars</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the auxVars array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetClustSmoothPi"></A>
+void <I></I>
+<B>Tr_MgrSetClustSmoothPi</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>val</b> <i></i>
+)
+</pre>
+<dd> Set the cluster smoothPi flag
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetClustThreshold"></A>
+void <I></I>
+<B>Tr_MgrSetClustThreshold</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>ClustThreshold</b> <i>Threshold</i>
+)
+</pre>
+<dd> Set the cluster threshold
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetDdiMgrDefault"></A>
+void <I></I>
+<B>Tr_MgrSetDdiMgrDefault</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>trersal manager</i>
+  Ddi_Mgr_t * <b>mgr</b> <i>dd Manager</i>
+)
+</pre>
+<dd> Set default DDi Mgr on the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetImgMethod"></A>
+void <I></I>
+<B>Tr_MgrSetImgMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  Tr_ImgMethod_e  <b>imgMethod</b> <i>Image Method</i>
+)
+</pre>
+<dd> Set the image method selection
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetImgSmoothPi"></A>
+void <I></I>
+<B>Tr_MgrSetImgSmoothPi</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>val</b> <i></i>
+)
+</pre>
+<dd> Set the image smoothPi flag
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetI"></A>
+void <I></I>
+<B>Tr_MgrSetI</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>i</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the PI array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetMaxIter"></A>
+void <I></I>
+<B>Tr_MgrSetMaxIter</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>maxIter</b> <i>max iterations</i>
+)
+</pre>
+<dd> Set the maximum number of closure iterations
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetNS"></A>
+void <I></I>
+<B>Tr_MgrSetNS</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>ns</b> <i>Array of variables</i>
+)
+</pre>
+<dd> Set the NS array in the Transition Relation Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPS"></A>
+void <I></I>
+<B>Tr_MgrSetPS</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Ddi_Vararray_t * <b>ps</b> <i>Array of Variables</i>
+)
+</pre>
+<dd> Set the PS array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartThFrom"></A>
+void <I></I>
+<B>Tr_MgrSetPartThFrom</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  int  <b>threshold</b> <i>Threshold value (-1 for no threshold)</i>
+)
+</pre>
+<dd> Set partitioning threshold for from
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartThTr"></A>
+void <I></I>
+<B>Tr_MgrSetPartThTr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  int  <b>threshold</b> <i>Threshold value (-1 for no threshold)</i>
+)
+</pre>
+<dd> Set partitioning threshold for TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetPartitionMethod"></A>
+void <I></I>
+<B>Tr_MgrSetPartitionMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Tr Manager</i>
+  Part_Method_e  <b>partitionMethod</b> <i>Partition Method</i>
+)
+</pre>
+<dd> Set
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSortMethod"></A>
+void <I></I>
+<B>Tr_MgrSetSortMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Tr_Sort_e  <b>sortMethod</b> <i>Method</i>
+)
+</pre>
+<dd> Set the sort Method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSortW"></A>
+void <I></I>
+<B>Tr_MgrSetSortW</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>i</b>, <i></i>
+  double  <b>SortW</b> <i>Weight</i>
+)
+</pre>
+<dd> Set the sort weight
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetSquaringMethod"></A>
+void <I></I>
+<B>Tr_MgrSetSquaringMethod</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  int  <b>method</b> <i>Method</i>
+)
+</pre>
+<dd> Set the squaring method
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetTrName"></A>
+void <I></I>
+<B>Tr_MgrSetTrName</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  char * <b>trName</b> <i>Traversal Manager Name</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetTr"></A>
+void <I></I>
+<B>Tr_MgrSetTr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Tr_Tr_t * <b>tr</b> <i>Transition Relation</i>
+)
+</pre>
+<dd> Set the Transition Relation in the Transition Relation
+    Manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_MgrSetVerbosity"></A>
+void <I></I>
+<B>Tr_MgrSetVerbosity</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i>Transition Relation Manager</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity</i>
+)
+</pre>
+<dd> Set the period for verbosity enabling.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_RemoveLambdaLatches"></A>
+void <I></I>
+<B>Tr_RemoveLambdaLatches</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Remove the so-called lambda-latches following the strategy
+    presented at ICCAD'96 by Cabodi, Camurati, Quer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_BuildClusteredTR">Trav_BuildClusteredTR</a>
+</code>
+
+<dt><pre>
+<A NAME="Tr_TrBdd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Tr_TrBdd</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Return Bdd relation field
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrDup"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrDup</B>(
+  Tr_Tr_t * <b>old</b> <i></i>
+)
+</pre>
+<dd> Duplicate a TR
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrFree"></A>
+void <I></I>
+<B>Tr_TrFree</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Release a TR.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrMakeFromExpr"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakeFromExpr</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Expr_t * <b>expr</b> <i></i>
+)
+</pre>
+<dd> Create a TR from expression.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrMakeFromRel"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakeFromRel</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Create a TR from relation.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrMakePartConjFromFuns"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrMakePartConjFromFuns</B>(
+  Tr_Mgr_t * <b>trMgr</b>, <i></i>
+  Ddi_Bddarray_t * <b>Fa</b>, <i></i>
+  Ddi_Vararray_t * <b>Va</b> <i></i>
+)
+</pre>
+<dd> Create a conjunctively partitioned TR from array of functions.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrMgr"></A>
+Tr_Mgr_t * <I></I>
+<B>Tr_TrMgr</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Return tr Manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrReverseAcc"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrReverseAcc</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Reverse a TR by swapping present/next state variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrReverse"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrReverse</B>(
+  Tr_Tr_t * <b>old</b> <i></i>
+)
+</pre>
+<dd> Reverse a TR by swapping present/next state variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrSetClustered"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrSetClustered</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Transform tr to clustered form.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrSetMono"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TrSetMono</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Reduce tr from partitioned/clustered to monolithic.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrSortEnum2String"></A>
+char * <I></I>
+<B>Tr_TrSortEnum2String</B>(
+  Tr_Sort_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrSortIwls95"></A>
+int <I></I>
+<B>Tr_TrSortIwls95</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Given an BDDs'array , the function sorts the BDDs in the
+    array in order to find the best sort for compute esistential
+    abstraction of BDDs product. The smoothing variable set should
+    include the quantifying ones, too.
+    It returns 1 if successfully sorted, 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TrSortString2Enum"></A>
+Tr_Sort_e <I></I>
+<B>Tr_TrSortString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the verbosity enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Tr_TransClosure"></A>
+Tr_Tr_t * <I></I>
+<B>Tr_TransClosure</B>(
+  Tr_Tr_t * <b>tr</b> <i></i>
+)
+</pre>
+<dd> Transitive closure of a Monolithic or Disjunctively 
+    partitioned Transition Relation is operated using the iterative squaring
+    method, expressed by the following recurrence equations:
+    <p>
+    T(0)(s,y) = TR(s,y) <br>
+    T(i+1)(s,y)= TR(s,y) + Exist(z) ( T(i)(s,z) * T(i)(z,y) )
+    <p>
+    The least fixed point is T* (<em>transitive closure</em>)
+    and the number of iterations required to compute T* is 
+    logarithmic in the sequential depth of TR (the diameter of
+    the state transition graph represented by TR).<br>
+    The transitive closure describes the pairs of states that are
+    connected by at least one path in the state graph of FSM.
+    This function is a shell to TrBuildTransClosure, where the
+    job is really done. Nothing is done here if the array of
+    "intermediate" z variables is not NULL, whereas
+    a temporary BDD manager is created (and destroyed when
+    the job is done) if z is NULL, to avoid
+    creating new variables in the original manager.
+    Primary input variables (NON quantifying and NON state
+    variables) are not taken into account. This means that they
+    are NOT duplicated at every step as in standart squaring.
+    They should (since they could) be quantifyed out from a 
+    monolithic or disjunctively partitioned TR. Otherwise the
+    algorithm only closes paths with constant input values.
+<p>
+
+<dd> <b>Side Effects</b> A Ddi Manager (a BDD manager) is temporarily allocated 
+    if required for all the operations involved, if  
+    the auxiliary set of variables (Zs) must be created.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TrBuildTransClosure">TrBuildTransClosure</a>
+</code>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

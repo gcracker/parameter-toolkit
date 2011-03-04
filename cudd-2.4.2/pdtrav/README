@@ -1,0 +1,120 @@
+README file for the PdTRAV-2.0Beta package
+This is a Beta release, whith major changes from pdtrav-1.*.
+Ddi is stable, we still require some work on the tr, fsm and trav packages
+to complete release 2.0.
+
+
+
+WHAT IS PDTRAV
+==============
+
+PdTRAV is a BDD based traversal tool created at Politecnico di Torino.
+It is intended as a library, and includes a simple user interface for 
+stand-alone usage.
+It is written in C for the symbolic manipulation FSMs.
+Currently, CUDD is used as low level BDD library.
+
+
+
+INSTALLATION
+============
+
+To compile and link pdtrav, Cudd (version 2.3.0) is needed
+on a sibling directory.
+Proper makefile can be created by running configure in the main directory.
+
+E.g. run
+
+./configure
+
+Once the Makefile has been created, run
+
+make
+
+In case you have problems you need to manually edit Makefile.
+
+On the other hand, the user has to rely on the manual method.
+The file "Makefile.custom" is a customable makefile, which should be edited to
+set hardware-related options and flags.
+Using that makefile would come in handy, should the user desire to enable
+special compilation flags, e.g. optimization ones, or some unexpected
+problem arise.
+Several possible settings are already listed as comment lines. 
+If you prefer this option, modify the "Makefile.custom" file so that the
+settings meet your requirements.
+Then run:
+make -f Makefile.custom
+This would run the "setup" file to create the "include" directory, the
+"bin" directory, make symbolic links to include files, and compile the
+Cudd package and the PdTRAV one.
+An executable file, named "pdtrav", should be created in the "bin" directory.
+   
+From the root directory, the following command is also possible:
+make -f Makefile.custom <command>
+where <command> is:
+  clean
+    it cleans pdtrav only (not cudd)
+  distclean
+    it cleans distribution (cudd included) 
+
+This kit has been successfully built on the following configurations:
+  DEC Alpha running Digital Unix with gcc (and gnu make)
+  PC running Linux with gcc
+
+It should basically work everywhere cudd-2.3.0 works.
+Use the same compilation setting if everything else does not work.
+For further details see cudd-2.3.0.
+
+
+
+SANITY CHECK
+============
+
+Directory exp contains sample files (in blif format) to the package and script
+files to run it.
+Check the README file on this directory.
+
+
+
+
+DOCUMENTATION
+=============
+
+The main directory and each source directory has a doc directory that contains
+html and text documentation for report and user manual.
+The main doc directory contains a PostScript document describing the main
+features of the pdtrav package.
+In all the subdirectories the recommended starting point is
+pkgIndex.html.
+
+
+
+FTP SITE
+========
+
+The package is singularly available following the links from the following
+WEB sides:
+http://www.polito.it/~{cabodi,quer}
+
+
+
+
+
+
+FEEDBACK
+========
+
+Send feedback to:
+
+Gianpiero Cabodi & Stefano Quer
+Politecnico di Torino
+Dip. Automatica e Informatica
+C.so Duca degli Abruzzi 24
+I-10129  Torino
+Italy
+E-mail:  {cabodi,quer}@polito.it
+
+
+
+
+

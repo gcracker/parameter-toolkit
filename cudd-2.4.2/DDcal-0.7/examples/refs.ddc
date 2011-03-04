@@ -1,0 +1,11 @@
+c = a * b
+d = c'
+x = (v * w)'
+y = (r * s)'
+z = (x * y)'
+y = 1
+z = (x * y)'
+f = r + w
+g = s ^ v
+h = f * g ^ c * x'
+[a b c d v w r s x y z f g h]

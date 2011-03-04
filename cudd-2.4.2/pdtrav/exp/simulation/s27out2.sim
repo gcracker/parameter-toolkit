@@ -1,0 +1,208 @@
+PI[  0]: G0
+PI[  1]: G1
+PI[  2]: G2
+PI[  3]: G3
+
+PS[  0]: G5
+PS[  1]: G6
+PS[  2]: G7
+
+[0] 
+PI
+0001
+PO
+0
+PS
+000
+NS
+010
+State Bits Transitions:
+[  1]                                                           G6 -> 1
+
+
+[1] 
+PI
+0010
+PO
+0
+PS
+010
+NS
+010
+State Bits Transitions:
+
+
+[2] 
+PI
+0011
+PO
+0
+PS
+010
+NS
+010
+State Bits Transitions:
+
+
+[3] 
+PI
+0100
+PO
+0
+PS
+010
+NS
+011
+State Bits Transitions:
+[  2]                                                           G7 -> 1
+
+
+[4] 
+PI
+0101
+PO
+0
+PS
+011
+NS
+011
+State Bits Transitions:
+
+
+[5] 
+PI
+0110
+PO
+0
+PS
+011
+NS
+010
+State Bits Transitions:
+[  2]                                                           G7 -> 0
+
+
+[6] 
+PI
+0111
+PO
+0
+PS
+010
+NS
+010
+State Bits Transitions:
+
+
+[7] 
+PI
+1000
+PO
+1
+PS
+010
+NS
+100
+State Bits Transitions:
+[  0]                                                           G5 -> 1
+[  1]                                                           G6 -> 0
+
+
+[8] 
+PI
+1001
+PO
+1
+PS
+100
+NS
+100
+State Bits Transitions:
+
+
+[9] 
+PI
+1010
+PO
+1
+PS
+100
+NS
+100
+State Bits Transitions:
+
+
+[10] 
+PI
+1011
+PO
+1
+PS
+100
+NS
+100
+State Bits Transitions:
+
+
+[11] 
+PI
+1100
+PO
+1
+PS
+100
+NS
+101
+State Bits Transitions:
+[  2]                                                           G7 -> 1
+
+
+[12] 
+PI
+1101
+PO
+1
+PS
+101
+NS
+101
+State Bits Transitions:
+
+
+[13] 
+PI
+1110
+PO
+1
+PS
+101
+NS
+100
+State Bits Transitions:
+[  2]                                                           G7 -> 0
+
+
+[14] 
+PI
+1111
+PO
+1
+PS
+100
+NS
+100
+State Bits Transitions:
+
+
+
+
+Simulation table: 8 Signal * 15 Clock Tick
+
+G0                    000000011111111
+G1                    000111100001111
+G2                    011001100110011
+G3                    101010101010101
+G5                    0000000011111111
+G6                    0111111100000000
+G7                    0000110000001100
+PO#  0                000000011111111

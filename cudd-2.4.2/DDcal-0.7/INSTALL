@@ -1,0 +1,69 @@
+Revision: $Id: INSTALL,v 1.10 2004/02/04 05:17:03 fabio Exp fabio $
+
+This file contains installation instructions for DDcal.
+
+PREREQUISITES
+=============
+
+To build DDcal you need to have installed on your system:
+
+graphviz 1.7	(or higher specifically, you need dot in your PATH to run DDcal)
+perl 5.6.0	(or higher)
+Tk800.023	(or higher; this is perl/Tk)
+flex 2.5.4	(or higher or lex)
+bison 1.28	(or higher or yacc)
+cudd-2.3.1	(or higher)
+
+graphviz 1.7 is available from
+	http://www.research.att.com/sw/tools/graphviz
+perl and perl/Tk are available from any CPAN site. See
+	http://www.perl.com/perl/
+or
+	ftp://ftp.perl.com/perl/
+for the list of the CPAN sites. You can also find the older version of
+perl and Tk there, but there should be no reason not to install the
+most recent ones.
+flex and bison are available from
+	ftp://ftp.gnu.org/
+or one of its mirrors.
+cudd-2.3.1 or a more recent release is available from
+	ftp://vlsi.colorado.edu/pub/
+
+BUILDING DDcal
+==============
+
+Look at the Makefile. The only things that may need to be changed are the
+definitions of WHERE, PREFIX, EXE, and PL.
+
+Type `make'. This should build ddcal (which is called by DDcal). To test
+the program, execute DDcal.pl. The `examples' directory contains some
+files that you may want to load with the `Load' button.
+
+Once you are satisfied, you can install DDcal by typing `make install.'
+The default installation directory is /usr/local/bin. It can be changed
+by changing the definition of PREFIX in the Makefile. Notice that
+DDcal.pl is installed as DDcal under Unix and DDcal.pl under
+Windows/Cygwin. You need write access to the taget installation directory.
+
+That should be it.
+
+PLATFORMS
+=========
+
+DDcal has been tested only under GNU/Linux RedHat 7.1 with
+the program versions listed above.  It has also been built under some
+versions of SunOS without any problems. Your mileage may vary.
+DDcal also works under Windows/Cygwin with recent versions of cygwin.
+The tricky part is to get perl-Tk to work.
+
+FEEDBACK
+========
+
+Send feedback to:
+
+Fabio Somenzi
+University of Colorado at Boulder
+ECE Dept.
+Boulder, CO 80309-0425
+Fabio@Colorado.EDU
+http://vlsi.colorado.edu/~fabio

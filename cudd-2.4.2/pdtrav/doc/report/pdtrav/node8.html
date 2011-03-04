@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Basic Data Structures</TITLE>
+<META NAME="description" CONTENT="Basic Data Structures">
+<META NAME="keywords" CONTENT="pdtrav">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pdtrav.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node7.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html141"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html137"
+ HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html131"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html139"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html142"
+ HREF="node9.html">Operators</A>
+<B> Up:</B> <A NAME="tex2html138"
+ HREF="node7.html">The DDI package</A>
+<B> Previous:</B> <A NAME="tex2html132"
+ HREF="node7.html">The DDI package</A>
+ &nbsp <B>  <A NAME="tex2html140"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00042100000000000000">
+Basic Data Structures</A>
+</H3> 
+
+<P>
+Besides extending manager capabilities, DDI introduces strong typing
+for objects represented using BDDs, and uses ``handles'' as a
+mechanism for allocation/freeing. More specifically, four types 
+are presently defined and managed as abstract data types, 
+all available in scalar and array form:
+
+<P>
+
+<UL>
+<LI><B> Variable (Ddi_Var_t, Ddi_Vararray_t)</B>
+A variable is uniquely referenced by an integer index within a given manager, 
+and optionally by a variable name and/or an auxiliary index (auxid). 
+A variable <IMG
+ WIDTH="13" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.gif"
+ ALT="$v$"> is also caracterized by a position in variable
+ordering, which is not fixed (and generally differs from the index) if
+dynamic variable ordering is enabled. 
+A variable is often represented in BDD packages (e.g. CUDD) by the
+corresponding positive literal (a BDD).
+We clearly distinguish a variable <IMG
+ WIDTH="13" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.gif"
+ ALT="$v$"> from the corresponding
+literals (<IMG
+ WIDTH="13" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.gif"
+ ALT="$v$"> and <IMG
+ WIDTH="13" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\overline{v}$">), which
+are in DDI Boolean functions (type <B> Ddi_Bdd_t</B>).
+Variable arrays are useful whenever we need groups of variables with
+well
+defined positions, for instance to establish a correspondence between
+present and next state variables (in FSM traversal), or between
+Boolean functions and variables (in compose operations).
+
+<P>
+ </LI>
+<LI><B> Variable Sets (Ddi_Varset_t, Ddi_Varsetarray_t)</B>
+A variable set is a group of variables with no defined position or
+ordering. Variable sets are represented in some packages (e.g. SIS) by
+bit vectors, in CUDD by BDD cubes.
+DDI internally uses the latter strategy, and externally provides 
+usual set operators. Variable sets are useful as inputs for
+support management and quantification operators.
+
+<P>
+ </LI>
+<LI><B> Boolean Functions (Ddi_Bdd_t, Ddi_Bddarray_t)</B>
+A Boolean function is either a monolithic, partitioned (conjunctively
+or disjunctively) or meta BDD. We adopt the BDD 
+acronym to emphasize the Decision Diagram based representation.
+Partitioned representations are recursive. The terms of a
+conjunctive form are BDDs, so they may be partitioned themselves.
+Arrays of BDDs are useful whenever we need to represent vectors of
+functions, e.g. for output or next state functions of circuits. 
+Internally, partitioned BDDs are stored as trees with monolithic BDDs
+as leaves.
+Meta BDDs are a particular BDD representation described in
+[#!MetaBDDs!#].
+
+<P>
+ </LI>
+<LI><B> Expressions (Ddi_Expr_t, Ddi_Exprarray_t)</B>
+Expressions are more general than BDDs. They may include BDDs (since
+monolitic and partitioned BDDa are Boolean expressions), but they are
+expecially concieved for invariants and temporal logic (e.g. CTL)
+formulas.
+Moreover, expression leaves are not necessarily BDDs. They might be
+string identifiers, to be associated to BDDs at later steps of symbolic 
+manipulations.
+
+<P></LI>
+</UL>
+
+<P>
+All of the above types are implemented by resorting to handles. The
+handle mechanism hides the ref/deref BDD node allocation style
+implemented in CUDD. Handles are dynamically allocated structures 
+pointing to CUDD BDD nodes, and only accessed to by pointers.
+Handles are allocated, freed, duplicated. A handle represents a
+reference to a BDD node, so a ref/reref operation is implicitly done
+any time a handle is created/released. The only exception to this
+general rule are variables, which are never duplicated nor freed (except
+when freeing a DDI manager)
+
+<P>
+Handles are expecially useful as an intermediate portability layer
+between the
+higher levels and CUDD<A NAME="tex2html1"
+ HREF="footnode.html#foot80"><SUP>1</SUP></A>. Moreover they enable storing additional
+informations characterizing DDI entities, like name, code, extra
+pointers.
+Names are expecially concieved for debug and/or log purposes, codes
+can distinguish particular subtypes (e.g. monolithic/partitioned forms
+or operators in expressions). We use pointers for list based
+management of allocated DDI objects, and to keep a reference to the
+owner DDI manager (this avoids passing manager to most functions).
+
+<P>
+We call the above data types <B> DDI nodes</B>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html141"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html137"
+ HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html131"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html139"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html142"
+ HREF="node9.html">Operators</A>
+<B> Up:</B> <A NAME="tex2html138"
+ HREF="node7.html">The DDI package</A>
+<B> Previous:</B> <A NAME="tex2html132"
+ HREF="node7.html">The DDI package</A>
+ &nbsp <B>  <A NAME="tex2html140"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Gianpiero Cabodi</I>
+<BR><I>2001-03-25</I>
+</ADDRESS>
+</BODY>
+</HTML>

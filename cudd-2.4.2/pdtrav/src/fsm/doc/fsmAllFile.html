@@ -1,0 +1,565 @@
+<HTML>
+<HEAD><TITLE>The fsm package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#fsm.h"><CODE>fsm.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#fsmInt.h"><CODE>fsmInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#fsmLoad.c"><CODE>fsmLoad.c</CODE></A>
+ <DD> Functions to read BDD based description of FSMs
+ <DT> <A HREF="#fsmMgr.c"><CODE>fsmMgr.c</CODE></A>
+ <DD> Utility functions to create, free and duplicate a FSM
+ <DT> <A HREF="#fsmPort.c"><CODE>fsmPort.c</CODE></A>
+ <DD> Functions to guarantee portability
+ <DT> <A HREF="#fsmPortBnet.c"><CODE>fsmPortBnet.c</CODE></A>
+ <DD> Nanotrav parts used by pdtrav
+ <DT> <A HREF="#fsmPortNtr.c"><CODE>fsmPortNtr.c</CODE></A>
+ <DD> Nanotrav parts used by pdtrav
+ <DT> <A HREF="#fsmProMac.c"><CODE>fsmProMac.c</CODE></A>
+ <DD> Functions to build a Product Machine
+ <DT> <A HREF="#fsmStore.c"><CODE>fsmStore.c</CODE></A>
+ <DD> Functions to write description of FSMs
+ <DT> <A HREF="#fsmToken.c"><CODE>fsmToken.c</CODE></A>
+ <DD> Functions to convert tokens (keywords) between string and
+    integer (enum) format.
+ <DT> <A HREF="#fsmUtil.c"><CODE>fsmUtil.c</CODE></A>
+ <DD> Utility functions to manipulate a FSM
+</DL><HR>
+<A NAME="fsm.h"><H1>fsm.h</H1></A>
+External header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="fsmInt.h"><H1>fsmInt.h</H1></A>
+Internal header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Returns 1 if the two arguments are identical strings.
+
+</DL>
+<HR>
+<A NAME="fsmLoad.c"><H1>fsmLoad.c</H1></A>
+Functions to read BDD based description of FSMs <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedures included in this module:
+    <ul>
+    <li> Fsm_MgrLoad () 
+    </ul> <P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrLoad" TARGET="MAIN"><CODE>Fsm_MgrLoad()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFileOrd" TARGET="MAIN"><CODE>Fsm_MgrReadFileOrd()</CODE></A>
+ <DD> Reads variable order from a <em>.ord</em> file
+
+ <DT> <A HREF="fsmAllDet.html#readFsm" TARGET="MAIN"><CODE>readFsm()</CODE></A>
+ <DD> Reads current section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmSize" TARGET="MAIN"><CODE>readFsmSize()</CODE></A>
+ <DD> Reads <em>.size</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmOrd" TARGET="MAIN"><CODE>readFsmOrd()</CODE></A>
+ <DD> Reads <em>.ord</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmName" TARGET="MAIN"><CODE>readFsmName()</CODE></A>
+ <DD> Reads <em>.name</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmIndex" TARGET="MAIN"><CODE>readFsmIndex()</CODE></A>
+ <DD> Reads <em>.index</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmDelta" TARGET="MAIN"><CODE>readFsmDelta()</CODE></A>
+ <DD> Reads <em>.delta</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmLambda" TARGET="MAIN"><CODE>readFsmLambda()</CODE></A>
+ <DD> Reads <em>.lambda</em> section of the
+    <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmTransRel" TARGET="MAIN"><CODE>readFsmTransRel()</CODE></A>
+ <DD> Reads <em>.tr</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmFrom" TARGET="MAIN"><CODE>readFsmFrom()</CODE></A>
+ <DD> Reads <em>.tr</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmReached" TARGET="MAIN"><CODE>readFsmReached()</CODE></A>
+ <DD> Reads <em>.tr</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readFsmInitState" TARGET="MAIN"><CODE>readFsmInitState()</CODE></A>
+ <DD> Reads <em>.init</em> section of the <em>.fsm</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readOrdFile" TARGET="MAIN"><CODE>readOrdFile()</CODE></A>
+ <DD> Reads the order in the <em>.ord</em> file.
+
+ <DT> <A HREF="fsmAllDet.html#readBddFile" TARGET="MAIN"><CODE>readBddFile()</CODE></A>
+ <DD> read a bdd file
+
+ <DT> <A HREF="fsmAllDet.html#readInitFile" TARGET="MAIN"><CODE>readInitFile()</CODE></A>
+ <DD> Reads initial state in the file <em>.fsm</em>.
+
+ <DT> <A HREF="fsmAllDet.html#get_token" TARGET="MAIN"><CODE>get_token()</CODE></A>
+ <DD> Read a String from the File.
+
+ <DT> <A HREF="fsmAllDet.html#get_number" TARGET="MAIN"><CODE>get_number()</CODE></A>
+ <DD> Returns the current word as integer.
+
+ <DT> <A HREF="fsmAllDet.html#get_string_array" TARGET="MAIN"><CODE>get_string_array()</CODE></A>
+ <DD> Inse le parole in cima all'array "datum_str".
+
+ <DT> <A HREF="fsmAllDet.html#get_integer_array" TARGET="MAIN"><CODE>get_integer_array()</CODE></A>
+ <DD> Inserisce i numeri in cima all'array "datum_nmb".
+
+</DL>
+<HR>
+<A NAME="fsmMgr.c"><H1>fsmMgr.c</H1></A>
+Utility functions to create, free and duplicate a FSM <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrInit" TARGET="MAIN"><CODE>Fsm_MgrInit()</CODE></A>
+ <DD> Initializes the FSM structure.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrFree" TARGET="MAIN"><CODE>Fsm_MgrFree()</CODE></A>
+ <DD> Frees unused FSM structure members
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrDup" TARGET="MAIN"><CODE>Fsm_MgrDup()</CODE></A>
+ <DD> Duplicates FSM structure.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrOperation" TARGET="MAIN"><CODE>Fsm_MgrOperation()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFileName" TARGET="MAIN"><CODE>Fsm_MgrReadFileName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFsmName" TARGET="MAIN"><CODE>Fsm_MgrReadFsmName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadDdManager" TARGET="MAIN"><CODE>Fsm_MgrReadDdManager()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadY" TARGET="MAIN"><CODE>Fsm_MgrReadY()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadZ" TARGET="MAIN"><CODE>Fsm_MgrReadZ()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadSX" TARGET="MAIN"><CODE>Fsm_MgrReadSX()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadReachedBDD" TARGET="MAIN"><CODE>Fsm_MgrReadReachedBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadBddFormat" TARGET="MAIN"><CODE>Fsm_MgrReadBddFormat()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNI" TARGET="MAIN"><CODE>Fsm_MgrReadNI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNO" TARGET="MAIN"><CODE>Fsm_MgrReadNO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNL" TARGET="MAIN"><CODE>Fsm_MgrReadNL()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadOrdFileName" TARGET="MAIN"><CODE>Fsm_MgrReadOrdFileName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadOrdNodeName" TARGET="MAIN"><CODE>Fsm_MgrReadOrdNodeName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadOrdNodeid" TARGET="MAIN"><CODE>Fsm_MgrReadOrdNodeid()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNameI" TARGET="MAIN"><CODE>Fsm_MgrReadNameI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNameO" TARGET="MAIN"><CODE>Fsm_MgrReadNameO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNameNS" TARGET="MAIN"><CODE>Fsm_MgrReadNameNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadNamePS" TARGET="MAIN"><CODE>Fsm_MgrReadNamePS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadIndexI" TARGET="MAIN"><CODE>Fsm_MgrReadIndexI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadIndexO" TARGET="MAIN"><CODE>Fsm_MgrReadIndexO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadIndexNS" TARGET="MAIN"><CODE>Fsm_MgrReadIndexNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadIndexPS" TARGET="MAIN"><CODE>Fsm_MgrReadIndexPS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarI" TARGET="MAIN"><CODE>Fsm_MgrReadVarI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarO" TARGET="MAIN"><CODE>Fsm_MgrReadVarO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarPS" TARGET="MAIN"><CODE>Fsm_MgrReadVarPS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarNS" TARGET="MAIN"><CODE>Fsm_MgrReadVarNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadDeltaName" TARGET="MAIN"><CODE>Fsm_MgrReadDeltaName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadDeltaBDD" TARGET="MAIN"><CODE>Fsm_MgrReadDeltaBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadLambdaName" TARGET="MAIN"><CODE>Fsm_MgrReadLambdaName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadLambdaBDD" TARGET="MAIN"><CODE>Fsm_MgrReadLambdaBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadTrName" TARGET="MAIN"><CODE>Fsm_MgrReadTrName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadTrBDD" TARGET="MAIN"><CODE>Fsm_MgrReadTrBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadInitName" TARGET="MAIN"><CODE>Fsm_MgrReadInitName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadInitString" TARGET="MAIN"><CODE>Fsm_MgrReadInitString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadTrString" TARGET="MAIN"><CODE>Fsm_MgrReadTrString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadReachedString" TARGET="MAIN"><CODE>Fsm_MgrReadReachedString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFromString" TARGET="MAIN"><CODE>Fsm_MgrReadFromString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadInitBDD" TARGET="MAIN"><CODE>Fsm_MgrReadInitBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFromName" TARGET="MAIN"><CODE>Fsm_MgrReadFromName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadReachedName" TARGET="MAIN"><CODE>Fsm_MgrReadReachedName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadFromBDD" TARGET="MAIN"><CODE>Fsm_MgrReadFromBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarnames" TARGET="MAIN"><CODE>Fsm_MgrReadVarnames()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVarauxids" TARGET="MAIN"><CODE>Fsm_MgrReadVarauxids()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadInvauxids" TARGET="MAIN"><CODE>Fsm_MgrReadInvauxids()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrReadVerbosity" TARGET="MAIN"><CODE>Fsm_MgrReadVerbosity()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetFileName" TARGET="MAIN"><CODE>Fsm_MgrSetFileName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetFsmName" TARGET="MAIN"><CODE>Fsm_MgrSetFsmName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetDdManager" TARGET="MAIN"><CODE>Fsm_MgrSetDdManager()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetY" TARGET="MAIN"><CODE>Fsm_MgrSetY()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetZ" TARGET="MAIN"><CODE>Fsm_MgrSetZ()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetSX" TARGET="MAIN"><CODE>Fsm_MgrSetSX()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetReachedBDD" TARGET="MAIN"><CODE>Fsm_MgrSetReachedBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetBddFormat" TARGET="MAIN"><CODE>Fsm_MgrSetBddFormat()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNI" TARGET="MAIN"><CODE>Fsm_MgrSetNI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNO" TARGET="MAIN"><CODE>Fsm_MgrSetNO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNL" TARGET="MAIN"><CODE>Fsm_MgrSetNL()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetOrdFileName" TARGET="MAIN"><CODE>Fsm_MgrSetOrdFileName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetOrdNodeName" TARGET="MAIN"><CODE>Fsm_MgrSetOrdNodeName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetOrdNodeid" TARGET="MAIN"><CODE>Fsm_MgrSetOrdNodeid()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNameI" TARGET="MAIN"><CODE>Fsm_MgrSetNameI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNameO" TARGET="MAIN"><CODE>Fsm_MgrSetNameO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNameNS" TARGET="MAIN"><CODE>Fsm_MgrSetNameNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetNamePS" TARGET="MAIN"><CODE>Fsm_MgrSetNamePS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetIndexI" TARGET="MAIN"><CODE>Fsm_MgrSetIndexI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetIndexO" TARGET="MAIN"><CODE>Fsm_MgrSetIndexO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetIndexNS" TARGET="MAIN"><CODE>Fsm_MgrSetIndexNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetIndexPS" TARGET="MAIN"><CODE>Fsm_MgrSetIndexPS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarI" TARGET="MAIN"><CODE>Fsm_MgrSetVarI()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarO" TARGET="MAIN"><CODE>Fsm_MgrSetVarO()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarPS" TARGET="MAIN"><CODE>Fsm_MgrSetVarPS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarNS" TARGET="MAIN"><CODE>Fsm_MgrSetVarNS()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetDeltaName" TARGET="MAIN"><CODE>Fsm_MgrSetDeltaName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetDeltaBDD" TARGET="MAIN"><CODE>Fsm_MgrSetDeltaBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetLambdaName" TARGET="MAIN"><CODE>Fsm_MgrSetLambdaName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetLambdaBDD" TARGET="MAIN"><CODE>Fsm_MgrSetLambdaBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetTrName" TARGET="MAIN"><CODE>Fsm_MgrSetTrName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetTrBDD" TARGET="MAIN"><CODE>Fsm_MgrSetTrBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetInitName" TARGET="MAIN"><CODE>Fsm_MgrSetInitName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetInitString" TARGET="MAIN"><CODE>Fsm_MgrSetInitString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetTrString" TARGET="MAIN"><CODE>Fsm_MgrSetTrString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetFromString" TARGET="MAIN"><CODE>Fsm_MgrSetFromString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetReachedString" TARGET="MAIN"><CODE>Fsm_MgrSetReachedString()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetInitBDD" TARGET="MAIN"><CODE>Fsm_MgrSetInitBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetFromName" TARGET="MAIN"><CODE>Fsm_MgrSetFromName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetReachedName" TARGET="MAIN"><CODE>Fsm_MgrSetReachedName()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetFromBDD" TARGET="MAIN"><CODE>Fsm_MgrSetFromBDD()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarnames" TARGET="MAIN"><CODE>Fsm_MgrSetVarnames()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarnamesOne" TARGET="MAIN"><CODE>Fsm_MgrSetVarnamesOne()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVarauxids" TARGET="MAIN"><CODE>Fsm_MgrSetVarauxids()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetInvauxids" TARGET="MAIN"><CODE>Fsm_MgrSetInvauxids()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrSetVerbosity" TARGET="MAIN"><CODE>Fsm_MgrSetVerbosity()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="fsmPort.c"><H1>fsmPort.c</H1></A>
+Functions to guarantee portability <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+In this file are declarated function to deal with 
+    BLIF format (as package Nanotrav in CUDD). <P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrLoadFromBlif" TARGET="MAIN"><CODE>Fsm_MgrLoadFromBlif()</CODE></A>
+ <DD> Reads description of a fsmMgr (BLIF format) from file
+
+ <DT> <A HREF="fsmAllDet.html#mainInit" TARGET="MAIN"><CODE>mainInit()</CODE></A>
+ <DD> Allocates the option structure for BLIF format and initializes
+    it.
+
+</DL>
+<HR>
+<A NAME="fsmPortBnet.c"><H1>fsmPortBnet.c</H1></A>
+Nanotrav parts used by pdtrav <P>
+<B>By: Gianpiero Cabodi, Stefano Quer</B><P>
+This package contains functions, types and constants taken from
+    nanotrav to be used in pdtrav. The original names have been modified adding
+    the "Fsm_Port" prefix.<p>
+    FsmPortBnet.c contains the parts taken from bnet.c. <P>
+<P><B>See Also</B><A HREF="#fsmPortNtr.c"><CODE>fsmPortNtr.c</CODE></A>
+<A HREF="#pdtrav"><CODE>pdtrav</CODE></A>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortBnetReadNetwork" TARGET="MAIN"><CODE>Fsm_PortBnetReadNetwork()</CODE></A>
+ <DD> Reads boolean network from blif file.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortBnetBuildNodeBDD" TARGET="MAIN"><CODE>Fsm_PortBnetBuildNodeBDD()</CODE></A>
+ <DD> Builds the BDD for the function of a node.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortBnetDfsVariableOrder" TARGET="MAIN"><CODE>Fsm_PortBnetDfsVariableOrder()</CODE></A>
+ <DD> Orders the BDD variables by DFS.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortBnetReadOrder" TARGET="MAIN"><CODE>Fsm_PortBnetReadOrder()</CODE></A>
+ <DD> Reads the variable order from a file.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortBnetSetLevel" TARGET="MAIN"><CODE>fsmPortBnetSetLevel()</CODE></A>
+ <DD> Sets the level of each node.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortBnetLevelDFS" TARGET="MAIN"><CODE>fsmPortBnetLevelDFS()</CODE></A>
+ <DD> Does a DFS from a node setting the level field.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortBnetFreeNetwork" TARGET="MAIN"><CODE>Fsm_PortBnetFreeNetwork()</CODE></A>
+ <DD> Frees a boolean network created by Fsm_PortBnetReadNetwork.
+
+ <DT> <A HREF="fsmAllDet.html#readString" TARGET="MAIN"><CODE>readString()</CODE></A>
+ <DD> Reads a string from a file.
+
+ <DT> <A HREF="fsmAllDet.html#readList" TARGET="MAIN"><CODE>readList()</CODE></A>
+ <DD> Reads a list of strings from a file.
+
+ <DT> <A HREF="fsmAllDet.html#printList" TARGET="MAIN"><CODE>printList()</CODE></A>
+ <DD> Prints a list of strings to the standard output.
+
+ <DT> <A HREF="fsmAllDet.html#buildExorBDD" TARGET="MAIN"><CODE>buildExorBDD()</CODE></A>
+ <DD> Builds BDD for a XOR function.
+
+ <DT> <A HREF="fsmAllDet.html#buildMuxBDD" TARGET="MAIN"><CODE>buildMuxBDD()</CODE></A>
+ <DD> Builds BDD for a multiplexer.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortBnetOrderRoots" TARGET="MAIN"><CODE>fsmPortBnetOrderRoots()</CODE></A>
+ <DD> Orders network roots for variable ordering.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortBnetDfsOrder" TARGET="MAIN"><CODE>fsmPortBnetDfsOrder()</CODE></A>
+ <DD> Does a DFS from a node ordering the inputs.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortBnetLevelCompare" TARGET="MAIN"><CODE>fsmPortBnetLevelCompare()</CODE></A>
+ <DD> Comparison function used by qsort.
+
+</DL>
+<HR>
+<A NAME="fsmPortNtr.c"><H1>fsmPortNtr.c</H1></A>
+Nanotrav parts used by pdtrav <P>
+<B>By: Gianpiero Cabodi, Stefano Quer</B><P>
+This package contains functions, types and constants taken from
+    nanotrav to be used in pdtrav. The original names have been modified adding
+    the "FsmPort" prefix.<p>
+    FsmPortNtr.c contains the parts taken from ntr.c. <P>
+<P><B>See Also</B><A HREF="#fsmPortBnet.c"><CODE>fsmPortBnet.c</CODE></A>
+<A HREF="#pdtrav"><CODE>pdtrav</CODE></A>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortNtrBuildDDs" TARGET="MAIN"><CODE>Fsm_PortNtrBuildDDs()</CODE></A>
+ <DD> Builds DDs for a network outputs and next state
+  functions.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_PortNtrInitState" TARGET="MAIN"><CODE>Fsm_PortNtrInitState()</CODE></A>
+ <DD> Builds the BDD of the initial state(s).
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortNtrInitializeCount" TARGET="MAIN"><CODE>fsmPortNtrInitializeCount()</CODE></A>
+ <DD> Initializes the count fields used to drop DDs.
+
+ <DT> <A HREF="fsmAllDet.html#fsmPortNtrCountDFS" TARGET="MAIN"><CODE>fsmPortNtrCountDFS()</CODE></A>
+ <DD> Does a DFS from a node setting the count field.
+
+</DL>
+<HR>
+<A NAME="fsmProMac.c"><H1>fsmProMac.c</H1></A>
+Functions to build a Product Machine <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedures included in this module:
+               <ul>
+               <li> Fsm_MgrPMBuild () 
+               </ul> <P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrPMBuild" TARGET="MAIN"><CODE>Fsm_MgrPMBuild()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="fsmStore.c"><H1>fsmStore.c</H1></A>
+Functions to write description of FSMs <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedures included in this module:
+    <ul>
+    <li> Fsm_MgrStore ()
+    </ul> <P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrStore" TARGET="MAIN"><CODE>Fsm_MgrStore()</CODE></A>
+ <DD> Stores (on file o stdout) of FSM structure
+
+</DL>
+<HR>
+<A NAME="fsmToken.c"><H1>fsmToken.c</H1></A>
+Functions to convert tokens (keywords) between string and
+    integer (enum) format. <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#FsmString2Token" TARGET="MAIN"><CODE>FsmString2Token()</CODE></A>
+ <DD> Converts a token from string to enum
+
+ <DT> <A HREF="fsmAllDet.html#FsmToken2String" TARGET="MAIN"><CODE>FsmToken2String()</CODE></A>
+ <DD> Converts a token from enum to string
+
+</DL>
+<HR>
+<A NAME="fsmUtil.c"><H1>fsmUtil.c</H1></A>
+Utility functions to manipulate a FSM <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="fsmAllDet.html#Fsm_BddFormatString2Int" TARGET="MAIN"><CODE>Fsm_BddFormatString2Int()</CODE></A>
+ <DD> Given a string it Returns an Integer.
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_BddFormatInt2String" TARGET="MAIN"><CODE>Fsm_BddFormatInt2String()</CODE></A>
+ <DD> Given an Integer Returns a string
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrPrintStats" TARGET="MAIN"><CODE>Fsm_MgrPrintStats()</CODE></A>
+ <DD> Prints Statistics on the FSM Structure
+
+ <DT> <A HREF="fsmAllDet.html#Fsm_MgrPrintPrm" TARGET="MAIN"><CODE>Fsm_MgrPrintPrm()</CODE></A>
+ <DD> Prints the permutation on file "tmp.prm"
+
+ <DT> <A HREF="fsmAllDet.html#Pdtutil_ReadConstrain" TARGET="MAIN"><CODE>Pdtutil_ReadConstrain()</CODE></A>
+ <DD> Reads constrain
+
+</DL>
+<HR>
+Last updated on 990617 11h53
+</BODY></HTML>

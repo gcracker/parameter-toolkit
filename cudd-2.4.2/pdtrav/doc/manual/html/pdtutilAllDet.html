@@ -1,0 +1,486 @@
+<html>
+<head><title>The pdtutil package: all functions </title></head>
+<body>
+
+In the pdtutil package no internal functions are declared.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Pdtutil_AllocCheck"></A>
+void * <I></I>
+<B>Pdtutil_AllocCheck</B>(
+  void * <b>pointer</b> <i></i>
+)
+</pre>
+<dd> The Alloc mecanism is actually implemented this way in PdTRAV.
+    We call Pdtutil_Alloc that it is a macro that basically maps the call on
+    the Alloc function of the Cudd package. To check for a null result we
+    use Pdtutil_AllocCheck.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_ChrPrint"></A>
+void <I></I>
+<B>Pdtutil_ChrPrint</B>(
+  FILE * <b>fp</b>, <i>Where to Print</i>
+  char  <b>c</b>, <i>Which character to Print</i>
+  int  <b>n</b> <i>How many Times</i>
+)
+</pre>
+<dd> Print on fp the desired number of charaters on a file.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_FileClose"></A>
+void <I></I>
+<B>Pdtutil_FileClose</B>(
+  FILE * <b>fp</b>, <i>IN: File Pointer</i>
+  int * <b>flag</b> <i>IN-OUT: File to be Closed</i>
+)
+</pre>
+<dd> It closes a file if it is not the standard input or output
+   and flag is 1.
+   This flag has to be used with the one returned by Pdtutil_FileOpen: If
+   a file has been opened is closed too.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Pdtutil_FileOpen">Pdtutil_FileOpen</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_FileName"></A>
+char * <I></I>
+<B>Pdtutil_FileName</B>(
+  char * <b>filename</b>, <i>file name</i>
+  char * <b>attribute</b>, <i>attribute</i>
+  char * <b>extension</b>, <i>extension</i>
+  int  <b>overwrite</b> <i>overwrite the extension if 1</i>
+)
+</pre>
+<dd> Takes a file name, an attribute, an extension, and an overwrite
+   flag.
+   If the name is stdin or stdout return the name as it is.
+   Add the attribute to the name.
+   Add the extension to the name if it doesn't contains an
+   extension already.
+   If there is an extension it substitutes it if overwrite = 1.
+   Create and returns the new name.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_FileOpen"></A>
+FILE * <I></I>
+<B>Pdtutil_FileOpen</B>(
+  FILE * <b>fp</b>, <i>IN: File Pointer</i>
+  char * <b>filename</b>, <i>IN: File Name</i>
+  char * <b>mode</b>, <i>IN: Open Mode</i>
+  int * <b>flag</b> <i>OUT: File Opened (if 1)</i>
+)
+</pre>
+<dd> It receives a file pointer, a file name, and a mode.
+   If the file pointer is not null, the file has been already opened
+   at this pointer is returned.
+   If the filename is "stdin" or "stdout" it considers that as a synonym
+   for standard input/output.
+   Open mode can be "r" for read or "w" for write.
+   In particularly, "rt" open for read a text file and "rb" open
+   for read a binary file; "wt" write a text file and "wb" write 
+   a binary file.<BR>
+   Returns a pointer to the file and an integer flag that is 1 if a file
+   has been opened.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Pdtutil_FileClose">Pdtutil_FileClose</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_IntArrayDup"></A>
+int * <I></I>
+<B>Pdtutil_IntArrayDup</B>(
+  int * <b>array</b>, <i>Array of Integers to be Duplicated</i>
+  int  <b>n</b> <i>size of the array</i>
+)
+</pre>
+<dd> Allocates memory and copies source array
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_IntArrayRead"></A>
+int <I></I>
+<B>Pdtutil_IntArrayRead</B>(
+  int ** <b>parray</b>, <i>array of strings (by reference)</i>
+  FILE * <b>fp</b> <i>file pointer</i>
+)
+</pre>
+<dd> Allocates memory and inputs source array. Skips anything from
+    '#' to the end-of-line (a comment).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_IntArrayWrite"></A>
+int <I></I>
+<B>Pdtutil_IntArrayWrite</B>(
+  FILE * <b>fp</b>, <i>output file</i>
+  int * <b>array</b>, <i>array of ints</i>
+  int  <b>n</b> <i>size of the array</i>
+)
+</pre>
+<dd> Outputs an array of ints
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_OrdRead"></A>
+int <I></I>
+<B>Pdtutil_OrdRead</B>(
+  char *** <b>pvarnames</b>, <i>Varnames Array</i>
+  int ** <b>pvarauxids</b>, <i>Varauxids Array</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b>, <i>File Pointer</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i>File Format</i>
+)
+</pre>
+<dd> Reads the order in the <em>.ord</em> file.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_OrdWrite"></A>
+int <I></I>
+<B>Pdtutil_OrdWrite</B>(
+  char ** <b>varnames</b>, <i>Varnames Array</i>
+  int * <b>varauxids</b>, <i>Varauxids Array</i>
+  int * <b>sortedIds</b>, <i>Variable Permutations</i>
+  int  <b>nvars</b>, <i>Number of Variables</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b>, <i>File Pointer</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i>File Format</i>
+)
+</pre>
+<dd> Write the order to file, using variable names or
+    auxids (or both of them). Array of sorted ids is used if the sortedIds
+    parameter is not NULL. Produce different slightly different format
+    depending on the format parameter:
+    Pdtutil_VariableOrderPiPs_c
+      only variables names for Primary Input and Present State Variables are
+      stored (one for each row)
+    Pdtutil_VariableOrderPiPsNs_c
+      store previous information + Next State Variables Names
+    Pdtutil_VariableOrderIndex_c
+      store previous information + Variable Auxiliary Index
+    Pdtutil_VariableOrderComment_c
+      store previous information + Comments (row starting for #)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_ReadName"></A>
+void <I></I>
+<B>Pdtutil_ReadName</B>(
+  char * <b>extName</b>, <i></i>
+  int * <b>nstr</b>, <i></i>
+  char ** <b>names</b>, <i></i>
+  int  <b>maxNstr</b> <i>Maximum number of names</i>
+)
+</pre>
+<dd> parses hierarchical names separated by '.'
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_ReadSubstring"></A>
+void <I></I>
+<B>Pdtutil_ReadSubstring</B>(
+  char * <b>stringIn</b>, <i>String to be parsed</i>
+  char ** <b>stringFirstP</b>, <i>First Sub-String Pointer</i>
+  char ** <b>stringSecondP</b> <i>Second Sub-String Pointer</i>
+)
+</pre>
+<dd> It receives a string. It returns two strings: The first one
+   is the content of the original string before the first character "."
+   found in the string. The second one is the remaining part of the
+   string.
+   If the initial string is NULL two NULL pointers are returned.
+   If the initial string doen't contain a sharater '.' the first string is
+   equal to the original one and the second is NULL.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_StrArrayDup"></A>
+char ** <I></I>
+<B>Pdtutil_StrArrayDup</B>(
+  char ** <b>array</b>, <i>array of strings to be duplicated</i>
+  int  <b>n</b> <i>size of the array</i>
+)
+</pre>
+<dd> Allocates memory and copies source array
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_StrArrayFree"></A>
+void <I></I>
+<B>Pdtutil_StrArrayFree</B>(
+  char ** <b>array</b>, <i>array of strings</i>
+  int  <b>n</b> <i>size of the array</i>
+)
+</pre>
+<dd> Frees memory for strings and the array of pointers
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_StrArrayRead"></A>
+int <I></I>
+<B>Pdtutil_StrArrayRead</B>(
+  char *** <b>parray</b>, <i>array of strings (by reference)</i>
+  FILE * <b>fp</b> <i>file pointer</i>
+)
+</pre>
+<dd> Allocates memory and inputs source array. Skips anything from
+    '#' to the end-of-line (a comment).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_StrArrayWrite"></A>
+int <I></I>
+<B>Pdtutil_StrArrayWrite</B>(
+  FILE * <b>fp</b>, <i>output file</i>
+  char ** <b>array</b>, <i>array of strings</i>
+  int  <b>n</b> <i>size of the array</i>
+)
+</pre>
+<dd> Allocates memory and inputs source array
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_StrDup"></A>
+char * <I></I>
+<B>Pdtutil_StrDup</B>(
+  char * <b>str</b> <i></i>
+)
+</pre>
+<dd> Duplicates a string and returns it.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_VariableOrderFormatEnum2String"></A>
+char * <I></I>
+<B>Pdtutil_VariableOrderFormatEnum2String</B>(
+  Pdtutil_VariableOrderFormat_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_VariableOrderFormatString2Enum"></A>
+Pdtutil_VariableOrderFormat_e <I></I>
+<B>Pdtutil_VariableOrderFormatString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the variable file format method type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_VerbosityEnum2String"></A>
+char * <I></I>
+<B>Pdtutil_VerbosityEnum2String</B>(
+  Pdtutil_VerbLevel_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Pdtutil_VerbosityString2Enum"></A>
+Pdtutil_VerbLevel_e <I></I>
+<B>Pdtutil_VerbosityString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the verbosity enumerated type.
+    This verbosity mechanism is used all over the PdTRAV package.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.c"TARGET="ABSTRACT"><CODE>pdtutil.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Checks for Warnings: If expr==1 print out the warning on
+    stderr
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.h"TARGET="ABSTRACT"><CODE>pdtutil.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Checks for fatal bugs
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.h"TARGET="ABSTRACT"><CODE>pdtutil.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.h"TARGET="ABSTRACT"><CODE>pdtutil.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.h"TARGET="ABSTRACT"><CODE>pdtutil.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="pdtutilAllFile.html#pdtutil.h"TARGET="ABSTRACT"><CODE>pdtutil.h</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

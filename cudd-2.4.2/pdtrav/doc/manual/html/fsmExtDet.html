@@ -1,0 +1,1575 @@
+<HTML>
+<HEAD><TITLE>The fsm package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Fsm_BddFormatInt2String"></A>
+char * <I></I>
+<B>Fsm_BddFormatInt2String</B>(
+  int  <b>intValue</b> <i></i>
+)
+</pre>
+<dd> Given an Integer Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_BddFormatString2Int"></A>
+int <I></I>
+<B>Fsm_BddFormatString2Int</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the integer DDDMP value.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_BlifStore"></A>
+int <I></I>
+<B>Fsm_BlifStore</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM structure</i>
+  int  <b>reduceDelta</b>, <i>If 0 Store Original Delta, if 1 Store Dummy Delta</i>
+  char * <b>fileName</b>, <i>Output File Name</i>
+  FILE * <b>fp</b> <i>File Pointer</i>
+)
+</pre>
+<dd> If the filename is stdout print out the file on standard
+    output.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayStore">Ddi_BddarrayStore</a>
+<a href="#Ddi_BddarrayRead">Ddi_BddarrayRead</a>
+<a href="#Ddi_BddarrayNum">Ddi_BddarrayNum</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_CommonEnableCompute"></A>
+void <I></I>
+<B>Fsm_CommonEnableCompute</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  Fsm_Retime_t * <b>retimeStrPtr</b> <i>Retime Structure</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_EnableDependencyCompute"></A>
+void <I></I>
+<B>Fsm_EnableDependencyCompute</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  Fsm_Retime_t * <b>retimeStrPtr</b> <i>Retime Structure</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_FindRemovableLatches"></A>
+void <I></I>
+<B>Fsm_FindRemovableLatches</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  int * <b>removableLatches</b>, <i></i>
+  Ddi_Bddarray_t * <b>delta</b>, <i></i>
+  Ddi_Vararray_t * <b>sarray</b>, <i></i>
+  Ddi_Varset_t * <b>inputs</b>, <i></i>
+  int  <b>ns</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrAuxVarRemove"></A>
+void <I></I>
+<B>Fsm_MgrAuxVarRemove</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i>FSM Manager</i>
+)
+</pre>
+<dd> The same FSM is returned in any case.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrCheck"></A>
+int <I></I>
+<B>Fsm_MgrCheck</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i>FSM structure</i>
+)
+</pre>
+<dd> Check the Congruence of a FSM structure.
+    Return 1 if the FSM is a NULL pointer or it is not correct.
+    Return 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrDup"></A>
+Fsm_Mgr_t * <I></I>
+<B>Fsm_MgrDup</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i>FSM Manager</i>
+)
+</pre>
+<dd> The new FSM is allocated and all the field are duplicated
+    from the original FSM.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Fsm_MgrInit">Fsm_MgrInit</a>
+()
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrInit"></A>
+Fsm_Mgr_t * <I></I>
+<B>Fsm_MgrInit</B>(
+  char * <b>fsmName</b> <i>Name of the FSM structure</i>
+)
+</pre>
+<dd> Notice: Direct access to fileds is used, because macros
+    check for NULL fields to discover memory leaks.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrLoadFromBlif"></A>
+int <I></I>
+<B>Fsm_MgrLoadFromBlif</B>(
+  Fsm_Mgr_t ** <b>fsmMgrP</b>, <i>FSM Pointer</i>
+  Ddi_Mgr_t * <b>dd</b>, <i>BDD manager</i>
+  char * <b>fileFsmName</b>, <i>FSM File Name</i>
+  char * <b>fileOrdName</b>, <i>ORD File Name</i>
+  int  <b>bddFlag</b>, <i>Not Used For Now</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i>Order File Format</i>
+)
+</pre>
+<dd> The function gives a compatible DDI:
+    <ul>
+    <li>number of primary input
+    <li>number of latches
+    <li>array of primary input variables
+    <li>array of present state variables
+    <li>array of next state variables
+    <li>array of next state functions
+    <li>array of partitioned transition relation
+    </ul>
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrLoad"></A>
+int <I></I>
+<B>Fsm_MgrLoad</B>(
+  Fsm_Mgr_t ** <b>fsmMgrP</b>, <i>FSM Pointer</i>
+  Ddi_Mgr_t * <b>dd</b>, <i>Main DD manager</i>
+  char * <b>fileFsmName</b>, <i>Input file name</i>
+  char * <b>fileOrdName</b>, <i>ORD File Name</i>
+  int  <b>bddFlag</b>, <i>0=Do non load BDD (default), 1=Load BDD</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_name_file">get_name_file</a>
+<a href="#readFsm">readFsm</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrOperation"></A>
+int <I></I>
+<B>Fsm_MgrOperation</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlagP</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CmdMgrOperation">CmdMgrOperation</a>
+<a href="#CmdRegOperation">CmdRegOperation</a>
+<a href="#Trav_MgrOperation">Trav_MgrOperation</a>
+<a href="#Tr_MgrOperation">Tr_MgrOperation</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrPMBuild"></A>
+int <I></I>
+<B>Fsm_MgrPMBuild</B>(
+  Fsm_Mgr_t ** <b>fsmMgrPMP</b>, <i>FSM Product Machine Pointer</i>
+  Fsm_Mgr_t * <b>fsmMgr1</b>, <i>First FSM</i>
+  Fsm_Mgr_t * <b>fsmMgr2</b> <i>Second FSM</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_name_file">get_name_file</a>
+<a href="#readFsm">readFsm</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrPrintPrm"></A>
+void <I></I>
+<B>Fsm_MgrPrintPrm</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> Prints the permutation on file "tmp.prm"
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrPrintStats"></A>
+void <I></I>
+<B>Fsm_MgrPrintStats</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> Prints Statistics on the FSM Structure
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrPrintStats">Ddi_MgrPrintStats</a>
+<a href="#Tr_MgrPrintStats">Tr_MgrPrintStats</a>
+<a href="#Trav_MgrPrintStats">Trav_MgrPrintStats</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrQuit"></A>
+void <I></I>
+<B>Fsm_MgrQuit</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i>FSM Manager</i>
+)
+</pre>
+<dd> Frees unused FSM structure members
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrQuit">Ddi_MgrQuit</a>
+<a href="#Tr_MgrQuit">Tr_MgrQuit</a>
+<a href="#Trav_MgrQuit">Trav_MgrQuit</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadAuxVarBDD"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Fsm_MgrReadAuxVarBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadAuxVarName"></A>
+char * <I></I>
+<B>Fsm_MgrReadAuxVarName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadBddFormat"></A>
+int <I></I>
+<B>Fsm_MgrReadBddFormat</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadDdManager"></A>
+Ddi_Mgr_t * <I></I>
+<B>Fsm_MgrReadDdManager</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadDeltaBDD"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Fsm_MgrReadDeltaBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadDeltaName"></A>
+char * <I></I>
+<B>Fsm_MgrReadDeltaName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadFileName"></A>
+char * <I></I>
+<B>Fsm_MgrReadFileName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadFromBDD"></A>
+Ddi_Bdd_t * <I></I>
+<B>Fsm_MgrReadFromBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadFromName"></A>
+char * <I></I>
+<B>Fsm_MgrReadFromName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadFromString"></A>
+char * <I></I>
+<B>Fsm_MgrReadFromString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadFsmName"></A>
+char * <I></I>
+<B>Fsm_MgrReadFsmName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadIndexAuxVar"></A>
+int * <I></I>
+<B>Fsm_MgrReadIndexAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadIndexI"></A>
+int * <I></I>
+<B>Fsm_MgrReadIndexI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadIndexNS"></A>
+int * <I></I>
+<B>Fsm_MgrReadIndexNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadIndexO"></A>
+int * <I></I>
+<B>Fsm_MgrReadIndexO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadIndexPS"></A>
+int * <I></I>
+<B>Fsm_MgrReadIndexPS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadInitBDD"></A>
+Ddi_Bdd_t * <I></I>
+<B>Fsm_MgrReadInitBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadInitName"></A>
+char * <I></I>
+<B>Fsm_MgrReadInitName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadInitString"></A>
+char * <I></I>
+<B>Fsm_MgrReadInitString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadInvauxids"></A>
+int * <I></I>
+<B>Fsm_MgrReadInvauxids</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadLambdaBDD"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Fsm_MgrReadLambdaBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadLambdaName"></A>
+char * <I></I>
+<B>Fsm_MgrReadLambdaName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNAuxVar"></A>
+int <I></I>
+<B>Fsm_MgrReadNAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNI"></A>
+int <I></I>
+<B>Fsm_MgrReadNI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNL"></A>
+int <I></I>
+<B>Fsm_MgrReadNL</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNO"></A>
+int <I></I>
+<B>Fsm_MgrReadNO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNameAuxVar"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNameAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNameI"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNameI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNameNSTrueName"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNameNSTrueName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNameNS"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNameNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNameO"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNameO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadNamePS"></A>
+char ** <I></I>
+<B>Fsm_MgrReadNamePS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadOrdFileName"></A>
+char * <I></I>
+<B>Fsm_MgrReadOrdFileName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadOrdFile"></A>
+void <I></I>
+<B>Fsm_MgrReadOrdFile</B>(
+  FILE * <b>fp</b>, <i></i>
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i></i>
+)
+</pre>
+<dd> Reads variable order from a <em>.ord</em> file
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadOrdNodeName"></A>
+char ** <I></I>
+<B>Fsm_MgrReadOrdNodeName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadOrdNodeid"></A>
+int * <I></I>
+<B>Fsm_MgrReadOrdNodeid</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadReachedBDD"></A>
+Ddi_Bdd_t * <I></I>
+<B>Fsm_MgrReadReachedBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadReachedName"></A>
+char * <I></I>
+<B>Fsm_MgrReadReachedName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadReachedString"></A>
+char * <I></I>
+<B>Fsm_MgrReadReachedString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadTrBDD"></A>
+Ddi_Bdd_t * <I></I>
+<B>Fsm_MgrReadTrBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadTrName"></A>
+char * <I></I>
+<B>Fsm_MgrReadTrName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadTrString"></A>
+char * <I></I>
+<B>Fsm_MgrReadTrString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarAuxVar"></A>
+Ddi_Vararray_t * <I></I>
+<B>Fsm_MgrReadVarAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarI"></A>
+Ddi_Vararray_t * <I></I>
+<B>Fsm_MgrReadVarI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarNS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Fsm_MgrReadVarNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarO"></A>
+Ddi_Vararray_t * <I></I>
+<B>Fsm_MgrReadVarO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarPS"></A>
+Ddi_Vararray_t * <I></I>
+<B>Fsm_MgrReadVarPS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarauxids"></A>
+int * <I></I>
+<B>Fsm_MgrReadVarauxids</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVarnames"></A>
+char ** <I></I>
+<B>Fsm_MgrReadVarnames</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrReadVerbosity"></A>
+Pdtutil_VerbLevel_e <I></I>
+<B>Fsm_MgrReadVerbosity</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetAuxVarBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetAuxVarBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bddarray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetAuxVarName"></A>
+void <I></I>
+<B>Fsm_MgrSetAuxVarName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetBddFormat"></A>
+void <I></I>
+<B>Fsm_MgrSetBddFormat</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetDdManager"></A>
+void <I></I>
+<B>Fsm_MgrSetDdManager</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Mgr_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetDeltaBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetDeltaBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bddarray_t * <b>delta</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetDeltaName"></A>
+void <I></I>
+<B>Fsm_MgrSetDeltaName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetFileName"></A>
+void <I></I>
+<B>Fsm_MgrSetFileName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>fileName</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetFromBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetFromBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetFromName"></A>
+void <I></I>
+<B>Fsm_MgrSetFromName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetFromString"></A>
+void <I></I>
+<B>Fsm_MgrSetFromString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetFsmName"></A>
+void <I></I>
+<B>Fsm_MgrSetFsmName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>fsmName</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetIndexAuxVar"></A>
+void <I></I>
+<B>Fsm_MgrSetIndexAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetIndexI"></A>
+void <I></I>
+<B>Fsm_MgrSetIndexI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetIndexNS"></A>
+void <I></I>
+<B>Fsm_MgrSetIndexNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetIndexO"></A>
+void <I></I>
+<B>Fsm_MgrSetIndexO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetIndexPS"></A>
+void <I></I>
+<B>Fsm_MgrSetIndexPS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetInitBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetInitBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetInitName"></A>
+void <I></I>
+<B>Fsm_MgrSetInitName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetInitString"></A>
+void <I></I>
+<B>Fsm_MgrSetInitString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetInvauxids"></A>
+void <I></I>
+<B>Fsm_MgrSetInvauxids</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetLambdaBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetLambdaBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bddarray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetLambdaName"></A>
+void <I></I>
+<B>Fsm_MgrSetLambdaName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNAuxVar"></A>
+void <I></I>
+<B>Fsm_MgrSetNAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNI"></A>
+void <I></I>
+<B>Fsm_MgrSetNI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNL"></A>
+void <I></I>
+<B>Fsm_MgrSetNL</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNO"></A>
+void <I></I>
+<B>Fsm_MgrSetNO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNameAuxVar"></A>
+void <I></I>
+<B>Fsm_MgrSetNameAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNameI"></A>
+void <I></I>
+<B>Fsm_MgrSetNameI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNameNSTrueName"></A>
+void <I></I>
+<B>Fsm_MgrSetNameNSTrueName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNameNS"></A>
+void <I></I>
+<B>Fsm_MgrSetNameNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNameO"></A>
+void <I></I>
+<B>Fsm_MgrSetNameO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetNamePS"></A>
+void <I></I>
+<B>Fsm_MgrSetNamePS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetOrdFileName"></A>
+void <I></I>
+<B>Fsm_MgrSetOrdFileName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetOrdNodeName"></A>
+void <I></I>
+<B>Fsm_MgrSetOrdNodeName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetOrdNodeid"></A>
+void <I></I>
+<B>Fsm_MgrSetOrdNodeid</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetReachedBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetReachedBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetReachedName"></A>
+void <I></I>
+<B>Fsm_MgrSetReachedName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetReachedString"></A>
+void <I></I>
+<B>Fsm_MgrSetReachedString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetTrBDD"></A>
+void <I></I>
+<B>Fsm_MgrSetTrBDD</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Bdd_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetTrName"></A>
+void <I></I>
+<B>Fsm_MgrSetTrName</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetTrString"></A>
+void <I></I>
+<B>Fsm_MgrSetTrString</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarAuxVar"></A>
+void <I></I>
+<B>Fsm_MgrSetVarAuxVar</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Vararray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarI"></A>
+void <I></I>
+<B>Fsm_MgrSetVarI</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Vararray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarNS"></A>
+void <I></I>
+<B>Fsm_MgrSetVarNS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Vararray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarO"></A>
+void <I></I>
+<B>Fsm_MgrSetVarO</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Vararray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarPS"></A>
+void <I></I>
+<B>Fsm_MgrSetVarPS</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Ddi_Vararray_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarauxids"></A>
+void <I></I>
+<B>Fsm_MgrSetVarauxids</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  int * <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarnamesOne"></A>
+void <I></I>
+<B>Fsm_MgrSetVarnamesOne</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char * <b>var</b>, <i></i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVarnames"></A>
+void <I></I>
+<B>Fsm_MgrSetVarnames</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  char ** <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrSetVerbosity"></A>
+void <I></I>
+<B>Fsm_MgrSetVerbosity</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i></i>
+  Pdtutil_VerbLevel_e  <b>var</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_MgrStore"></A>
+int <I></I>
+<B>Fsm_MgrStore</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Structure</i>
+  char * <b>fileName</b>, <i>Output File Name</i>
+  FILE * <b>fp</b>, <i>File Pointer</i>
+  int  <b>bddFlag</b>, <i>Flag to Store or Not BDD on Files</i>
+  int  <b>bddFormat</b>, <i>0 = default, 1 = text, 2 = binary</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i></i>
+)
+</pre>
+<dd> Stores (on file o stdout) of FSM structure.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayStore">Ddi_BddarrayStore</a>
+<a href="#Ddi_BddarrayRead">Ddi_BddarrayRead</a>
+<a href="#Ddi_BddarrayNum">Ddi_BddarrayNum</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_OptimalRetimingCompute"></A>
+void <I></I>
+<B>Fsm_OptimalRetimingCompute</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b>, <i></i>
+  int  <b>retimeEqual</b>, <i></i>
+  int * <b>retimeDeltas</b>, <i></i>
+  Ddi_Varset_t ** <b>deltaSupp</b>, <i></i>
+  Ddi_Bddarray_t * <b>enableArray</b>, <i></i>
+  Ddi_Bdd_t * <b>en</b>, <i></i>
+  Ddi_Vararray_t * <b>sarray</b>, <i></i>
+  int  <b>ns</b>, <i></i>
+  Ddi_Varset_t * <b>latches</b>, <i></i>
+  Ddi_Varset_t * <b>inputs</b>, <i></i>
+  Ddi_Varset_t * <b>notRetimed</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Fsm_PortBnetBuildNodeBDD"></A>
+int <I></I>
+<B>Fsm_PortBnetBuildNodeBDD</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>DD manager</i>
+  FsmPortBnetNode_t * <b>nd</b>, <i>node of the boolean network</i>
+  st_table * <b>hash</b>, <i>symbol table of the boolean network</i>
+  int  <b>params</b>, <i>type of DD to be built</i>
+  int  <b>nodrop</b> <i>retain the intermediate node DDs until the end</i>
+)
+</pre>
+<dd> Builds the BDD for the function of a node and stores a
+  pointer to it in the dd field of the node itself. The reference count
+  of the BDD is incremented. If params is PORT_BNETLOCAL_DD, then the BDD is
+  built in terms of the local inputs to the node; otherwise, if params
+  is PORT_BNETGLOBAL_DD, the BDD is built in terms of the network primary
+  inputs. To build the global BDD of a node, the BDDs for its local
+  inputs must exist. If that is not the case, Fsm_PortBnetBuildNodeBDD
+  recursively builds them. Likewise, to create the local BDD for a node,
+  the local inputs must have variables assigned to them. If that is not
+  the case, Fsm_PortBnetBuildNodeBDD recursively assigns variables to nodes.
+  Fsm_PortBnetBuildNodeBDD returns 1 in case of success; 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Sets the dd field of the node.
+<p>
+
+<dt><pre>
+<A NAME="Fsm_PortBnetDfsVariableOrder"></A>
+int <I></I>
+<B>Fsm_PortBnetDfsVariableOrder</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  FsmPortBnetNetwork_t * <b>net</b> <i></i>
+)
+</pre>
+<dd> Orders the BDD variables by DFS.  Returns 1 in case of
+  success; 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Uses the visited flags of the nodes.
+<p>
+
+<dt><pre>
+<A NAME="Fsm_PortBnetFreeNetwork"></A>
+void <I></I>
+<B>Fsm_PortBnetFreeNetwork</B>(
+  FsmPortBnetNetwork_t * <b>net</b> <i></i>
+)
+</pre>
+<dd> Frees a boolean network created by Fsm_PortBnetReadNetwork.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Fsm_PortBnetReadNetwork">Fsm_PortBnetReadNetwork</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_PortBnetReadNetwork"></A>
+FsmPortBnetNetwork_t * <I></I>
+<B>Fsm_PortBnetReadNetwork</B>(
+  FILE * <b>fp</b>, <i>pointer to the blif file</i>
+  int  <b>pr</b> <i>verbosity level</i>
+)
+</pre>
+<dd> Reads a boolean network from a blif file. A very restricted
+  subset of blif is supfsmPorted. Specifically:
+  <ul>
+  <li> The only directives recognized are:
+    <ul>
+    <li> .model
+    <li> .inputs
+    <li> .outputs
+    <li> .latch
+    <li> .names
+    <li> .exdc
+    <li> .wire_load_slope
+    <li> .end
+    </ul>
+  <li> Latches must have an initial values and no other parameters
+       specified.
+  <li> Lines must not exceed MAXLENGTH-1 characters, and individual names must
+       not exceed 1023 characters.
+  </ul>
+  Caveat emptor: There may be other limitations as well. One should
+  check the syntax of the blif file with some other tool before relying
+  on this parser. Fsm_PortBnetReadNetwork returns a pointer to the network if
+  successful; NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Fsm_PortBnetPrintNetwork">Fsm_PortBnetPrintNetwork</a>
+<a href="#Fsm_PortBnetFreeNetwork">Fsm_PortBnetFreeNetwork</a>
+</code>
+
+<dt><pre>
+<A NAME="Fsm_PortBnetReadOrder"></A>
+int <I></I>
+<B>Fsm_PortBnetReadOrder</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  char * <b>ordFile</b>, <i></i>
+  FsmPortBnetNetwork_t * <b>net</b>, <i></i>
+  int  <b>locGlob</b>, <i></i>
+  int  <b>nodrop</b>, <i></i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i></i>
+)
+</pre>
+<dd> Reads the variable order from a file.
+    Returns 1 if successful; 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> The BDDs for the primary inputs and present state variables
+    are built.
+<p>
+
+<dt><pre>
+<A NAME="Fsm_PortNtrBuildDDs"></A>
+int <I></I>
+<B>Fsm_PortNtrBuildDDs</B>(
+  FsmPortBnetNetwork_t * <b>net</b>, <i>network for which DDs are to be built</i>
+  Ddi_Mgr_t * <b>dd</b>, <i>DD manager</i>
+  FsmPortNtrOptions_t * <b>option</b>, <i>option structure</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i></i>
+)
+</pre>
+<dd> Builds DDs for a network outputs and next state
+  functions. The method is really brain-dead, but it is very simple.
+  Returns 1 in case of success; 0 otherwise. Some inputs to the network
+  may be shared with another network whose DDs have already been built.
+  In this case we want to share the DDs as well.
+<p>
+
+<dd> <b>Side Effects</b> the dd fields of the network nodes are modified. Uses the
+  count fields of the nodes.
+<p>
+
+<dt><pre>
+<A NAME="Fsm_PortNtrInitState"></A>
+Ddi_Bdd_t * <I></I>
+<B>Fsm_PortNtrInitState</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  FsmPortBnetNetwork_t * <b>net</b>, <i></i>
+  FsmPortNtrOptions_t * <b>option</b> <i></i>
+)
+</pre>
+<dd> Builds the BDD of the initial state(s).  Returns a BDD
+  if successful; NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Fsm_RetimeApply"></A>
+Fsm_Mgr_t * <I></I>
+<B>Fsm_RetimeApply</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  Fsm_Retime_t * <b>retimeStrPtr</b> <i>Retime Structure</i>
+)
+</pre>
+<dd> There should be a 1 to 1 correspondence between the
+    retiming array (retimeStrPtr->retimeArray) and the delta array.
+<p>
+
+<dt><pre>
+<A NAME="Fsm_RetimeCompute"></A>
+void <I></I>
+<B>Fsm_RetimeCompute</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  Fsm_Retime_t * <b>retimeStrPtr</b> <i>Retime Structure</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Fsm_RetimeForRACompute"></A>
+Fsm_Mgr_t * <I></I>
+<B>Fsm_RetimeForRACompute</B>(
+  Fsm_Mgr_t * <b>fsmMgr</b>, <i>FSM Manager</i>
+  Fsm_Retime_t * <b>retimeStrPtr</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

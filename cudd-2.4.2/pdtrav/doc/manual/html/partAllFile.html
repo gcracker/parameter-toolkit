@@ -1,0 +1,179 @@
+<HTML>
+<HEAD><TITLE>The part package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#part.h"><CODE>part.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#partInt.h"><CODE>partInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#partConj.c"><CODE>partConj.c</CODE></A>
+ <DD> Conjunctively partitioned functions
+ <DT> <A HREF="#partCuPlus.c"><CODE>partCuPlus.c</CODE></A>
+ <DD> Recursive Functions for Disjunctive Partitioning.
+    This functions rely on the ddi package.
+ <DT> <A HREF="#partCudd.c"><CODE>partCudd.c</CODE></A>
+ <DD> Functions for Disjunctive and Conjunctive Partitioning
+    as implemented in the Cudd package.
+ <DT> <A HREF="#partDisj.c"><CODE>partDisj.c</CODE></A>
+ <DD> Functions for Disjunctive Partitioning.
+ <DT> <A HREF="#partUtil.c"><CODE>partUtil.c</CODE></A>
+ <DD> Utility Functions for the Partitioning Package
+</DL><HR>
+<A NAME="part.h"><H1>part.h</H1></A>
+External header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="partInt.h"><H1>partInt.h</H1></A>
+Internal header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="partConj.c"><H1>partConj.c</H1></A>
+Conjunctively partitioned functions <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="partAllDet.html#Part_BddMultiwayLinearAndExist" TARGET="MAIN"><CODE>Part_BddMultiwayLinearAndExist()</CODE></A>
+ <DD> Compute the multiway and-exist over a conjunctively partitioned
+    function
+
+ <DT> <A HREF="partAllDet.html#Part_BddDisjSuppPart" TARGET="MAIN"><CODE>Part_BddDisjSuppPart()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="partCuPlus.c"><H1>partCuPlus.c</H1></A>
+Recursive Functions for Disjunctive Partitioning.
+    This functions rely on the ddi package. <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedures included in this file:
+    <ul>
+    <li> Part_EstimateCofactor
+    <li> Part_EstimateCofactorComplex
+    <li> Part_EstimateCofactorFast
+    <li> Part_EstimateCofactorFreeOrder
+    </ul>
+    Static procedures included in this module:
+    <ul>
+    <li> partEstimateCofactor
+    <li> partEstimateCofactorComplex
+    <li> partEstimateCofactorFast
+    <li> partEstimateCofactorFreeOrder
+    <li> ddFlagClear 
+    </ul> <P>
+<DL>
+ <DT> <A HREF="partAllDet.html#Part_EstimateCofactor" TARGET="MAIN"><CODE>Part_EstimateCofactor()</CODE></A>
+ <DD> Counts the number of nodes of the cofactors: 
+    Stefano Quer solution.
+
+ <DT> <A HREF="partAllDet.html#Part_EstimateCofactorComplex" TARGET="MAIN"><CODE>Part_EstimateCofactorComplex()</CODE></A>
+ <DD> Counts the number of nodes of the cofactors:
+    Fabio Somenzi Private Commnunication Solution.
+
+ <DT> <A HREF="partAllDet.html#Part_EstimateCofactorFast" TARGET="MAIN"><CODE>Part_EstimateCofactorFast()</CODE></A>
+ <DD> Count the number of nodes of the cofactors using the fast
+    heuristic (TCAD'99)
+
+ <DT> <A HREF="partAllDet.html#Part_EstimateCofactorFreeOrder" TARGET="MAIN"><CODE>Part_EstimateCofactorFreeOrder()</CODE></A>
+ <DD> Count the number of nodes of the cofactors using the Free
+    Order heuristic (TCAD'99).
+
+ <DT> <A HREF="partAllDet.html#partEstimateCofactor" TARGET="MAIN"><CODE>partEstimateCofactor()</CODE></A>
+ <DD> Performs the recursive step of Part_EstimateCofactor
+
+ <DT> <A HREF="partAllDet.html#partEstimateCofactorComplex" TARGET="MAIN"><CODE>partEstimateCofactorComplex()</CODE></A>
+ <DD> Performs the recursive step of Part_EstimateCofactor
+
+ <DT> <A HREF="partAllDet.html#partEstimateCofactorFast" TARGET="MAIN"><CODE>partEstimateCofactorFast()</CODE></A>
+ <DD> Performs the recursive step of fsCntNodesVar
+
+ <DT> <A HREF="partAllDet.html#partEstimateCofactorFreeOrder" TARGET="MAIN"><CODE>partEstimateCofactorFreeOrder()</CODE></A>
+ <DD> Performs the recursive step of fsCntNodesVar
+
+ <DT> <A HREF="partAllDet.html#ddFlagClear" TARGET="MAIN"><CODE>ddFlagClear()</CODE></A>
+ <DD> Performs a DFS from f, clearing the LSB of the next
+    pointers.
+
+</DL>
+<HR>
+<A NAME="partCudd.c"><H1>partCudd.c</H1></A>
+Functions for Disjunctive and Conjunctive Partitioning
+    as implemented in the Cudd package. <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+This file contains interface function to linked with the
+    standard cudd partitionin routines. <P>
+<DL>
+ <DT> <A HREF="partAllDet.html#Part_PartitionSetCudd" TARGET="MAIN"><CODE>Part_PartitionSetCudd()</CODE></A>
+ <DD> Partition a state set
+
+ <DT> <A HREF="partAllDet.html#partPartitionCudd" TARGET="MAIN"><CODE>partPartitionCudd()</CODE></A>
+ <DD> Direct call to cudd partitioning functions.
+
+</DL>
+<HR>
+<A NAME="partDisj.c"><H1>partDisj.c</H1></A>
+Functions for Disjunctive Partitioning. <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="partAllDet.html#Part_PartitionSetInterface" TARGET="MAIN"><CODE>Part_PartitionSetInterface()</CODE></A>
+ <DD> Interface Routine to Partition a state set
+
+ <DT> <A HREF="partAllDet.html#Part_PartitionDisjSet" TARGET="MAIN"><CODE>Part_PartitionDisjSet()</CODE></A>
+ <DD> Partition a state set
+
+ <DT> <A HREF="partAllDet.html#partPartitionDisjSet" TARGET="MAIN"><CODE>partPartitionDisjSet()</CODE></A>
+ <DD> Splitting a set
+
+ <DT> <A HREF="partAllDet.html#exactCofactor" TARGET="MAIN"><CODE>exactCofactor()</CODE></A>
+ <DD> Counts the number of nodes of the cofactors
+
+ <DT> <A HREF="partAllDet.html#estimateCofactor" TARGET="MAIN"><CODE>estimateCofactor()</CODE></A>
+ <DD> Calls function for to count the number of nodes of the
+    cofactors: ICCAD'96 original solution
+
+ <DT> <A HREF="partAllDet.html#varSelectionFast" TARGET="MAIN"><CODE>varSelectionFast()</CODE></A>
+ <DD> Call function for to count the number of nodes of the
+    cofactors: TCAD'99 fast solution
+
+ <DT> <A HREF="partAllDet.html#estimateCofactorComplex" TARGET="MAIN"><CODE>estimateCofactorComplex()</CODE></A>
+ <DD> Calls function for to count the number of nodes of the 
+    cofactors: Fabio Somenzi Private Communication Solution
+
+ <DT> <A HREF="partAllDet.html#estimateCofactorFreeOrder" TARGET="MAIN"><CODE>estimateCofactorFreeOrder()</CODE></A>
+ <DD> Calls function for to count the number of nodes of the
+    cofactors: Free BDD Solution
+
+ <DT> <A HREF="partAllDet.html#comparisonRoutine" TARGET="MAIN"><CODE>comparisonRoutine()</CODE></A>
+ <DD> Comparison between cofactor, stq, fs solution
+
+ <DT> <A HREF="partAllDet.html#estimateCost" TARGET="MAIN"><CODE>estimateCost()</CODE></A>
+ <DD> Evaluating estimateCost of splitting choice
+
+ <DT> <A HREF="partAllDet.html#estimateCostFreeOrder" TARGET="MAIN"><CODE>estimateCostFreeOrder()</CODE></A>
+ <DD> Select the best splitting variable
+
+ <DT> <A HREF="partAllDet.html#varSelection" TARGET="MAIN"><CODE>varSelection()</CODE></A>
+ <DD> Selects the best splitting variable
+
+ <DT> <A HREF="partAllDet.html#varSelectionManual" TARGET="MAIN"><CODE>varSelectionManual()</CODE></A>
+ <DD> Manual selection of best splitting variable
+
+</DL>
+<HR>
+<A NAME="partUtil.c"><H1>partUtil.c</H1></A>
+Utility Functions for the Partitioning Package <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="partAllDet.html#Part_MethodString2Enum" TARGET="MAIN"><CODE>Part_MethodString2Enum()</CODE></A>
+ <DD> Given a string it Returns an Enumerated type
+
+ <DT> <A HREF="partAllDet.html#Part_MethodEnum2String" TARGET="MAIN"><CODE>Part_MethodEnum2String()</CODE></A>
+ <DD> Given an Enumerated type Returns a string.
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

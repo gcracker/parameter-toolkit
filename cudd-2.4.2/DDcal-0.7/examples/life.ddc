@@ -1,0 +1,38 @@
+# Dummy: to force initial variable order.
+n0 * n1 * n2 * n3 * n4 * n5 * n6 * n7 * present
+
+# Two full adders and one half adder count the number of neighbors.
+s1 = n0 ^ n1 ^ n2
+c1 = n0*n1 + n0*n2 + n1*n2
+
+s2 = n3 ^ n4 ^ n5
+c2 = n3*n4 + n3*n5 + n4*n5
+
+s3 = n6 ^ n7
+c3 = n6*n7
+
+# Now we sum the sum outputs from the previous three adders. This
+# produces a fourth carry and the least significant digit of the
+# total number of neighbors.
+s4 = s1 ^ s2 ^ s3
+c4 = s1*s2 + s1*s3 + s2*s3
+
+# There must be exactly one carry out of four that is 1 for next to be 1.
+ex1 = c1*c2'*c3'*c4' + c1'*c2*c3'*c4' + c1'*c2'*c3*c4' + c1'*c2'*c3'*c4
+
+next = ex1 * (s4 + present)
+
+# Free intermediate result, so that they do not interfere with the
+# minimization of next during reordering.
+s1 = 0
+c1 = 0
+s2 = 0
+c2 = 0
+s3 = 0
+c3 = 0
+s4 = 0
+c4 = 0
+ex1 = 0
+
+# Display result
+[next]

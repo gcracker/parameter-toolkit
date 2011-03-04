@@ -1,0 +1,42 @@
+.Fsm fsm
+
+.Size
+   .i 4
+   .o 1
+   .l 3
+.EndSize
+
+.Ord
+   .ordFile fsm1FSM.ord
+.EndOrd
+
+.Name
+   .i G0 G1 G2 G3 
+   .o G17 
+   .ps G5 G6 G7 
+   .ns G5$NS G6$NS G7$NS 
+.EndName
+
+.Index
+   .i 0 1 2 3 
+   .ps 4 5 6 
+   .ns 7 8 9 
+.EndIndex
+
+.Delta
+   .bddFile fsm1delta.bdd
+.EndDelta
+
+.Lambda
+   .bddFile fsm1lambda.bdd
+.EndLambda
+
+.InitState
+   .bddFile fsm1s0.bdd
+.EndInitState
+
+.Reached
+   .bddFile fsm1Reached.bdd
+.EndReached
+
+.EndFsm

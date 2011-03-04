@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="pdtrav">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pdtrav.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="pdtrav.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html59"
+ HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html55"
+ HREF="pdtrav.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html49"
+ HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html60"
+ HREF="node3.html">How to Get and</A>
+<B> Up:</B> <A NAME="tex2html56"
+ HREF="pdtrav.html">PdTRAV Politecnico di Torino</A>
+<B> Previous:</B> <A NAME="tex2html50"
+ HREF="node1.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html58"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00020000000000000000">
+Introduction</A>
+</H1> 
+
+<P>
+The Politecnico di Torino Reachability Analysis for Verification
+(PdTRAV) package provides functions to perform BDD based
+symbolic reachability analysis of Finite State Machines (FSMs).
+The functions are intended for use within the field of formal verification
+of sequential circuits. 
+
+<P>
+The package can be used as:
+
+<UL>
+<LI>as a black box, i.e., a library of functions to be linked with an application</LI>
+<LI>as a clean box which may be worked into and expanded by a programmer.</LI>
+</UL>
+
+<P>
+The CMD sub-package provides a simple textual user interface for
+users who simply want to perform reachability and BDD operations.
+
+<P>
+The package includes the following sub-packages (directories):
+
+<UL>
+<LI>Decision Diagram Interface (DDI): almost all BDD package dependencies are
+concentrated here.
+DDI can also be viewed as a portability interface for a chosen BDD package.
+Moreover, it provides some higher level abstractions such as BDD based
+types (monolithic/partitioned Boolean functions, arrays of Boolean functions,
+variables, variable arrays and sets).
+The present implementation relies on the CUDD package by Fabio Somenzi
+(version 2.3.0).</LI>
+<LI>Utility (PDTUTIL): memory management, string manipulation and
+other low level non BDD routines. </LI>
+<LI>CUDD interface (CUPLUS): this directory contains some 
+extensions to the CUDD package.
+All BDD package extensions (mostly recursive functions working of BDD nodes)
+have been (and should be) created in this directory, or in a similar one in
+the case of porting to another BDD package. </LI>
+<LI>Finite State Machine (FSM): this package contains routines for storing/loading
+and manipulating a FSM structure.
+The BLIF format is presently supported for FSM netlists. We also
+introduce a FSM dump format based on the DDDMP BDD format 
+(see dddmp package inside the CUDD package).</LI>
+<LI>Transition Relation (TR): symbolic traversals are based on transition
+relations.
+This directory provides manipulation functions, i.e., sorting, partitioning,
+clustering, for monolithic and partitioned transition relations.
+Support for transitive closure is also included.</LI>
+<LI>Traversal (TRAV): image computations and full traversals are available from
+this package. Invariant (assertion based) checking, is included.</LI>
+<LI>Conjunctive and disjunctive partitioning (PART).
+This directory supplies the user with routines to conjunctively and
+disjunctively partition a BDD.</LI>
+<LI>Command user interface (CMD): a textual interactive user interface for the
+package.
+It allows to issue commands and to parse them by calling the functionalities
+of the other packages.</LI>
+</UL>
+
+<P>
+Mutual interactions and references among sub-packages exist internally.
+Some of the sub-packages have been build up mainly as bottom layers for other sub-packages,
+but they could be used as stand-alone packages as well by any application.
+E.g. the DDI package is the only one required for an application which
+requires Boolean function manipulation only, without requiring the
+FSM, transition relation and traversal packages.
+In the following we assume that the reader is familiar with BDDs, basic
+operations using BDDs, and symbolic traversals.
+The reader should refer to&nbsp;[#!Bryant86!#,#!Bryant92!#] for a survey on these
+topics.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html59"
+ HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html55"
+ HREF="pdtrav.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html49"
+ HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html60"
+ HREF="node3.html">How to Get and</A>
+<B> Up:</B> <A NAME="tex2html56"
+ HREF="pdtrav.html">PdTRAV Politecnico di Torino</A>
+<B> Previous:</B> <A NAME="tex2html50"
+ HREF="node1.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html58"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Gianpiero Cabodi</I>
+<BR><I>2001-03-25</I>
+</ADDRESS>
+</BODY>
+</HTML>

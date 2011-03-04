@@ -1,0 +1,6 @@
+# The following illustrates the use of composition.
+F = x*y*A + x*y'*B + x'*y*C + x'*y'*D
+G = x^y
+H = F / x <- G    # x is replaced by G in F
+I = H / x <- G    # invert the transformation
+[F I H]           # display F, I, and H simultaneously

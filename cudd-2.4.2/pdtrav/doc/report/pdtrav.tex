@@ -1,0 +1,658 @@
+\documentstyle[11pt]{article}
+
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{7.0in}
+\setlength{\footheight}{0.0in}
+\setlength{\topmargin}{0.25in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\oddsidemargin}{-.35in}
+\setlength{\parskip}{1ex plus .2ex minus .2ex}
+\setlength{\parindent}{0pc}
+\setcounter{topnumber}{5}
+\setcounter{dbltopnumber}{5}
+
+\newcommand{\GpC}[1]{{\bf GpC: #1 \\}}
+\newcommand{\StQ}[1]{{\bf StQ: #1 \\}}
+
+\title{\Large\bf
+PdTRAV \\
+Politecnico di Torino Reachability Analysis for Verification \\
+(Release 2.0Beta)
+}
+
+\author{
+\parbox{1.5in}{\begin{center}
+               Gianpiero Cabodi
+               \end{center}}
+\parbox{1.5in}{\begin{center}
+               Stefano Quer
+               \end{center}}
+\\~\\
+\parbox{3in}{\begin{center}
+             Politecnico di Torino \\
+             Dip.\ di Automatica e Informatica \\
+             Turin, ITALY
+             \end{center}}
+}
+
+%\date{~}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\small
+
+%###############################################################################
+
+\newpage
+
+\setcounter{page}{1}
+\normalsize
+\tableofcontents
+
+\newpage
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\section{Introduction} 
+
+The Politecnico di Torino Reachability Analysis for Verification
+(PdTRAV) package provides functions to perform BDD based
+symbolic reachability analysis of Finite State Machines (FSMs).
+The functions are intended for use within the field of formal verification
+of sequential circuits. 
+
+The package can be used as:
+\begin{itemize}
+\item
+as a black box, i.e., a library of functions to be linked with an application
+\item
+as a clean box which may be worked into and expanded by a programmer.
+\end{itemize}
+
+The CMD sub--package provides a simple textual user interface for
+users who simply want to perform reachability and BDD operations.
+
+The package includes the following sub--packages (directories):
+\begin{itemize}
+\item
+Decision Diagram Interface (DDI): almost all BDD package dependencies are
+concentrated here.
+DDI can also be viewed as a portability interface for a chosen BDD package.
+Moreover, it provides some higher level abstractions such as BDD based
+types (monolithic/partitioned Boolean functions, arrays of Boolean functions,
+variables, variable arrays and sets).
+The present implementation relies on the CUDD package by Fabio Somenzi
+(version 2.3.0).
+\item
+Utility (PDTUTIL): memory management, string manipulation and
+other low level non BDD routines. 
+\item
+CUDD interface (CUPLUS): this directory contains some 
+extensions to the CUDD package.
+All BDD package extensions (mostly recursive functions working of BDD nodes)
+have been (and should be) created in this directory, or in a similar one in
+the case of porting to another BDD package. 
+\item
+Finite State Machine (FSM): this package contains routines for storing/loading
+and manipulating a FSM structure.
+The BLIF format is presently supported for FSM netlists. We also
+introduce a FSM dump format based on the DDDMP BDD format 
+(see dddmp package inside the CUDD package).
+\item
+Transition Relation (TR): symbolic traversals are based on transition
+relations.
+This directory provides manipulation functions, i.e., sorting, partitioning,
+clustering, for monolithic and partitioned transition relations.
+Support for transitive closure is also included.
+\item
+Traversal (TRAV): image computations and full traversals are available from
+this package. Invariant (assertion based) checking, is included.
+\item
+Conjunctive and disjunctive partitioning (PART).
+This directory supplies the user with routines to conjunctively and
+disjunctively partition a BDD.
+\item 
+Command user interface (CMD): a textual interactive user interface for the
+package.
+It allows to issue commands and to parse them by calling the functionalities
+of the other packages.
+\end{itemize}
+
+Mutual interactions and references among sub--packages exist internally.
+Some of the sub--packages have been build up mainly as bottom layers for other sub--packages,
+but they could be used as stand--alone packages as well by any application.
+E.g. the DDI package is the only one required for an application which
+requires Boolean function manipulation only, without requiring the
+FSM, transition relation and traversal packages.
+In the following we assume that the reader is familiar with BDDs, basic
+operations using BDDs, and symbolic traversals.
+The reader should refer to~\cite{Bryant86,Bryant92} for a survey on these
+topics.
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\section{How to Get and Install PdTRAV} 
+
+%###############################################################################
+
+\subsection{The PdTRAV Package} 
+
+The PdTRAV package is available via anonymous FTP from ...
+A compressed tar file named pdtrav-2.0.tar.gz can be found in directory 
+pub.
+Once you have this file, 
+\begin{verbatim}
+gzip -dc pdtrav-2.0.tar.gz | tar xvf - 
+\end{verbatim}
+will create directory pdtrav-2.0 and its subdirectories.
+These directories contain the package, including documentation and a few usage
+examples.
+
+There is a README file with instructions on configuration and installation
+in pdtrav-2.0. 
+You can use a compiler for either ANSI C or C++. 
+To compile and link the package the user should run the main {\sf Makefile}
+in the src directory (generated by autoconf).
+The user can choose different setting options depending on
+the hardware/OS on which the installation has to be performed.
+The {\sf Cudd-2.3.0} package is required by pdtrav
+on a sibling directory of the PdTrav.
+Information on the {\sf Cudd-2.3.0} can be found from
+{\sf http://vlsi.colorado.edu/~fabio}.
+
+Once the user has made the libraries and executable program, he can test
+the program in the {\sf exp} directory.
+Such a directory contains a few {\sf blif} files on which to run
+PdTRAV (cmd interface), and
+a few script files showing how to run it.
+From the root directory type, for example:
+\begin{verbatim}
+cd <root directory>/pdtrav-2.0/exp/trav
+../../bin/pdtrav
+source s1423TravOrdTrMon.cmd
+\end{verbatim}
+This runs the traversal program on the {\sf s1423} circuit and with a
+variable ordering optimized for the monolithic transition relation
+representation.
+On a $400$MHz Pentium II processor with $128$ Mbytes of main memory and
+running Linux RedHat 5.2 Apollo it takes about $40$ seconds.
+The output produced by the program can be checked against the contents of
+the file s1423TravOrdTrMon.out.
+More information on the pdtrav program can be found in the README file on
+the root of the distribution. 
+(ImgTime: 0.65 sec)(TotalTime: 3.19 sec)
+TravLevel 4: [|Tr|: 758881] [|From|: 556][|To|: 1228][|Reached|: 1397][\#ReachedStates: 392225]
+(ImgTime: 1.19 sec)(TotalTime: 4.89 sec)
+TravLevel 5: [|Tr|: 758881] [|From|: 1275][|To|: 3168][|Reached|: 3316][\#ReachedStates: 2.08012e+06]
+(ImgTime: 2.71 sec)(TotalTime: 8.34 sec)
+TravLevel 6: [|Tr|: 758881] [|From|: 3152][|To|: 7496][|Reached|: 7763][\#ReachedStates: 8.49328e+06]
+
+Another possibility is the {\sf src/test} directory, which shows some
+examples of how to use pdtrav as a library. The {\sf test} executable
+(testPdtrav) is moved in the bin directory, too.
+
+If you want to be notified of new releases of the PdTRAV package, send a 
+message to the authors {cabodi,quer}@polito.it.
+Moreover, send feedback to the same authors.
+ 
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\section{User's Manual} 
+
+This section describes the use of the PdTRAV package and sub--packages as a
+black box. 
+
+%###############################################################################
+
+\subsection{Compiling and Linking}
+ 
+To build an application that uses PdTRAV, you should add 
+a line 
+
+\begin{verbatim}
+#include "<pkg>.h" 
+\end{verbatim}
+
+to your source files, and should link $lib<pkg>.a$ (for any given
+$<pkg>$ within PdTRAV you need) to your executable. 
+Some platforms require specific compiler and linker flags.
+Refer to the Makefile in the top level directory of the distribution. 
+
+A brief description of the main sub--packages packages follows.
+They are characterized by a set of functions and manager structure
+(accessed to by pointer) describing a consistent working
+environment for operations.
+Moreover, DDI defines the BDD based data types used by our package.
+
+%###############################################################################
+
+\subsection{The DDI package}
+
+This package is intended as a portability interface and a higher level 
+abstraction of the BDD package. It is used by all other PdTRAV packages
+working with BDDs, but it might be used as a stand--alone package as well.
+
+A {\bf DDI manager} is defined in quite a similar way CUDD does. In summary,
+it is a structure (type Ddi\_Mgr\_t)
+containing all informations about a given BDD environment,
+with a set of variables, hash/cache tables, and BDD nodes/functions.
+DDI uses its own descriptor (a "C" structure), which, besides pointing to a CUDD manager,
+allows handling extra informations, like variable names and auxiliary indexes.
+These are additional variable attributes (names and integer indexes), which
+are particularly useful as absolute variable references.
+We introduced them for use in multiple manager frameworks or whenever an
+application involves several runs of the same program, without a constant
+correspondence between variable indexes and physical entities
+(circuit inputs/outputs/latches).
+
+
+%###############################################################################
+
+\subsubsection{Basic Data Structures} 
+
+Besides extending manager capabilities, DDI introduces strong typing
+for objects represented using BDDs, and uses ``handles'' as a
+mechanism for allocation/freeing. More specifically, four types 
+are presently defined and managed as abstract data types, 
+all available in scalar and array form:
+
+\begin{itemize}
+
+\item
+{\bf Variable (Ddi\_Var\_t, Ddi\_Vararray\_t)}
+A variable is uniquely referenced by an integer index within a given manager, 
+and optionally by a variable name and/or an auxiliary index (auxid). 
+A variable $v$ is also caracterized by a position in variable
+ordering, which is not fixed (and generally differs from the index) if
+dynamic variable ordering is enabled. 
+A variable is often represented in BDD packages (e.g. CUDD) by the
+corresponding positive literal (a BDD).
+We clearly distinguish a variable $v$ from the corresponding
+literals ($v$ and $\overline{v}$), which
+are in DDI Boolean functions (type {\bf Ddi\_Bdd\_t}).
+Variable arrays are useful whenever we need groups of variables with
+well
+defined positions, for instance to establish a correspondence between
+present and next state variables (in FSM traversal), or between
+Boolean functions and variables (in compose operations).
+
+\item
+{\bf Variable Sets (Ddi\_Varset\_t, Ddi\_Varsetarray\_t)}
+A variable set is a group of variables with no defined position or
+ordering. Variable sets are represented in some packages (e.g. SIS) by
+bit vectors, in CUDD by BDD cubes.
+DDI internally uses the latter strategy, and externally provides 
+usual set operators. Variable sets are useful as inputs for
+support management and quantification operators.
+
+\item
+{\bf Boolean Functions (Ddi\_Bdd\_t, Ddi\_Bddarray\_t)}
+A Boolean function is either a monolithic, partitioned (conjunctively
+or disjunctively) or meta BDD. We adopt the BDD 
+acronym to emphasize the Decision Diagram based representation.
+Partitioned representations are recursive. The terms of a
+conjunctive form are BDDs, so they may be partitioned themselves.
+Arrays of BDDs are useful whenever we need to represent vectors of
+functions, e.g. for output or next state functions of circuits. 
+Internally, partitioned BDDs are stored as trees with monolithic BDDs
+as leaves.
+Meta BDDs are a particular BDD representation described in
+\cite{MetaBDDs}.
+
+\item
+{\bf Expressions (Ddi\_Expr\_t, Ddi\_Exprarray\_t)}
+Expressions are more general than BDDs. They may include BDDs (since
+monolitic and partitioned BDDa are Boolean expressions), but they are
+expecially concieved for invariants and temporal logic (e.g. CTL)
+formulas.
+Moreover, expression leaves are not necessarily BDDs. They might be
+string identifiers, to be associated to BDDs at later steps of symbolic 
+manipulations.
+ 
+\end{itemize}
+
+All of the above types are implemented by resorting to handles. The
+handle mechanism hides the ref/deref BDD node allocation style
+implemented in CUDD. Handles are dynamically allocated structures 
+pointing to CUDD BDD nodes, and only accessed to by pointers.
+Handles are allocated, freed, duplicated. A handle represents a
+reference to a BDD node, so a ref/reref operation is implicitly done
+any time a handle is created/released. The only exception to this
+general rule are variables, which are never duplicated nor freed (except
+when freeing a DDI manager)
+
+Handles are expecially useful as an intermediate portability layer
+between the
+higher levels and CUDD\footnote{Other BDD packages could be introduced
+by partly rewriting DDI}. Moreover they enable storing additional
+informations characterizing DDI entities, like name, code, extra
+pointers.
+Names are expecially concieved for debug and/or log purposes, codes
+can distinguish particular subtypes (e.g. monolithic/partitioned forms
+or operators in expressions). We use pointers for list based
+management of allocated DDI objects, and to keep a reference to the
+owner DDI manager (this avoids passing manager to most functions).
+
+We call the above data types {\bf DDI nodes}.
+%%GENERIC TYPE
+
+%##############################################################################
+
+\subsubsection{Operators}
+
+An operation may either generate a new result DDI node, or modify an
+existing one, following the accumulator operation style. 
+Most operations returning scalar data are provided with
+both options. They gerate a new DDI node (e.g. c = Ddi\_BddAnd(a,b)), 
+or they accumulate (e.g. Ddi\_BddAndAcc(a,b))
+the result in the first operand, after freeing old data). Conversely,
+operations on array data always modify an existing DDI node (explicit
+calls to proper ``Alloc'' or ``Dup'' functions are required to generate
+new arrays). Going to operand data, whenever an operation requires 
+data transfer to a destination DDI node, two options are available:
+{\em copying} or {\em moving}. In the former case, data are duplicated
+(new DDI nodes are generated and CUDD nodes implicitly referenced), in
+the latter one pointers (partitions, sub-expressions, new array
+entries) are copied and actually moved to a new owner DDI node.
+
+{\sf Make} is used in names to enforce creation (allocation) of new
+data (e.g. {\sf Ddi\_BddMakeMono} creates a monolitic BDD from a non
+monolitic one), {\sf Set } is used to specify data transformation
+directly one the parameter (e.g. {\sf Ddi\_BddSetMono} transforms a non 
+monolitic BDD to monolitic). 
+
+Manipulations on non scalar objects
+(e.g. arrays and partitioned BDDs) support both {\em insert/extract}
+and {\em read/write} operations. {\sf Insert} always creates a new
+array slot (or partition), {\sf Extract} removes the returned slot
+(partition), {\sf Write} overwrites (and frees) an existing array slot
+(partition). {\sf Insert} and {\sf Write} always generate a duplicate
+of the manipulated object (so that the received parameter is still
+owned by the calling procedure), {\sf Extract} and {\sf Read} make no 
+duplicate of the returned object (but the result of {\sf Extract} is
+owned by the calling procedure after removal from array or partitioned BDD).
+
+The following operators are presently supported:
+
+\begin{itemize}
+
+\item 
+
+DDI-CUDD conversions. Functions performing conversions between
+different types are named $Ddi\_<type>MakeFromCU$ and $Ddi\_<type>ToCU$ 
+(being type one of the Ddi types) are provided for conversions from/to CUDD 
+objects. Conversions from CUDD always generate a new DDI node (with
+implicit node referencing), whereas
+their dual ...ToCU counterparts simply read CUDD node pointers (with
+no node referencing). Memory allocation is done only in case of
+arrays (e.g. Ddi\_BddarrayToCU), which require a dynamically allocated
+array of pointers.
+
+\item
+
+Management of (conjunctively and disjunctively) partitioned forms. 
+
+\item
+Standard BDD operators: ITE, AND, OR, ... AND-EXIST, ..., constrain, 
+restrict ...
+They are implemented by resorting to the corresponding CUDD functions.
+Most operators support partitioned BDDs, with restrictions as
+described in the DDI package documentation.
+
+\item 
+Load/store to file. Boolean functions and variables may be stored to file.
+The functions are implemented through the {\em dddmp} package
+(distributed with CUDD) which provides efficient dumping of BDDs and arrays of BDDs.
+Partitioned forms are managed by proper headers (considered as comments by dddmp)
+
+\end{itemize}
+
+It must be noted that the results of all operators are implicitly referenced
+(unless explicitly stated in the function documentation), while explicit 
+free-ing is required for all types.
+
+%###############################################################################
+
+
+\subsection{FSM}
+
+Each FSM has an internal representation.
+Each internal representation can be stored on secondary memory on what we
+call a FSM file.
+This gives the user the possibility to store intermediate computation
+results and to exchange information on a FSM and BDD basis.
+A result of this strategy is to allow the user to perform with great
+flexibility a certain number of (expensive) operations such as partially
+traverse a FSM, store intermediate results, and restart reachability analysis
+afterwards.
+
+Internal and external (on files) formats are pretty alike one to the other.
+They contain information about the size of the FSM (number of inputs,
+outputs, latches), names, and BDD representations (for initial state set,
+next states and output functions, transition relations, and so on).
+The current format is the following one:
+
+{\small
+\begin{verbatim}
+.Fsm <name>
+
+.Size
+  .i <Number of Primary Inputs>
+  .o <Number of Primary Outputs>
+  .l <Number of Memory Elements>
+.EndSize
+
+.Ord
+  .ordFile <File Name for the Variable Order File>
+.EndOrd
+
+.Name
+  .i <Name of Primary Input Variables>
+  .ps <Name of Present State Variables>
+  .ns <Name of Next State Variables>
+.EndName
+
+.Index
+  .i <Variable Index for Primary Inputs>
+  .ps <Variable Index for Present State Variables>
+  .ns <Variable Index for Next State Variables>
+.EndIndex
+
+.Delta
+  .bddFile <File Name for the Next State Functions BDD File>
+.EndDelta
+
+.Lambda
+  .bddfile <File Name for the Output Functions BDD File>
+.EndLambda
+
+.InitState
+  .bddFile <File Name for the Initial State Set BDD File>
+.EndInitState
+
+.Tr
+  .bddFile <File Name for the Transition Relation BDD File>
+.EndTr
+
+.Reached
+  .bddFile <File Name for the Reachable State Set BDD File>
+.EndReached
+
+.EndFsm
+\end{verbatim}
+}
+
+In general, not all the sections are present, depending on the ``state''
+of the program.
+For example, the reachable state set at the beginning does not exist and
+storing the FSM implies not storing the section
+{\small
+\begin{verbatim}
+.Reached
+  .bddfile <File Name for the Reachable State Set BDD File>
+.EndReached
+\end{verbatim}
+}
+
+Functions are given to perform a certain number of operations on the
+FSM structure.
+Namely we allow the user to:
+\begin{itemize}
+\item
+Initialize an internal representation for the FSM
+\item
+Duplicate an internal representation for the FSM
+\item
+Destroy an internal representation for the FSM
+\item
+Store a FSM representation with the previous format
+\item
+Load a FSM representation.
+\end{itemize}
+Given the name of the FSM the names of the various files are automatically
+created and dealt with.
+Typically if {\sf name} is the name of the FSM file, {\sf name.ord} is the
+name of the variable order file, {\sf namedelta.bdd} is the name of the file
+containing the next state function BDD representation, and so on.
+During storing and loading operations two modes are permitted: In the first
+mode the FSM file and all the BDD files are loaded, in the second mode only the
+FSM file is loaded.
+This features allows the user to explicitly concentrate on the objects
+he really cares about.
+For example next state functions, the transition relation and the reachable
+state set can be loaded separately and optimized with different variable
+orders in different working sections.
+The package provides functions to manage (such as load and store or perform
+operation on) singular object belonging to a FSM (such as BDDs).
+Normally the FSM description has to be loaded or created before any other
+object belonging to it (such as the transition relation).
+
+%###############################################################################
+
+\subsection{TR management}
+
+Functions for creating and manipulating transition relations are provided by
+this package.
+More specifically:
+
+\begin{itemize}
+\item TR creation: from next--state functions and variable arrays
+(inputs, present/next--state).
+From scratch (GpC{To be done.}).
+\item TR sorting: variants of the IWLS95 heuristics are provided, the goal
+being a good partition sorting for efficient early smoothing with conjunctive 
+partitioning
+\item TR clustering: linear conjunction of partitions controlled by a 
+size threshold.
+\item TR subsetting: an external constraint is used to constrain a TR
+by means of conjunction.
+\item TR partitioning
+\item Abstractions oriented to approximate reachability.
+\end{itemize}
+
+%###############################################################################
+
+\subsection{Traversals}
+
+This package provides several routines for image/preimage computations, 
+traversals,
+transitive closure of a State Transition Graph. All tasks are accomplished 
+working on transition relations and characteristic functions of state sets.
+
+A traversal manager includes all data involved in a traversal, namely the TR,
+state sets, settings, etc.
+Standard traversals as well as more specialized ones are supported.
+
+%###############################################################################
+
+\subsection{The CMD user interface}
+
+PdTRAV is equipped with an interactive textual user interface.
+It is intended for users who plan not to link PdTRAV packages as an object 
+library.
+Commands are issued on a line by line basis.
+
+If the first character of a command is the exclamation mark "!", a system
+call is issued instead.
+This allows to execute basic system commands such as "more", "ls", etc.
+
+If the first character of a command is "\#" the command is ignored, i.e., it
+is supposed to be a comment.
+This is especially useful to write script files.
+In fact, the command "source" gives the possibility to read from a
+source-script file instead that from standard input.
+
+If the first character of the command is "@" this indicates that a script
+file with parameter is used.
+For example
+{\small
+\begin{verbatim}
+@script1.cmd a b c
+\end{verbatim}
+}
+runs the script file script1.cmd (containing some \$1, \$2 and \$3) with
+parameters a, b and c.
+
+For more information on the commands see the documentation in the {\sf cmd\\doc}
+directory and the on-line documentation (command {\sf help}).
+
+%###############################################################################
+
+\subsection{Setting Parameters}
+
+All packages require parameter setting for their operations.
+For each package, proper functions support set/show and restoring of default
+settings package provides several functions to set the parameters that control
+various functions.
+The value of these settings are usually stored into the relative manager
+structure.
+A lot of commands can receive additional options.
+These options usually overwrite the generic settings.
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+%\section{An example}
+%
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\section{Programmer's Manual} 
+
+This section should provide additional detail on the working of the PdTRAV
+package and on the programming conventions followed in its writing.
+The additional detail should help those who want to write procedures that
+directly manipulate the DDI and other PdTRAV data structures. 
+Anyway, the Programmer manual, for a visibility of the package as a clear
+box, {\bf is not provided in this release.} 
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\section{Acknowledgments} 
+
+Contributors and early adopters to be defined.
+
+%###############################################################################
+%###############################################################################
+%###############################################################################
+
+\bibliographystyle{unsrt}
+%\bibliographystyle{plain}
+%\bibliography{/home/cabodi/pap/dac99/biblio}
+\bibliography{/disk1/paper/biblio/biblio}
+
+\end{document}

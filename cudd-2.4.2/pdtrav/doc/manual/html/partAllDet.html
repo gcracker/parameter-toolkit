@@ -1,0 +1,617 @@
+<html>
+<head><title>The part package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Part_BddDisjSuppPart"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_BddDisjSuppPart</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>a BDD</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>a Clustered Transition Relation</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>array of next state variables</i>
+  int  <b>verbosity</b> <i>level of verbosity</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partConj.c"TARGET="ABSTRACT"><CODE>partConj.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_BddMultiwayLinearAndExist"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_BddMultiwayLinearAndExist</B>(
+  Ddi_Bdd_t * <b>FPart</b>, <i>Input partitioned function</i>
+  Ddi_Varset_t * <b>smoothV</b>, <i>Var Set</i>
+  int  <b>threshold</b> <i>Size threshold for result factor</i>
+)
+</pre>
+<dd> Compute the multiway and-exist over a conjunctively partitioned
+    function
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partConj.c"TARGET="ABSTRACT"><CODE>partConj.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorComplex"></A>
+int <I></I>
+<B>Part_EstimateCofactorComplex</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Counts the number of nodes of the cofactors:
+    Fabio Somenzi Private Commnunication Solution.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partEstimateCofactor">partEstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorFast"></A>
+int <I></I>
+<B>Part_EstimateCofactorFast</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  int  <b>LeftRight</b>, <i></i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int  <b>suppSize</b>, <i></i>
+  int * <b>totalArray</b>, <i></i>
+  int * <b>thenArray</b>, <i></i>
+  int * <b>elseArray</b> <i></i>
+)
+</pre>
+<dd> Count the number of nodes of the cofactors using the fast
+    heuristic (TCAD'99)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorFreeOrder"></A>
+int <I></I>
+<B>Part_EstimateCofactorFreeOrder</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b>, <i>Top Variable</i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int * <b>vet</b> <i></i>
+)
+</pre>
+<dd> Count the number of nodes of the cofactors using the Free
+    Order heuristic (TCAD'99).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactor"></A>
+int <I></I>
+<B>Part_EstimateCofactor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Counts the number of nodes of the cofactors: 
+    Stefano Quer solution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partEstimateCofactor">partEstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_MethodEnum2String"></A>
+char * <I></I>
+<B>Part_MethodEnum2String</B>(
+  Part_Method_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_MethodString2Enum">Part_MethodString2Enum</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partUtil.c"TARGET="ABSTRACT"><CODE>partUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_MethodString2Enum"></A>
+Part_Method_e <I></I>
+<B>Part_MethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string 
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the verbosity enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_MethodEnum2String">Part_MethodEnum2String</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partUtil.c"TARGET="ABSTRACT"><CODE>partUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_PartitionDisjSet"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionDisjSet</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Vars</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> Partition a state set
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_Traversal">Trav_Traversal</a>
+<a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_PartitionSetCudd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionSetCudd</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> This function derives from the Part_PartitionDisjSet
+    function. It is rewritten here for two reasons:
+    <ul>
+    <li> this file includes the direct calls to the routine implemented
+    in the Cudd package,
+    <li> this file includes both disjunctive and conjuctive decompositions.
+    </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCudd.c"TARGET="ABSTRACT"><CODE>partCudd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Part_PartitionSetInterface"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionSetInterface</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Vars</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> It calls Part_PartitionDisjSet (to partition a BDD
+    using "internal" routines) or Part_PartitionSetCudd (to partition a
+    BDD using the CUDD routines.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_Traversal">Trav_Traversal</a>
+<a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="comparisonRoutine"></A>
+static void <I></I>
+<B>comparisonRoutine</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>input BDD</i>
+  Ddi_Var_t * <b>topVar</b>, <i>top variable</i>
+  int * <b>thenSize</b>, <i>number nodes cofactors</i>
+  int * <b>elseSize</b> <i>number nodes cofactors</i>
+)
+</pre>
+<dd> Comparison between cofactor, stq, fs solution
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#varSelection">varSelection</a>
+<a href="#exactCofactor">exactCofactor</a>
+estimateCofactor
+estimateCofactor
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="ddFlagClear"></A>
+static void <I></I>
+<B>ddFlagClear</B>(
+  Ddi_CuddNode * <b>f</b> <i>input BDD</i>
+)
+</pre>
+<dd> Static function copied from cudd_Util.c
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+<a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="estimateCofactorComplex"></A>
+static void <I></I>
+<B>estimateCofactorComplex</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>input BDD</i>
+  Ddi_Var_t * <b>topVar</b>, <i>top variable</i>
+  int * <b>thenSize</b>, <i>number nodes cofactors</i>
+  int * <b>elseSize</b> <i>number nodes cofactors</i>
+)
+</pre>
+<dd> Calls function for to count the number of nodes of the 
+    cofactors: Fabio Somenzi Private Communication Solution
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#varSelection">varSelection</a>
+<a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="estimateCofactorFreeOrder"></A>
+static void <I></I>
+<B>estimateCofactorFreeOrder</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>input BDD</i>
+  Ddi_Var_t * <b>topVar</b>, <i>top variable</i>
+  int * <b>thenSize</b>, <i>number nodes cofactors</i>
+  int * <b>elseSize</b>, <i>number nodes cofactors</i>
+  int * <b>thenArray</b>, <i>thenArray</i>
+  int * <b>elseArray</b> <i>elseArray</i>
+)
+</pre>
+<dd> Calls function for to count the number of nodes of the
+    cofactors: Free BDD Solution
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#varSelection">varSelection</a>
+<a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="estimateCofactor"></A>
+static void <I></I>
+<B>estimateCofactor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>input BDD</i>
+  Ddi_Var_t * <b>topVar</b>, <i>top variable</i>
+  int * <b>thenSize</b>, <i>number nodes cofactors</i>
+  int * <b>elseSize</b> <i>number nodes cofactors</i>
+)
+</pre>
+<dd> Calls function for to count the number of nodes of the
+    cofactors: ICCAD'96 original solution
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#varSelection">varSelection</a>
+<a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="estimateCostFreeOrder"></A>
+static float <I></I>
+<B>estimateCostFreeOrder</B>(
+  int  <b>size</b>, <i>total size</i>
+  int  <b>thenSize</b>, <i>left child size</i>
+  int  <b>elseSize</b>, <i>right child size</i>
+  int * <b>thenArray</b>, <i>left statistics</i>
+  int * <b>elseArray</b>, <i>right statistics</i>
+  int  <b>varPos</b>, <i>Variable Position</i>
+  int  <b>suppSize</b> <i>Number of Variables</i>
+)
+</pre>
+<dd> Select the best splitting variable
+<p>
+
+<dd> <b>Side Effects</b> done
+<p>
+
+<dd> <b>See Also</b> <code>partitionSetInt
+cofactorBased
+<a href="#fsBased">fsBased</a>
+<a href="#stqBased">stqBased</a>
+comparisonRoutine
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="estimateCost"></A>
+static float <I></I>
+<B>estimateCost</B>(
+  int  <b>size</b>, <i>Total Size</i>
+  int  <b>thenSize</b>, <i>Left Child Size</i>
+  int  <b>elseSize</b>, <i>Right Child Size</i>
+  int  <b>varPos</b>, <i>Variable Position</i>
+  int  <b>suppSize</b> <i>Variable Number</i>
+)
+</pre>
+<dd> Evaluating estimateCost of splitting choice
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="exactCofactor"></A>
+static void <I></I>
+<B>exactCofactor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Var_t * <b>topVar</b>, <i>Top variable</i>
+  int * <b>thenSize</b>, <i>Number nodes cofactors</i>
+  int * <b>elseSize</b> <i>Number nodes cofactors</i>
+)
+</pre>
+<dd> Counts the number of nodes of the cofactors
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#varSelection">varSelection</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="partEstimateCofactorComplex"></A>
+static struct fs_struct <I></I>
+<B>partEstimateCofactorComplex</B>(
+  Ddi_CuddNode * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Performs the recursive step of Part_EstimateCofactor
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="partEstimateCofactorFast"></A>
+static int <I></I>
+<B>partEstimateCofactorFast</B>(
+  Ddi_CuddNode * <b>f</b>, <i>input BDD</i>
+  int  <b>LeftRight</b>, <i></i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int  <b>suppSize</b>, <i></i>
+  int * <b>totalArray</b>, <i></i>
+  int * <b>thenArray</b>, <i></i>
+  int * <b>elseArray</b> <i></i>
+)
+</pre>
+<dd> Performs the recursive step of fsCntNodesVar
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#fsCntNodesVar">fsCntNodesVar</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="partEstimateCofactorFreeOrder"></A>
+static int <I></I>
+<B>partEstimateCofactorFreeOrder</B>(
+  Ddi_CuddNode * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b>, <i>Top Variable</i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int * <b>vet</b> <i></i>
+)
+</pre>
+<dd> Performs the recursive step of fsCntNodesVar
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="partEstimateCofactor"></A>
+static int <I></I>
+<B>partEstimateCofactor</B>(
+  Ddi_CuddNode * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Performs the recursive step of Part_EstimateCofactor
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_EstimateCofactor">Part_EstimateCofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCuPlus.c"TARGET="ABSTRACT"><CODE>partCuPlus.c</CODE></A>
+
+<dt><pre>
+<A NAME="partPartitionCudd"></A>
+static void <I></I>
+<B>partPartitionCudd</B>(
+  Ddi_Bdd_t * <b>function</b>, <i>Function to Partition</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Ddi_Bddarray_t * <b>partition</b>, <i>Partition Array</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> Direct call to cudd partitioning functions. It transforms
+    ddi objects to cudd ones before the call and reverse the process after
+    it.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partCudd.c"TARGET="ABSTRACT"><CODE>partCudd.c</CODE></A>
+
+<dt><pre>
+<A NAME="partPartitionDisjSet"></A>
+static void <I></I>
+<B>partPartitionDisjSet</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>c</b>, <i>Constraining Cube</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Vars</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Ddi_Bddarray_t * <b>ddVet</b>, <i>Partition Array</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> Splitting a set
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_PartitionSet">Part_PartitionSet</a>
+<a href="#varSelectionManual">varSelectionManual</a>
+<a href="#varSelection">varSelection</a>
+<a href="#varSelectionFreeOrder">varSelectionFreeOrder</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="varSelectionFast"></A>
+static Ddi_Var_t * <I></I>
+<B>varSelectionFast</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b> <i>Set of Variables</i>
+)
+</pre>
+<dd> Call function for to count the number of nodes of the
+    cofactors: TCAD'99 fast solution
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#selectBestVar">selectBestVar</a>
+<a href="#stqCntNodesVar">stqCntNodesVar</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="varSelectionManual"></A>
+static Ddi_Var_t * <I></I>
+<B>varSelectionManual</B>(
+  Ddi_Bdd_t * <b>f</b> <i>input BDD</i>
+)
+</pre>
+<dd> Manual selection of best splitting variable
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+<dt><pre>
+<A NAME="varSelection"></A>
+static Ddi_Var_t * <I></I>
+<B>varSelection</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Variables</i>
+  Part_Method_e  <b>partitionMethod</b> <i>Partition Method</i>
+)
+</pre>
+<dd> Selects the best splitting variable
+<p>
+
+<dd> <b>Side Effects</b> done
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+<a href="#exactCofactor">exactCofactor</a>
+estimateCofactor
+estimateCofactor
+comparisonRoutine
+</code>
+
+<DD> <B>Defined in </B> <A HREF="partAllFile.html#partDisj.c"TARGET="ABSTRACT"><CODE>partDisj.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

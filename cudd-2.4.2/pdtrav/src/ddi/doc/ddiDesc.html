@@ -1,0 +1,42 @@
+<HTML>
+<HEAD><TITLE>The ddi package: Overview</TITLE></HEAD>
+<BODY>
+
+<H1>The ddi package</H1>
+<H2>Portability interface with the Decision Diagram package.</H2>
+<H3>By Gianpiero Cabodi and Stefano Quer</H3>
+
+<UL>
+ <LI> <A HREF="ddiExt.html" TARGET="_top">
+    Information for programmers</A>
+ <LI> <A HREF="ddiAllByFunc.html" TARGET="_top">
+    Information for developers sorted by function</A>
+ <LI> <A HREF="ddiAllByFile.html" TARGET="_top">
+    Information for developers sorted by file</A>
+</UL>
+
+<HR>
+
+The <b>DDI</b> package provides functions to manipulate the 
+    following objects:
+    <ul>
+    <li>boolean functions (Ddi_Bdd_t)
+    <li>arrays of boolean functions (Ddi_Bddarray_t)
+    <li>variables (Ddi_Var_t)
+    <li>arrays of variables (Ddi_Vararray_t)
+    <li>sets of variables (Ddi_Varset_t).
+    </ul>
+    It can be viewed both as a portability interface, concentrating
+    all dependancies from the BDD package, and as an upper level,
+    manipulating the previously listed BDD based data types.
+    A particular feature, distinguishing this interface from other ones,
+    is the support for partitioned (conjunctive as well as disjunctive)
+    functions.
+    This implementation is written on top of the CUDD package.
+
+<HR>
+
+Last updated on 1010204 20h20
+
+</BODY>
+</HTML>

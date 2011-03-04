@@ -1,0 +1,14 @@
+.model fsmRetime1
+.inputs i1 i2
+.outputs o
+.wire_load_slope 0.00
+.latch y1 s1 0
+.latch y2 s2 0
+.names i1 i2 y1
+11 1
+.names i1 i2 y2
+11 1
+.names s1 s2 o
+1- 1
+-1 1
+.end

@@ -1,0 +1,217 @@
+<HTML>
+<HEAD><TITLE>The part package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Part_BddDisjSuppPart"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_BddDisjSuppPart</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>a BDD</i>
+  Ddi_Bdd_t * <b>TR</b>, <i>a Clustered Transition Relation</i>
+  Ddi_Vararray_t * <b>psv</b>, <i>array of present state variables</i>
+  Ddi_Vararray_t * <b>nsv</b>, <i>array of next state variables</i>
+  int  <b>verbosity</b> <i>level of verbosity</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Part_BddMultiwayLinearAndExist"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_BddMultiwayLinearAndExist</B>(
+  Ddi_Bdd_t * <b>FPart</b>, <i>Input partitioned function</i>
+  Ddi_Varset_t * <b>smoothV</b>, <i>Var Set</i>
+  int  <b>threshold</b> <i>Size threshold for result factor</i>
+)
+</pre>
+<dd> Compute the multiway and-exist over a conjunctively partitioned
+    function
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorComplex"></A>
+int <I></I>
+<B>Part_EstimateCofactorComplex</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Counts the number of nodes of the cofactors:
+    Fabio Somenzi Private Commnunication Solution.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partEstimateCofactor">partEstimateCofactor</a>
+</code>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorFast"></A>
+int <I></I>
+<B>Part_EstimateCofactorFast</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  int  <b>LeftRight</b>, <i></i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int  <b>suppSize</b>, <i></i>
+  int * <b>totalArray</b>, <i></i>
+  int * <b>thenArray</b>, <i></i>
+  int * <b>elseArray</b> <i></i>
+)
+</pre>
+<dd> Count the number of nodes of the cofactors using the fast
+    heuristic (TCAD'99)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactorFreeOrder"></A>
+int <I></I>
+<B>Part_EstimateCofactorFreeOrder</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b>, <i>Top Variable</i>
+  Ddi_Varset_t * <b>supp</b>, <i></i>
+  int * <b>vet</b> <i></i>
+)
+</pre>
+<dd> Count the number of nodes of the cofactors using the Free
+    Order heuristic (TCAD'99).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Part_EstimateCofactor"></A>
+int <I></I>
+<B>Part_EstimateCofactor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Bdd_t * <b>topVar</b> <i>Top Variable</i>
+)
+</pre>
+<dd> Counts the number of nodes of the cofactors: 
+    Stefano Quer solution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#partEstimateCofactor">partEstimateCofactor</a>
+</code>
+
+<dt><pre>
+<A NAME="Part_MethodEnum2String"></A>
+char * <I></I>
+<B>Part_MethodEnum2String</B>(
+  Part_Method_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_MethodString2Enum">Part_MethodString2Enum</a>
+</code>
+
+<dt><pre>
+<A NAME="Part_MethodString2Enum"></A>
+Part_Method_e <I></I>
+<B>Part_MethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string 
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the verbosity enumerated type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Part_MethodEnum2String">Part_MethodEnum2String</a>
+</code>
+
+<dt><pre>
+<A NAME="Part_PartitionDisjSet"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionDisjSet</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Vars</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> Partition a state set
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_Traversal">Trav_Traversal</a>
+<a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+<dt><pre>
+<A NAME="Part_PartitionSetCudd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionSetCudd</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> This function derives from the Part_PartitionDisjSet
+    function. It is rewritten here for two reasons:
+    <ul>
+    <li> this file includes the direct calls to the routine implemented
+    in the Cudd package,
+    <li> this file includes both disjunctive and conjuctive decompositions.
+    </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Part_PartitionSetInterface"></A>
+Ddi_Bdd_t * <I></I>
+<B>Part_PartitionSetInterface</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>Input BDD</i>
+  Ddi_Varset_t * <b>careVars</b>, <i>Set of Vars</i>
+  Part_Method_e  <b>partitionMethod</b>, <i>Partition Method</i>
+  int  <b>threshold</b>, <i>Threshold Size</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> It calls Part_PartitionDisjSet (to partition a BDD
+    using "internal" routines) or Part_PartitionSetCudd (to partition a
+    BDD using the CUDD routines.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trav_Traversal">Trav_Traversal</a>
+<a href="#partPartitionDisjSet">partPartitionDisjSet</a>
+</code>
+
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>

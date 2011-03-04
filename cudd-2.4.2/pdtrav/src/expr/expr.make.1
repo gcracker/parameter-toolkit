@@ -1,0 +1,18 @@
+CSRC += exprRead.c
+HEADERS += expr.h exprInt.h
+LEXSRC += expr.l
+YACCSRC += expr.y
+GENERATEDCSRC += exprYacc.c 
+
+exprLex.c: expr.l expr.h exprInt.h
+	$(LEX) -PExprYy -o$@ $<
+	-@chmod 0664 $@
+
+#$(local_srcdir)/src/expr/exprYacc.c: expr.y expr.h exprInt.h exprLex.c
+exprYacc.c: expr.y expr.h exprInt.h exprLex.c
+	$(YACC) -pExprYy -t -o $@ $<
+	-@chmod 0664 $@
+
+##$(objectdir)/exprYacc.o: $(local_srcdir)/src/expr/exprYacc.c
+
+DEPENDENCYFILES = $(CSRC)

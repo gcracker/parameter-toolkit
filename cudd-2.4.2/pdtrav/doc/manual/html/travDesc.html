@@ -1,0 +1,63 @@
+<HTML>
+<HEAD><TITLE>The trav package: Overview</TITLE></HEAD>
+<BODY>
+
+<H1>The trav package</H1>
+<H2>Main module for a simple traversal of finite state machine</H2>
+<H3>By Gianpiero Cabodi and Stefano Quer</H3>
+
+<UL>
+ <LI> <A HREF="travExt.html" TARGET="_top">
+    Information for programmers</A>
+ <LI> <A HREF="travAllByFunc.html" TARGET="_top">
+    Information for developers sorted by function</A>
+ <LI> <A HREF="travAllByFile.html" TARGET="_top">
+    Information for developers sorted by file</A>
+</UL>
+
+<HR>
+
+This package contains the main function to exploring the state
+    space of a FSM.<br>
+    There are three methods for image computation:
+    <ol>
+    <li> <b>Monolithic:</b> This is the most naive approach possible.<br>
+       This technique is based on building <em>monolithic transition 
+       relation</em>. It is the conjunction of all latches transition
+       relation. If we use <em>y</em> to denote the next state vector,
+       <em>s</em> the present state vector, <em>x</em> the input 
+       vector and <em>delta()</em> the next state function, we define the
+       trasition relation of <em>i</em>-th latch to be the function 
+       Ti (x,s,y) = yi <=> delta(i)(x,s).<br> Then, for a FSM of n latches,
+       the monolhitic transition relation is:
+       <p>
+       T(x,s,y) = T1(x,s,y)*T2(x,s,y)* ... *Tn(x,s,y)
+       <p>
+       When the monolithic TR is built, the traversal algorithm is executed.
+       This method is suitable for circuits with less than 20 latches
+
+    <li> <b>IWLS95:</b> This technique is based on the early quantification
+    heuristic.
+       The initialization process consists of following steps:   
+       <ul>
+       <li> Create the clustered TR from transition relation by clustering 
+            several function together. The size of clustering is controlled
+            by a threshold value controlled by the user.
+       <li> Order the clusters using the algorithm given in
+            "Efficient BDD Algorithms for FSM Synthesis and
+            Verification", by R. K. Ranjan et. al. in the proceedings of
+            IWLS'95. 
+       <li> For each cluster, quantify out the quantify variables which
+            are local to that particular cluster.
+       </ul>
+    <li> <b>Iterative squaring:</b> This technique is based on building the
+       <em>transitive closure (TC)</em> of a monolithic TR. Afterwards, TC
+       replace TR in the traversal algorithm. 
+    </ol>
+
+<HR>
+
+Last updated on 1010515 11h48
+
+</BODY>
+</HTML>

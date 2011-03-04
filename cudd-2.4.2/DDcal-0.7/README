@@ -1,0 +1,139 @@
+Revision: $Id: README,v 1.4 2001/05/21 02:46:38 fabio Exp fabio $
+
+DDcal is a BDD calculator based on perl-Tk and the Cudd package. For
+installation instructions, read INSTALL.
+
+The rest of this file contains a concise description of the input format and
+commands for DDcal. A slightly extended description is given by DDcal's
+on-line help function.
+
+Comments:
+    From '#' to end of line.
+
+Line continuation:
+    if a line ends with '\' (possibly followed by white space) then it
+    is continued by the next line. A backslash inside a comment does not
+    indicate continuation.
+
+Variable and function names:
+
+    Alphanumeric strings starting with an alphabetic character.
+
+Operators in order of decreasing precedence:
+
+    '		(complementation)
+    _		(cofactoring)
+    / <-	(composition)
+    *		(conjunction)
+    +		(disjunction)
+    ^ ==	(symmetric difference and equivalence)
+    ? !		(existential and universal quantification)
+    =>		(implication)
+
+    All binary operators are left-associative.
+
+Displaying multiple functions:
+
+    [name name ...]
+
+Complement Arcs:
+    The "Options" menu allows one to switch between BDDs with and
+without complement arcs. The two types of BDDs can use the same
+variable names and they can be displayed together. However, they
+cannot be combined. If two BDDs of different type are created with the
+same name, the second cannot be displayed. If f is a BDD with
+complement arcs and g is a BDD without complement arcs,
+operations like f+g are not allowed. The only exception is for simple
+variables: one name can correspond to two distinct variables (with and
+without complement arc).
+
+Commands:
+    Currently the commands supported are:
+
+	: reorder
+
+    Causes variable reordering. The canvas is not affected by this
+    command. One should keep in mind that reordering tries to minimize
+    all BDDs currently in existence--not jut the ones drawn on the
+    canvas. DDcal uses an exact ordering algorithm for up to 9
+    variables. After that, it switches to a heuristic algorithm.
+
+	: down variable_name
+    
+    moves down variable_name by one position in the order and redraws
+    the last expression evaluated or list displayed. If variable_name
+    is already last in the order, it has no effect.
+
+	: up variable_name
+    
+    moves up variable_name by one position in the order and redraws
+    the last expression evaluated or list displayed. If variable_name
+    is already first in the order, it has no effect.
+
+	: last
+
+    Causes the last expression evaluated or list displayed to be
+    redrawn. The "Reorder" button of DDcal.pl issues the sequence
+    :reorder and :last commands in sequence to perform reordering and
+    update the canvas.
+
+
+	: dot file_name
+
+    Causes the diagrams currently on the canvas to be written in dot
+    format to file_name.  The graph written to file_name does not
+    contain placement information.  The name of the file must start with
+    an alphabetic character.
+
+	: blif file_name
+
+    Causes the diagrams currently on the canvas to be written in
+    blif format to file_name.  The name of the file must start with
+    an alphabetic character.
+
+Examples:
+
+    a+b*c      # expressions cause the update of the canvas
+    f = b+a*c  # assignments do not
+
+    # The following two lines specify a full adder.
+    sum = a ^ b ^ cin
+    cout = a*b + a*cin + b*cin
+
+    # The following are tautologies for every
+    # function f and variable x.
+    f == x*f_x + x'*f_x'
+    f => f ? x
+
+    # These are fully parenthesized versions of the above.
+    # Just to illustrate the precedence.
+    f == ((x*(f_x)) + ((x')*(f_(x'))))
+    f => (f ? x)
+
+    # The following illustrates the use of composition.
+    F = x*y*A + x*y'*B + x'*y*C + x'*y'*D
+    G = x^y
+    H = F / x <- G    # x is replaced by G in F
+    I = H / x <- G    # invert the transformation
+    [F I H]           # display F, I, and H simultaneously
+
+    # This line is not continued \
+    # The following line is continued.
+    G = a + b \
+        ! b*c
+
+Postscript output:
+    The current canvas drawing can be saved to a file by pressing
+    the "Save" button on the menu bar.  A window pops up to allow the
+    user to specify the file name and to choose between color and
+    grayscale rendition.
+
+Scripts:
+    Statements can be read from a file by pressing the "Load" button on
+    the menu bar.
+
+Options:
+    The "Options" button accesses a menu where the following options can
+    be selected:
+    * Use of complement arcs or not.
+    * Labeling of the nodes with unique ID or not.

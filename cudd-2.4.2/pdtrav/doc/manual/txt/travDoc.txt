@@ -1,0 +1,889 @@
+The trav package
+
+Main module for a simple traversal of finite state machine
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Trav_FromSelectEnum2String()   Given an Enumerated type Returns a string
+
+Trav_FromSelectString2Enum()   Given a string it Returns an Enumerated type
+
+Trav_Main()                    Temporary main program to be used as interface
+                               for cmd.
+
+Trav_MgrInit()                 Create a Manager.
+
+Trav_MgrOperation()            Perform an Operation on the Traversal Manager.
+
+Trav_MgrPrintStats()           Print Statistics on the Traversal Manager.
+
+Trav_MgrQuit()                 Closes a Manager.
+
+Trav_MgrReadAssertFlag()       Read Assert Flag.
+
+Trav_MgrReadAssert()           Read Assert.
+
+Trav_MgrReadAux()              Read AUX array
+
+Trav_MgrReadBackward()         Read the backward traversal flag
+
+Trav_MgrReadDdiMgrDefault()    Read default DDi Mgr
+
+Trav_MgrReadDdiMgrR()          Read DDi Mgr R
+
+Trav_MgrReadDdiMgrTr()         Read DDi Mgr TR
+
+Trav_MgrReadEnableDdR()        Read
+
+Trav_MgrReadFromSelect()       Read from selection
+
+Trav_MgrReadFrom()             Read from
+
+Trav_MgrReadI()                Read PI array
+
+Trav_MgrReadKeepNew()          Read the keepNew  flag
+
+Trav_MgrReadLevel()            Read Number of Level
+
+Trav_MgrReadLogPeriod()        Read the period for verbosity enabling
+
+Trav_MgrReadMaxIter()          Read the maximum number of traversal iterations
+
+Trav_MgrReadMgrAuxFlag()       Read the flag to indicate that during traversal
+                               there is an     additional auziliary manager
+
+Trav_MgrReadNS()               Read NS array
+
+Trav_MgrReadName()             Read
+
+Trav_MgrReadNewi()             Read newi
+
+Trav_MgrReadPS()               Read PS array
+
+Trav_MgrReadProductPeak()      Read Product Peak Value
+
+Trav_MgrReadReached()          Read reached
+
+Trav_MgrReadSavePeriodName()   Read the period for save BDDs enabling
+
+Trav_MgrReadSavePeriod()       Read the period for save BDDs enabling
+
+Trav_MgrReadSmoothVar()        Read
+
+Trav_MgrReadSorting()          Read verbosity
+
+Trav_MgrReadSquaring()         Read
+
+Trav_MgrReadThreshold()        Read
+
+Trav_MgrReadTrProfileDynamicEnable()
+                               Read
+
+Trav_MgrReadTrProfileMethod()  Read
+
+Trav_MgrReadTrProfileThreshold()
+                               Read
+
+Trav_MgrReadTr()               Read transition relation
+
+Trav_MgrReadVerbosity()        Read verbosity
+
+Trav_MgrReadW1()               Read
+
+Trav_MgrReadW2()               Read
+
+Trav_MgrReadW3()               Read
+
+Trav_MgrReadW4()               Read
+
+Trav_MgrSetAssertFlag()        Set Assert Flag.
+
+Trav_MgrSetAssert()            Set Assert.
+
+Trav_MgrSetAux()               Set the aux array
+
+Trav_MgrSetBackward()          Set the backward traversal flag
+
+Trav_MgrSetDdiMgrDefault()     Set default DDi Mgr
+
+Trav_MgrSetDdiMgrR()           Set DDi Mgr R
+
+Trav_MgrSetDdiMgrTr()          Set DDi Mgr TR
+
+Trav_MgrSetFromSelect()        Set the from selection
+
+Trav_MgrSetFrom()              Read
+
+Trav_MgrSetI()                 Set the PI array
+
+Trav_MgrSetKeepNew()           Set the keepNew flag
+
+Trav_MgrSetLogPeriod()         Set the period for verbosity enabling
+
+Trav_MgrSetMaxIter()           Set the maximum number of traversal iterations
+
+Trav_MgrSetMgrAuxFlag()        Set the flag to indicate that during traversal
+                               there is an     additional auziliary manager
+
+Trav_MgrSetNS()                Set the NS array
+
+Trav_MgrSetName()              Read
+
+Trav_MgrSetNewi()              Set Newi
+
+Trav_MgrSetPS()                Set the PS array
+
+Trav_MgrSetProductPeak()       Read
+
+Trav_MgrSetReached()           Read
+
+Trav_MgrSetSavePeriodName()    Set the period for verbosity enabling
+
+Trav_MgrSetSavePeriod()        Set the period for verbosity enabling
+
+Trav_MgrSetSorting()           Read verbosity
+
+Trav_MgrSetTrProfileDynamicEnable()
+                               Read
+
+Trav_MgrSetTrProfileMethod()   Set
+
+Trav_MgrSetTrProfileThreshold()
+                               Read
+
+Trav_MgrSetTr()                Read
+
+Trav_MgrSetVerbosity()         Set verbosity
+
+Trav_MismatchPat()             Generation of a mismatch input sequence
+
+Trav_SimulateMain()            Temporary main program to be used as interface
+                               for cmd.
+
+Trav_TrPartition()             Partitions the Transition Relation
+
+Trav_Traversal()               FSM traversal given a transition relation
+
+Trav_UnivAlignPat()            Find a universal alignment sequence
+
+**********************************************************************
+
+This package contains the main function to exploring the state     space of a
+FSM.<br>     There are three methods for image computation:     <ol>     <li>
+<b>Monolithic:</b> This is the most naive approach possible.<br>        This
+technique is based on building <em>monolithic transition
+relation</em>. It is the conjunction of all latches transition
+relation. If we use <em>y</em> to denote the next state vector,
+<em>s</em> the present state vector, <em>x</em> the input         vector and
+<em>delta()</em> the next state function, we define the        trasition
+relation of <em>i</em>-th latch to be the function         Ti (x,s,y) = yi
+<=> delta(i)(x,s).<br> Then, for a FSM of n latches,        the monolhitic
+transition relation is:        <p>        T(x,s,y) = T1(x,s,y)*T2(x,s,y)* ...
+*Tn(x,s,y)        <p>        When the monolithic TR is built, the traversal
+algorithm is executed.        This method is suitable for circuits with less
+than 20 latches      <li> <b>IWLS95:</b> This technique is based on the early
+quantification     heuristic.        The initialization process consists of
+following steps:           <ul>        <li> Create the clustered TR from
+transition relation by clustering              several function together. The
+size of clustering is controlled             by a threshold value controlled
+by the user.        <li> Order the clusters using the algorithm given in
+"Efficient BDD Algorithms for FSM Synthesis and             Verification", by
+R. K. Ranjan et. al. in the proceedings of             IWLS'95.         <li>
+For each cluster, quantify out the quantify variables which             are
+local to that particular cluster.        </ul>     <li> <b>Iterative
+squaring:</b> This technique is based on building the        <em>transitive
+closure (TC)</em> of a monolithic TR. Afterwards, TC        replace TR in the
+traversal algorithm.      </ol>
+
+char *
+Trav_FromSelectEnum2String(
+  Trav_FromSelect_e enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Trav_FromSelect_e
+Trav_FromSelectString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the enumerated type.
+
+  Side Effects: none
+
+void
+Trav_Main(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Temporary main program to be used as interface for cmd.
+
+  Side Effects: None
+
+Trav_Mgr_t *
+Trav_MgrInit(
+  char *            travName,        Name of the Trav structure
+  Ddi_Mgr_t *       dd               ddi manager
+)
+  Create a Manager.
+
+  Side Effects: none
+
+int
+Trav_MgrOperation(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlagP      Type of the Pointer Returned
+)
+  Perform an Operation on the Traversal Manager.
+
+
+int
+Trav_MgrPrintStats(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Print Statistics on the Traversal Manager.
+
+
+void
+Trav_MgrQuit(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Closes a Manager.
+
+  Side Effects: none
+
+int
+Trav_MgrReadAssertFlag(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read Assert Flag.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Trav_MgrReadAssert(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read Assert.
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Trav_MgrReadAux(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read AUX array
+
+  Side Effects: none
+
+int
+Trav_MgrReadBackward(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the backward traversal flag
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Trav_MgrReadDdiMgrDefault(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read default DDi Mgr
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Trav_MgrReadDdiMgrR(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read DDi Mgr R
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Trav_MgrReadDdiMgrTr(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read DDi Mgr TR
+
+  Side Effects: none
+
+int
+Trav_MgrReadEnableDdR(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+Trav_FromSelect_e
+Trav_MgrReadFromSelect(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read from selection
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Trav_MgrReadFrom(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read from
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Trav_MgrReadI(
+  Trav_Mgr_t *      travMgr          tr manager
+)
+  Read PI array
+
+  Side Effects: none
+
+int
+Trav_MgrReadKeepNew(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the keepNew flag
+
+  Side Effects: none
+
+int
+Trav_MgrReadLevel(
+  Trav_Mgr_t *      travMgr          traversal manager
+)
+  Read Number of Level
+
+  Side Effects: none
+
+int
+Trav_MgrReadLogPeriod(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the period for verbosity enabling
+
+  Side Effects: none
+
+int
+Trav_MgrReadMaxIter(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the maximum number of traversal iterations
+
+  Side Effects: none
+
+int
+Trav_MgrReadMgrAuxFlag(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the flag to indicate that during traversal there is an additional
+  auziliary manager
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Trav_MgrReadNS(
+  Trav_Mgr_t *      travMgr          tr manager
+)
+  Read NS array
+
+  Side Effects: none
+
+char *
+Trav_MgrReadName(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Trav_MgrReadNewi(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read newi
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Trav_MgrReadPS(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read PS array
+
+  Side Effects: none
+
+int
+Trav_MgrReadProductPeak(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read Product Peak Value
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Trav_MgrReadReached(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read reached
+
+  Side Effects: none
+
+char *
+Trav_MgrReadSavePeriodName(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the period for save BDDs enabling
+
+  Side Effects: none
+
+int
+Trav_MgrReadSavePeriod(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read the period for save BDDs enabling
+
+  Side Effects: none
+
+int
+Trav_MgrReadSmoothVar(
+  Trav_Mgr_t *      travMgr          Traversal manager
+)
+  Read
+
+  Side Effects: none
+
+int
+Trav_MgrReadSorting(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read verbosity
+
+  Side Effects: none
+
+int
+Trav_MgrReadSquaring(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+int
+Trav_MgrReadThreshold(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+int
+Trav_MgrReadTrProfileDynamicEnable(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+Cuplus_PruneHeuristic_e
+Trav_MgrReadTrProfileMethod(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+int
+Trav_MgrReadTrProfileThreshold(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+Tr_Tr_t *
+Trav_MgrReadTr(
+  Trav_Mgr_t *      travMgr          traversal manager
+)
+  Read transition relation
+
+  Side Effects: none
+
+Pdtutil_VerbLevel_e
+Trav_MgrReadVerbosity(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read verbosity
+
+  Side Effects: none
+
+double
+Trav_MgrReadW1(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+double
+Trav_MgrReadW2(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+double
+Trav_MgrReadW3(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+double
+Trav_MgrReadW4(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetAssertFlag(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  int               assertFlag       Assertion
+)
+  Set Assert Flag.
+
+  Side Effects: none
+
+void
+Trav_MgrSetAssert(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Bdd_t *       assert           Assertion
+)
+  Set Assert.
+
+  Side Effects: none
+
+void
+Trav_MgrSetAux(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Ddi_Vararray_t *  aux              Array of Variables
+)
+  Set the aux array
+
+  Side Effects: none
+
+void
+Trav_MgrSetBackward(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               backward         Max iterations
+)
+  Set the backward traversal flag
+
+  Side Effects: none
+
+void
+Trav_MgrSetDdiMgrDefault(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Ddi_Mgr_t *       mgrTr            dd Manager
+)
+  Set default DDi Mgr
+
+  Side Effects: none
+
+void
+Trav_MgrSetDdiMgrR(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Ddi_Mgr_t *       mgrR             Decision Diagram Manager
+)
+  Set DDi Mgr R
+
+  Side Effects: none
+
+void
+Trav_MgrSetDdiMgrTr(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Ddi_Mgr_t *       mgrTr            dd Manager
+)
+  Set DDi Mgr TR
+
+  Side Effects: none
+
+void
+Trav_MgrSetFromSelect(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Trav_FromSelect_e fromSelect       Selection
+)
+  Set the from selection
+
+  Side Effects: none
+
+void
+Trav_MgrSetFrom(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Bdd_t *       from             From set
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetI(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Vararray_t *  i                Array of variables
+)
+  Set the PI array
+
+  Side Effects: none
+
+void
+Trav_MgrSetKeepNew(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               keepNew          Max iterations
+)
+  Set the keepNew flag
+
+  Side Effects: none
+
+void
+Trav_MgrSetLogPeriod(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               logPeriod        Period
+)
+  Set the period for verbosity enabling
+
+  Side Effects: none
+
+void
+Trav_MgrSetMaxIter(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               maxIter          Max iterations
+)
+  Set the maximum number of traversal iterations
+
+  Side Effects: none
+
+void
+Trav_MgrSetMgrAuxFlag(
+  Trav_Mgr_t *      travMgr,         traversal manager
+  int               flag
+)
+  Set the flag to indicate that during traversal there is an additional
+  auziliary manager
+
+  Side Effects: none
+
+void
+Trav_MgrSetNS(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Vararray_t *  ns               Array of variables
+)
+  Set the NS array
+
+  Side Effects: none
+
+void
+Trav_MgrSetName(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  char *            travName
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetNewi(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Bddarray_t *  newi             Frontier sets
+)
+  Set Newi
+
+  Side Effects: none
+
+void
+Trav_MgrSetPS(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Ddi_Vararray_t *  ps               Array of Variables
+)
+  Set the PS array
+
+  Side Effects: none
+
+void
+Trav_MgrSetProductPeak(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               productPeak      Product Peak
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetReached(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Ddi_Bdd_t *       reached          Reached set
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetSavePeriodName(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  char *            savePeriodName   Period File Name
+)
+  Set the period for verbosity enabling
+
+  Side Effects: none
+
+void
+Trav_MgrSetSavePeriod(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               savePeriod       Period
+)
+  Set the period for verbosity enabling
+
+  Side Effects: none
+
+void
+Trav_MgrSetSorting(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               sorting
+)
+  Read verbosity
+
+  Side Effects: none
+
+void
+Trav_MgrSetTrProfileDynamicEnable(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               enable
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetTrProfileMethod(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Cuplus_PruneHeuri method
+)
+  Set
+
+  Side Effects: none
+
+void
+Trav_MgrSetTrProfileThreshold(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  int               threshold
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetTr(
+  Trav_Mgr_t *      travMgr,         Traversal manager
+  Tr_Tr_t *         tr               transition relation
+)
+  Read
+
+  Side Effects: none
+
+void
+Trav_MgrSetVerbosity(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Pdtutil_VerbLevel verbosity        Verbosity Level
+)
+  Set verbosity
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Trav_MismatchPat(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Tr_Tr_t *         TR,              Transition relation
+  Ddi_Bdd_t *       firstC,          constrain for start set
+  Ddi_Bdd_t *       lastC,           constrain for last set
+  Ddi_Bdd_t **      startp,          Pointer to start set
+  Ddi_Bdd_t **      endp,            Pointer to end set
+  Ddi_Bddarray_t *  newi,            Frontier sets
+  Ddi_Vararray_t *  psv,             Array of present state variables
+  Ddi_Vararray_t *  nsv,             Array of next state variables
+  Ddi_Varset_t *    pivars           Set of pattern (input) variables
+)
+  Generation of a mismatch input sequence
+
+  Side Effects: None
+
+void
+Trav_SimulateMain(
+  Fsm_Mgr_t *       fsmMgr,          FSM Manager
+  int               iterNumberMax,   Maximum Number of Iterations
+  int               deadEndNumberOf, Maximum Number of Dead End
+  int               logPeriod,       Period to Print Out Informations
+  int               simulationFlag,  Enable Simulation with Waves or DAC'99
+  int               depthBreadth,    In DAC'99 Method Use Breadth(1) or
+                                     Depth(0)
+  int               random,          In DAC'99 Use Random Values
+  char *            init,            Specify Where to Get Initial State
+  char *            pattern,         Specify Where to Get Input Patterns
+  char *            result           Specify Where to Put Output Results
+)
+  If simplifyDelta is equal to 0 performs a standard simulation otherwise
+  applies the Bertacco, Damiani, Quer DAC'99 strategy.
+
+  Side Effects: None
+
+void
+Trav_TrPartition(
+  Trav_Mgr_t *      travMgr,
+  char *            varname,
+  int               toggle
+)
+  Partitions the Transition Relation
+
+  Side Effects: None
+
+Ddi_Bdd_t *
+Trav_Traversal(
+  Trav_Mgr_t *      travMgr          Traversal Manager
+)
+  The pseudo-code of traversal algorithm is:<br> <code> traverse ( delta , S0
+  )<br> {<br> reached = from = S0;<br> do<br> {<br> to = Img ( delta , from
+  );<br> new = to - reached;<br> reached = reached + new;<br> from = new;<br>
+  }<br> while ( new!= 0 )<br> <p> return reached ;<br> }<br> </code> We use
+  the following notations: <ul> <li>from = initial set of states <li>to = set
+  of reached state in one step from current states <li>new = new reached
+  states <li>reached = set of reached states from 0 up to current iteration
+  </ul>
+
+  Side Effects: None
+
+Ddi_Bddarray_t *
+Trav_UnivAlignPat(
+  Trav_Mgr_t *      travMgr,         Traversal Manager
+  Tr_Tr_t *         TR,              Transition relation
+  Ddi_Bdd_t *       goal,            Destination set
+  Ddi_Bdd_t **      endp,            Pointer to end set
+  Ddi_Bddarray_t *  rings,           Frontier or ring sets
+  Ddi_Vararray_t *  psv,             Array of present state variables
+  Ddi_Vararray_t *  nsv,             Array of next state variables
+  Ddi_Varset_t *    pivars,          Set of pattern (input) variables
+  int               maxDepth         maximum depth allowed for the sequence
+)
+  Compute a universal alignment sequence using Pixley's algorithm: ICCAD'91,
+  DAC'92. The algorithm works knowing the set of rings or frontier sets. The
+  goal is the innermost ring. The outermost one must be 0.
+
+  Side Effects: None
+

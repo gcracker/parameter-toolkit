@@ -1,0 +1,107 @@
+<HTML>
+<HEAD><TITLE>The fsm package: Overview</TITLE></HEAD>
+<BODY>
+
+<H1>The fsm package</H1>
+<H2>External header file for package Fsm</H2>
+<H3>By Gianpiero Cabodi and Stefano Quer</H3>
+
+<UL>
+ <LI> <A HREF="fsmExt.html" TARGET="_top">
+    Information for programmers</A>
+ <LI> <A HREF="fsmAllByFunc.html" TARGET="_top">
+    Information for developers sorted by function</A>
+ <LI> <A HREF="fsmAllByFile.html" TARGET="_top">
+    Information for developers sorted by file</A>
+</UL>
+
+<HR>
+
+This package provides functions to read in and write out
+    descriptions of FSMs in the PdTrav format.<br>
+    Support to read a blif file are also given. <p>
+
+    External procedures included in this module are:
+    <ul>
+    <li> Fsm_MgrLoad ()
+    <li> Fsm_MgrStore ()
+    <li> Fsm_MgrInit ()
+    <li> Fsm_MgrQuit ()
+    <li> Fsm_MgrDup ()
+    </ul>
+    <p>
+
+    The FSM (name myFsm) structure follows the following schema:<p>
+    .Fsm myFsm<br>
+    </P>
+    .Size<br>
+      .i 4<br>
+      .o 1<br>
+      .l 3<br>
+    .EndSize<br>
+    </P>
+    .Ord<br>
+      .ordFile myFsmFSM.ord<br>
+    .EndOrd<br>
+    </P>
+    .Name<br>
+      .i G0 G1 G2 G3<br>
+      .ps G5 G6 G7<br>
+      .ns G5$NS G6$NS G7$NS<br>
+    .EndName<br>
+    </P>
+    .Index<br>
+      .i 0 1 2 3<br>
+      .ps 4 5 6<br>
+      .ns 7 8 9<br>
+    .EndIndex<br>
+    </P>
+    .Delta<br>
+      .bddFile myFsmdelta.bdd<br>
+    .EndDelta<br>
+    </P>
+    .Lambda<br>
+      .bddFile myFsmlambda.bdd<br>
+    .EndLambda<br>
+    </P>
+    .InitState<br>
+      .bddFile myFsms0.bdd<br>
+    .EndInitState<br>
+    </P>
+    .Tr<br>
+      .bddFile myFsmTR.bdd<br>
+    .EndTr<br>
+    </P>
+    .Reached<br>
+       .bddFile myFsmReached.bdd<br>
+    .EndReached<br>
+    </P>
+    .EndFsm<p>
+
+    The functions to read a blif file are partially taken, almost verbatim,
+    from the nanotrav directory of the Cudd-2.3.0 package.<br>
+    The original names have been modified changing the prefix in the
+    following way:<p>
+    Port_ ---> Fsm_Port<br>
+    Port ---> FsmPort<br>
+    port ---> fsmPort<br>
+    PORT_ ---> FSM_<p>
+    The functions directly called by nanotrav are:
+    <pre>
+    (name in nanotrav)     (name in the fsmPort package)
+    </P>
+    Bnet_ReadNetwork       Fsm_PortBnetReadNetwork
+    Bnet_FreeNetwork       Fsm_PortBnetFreeNetwork
+    Ntr_buildDDs           Fsm_PortNtrBuildDDs 
+    Ntr_initState          Fsm_PortNtrInitState
+    </pre>
+    <p>
+    fsmPortBnet.c contains the parts taken from bnet.c
+    fsmPortNtr.c contains the parts taken from ntr.c.
+
+<HR>
+
+Last updated on 1010515 11h48
+
+</BODY>
+</HTML>

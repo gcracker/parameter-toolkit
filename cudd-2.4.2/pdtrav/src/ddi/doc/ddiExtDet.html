@@ -1,0 +1,4200 @@
+<HTML>
+<HEAD><TITLE>The ddi package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Ddi_BddAndAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddAndAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Compute f & g. Previous content of f is freed and new result
+               is copyed to f. Since f points to a handle, it can be passed
+               by value: the handle is kept when freeing old content.
+               Accumulate type operations are useful to avoid temporary
+               variables and explicit free of old data.
+               The pointer to f (old handle) is returned so that the function
+               may be used as operand for other functions.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddAndExistAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddAndExistAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Relational product (Exist(f&g,vars)). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddAndExist"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddAndExist</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Relational product (Exist(f&g,vars)). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddAnd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddAnd</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Compute f & g. A new result is generated and returned. 
+               Input parameters are NOT changed
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddNot">Ddi_BddNot</a>
+<a href="#Ddi_BddOr">Ddi_BddOr</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddArraySetMeta"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddArraySetMeta</B>(
+  Ddi_Bddarray_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD array to Meta BDD. Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddCofexist"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddCofexist</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b>, <i></i>
+  Ddi_Varset_t * <b>smooth</b> <i></i>
+)
+</pre>
+<dd> Constrain cofactor. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddConstrainAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddConstrainAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Constrain cofactor. New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddConstrain"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddConstrain</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Constrain cofactor. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddCopy"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddCopy</B>(
+  Ddi_Mgr_t * <b>ddm</b>, <i>destination manager</i>
+  Ddi_Bdd_t * <b>old</b> <i>BDD to be duplicated</i>
+)
+</pre>
+<dd> Copy a Ddi_Bdd_t to a destination DDI manager.
+    Variable correspondence is established "by index", i.e. 
+    variables with same index in different manager correspond. 
+    Bdd is simply duplicated if destination manager is equal to the 
+    source one.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddCprojectAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddCprojectAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Compatible projector. New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddCproject"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddCproject</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Compatible projector. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddDenseSet"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddDenseSet</B>(
+  Ddi_DenseMethod_e  <b>method</b>, <i>Operation Code</i>
+  Ddi_Bdd_t * <b>f</b>, <i>Operand</i>
+  int  <b>threshold</b>, <i></i>
+  int  <b>safe</b>, <i></i>
+  int  <b>quality</b>, <i></i>
+  double  <b>hardlimit</b> <i></i>
+)
+</pre>
+<dd> Compute the Dense Super or Subset of a Boolean functions
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddDiffAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddDiffAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean difference (f & !g). Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddDiff"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddDiff</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean difference (f & !g). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddDup"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddDup</B>(
+  Ddi_Bdd_t * <b>f</b> <i>BDD to be duplicated</i>
+)
+</pre>
+<dd> Duplicate a Ddi_Bdd_t. All pointed objects are recursively 
+    duplicated. In case of partitioned
+    BDDs, array of partitions are duplicated. Cudd BDDs are referenced.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddEqual"></A>
+int <I></I>
+<B>Ddi_BddEqual</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>first dd</i>
+  Ddi_Bdd_t * <b>g</b> <i>second dd</i>
+)
+</pre>
+<dd> Return true (non 0) if the two DDs are equal (f==g).
+    This test is presently limited to monolithic BDDs.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddEvalFree"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddEvalFree</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>expression</i>
+  Ddi_Bdd_t * <b>g</b> <i>BDD to be freed</i>
+)
+</pre>
+<dd> Useful for accumulator like expressions (g=f(g,h)), i.e.
+    computing a new value for a variable
+    and the old value must be freed. Avoids using temporary
+    variables. Since the f expression is evalued before
+    passing actual parameters, freeing of g occurs as last
+    operation. 
+    <pre>
+    E.g. 
+          g=Ddi_BddEvalFree(Ddi_BddAnd(g,h),g).
+    </pre>
+    The "accumulator" style operations introduced from version 2.0 of
+    pdtrav should stongly reduce the need for this technique. The above 
+    example can now be written as:
+    <pre>
+          Ddi_BddAndAcc(g,h).
+    </pre>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddExistAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddExistAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Existential abstraction. New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddExist"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddExist</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Existential abstraction. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddForallAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddForallAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Universal abstraction. New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddForall"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddForall</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i></i>
+)
+</pre>
+<dd> Universal abstraction. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddFromMeta"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddFromMeta</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD to Meta BDD. Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddIncluded"></A>
+int <I></I>
+<B>Ddi_BddIncluded</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Check for inclusion (f in g). Return non 0 if true.
+    This test requires the second operand (g) to be monolithic, whereas
+    monolithic and disjunctively partitioned forms are allowed for first
+    operand (f).
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddIsMono"></A>
+int <I></I>
+<B>Ddi_BddIsMono</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if f is a monolithic BDD.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddIsPartConj">Ddi_BddIsPartConj</a>
+<a href="#Ddi_BddIsPartDisj">Ddi_BddIsPartDisj</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIsOne"></A>
+int <I></I>
+<B>Ddi_BddIsOne</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if f is the one constant.
+    This test is presently limited to monolithic BDDs.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddIsZero">Ddi_BddIsZero</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIsPartConj"></A>
+int <I></I>
+<B>Ddi_BddIsPartConj</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if f is a conjunctively partitioned BDD.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddIsMono">Ddi_BddIsMono</a>
+<a href="#Ddi_BddIsPartDisj">Ddi_BddIsPartDisj</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIsPartDisj"></A>
+int <I></I>
+<B>Ddi_BddIsPartDisj</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if f is a disjunctively partitioned BDD.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddIsMono">Ddi_BddIsMono</a>
+<a href="#Ddi_BddIsPartConj">Ddi_BddIsPartConj</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIsZero"></A>
+int <I></I>
+<B>Ddi_BddIsZero</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if f is the zero constant.
+    This test is presently limited to monolithic BDDs.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddIsOne">Ddi_BddIsOne</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIteAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddIteAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b>, <i></i>
+  Ddi_Bdd_t * <b>h</b> <i></i>
+)
+</pre>
+<dd> If-Then-Else (ITE(f,g,h)). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddIte"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddIte</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b>, <i></i>
+  Ddi_Bdd_t * <b>h</b> <i></i>
+)
+</pre>
+<dd> If-Then-Else (ITE(f,g,h)). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddLoad"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddLoad</B>(
+  Ddi_BddMgr * <b>dd</b>, <i>dd manager</i>
+  int  <b>varmatchmode</b>, <i>variable matching mode</i>
+  char  <b>mode</b>, <i>loading mode</i>
+  char * <b>filename</b>, <i>file name</i>
+  FILE * <b>fp</b> <i>file pointer</i>
+)
+</pre>
+<dd> This function loads only a BDD. If the file contain a BDDs'
+    array, then will be load only the first BDD.<br>
+    The BDD on file must be in the DDDMP format. The parameter 
+    "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_BINARY or
+    DDDMP_MODE_DEFAULT.<br>
+    The function returns the pointer of BDD root if succefully
+    loaded, NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddStore">Ddi_BddStore</a>
+<a href="#Dddmp_cuddBddLoad">Dddmp_cuddBddLoad</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeConst"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeConst</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  int  <b>value</b> <i>non 0: true (one), 0: false (zero)</i>
+)
+</pre>
+<dd> Generate a Ddi_Bdd_t constant node (BDD zero or one).
+    The proper constant node within the manager is duplicated.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddToCU">Ddi_BddToCU</a>
+<a href="#DdiBddMakeLiteral">DdiBddMakeLiteral</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeFromCU"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeFromCU</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  DdNode * <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Build the Ddi_Bdd_t structure (by means of DdiGenericAlloc)
+               from manager and CUDD node.
+               The reference count of the node is increased.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#DdiGenericAlloc">DdiGenericAlloc</a>
+<a href="#Ddi_BddToCU">Ddi_BddToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeFromMeta"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeFromMeta</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD to Meta BDD. Result generated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeLiteral"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeLiteral</B>(
+  Ddi_Var_t * <b>v</b>, <i></i>
+  int  <b>polarity</b> <i>non 0: affirmed (v), 0: complemented literal (!v)</i>
+)
+</pre>
+<dd> Generate a literal from a variable.
+    The literal can be either affirmed or complemented.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_Bdd">Ddi_Bdd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeMeta"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeMeta</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD to Meta BDD. Result generated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddMakeMono"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakeMono</B>(
+  Ddi_Bdd_t * <b>f</b> <i>input function</i>
+)
+</pre>
+<dd> Create a monolithic BDD from a partitioned one
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartConjFromArray"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartConjFromArray</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Build a conjunctively partitioned BDD from array of partitions
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartConjFromMono">Ddi_BddMakePartConjFromMono</a>
+<a href="#Ddi_BddMakePartDisjFromMono">Ddi_BddMakePartDisjFromMono</a>
+<a href="#Ddi_BddMakePartDisjFromArray">Ddi_BddMakePartDisjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartConjFromMono"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartConjFromMono</B>(
+  Ddi_Bdd_t * <b>mono</b> <i></i>
+)
+</pre>
+<dd> Build a conjunctively partitioned BDD from a monolithic BDD
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartDisjFromMono">Ddi_BddMakePartDisjFromMono</a>
+<a href="#Ddi_BddMakePartConjFromArray">Ddi_BddMakePartConjFromArray</a>
+<a href="#Ddi_BddMakePartDisjFromArray">Ddi_BddMakePartDisjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartConjVoid"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartConjVoid</B>(
+  Ddi_Mgr_t * <b>mgr</b> <i></i>
+)
+</pre>
+<dd> Build a conjunctively partitioned BDD with 0 partitions
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartDisjVoid">Ddi_BddMakePartDisjVoid</a>
+<a href="#Ddi_BddMakePartConjFromMono">Ddi_BddMakePartConjFromMono</a>
+<a href="#Ddi_BddMakePartConjFromArray">Ddi_BddMakePartConjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartDisjFromArray"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartDisjFromArray</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Build a disjunctively partitioned BDD from array of BDDs
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartConjFromMono">Ddi_BddMakePartConjFromMono</a>
+<a href="#Ddi_BddMakePartDisjFromMono">Ddi_BddMakePartDisjFromMono</a>
+<a href="#Ddi_BddMakePartConjFromArray">Ddi_BddMakePartConjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartDisjFromMono"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartDisjFromMono</B>(
+  Ddi_Bdd_t * <b>mono</b> <i></i>
+)
+</pre>
+<dd> Build a disjunctively partitioned BDD from a monolithic BDD
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartConjFromMono">Ddi_BddMakePartConjFromMono</a>
+<a href="#Ddi_BddMakePartConjFromArray">Ddi_BddMakePartConjFromArray</a>
+<a href="#Ddi_BddMakePartDisjFromArray">Ddi_BddMakePartDisjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddMakePartDisjVoid"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddMakePartDisjVoid</B>(
+  Ddi_Mgr_t * <b>mgr</b> <i></i>
+)
+</pre>
+<dd> Build a disjunctively partitioned BDD with 0 partitions
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakePartConjVoid">Ddi_BddMakePartConjVoid</a>
+<a href="#Ddi_BddMakePartDisjFromMono">Ddi_BddMakePartDisjFromMono</a>
+<a href="#Ddi_BddMakePartDisjFromArray">Ddi_BddMakePartDisjFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNandAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNandAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean NAND (!(f&g)). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNand"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNand</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean NAND (!(f&g)). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNorAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNorAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean NOR (!(f|g)). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNor"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean NOR (!(f|g)). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNotAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNotAcc</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Boolean NOT. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddNot"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddNot</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Boolean NOT. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddOperation"></A>
+int <I></I>
+<B>Ddi_BddOperation</B>(
+  Ddi_Mgr_t * <b>defaultDdMgr</b>, <i>Default DD Manager</i>
+  Ddi_Bdd_t ** <b>bddP</b>, <i>BDD Pointer to manipulate</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlag</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddOrAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddOrAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean OR (f|g). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddOr"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddOr</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean OR (f|g). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPartExtract"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPartExtract</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Return the i-th partition (conj/disj), and remove it from f.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPartInsertLast"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPartInsertLast</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>partitioned BDD</i>
+  Ddi_Bdd_t * <b>new</b> <i>new partition</i>
+)
+</pre>
+<dd> Add new partition at last position. Result accumulated
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddPartInsert">Ddi_BddPartInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPartInsert"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPartInsert</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>partitioned BDD</i>
+  int  <b>i</b>, <i>position of new partition</i>
+  Ddi_Bdd_t * <b>new</b> <i>new partition</i>
+)
+</pre>
+<dd> Add new partition at position i. Result accumulated.
+    Higher partitions are shifted.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddPartWrite">Ddi_BddPartWrite</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPartNum"></A>
+int <I></I>
+<B>Ddi_BddPartNum</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Read the number of partitions (conj/disj).
+    In case of monolithic BDD, 1 is returned, in case of partitioned
+    BDDs, the number of partitions.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPartRead"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPartRead</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Read the i-th partition (conj/disj) of f.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPartWrite"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPartWrite</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>partitioned BDD</i>
+  int  <b>i</b>, <i>position of new partition</i>
+  Ddi_Bdd_t * <b>new</b> <i>new partition</i>
+)
+</pre>
+<dd> Write new partition at position i. Result accumulated.
+    Same as insert if position is PartNum+1. Otherwise i-th partition is
+    freed and overwritten, so Write is acrually a partition "replace" or
+    "rewrite" operation.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddPartInsert">Ddi_BddPartInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPickOneCubeAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPickOneCubeAcc</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Pick one random on-set cube. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPickOneCube"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPickOneCube</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Pick one random on-set cube. Result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPickOneMintermAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPickOneMintermAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i>set of variables defining the minterm space</i>
+)
+</pre>
+<dd> Pick one random on-set minterm. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPickOneMinterm"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddPickOneMinterm</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Varset_t * <b>vars</b> <i>set of variables defining the minterm space</i>
+)
+</pre>
+<dd> Pick one random on-set minterm. Result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddPrintCubes"></A>
+int <I></I>
+<B>Ddi_BddPrintCubes</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>BDD</i>
+  Ddi_Varset_t * <b>vars</b>, <i>Variables</i>
+  int  <b>cubeNumberMax</b>, <i>Maximum number of cubes printed</i>
+  int  <b>formatPla</b>, <i>Prints a 1 at the end of the cube (PLA format)</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b> <i>Pointer to the store file</i>
+)
+</pre>
+<dd> This function outputs the cubes of a BDD on file.
+    Only monolithic BDDs are supported. The set of variables to be considered
+    is given as input (if NULL the true support is used), to allow generating
+    don't cares, data are sorted by absolute index, NOT by variable ordering.
+    The procedure allows omitting variables in the true support, which
+    are existentially quantified out before generating cubes, to avoid 
+    repetitions.
+    A limit on the number of cubes generated can be specified.
+    Use a negative value for no bound.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPrintStats"></A>
+void <I></I>
+<B>Ddi_BddPrintStats</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  FILE * <b>fp</b> <i></i>
+)
+</pre>
+<dd> Prints Statistics of a BDD
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPrintSupportAndCubes"></A>
+int <I></I>
+<B>Ddi_BddPrintSupportAndCubes</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>BDD</i>
+  int  <b>numberPerRow</b>, <i>Number of Names Printed on a Single Row</i>
+  int  <b>cubeNumberMax</b>, <i>Maximum number of cubes printed</i>
+  int  <b>formatPla</b>, <i>Prints a 1 at the end of the cube (PLA format)</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b> <i>Pointer to the store file</i>
+)
+</pre>
+<dd> Use a negative value to indicate no bound in the number of
+    printed cubes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddPrint"></A>
+void <I></I>
+<B>Ddi_BddPrint</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  FILE * <b>fp</b> <i></i>
+)
+</pre>
+<dd> Prints a BDD
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddRelMakeFromArray"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddRelMakeFromArray</B>(
+  Ddi_Bddarray_t * <b>Fa</b>, <i>array of functions</i>
+  Ddi_Vararray_t * <b>Va</b> <i>array of range variables</i>
+)
+</pre>
+<dd> Generate a Ddi_Bdd_t relation from array of functions. 
+    Relation is generated considering function variables domain, 
+    and range variables as co-domain.
+    I-th range variable corresponds to i-th function.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddRestrictAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddRestrictAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Restrict cofactor. New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddRestrict"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddRestrict</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Restrict cofactor. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSetMeta"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSetMeta</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD to Meta BDD. Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddSetMono"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSetMono</B>(
+  Ddi_Bdd_t * <b>f</b> <i>input function</i>
+)
+</pre>
+<dd> Convert a BDD to monolitic (if required). Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddSetPartConj"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSetPartConj</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Convert a BDD to conjunctively partitioned (if required). 
+               Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddSetPartDisj"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSetPartDisj</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Convert a BDD to disjunctively partitioned (if required). 
+               Result accumulated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddSize"></A>
+int <I></I>
+<B>Ddi_BddSize</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return BDD size (total amount of BDD nodes) of f.
+    In case of partitioned or meta BDDs the sharing size is returned
+    (shared subgraphs are counted once).
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddStore"></A>
+int <I></I>
+<B>Ddi_BddStore</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>BDD</i>
+  char * <b>ddname</b>, <i>dd name (or NULL)</i>
+  char  <b>mode</b>, <i>storing mode</i>
+  char * <b>filename</b>, <i>file name</i>
+  FILE * <b>fp</b> <i>pointer to the store file</i>
+)
+</pre>
+<dd> This function stores only a BDD (not a BDD array).
+    The BDD is stored in the DDDMP format. The parameter "mode" 
+    can be DDDMP_MODE_TEXT, DDDMP_MODE_BINARY or
+    DDDMP_MODE_DEFAULT.<br>
+    The function returns 1 if succefully stored, 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddLoad">Ddi_BddLoad</a>
+<a href="#Dddmp_cuddBddStore">Dddmp_cuddBddStore</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSuppAttach"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSuppAttach</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> The support of f is the set of variables f depends on.
+               This function generates the support of f 
+               and hooks it to proper field of f, so that no BDD traversal 
+               is done in further calls of Ddi_BddSupp.
+<p>
+
+<dd> <b>Side Effects</b> support is attached to f
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddSupp">Ddi_BddSupp</a>
+<a href="#Ddi_BddSuppDetach">Ddi_BddSuppDetach</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSuppDetach"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSuppDetach</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Detach (and free) support attached to f. Return pointer to f
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddSupp">Ddi_BddSupp</a>
+<a href="#Ddi_BddSuppAttach">Ddi_BddSuppAttach</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSuppRead"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_BddSuppRead</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Read the support attached to a Bdd. The support is not 
+    duplicated, as would Ddi_BddSupp with attached support. Return NULL if
+    support is not attached.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddSupp">Ddi_BddSupp</a>
+<a href="#Ddi_BddSuppAttach">Ddi_BddSuppAttach</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSupp"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_BddSupp</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> The support of f is the set of variables f depends on.
+               This function has no "accumulated" version, but a related
+               function (Ddi_BddSuppAttach) which attaches the support to
+               a function, so that no BDD traversal is done in further
+               calls of Ddi_BddSupp.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddSuppAttach">Ddi_BddSuppAttach</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSwapVarsAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSwapVarsAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Vararray_t * <b>x</b>, <i>1-st array of variables</i>
+  Ddi_Vararray_t * <b>y</b> <i>2-nd array of variables</i>
+)
+</pre>
+<dd> Swap x and y variables in f. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddSwapVars"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddSwapVars</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Vararray_t * <b>x</b>, <i>1-st array of variables</i>
+  Ddi_Vararray_t * <b>y</b> <i>2-nd array of variables</i>
+)
+</pre>
+<dd> Swap x and y variables in f. New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddToCU"></A>
+Ddi_BddNode * <I></I>
+<B>Ddi_BddToCU</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Convert a DDI function to the corresponding Cudd Node.
+    This is done by reading the proper field (pointing to a cudd node) in the 
+    DDI node
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddMakeFromCU">Ddi_BddMakeFromCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddTopVar"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_BddTopVar</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Return the top BDD variable of f
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddXnorAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddXnorAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean XNOR (!(f^g)). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddXnor"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddXnor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean XNOR (!(f^g)). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddXorAcc"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddXorAcc</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean XOR (f^g). New result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAndAcc">Ddi_BddAndAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddXor"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddXor</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  Ddi_Bdd_t * <b>g</b> <i></i>
+)
+</pre>
+<dd> Boolean XOR (f^g). New result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddAnd">Ddi_BddAnd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayAlloc"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayAlloc</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i>DDI manager</i>
+  int  <b>length</b> <i>array length</i>
+)
+</pre>
+<dd> Allocate a new array of BDDs. The array slots are initialized 
+    with NULL pointers, so further Write operations are required.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayWrite">Ddi_BddarrayWrite</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayAppend"></A>
+void <I></I>
+<B>Ddi_BddarrayAppend</B>(
+  Ddi_Bddarray_t * <b>array1</b>, <i>first array</i>
+  Ddi_Bddarray_t * <b>array2</b> <i>array to be appended</i>
+)
+</pre>
+<dd> Append the elements of array2 at the end of array1. As all
+    array write/insert operations, new entries are duplicated.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayWrite">Ddi_BddarrayWrite</a>
+<a href="#Ddi_BddarrayInsert">Ddi_BddarrayInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayClear"></A>
+void <I></I>
+<B>Ddi_BddarrayClear</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array of BDDs</i>
+  int  <b>pos</b> <i>position of element to be cleared</i>
+)
+</pre>
+<dd> clear array at given position (BDD freed and replaced by NULL)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayRead">Ddi_BddarrayRead</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayCopy"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayCopy</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i>dd Manager</i>
+  Ddi_Bddarray_t * <b>old</b> <i>array of BDDs</i>
+)
+</pre>
+<dd> Copy an array of BDDs to a destination manager.
+    Variable correspondence is established "by index", i.e. 
+    variables with same index in different manager correspond
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayDup">Ddi_BddarrayDup</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayDup"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayDup</B>(
+  Ddi_Bddarray_t * <b>old</b> <i>array to be duplicated</i>
+)
+</pre>
+<dd> Duplicate an array of BDDs
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayAlloc">Ddi_BddarrayAlloc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayExtract"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddarrayExtract</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>BDD array</i>
+  int  <b>i</b> <i>position</i>
+)
+</pre>
+<dd> Extract the BDD at i-th position in array. 
+    The extracted BDD is removed from the array and the following entries
+    are shifted up.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayInsert">Ddi_BddarrayInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayInsertLast"></A>
+void <I></I>
+<B>Ddi_BddarrayInsertLast</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array of BDDs</i>
+  Ddi_Bdd_t * <b>f</b> <i>BDD to be written</i>
+)
+</pre>
+<dd> Insert a BDD in array at last (new) position
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayExtract">Ddi_BddarrayExtract</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayInsert"></A>
+void <I></I>
+<B>Ddi_BddarrayInsert</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array of BDDs</i>
+  int  <b>pos</b>, <i>position of new element</i>
+  Ddi_Bdd_t * <b>f</b> <i>BDD to be written</i>
+)
+</pre>
+<dd> Insert a BDD in array at given position. 
+    Following entries are shifted down.
+    The written BDD (f) is duplicated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayExtract">Ddi_BddarrayExtract</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayLoad"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayLoad</B>(
+  Ddi_BddMgr * <b>dd</b>, <i>dd manager</i>
+  char ** <b>vnames</b>, <i>variable names</i>
+  int * <b>vauxids</b>, <i>variable auxids</i>
+  int  <b>mode</b>, <i>storing mode selector</i>
+  char * <b>file</b>, <i>name file</i>
+  FILE * <b>fp</b> <i>file pointer</i>
+)
+</pre>
+<dd> This function loads a BDDs'array.<br>
+               The BDD on file must be in the DDDMP format. The parameter 
+               "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_COMPRESSED or
+               DDDMP_MODE_AUTOMATIC.<br>
+               The function returns the pointer of array if succefully
+               loaded, NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dddmp_cuddBddLoad">Dddmp_cuddBddLoad</a>
+<a href="#Ddi_BddLoad">Ddi_BddLoad</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayMakeFromBddPart"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayMakeFromBddPart</B>(
+  Ddi_Bdd_t * <b>part</b> <i></i>
+)
+</pre>
+<dd> Generate a BDD array from partitions of partitioned BDD
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayToCU">Ddi_BddarrayToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayMakeFromCU"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayMakeFromCU</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  DdNode ** <b>array</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Generate a BDD array from CUDD BDDs.
+    The function allocates a Ddi_Bddarray_t structure, then write 
+    monolithic components to proper array slots.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayToCU">Ddi_BddarrayToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayMakeMeta"></A>
+Ddi_Bddarray_t * <I></I>
+<B>Ddi_BddarrayMakeMeta</B>(
+  Ddi_Bddarray_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Transform a BDD array to Meta BDD. Result generated
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayNum"></A>
+int <I></I>
+<B>Ddi_BddarrayNum</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Return the number of BDDs (entries) in array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayOperation"></A>
+int <I></I>
+<B>Ddi_BddarrayOperation</B>(
+  Ddi_Mgr_t * <b>defaultDdMgr</b>, <i>Default BDD Manager</i>
+  Ddi_Bddarray_t ** <b>bddArrayP</b>, <i>BDD Array Pointer to manipulate</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlag</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayPrintSupportAndCubes"></A>
+int <I></I>
+<B>Ddi_BddarrayPrintSupportAndCubes</B>(
+  Ddi_Bddarray_t * <b>fArray</b>, <i>BDD Array</i>
+  int  <b>numberPerRow</b>, <i>Number of Names Printed on a Single Row</i>
+  int  <b>cubeNumberMax</b>, <i>Maximum number of cubes printed</i>
+  int  <b>formatPla</b>, <i>Prints a 1 at the end of the cube (PLA format)</i>
+  int  <b>reverse</b>, <i>Reverse Order if 1</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b> <i>Pointer to the store file</i>
+)
+</pre>
+<dd> Use a negative value to indicate no bound in the number of
+    printed cubes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayRead"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_BddarrayRead</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>BDD array</i>
+  int  <b>i</b> <i>position</i>
+)
+</pre>
+<dd> Read the BDD at i-th position in array. As all read operations
+    no data duplication is done, so the returned BDD should be duplicated
+    if further manipulations are required on it.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayWrite">Ddi_BddarrayWrite</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayRemove"></A>
+void <I></I>
+<B>Ddi_BddarrayRemove</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array of BDDs</i>
+  int  <b>pos</b> <i>position of element to be cleared</i>
+)
+</pre>
+<dd> Remove array entry at given position.
+    This operation is equivalent to extract + free of extracted BDD.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayExtract">Ddi_BddarrayExtract</a>
+<a href="#Ddi_BddarrayClear">Ddi_BddarrayClear</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarraySize"></A>
+int <I></I>
+<B>Ddi_BddarraySize</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Count the  numbers of BDD nodes in a BDD array. Shared
+    nodes are counted once.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddSize">Ddi_BddSize</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayStore"></A>
+int <I></I>
+<B>Ddi_BddarrayStore</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array to be stored</i>
+  char * <b>ddname</b>, <i>dd name (or NULL)</i>
+  char ** <b>vnames</b>, <i>array of variable names (or NULL)</i>
+  char ** <b>rnames</b>, <i>array of root names (or NULL)</i>
+  int * <b>vauxids</b>, <i>array of aux var ids (or NULL)</i>
+  int  <b>mode</b>, <i>storing mode selector</i>
+  char * <b>fname</b>, <i>file name</i>
+  FILE * <b>fp</b> <i>pointer to the store file</i>
+)
+</pre>
+<dd> This function stores a BDD array using the
+               DDDMP format. The parameter "mode" 
+               can be DDDMP_MODE_TEXT, DDDMP_MODE_COMPRESSED or
+               DDDMP_MODE_AUTOMATIC.<br>
+               The function returns 1 if succefully stored, 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dddmp_cuddBddStore">Dddmp_cuddBddStore</a>
+<a href="#Ddi_BddStore">Ddi_BddStore</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarraySuppArray"></A>
+Ddi_Varset_t ** <I></I>
+<B>Ddi_BddarraySuppArray</B>(
+  Ddi_Bddarray_t * <b>fArray</b> <i>array of function</i>
+)
+</pre>
+<dd> OLD(pdt-1). Return a vector of supports of BDD array elements.
+    Should be replaced by Varsetarray usage
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarraySupp"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_BddarraySupp</B>(
+  Ddi_Bddarray_t * <b>array</b> <i>BDDs'array</i>
+)
+</pre>
+<dd> Returns a var-set representing the global support of the array
+<p>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayToCU"></A>
+DdNode ** <I></I>
+<B>Ddi_BddarrayToCU</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Generate a dynamically allocated array of pointers to CUDD 
+    BDDs, one for each entry in the DDI array. Array entries are required
+    to be monolithic.
+    The number of array entries is equal to Ddi_BddarrayNum(array), but the 
+    array is overdimensioned (by one NULL slot) to make it NULL-terminated.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayMakeFromCU">Ddi_BddarrayMakeFromCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_BddarrayWrite"></A>
+void <I></I>
+<B>Ddi_BddarrayWrite</B>(
+  Ddi_Bddarray_t * <b>array</b>, <i>array of BDDs</i>
+  int  <b>pos</b>, <i>position of new element</i>
+  Ddi_Bdd_t * <b>f</b> <i>BDD to be written</i>
+)
+</pre>
+<dd> Write a BDD in array at given position. Previous non NULL entry
+    is freed. The written BDD (f) is duplicated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_BddarrayRead">Ddi_BddarrayRead</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_CountMinterm"></A>
+double <I></I>
+<B>Ddi_CountMinterm</B>(
+  Ddi_Bdd_t * <b>f</b>, <i></i>
+  int  <b>nvar</b> <i></i>
+)
+</pre>
+<dd> Check for inclusion (f in g). Return non 0 if true.
+    This test requires the second operand (g) to be monolithic, whereas
+    monolithic and disjunctively partitioned forms are allowed for first
+    operand (f).
+<p>
+
+<dt><pre>
+<A NAME="Ddi_DenseMethodEnum2String"></A>
+char * <I></I>
+<B>Ddi_DenseMethodEnum2String</B>(
+  Ddi_DenseMethod_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_DenseMethodString2Enum"></A>
+Ddi_DenseMethod_e <I></I>
+<B>Ddi_DenseMethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the dense method type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprBoolMake"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprBoolMake</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  Ddi_Expr_t * <b>op1</b>, <i></i>
+  Ddi_Expr_t * <b>op2</b> <i></i>
+)
+</pre>
+<dd> Build a Boolean Ddi_Expr_t from given sub-expressions.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_ExprMakeFromBdd">Ddi_ExprMakeFromBdd</a>
+<a href="#Ddi_ExprMakeFromString">Ddi_ExprMakeFromString</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ExprCtlMake"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprCtlMake</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  int  <b>opcode</b>, <i></i>
+  Ddi_Expr_t * <b>op1</b>, <i></i>
+  Ddi_Expr_t * <b>op2</b>, <i></i>
+  Ddi_Expr_t * <b>op3</b> <i></i>
+)
+</pre>
+<dd> Build a Ctl Ddi_Expr_t from given sub-expressions.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_ExprMakeFromBdd">Ddi_ExprMakeFromBdd</a>
+<a href="#Ddi_ExprMakeFromString">Ddi_ExprMakeFromString</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ExprDup"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprDup</B>(
+  Ddi_Expr_t * <b>f</b> <i>expression to be duplicated</i>
+)
+</pre>
+<dd> Duplicate a Ddi_Expr_t. Duplication is propagated 
+    recursively.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprIsTerminal"></A>
+int <I></I>
+<B>Ddi_ExprIsTerminal</B>(
+  Ddi_Expr_t * <b>e</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if expression is terminal (Bdd or string).
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprLoad"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprLoad</B>(
+  Ddi_BddMgr * <b>dd</b>, <i>dd manager</i>
+  char * <b>filename</b>, <i>file name</i>
+  FILE * <b>fp</b> <i>file pointer</i>
+)
+</pre>
+<dd> Load EXPRESSION from file
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprMakeFromBdd"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprMakeFromBdd</B>(
+  Ddi_Bdd_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Build the Ddi_Expr_t structure (by means of DdiGenericAlloc)
+               from BDD handle.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#DdiGenericAlloc">DdiGenericAlloc</a>
+<a href="#Ddi_ExprToBdd">Ddi_ExprToBdd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ExprMakeFromString"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprMakeFromString</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  char * <b>s</b> <i></i>
+)
+</pre>
+<dd> Build a Ddi_Expr_t  from a given string.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprPrint"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprPrint</B>(
+  Ddi_Expr_t * <b>f</b>, <i></i>
+  FILE * <b>fp</b> <i></i>
+)
+</pre>
+<dd> Print a Ddi_Expr_t
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprReadOpcode"></A>
+int <I></I>
+<B>Ddi_ExprReadOpcode</B>(
+  Ddi_Expr_t * <b>e</b> <i></i>
+)
+</pre>
+<dd> Read expression opcode
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprReadSub"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprReadSub</B>(
+  Ddi_Expr_t * <b>e</b>, <i></i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Rear sub-expression at given position
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprSubNum"></A>
+int <I></I>
+<B>Ddi_ExprSubNum</B>(
+  Ddi_Expr_t * <b>e</b> <i></i>
+)
+</pre>
+<dd> Read the number of sub-expressions.
+    In case of terminal expressioins (Bdd or String), 0 is returned.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ExprToBdd"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_ExprToBdd</B>(
+  Ddi_Expr_t * <b>e</b> <i></i>
+)
+</pre>
+<dd> Retrieve the Bdd associated to the expression
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_ExprMakeFromBdd">Ddi_ExprMakeFromBdd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ExprToString"></A>
+char * <I></I>
+<B>Ddi_ExprToString</B>(
+  Ddi_Expr_t * <b>e</b> <i></i>
+)
+</pre>
+<dd> Retrieve the string associated to the expression
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_ExprMakeFromString">Ddi_ExprMakeFromString</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ExprWriteSub"></A>
+Ddi_Expr_t * <I></I>
+<B>Ddi_ExprWriteSub</B>(
+  Ddi_Expr_t * <b>e</b>, <i></i>
+  int  <b>pos</b>, <i></i>
+  Ddi_Expr_t * <b>op</b> <i></i>
+)
+</pre>
+<dd> Write operand sub-expression to expression at given position. 
+    Sub-expression is added if not present, rewritten (by freeing the old one)
+    if present at specified position
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_ExprMakeFromBdd">Ddi_ExprMakeFromBdd</a>
+<a href="#Ddi_ExprMakeFromString">Ddi_ExprMakeFromString</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_GenericDup"></A>
+Ddi_Generic_t * <I></I>
+<B>Ddi_GenericDup</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Generic dup
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericFree"></A>
+void <I></I>
+<B>Ddi_GenericFree</B>(
+  Ddi_Generic_t * <b>f</b> <i>block to be freed</i>
+)
+</pre>
+<dd> Free the content of a generic DDI node
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericLock"></A>
+void <I></I>
+<B>Ddi_GenericLock</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Lock DDI node so that cannot be freed unless unlocked.
+    Used as a protection mechanism for internal objects (array entries,
+    partitions, ...
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_GenericUnlock">Ddi_GenericUnlock</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_GenericOpAcc"></A>
+Ddi_Generic_t * <I></I>
+<B>Ddi_GenericOpAcc</B>(
+  Ddi_OpCode_e  <b>opcode</b>, <i>operation code</i>
+  Ddi_Generic_t * <b>f</b>, <i>first operand</i>
+  Ddi_Generic_t * <b>g</b>, <i>first operand</i>
+  Ddi_Generic_t * <b>h</b> <i>first operand</i>
+)
+</pre>
+<dd> Compute generic operation. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericOp"></A>
+Ddi_Generic_t * <I></I>
+<B>Ddi_GenericOp</B>(
+  Ddi_OpCode_e  <b>opcode</b>, <i>operation code</i>
+  Ddi_Generic_t * <b>f</b>, <i>first operand</i>
+  Ddi_Generic_t * <b>g</b>, <i>first operand</i>
+  Ddi_Generic_t * <b>h</b> <i>first operand</i>
+)
+</pre>
+<dd> Compute generic operation. Result generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericReadCode"></A>
+Ddi_Code_e <I></I>
+<B>Ddi_GenericReadCode</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> called through Ddi_ReadCode.
+<p>
+
+<dd> <b>Side Effects</b> Ddi_ReadCode
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericReadMgr"></A>
+Ddi_Mgr_t * <I></I>
+<B>Ddi_GenericReadMgr</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> called through Ddi_ReadMgr.
+<p>
+
+<dd> <b>Side Effects</b> Ddi_ReadMgr
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericReadName"></A>
+char * <I></I>
+<B>Ddi_GenericReadName</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> called through Ddi_ReadName.
+<p>
+
+<dd> <b>Side Effects</b> Ddi_ReadName
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericSetName"></A>
+void <I></I>
+<B>Ddi_GenericSetName</B>(
+  Ddi_Generic_t * <b>f</b>, <i>block to be freed</i>
+  char * <b>name</b> <i></i>
+)
+</pre>
+<dd> Set name field of DDI node
+<p>
+
+<dt><pre>
+<A NAME="Ddi_GenericUnlock"></A>
+void <I></I>
+<B>Ddi_GenericUnlock</B>(
+  Ddi_Generic_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Unlock DDI node so that can be freed again.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_GenericLock">Ddi_GenericLock</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_IthVar"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_IthVar</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  int  <b>index</b> <i></i>
+)
+</pre>
+<dd> Return the variable of a given index
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarIndex">Ddi_VarIndex</a>
+<a href="#Ddi_VarAtLevel">Ddi_VarAtLevel</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_MetaActive"></A>
+int <I></I>
+<B>Ddi_MetaActive</B>(
+  Ddi_Mgr_t * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> Return true if Meta handling active (Ddi_MetaInit done)
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MetaInit"></A>
+void <I></I>
+<B>Ddi_MetaInit</B>(
+  Ddi_Mgr_t * <b>ddm</b>, <i></i>
+  Ddi_Meta_Method_e  <b>method</b>, <i></i>
+  Ddi_Bdd_t * <b>ref</b>, <i></i>
+  Ddi_Varset_t * <b>firstGroup</b>, <i></i>
+  int  <b>sizeMin</b> <i></i>
+)
+</pre>
+<dd> Initialize Meta BDD handling in DDI manager
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MetaQuit"></A>
+void <I></I>
+<B>Ddi_MetaQuit</B>(
+  Ddi_Mgr_t * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> Close Meta BDD handling in DDI manager. This enables further
+    opening of Meta BDD management with different method/parameters
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrAlign"></A>
+void <I></I>
+<B>Ddi_MgrAlign</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>dd manager to be aligned</i>
+  Ddi_Mgr_t * <b>ddRef</b> <i>reference dd manager</i>
+)
+</pre>
+<dd> Aligns the order of two managers.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrAutodynResume"></A>
+void <I></I>
+<B>Ddi_MgrAutodynResume</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Resume autodyn if suspended.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrInit">Ddi_MgrInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_MgrAutodynSuspend"></A>
+void <I></I>
+<B>Ddi_MgrAutodynSuspend</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Suspend autodyn if active.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrInit">Ddi_MgrInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_MgrCheckExtRef"></A>
+int <I></I>
+<B>Ddi_MgrCheckExtRef</B>(
+  Ddi_Mgr_t * <b>ddm</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Check number of externally referenced DDI handles.
+    This is the numer of generic nodes (allocated - freed), diminished by
+    the number of locked nodes + 3 (2 constants + variable array). 
+    Return 0 upon failure.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrConsistencyCheck"></A>
+int <I></I>
+<B>Ddi_MgrConsistencyCheck</B>(
+  Ddi_Mgr_t * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> make checks on DDI manager. Return 0 for failure
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrCreateGroups2"></A>
+void <I></I>
+<B>Ddi_MgrCreateGroups2</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>manager</i>
+  Ddi_Vararray_t * <b>vfix</b>, <i>first array</i>
+  Ddi_Vararray_t * <b>vmov</b> <i>first array</i>
+)
+</pre>
+<dd> Create groups of 2 variables: variables of corresponding 
+               indexes in vfix and vmov are coupled. If vmov[i
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrDup"></A>
+Ddi_Mgr_t * <I></I>
+<B>Ddi_MgrDup</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Creates a copy of a DdManager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrQuit">Ddi_MgrQuit</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_MgrInit"></A>
+Ddi_Mgr_t * <I></I>
+<B>Ddi_MgrInit</B>(
+  char * <b>ddiName</b>, <i>Name of the DDI structure</i>
+  DdManager * <b>CUMgr</b>, <i>Input CD manager. Created if NULL</i>
+  unsigned int  <b>nvar</b>, <i>Initial Number of Variables</i>
+  unsigned int  <b>numSlots</b>, <i>Initial Size of Unique Table</i>
+  unsigned int  <b>cacheSize</b>, <i>Initial Size of Computed Table (cache)</i>
+  unsigned long  <b>memorySizeMax</b> <i>Max size of Memory</i>
+)
+</pre>
+<dd> Creates a DdManager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_MgrQuit">Ddi_MgrQuit</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_MgrOperation"></A>
+int <I></I>
+<B>Ddi_MgrOperation</B>(
+  Ddi_Mgr_t ** <b>ddMgrP</b>, <i>DD Manager Pointer</i>
+  char * <b>string</b>, <i>String</i>
+  Pdtutil_MgrOp_t  <b>operationFlag</b>, <i>Operation Flag</i>
+  void ** <b>voidPointer</b>, <i>Generic Pointer</i>
+  Pdtutil_MgrRet_t * <b>returnFlagP</b> <i>Type of the Pointer Returned</i>
+)
+</pre>
+<dd> 
+<p>
+
+<dd> <b>Side Effects</b> To be congruent operationFlag should be a Pdtutil_MgrOp_t
+   type, and returnFlag of Pdtutil_MgrRet_t type.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrOrdWrite"></A>
+int <I></I>
+<B>Ddi_MgrOrdWrite</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>Decision Diagram Manager</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b>, <i>Pointer to Store File</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i>File Format</i>
+)
+</pre>
+<dd> This function stores the variable ordering of a dd manager.
+    Variable names and aux ids are used.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrPeakProdLocalReset"></A>
+void <I></I>
+<B>Ddi_MgrPeakProdLocalReset</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b> <i>Decision Diagram Interface Manager</i>
+)
+</pre>
+<dd> Reset peak product local
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrPeakProdUpdate"></A>
+void <I></I>
+<B>Ddi_MgrPeakProdUpdate</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b>, <i>Decision Diagram Interface Manager</i>
+  int  <b>size</b> <i></i>
+)
+</pre>
+<dd> Update peak product stats
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrPrintAllocStats"></A>
+void <I></I>
+<B>Ddi_MgrPrintAllocStats</B>(
+  Ddi_Mgr_t * <b>ddm</b>, <i></i>
+  FILE * <b>fp</b> <i></i>
+)
+</pre>
+<dd> Print DDI manager allocation statistics
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrPrintExtRef"></A>
+void <I></I>
+<B>Ddi_MgrPrintExtRef</B>(
+  Ddi_Mgr_t * <b>ddm</b>, <i></i>
+  int  <b>minNodeId</b> <i></i>
+)
+</pre>
+<dd> print ids of external refs
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrPrintStats"></A>
+void <I></I>
+<B>Ddi_MgrPrintStats</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Prints on standard outputs statistics on a DD manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrQuit"></A>
+void <I></I>
+<B>Ddi_MgrQuit</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Close a DdManager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadCurrNodeId"></A>
+int <I></I>
+<B>Ddi_MgrReadCurrNodeId</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads currend node id field
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadDynordThresh"></A>
+unsigned int <I></I>
+<B>Ddi_MgrReadDynordThresh</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Returns the threshold for the next dynamic reordering.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadExtBddRef"></A>
+int <I></I>
+<B>Ddi_MgrReadExtBddRef</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Read the number of externally referenced BDD handles.
+    This is the number of allocated - freed, diminished by
+    the number of locked nodes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadExtBddarrayRef"></A>
+int <I></I>
+<B>Ddi_MgrReadExtBddarrayRef</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Read the number of externally referenced BDD array handles.
+    This is the number of allocated - freed, diminished by
+    the number of locked nodes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadExtRef"></A>
+int <I></I>
+<B>Ddi_MgrReadExtRef</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Read the number of externally referenced DDI handles.
+    This is the numer of generic nodes (allocated - freed), diminished by
+    the number of locked nodes + 3 (2 constants + variable array).
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadExtVarsetRef"></A>
+int <I></I>
+<B>Ddi_MgrReadExtVarsetRef</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Read the number of externally referenced varset handles.
+    This is the number of allocated - freed, diminished by
+    the number of locked nodes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadMgrCU"></A>
+DdManager * <I></I>
+<B>Ddi_MgrReadMgrCU</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads the Cudd Manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadOne"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_MgrReadOne</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads one constant
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadOrdNamesAuxids"></A>
+int <I></I>
+<B>Ddi_MgrReadOrdNamesAuxids</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>Manager</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b>, <i>Pointer to the Store File</i>
+  Pdtutil_VariableOrderFormat_e  <b>ordFileFormat</b> <i>File Format</i>
+)
+</pre>
+<dd> This function reads the variable ordering of a dd manager.
+    Existing variables with names in the ordering are shuffled
+    to match the ordering.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadPeakProdGlobal"></A>
+int <I></I>
+<B>Ddi_MgrReadPeakProdGlobal</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b> <i>Decision Diagram Interface Manager</i>
+)
+</pre>
+<dd> Read peak product global
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadPeakProdLocal"></A>
+int <I></I>
+<B>Ddi_MgrReadPeakProdLocal</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b> <i>Decision Diagram Interface Manager</i>
+)
+</pre>
+<dd> Read peak product local
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadVarauxids"></A>
+int * <I></I>
+<B>Ddi_MgrReadVarauxids</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads the variable auxiliary ids
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadVarnames"></A>
+char** <I></I>
+<B>Ddi_MgrReadVarnames</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads the variable names
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadVerbosity"></A>
+Pdtutil_VerbLevel_e <I></I>
+<B>Ddi_MgrReadVerbosity</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b> <i>Decision Diagram Interface Manager</i>
+)
+</pre>
+<dd> Read verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrReadZero"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_MgrReadZero</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads zero constant
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetDynordThresh"></A>
+void <I></I>
+<B>Ddi_MgrSetDynordThresh</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  unsigned int  <b>th</b> <i>threshold</i>
+)
+</pre>
+<dd> Returns the threshold for the next dynamic reordering.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetMgrCU"></A>
+void <I></I>
+<B>Ddi_MgrSetMgrCU</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  DdManager * <b>m</b> <i>CUDD manager</i>
+)
+</pre>
+<dd> Sets the CUDD manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetOne"></A>
+void <I></I>
+<B>Ddi_MgrSetOne</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  Ddi_Bdd_t * <b>one</b> <i>one constant</i>
+)
+</pre>
+<dd> Sets the one constant
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetVarauxids"></A>
+void <I></I>
+<B>Ddi_MgrSetVarauxids</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  int * <b>va</b> <i>auxiliary variable ids</i>
+)
+</pre>
+<dd> Sets the auxiliary variable ids
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetVarnames"></A>
+void <I></I>
+<B>Ddi_MgrSetVarnames</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  char ** <b>vn</b> <i>names of variables</i>
+)
+</pre>
+<dd> Sets the names of variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetVerbosity"></A>
+void <I></I>
+<B>Ddi_MgrSetVerbosity</B>(
+  Ddi_Mgr_t * <b>ddiMgr</b>, <i>Decision Diagram Interface Manager</i>
+  Pdtutil_VerbLevel_e  <b>verbosity</b> <i>Verbosity Level</i>
+)
+</pre>
+<dd> Set verbosity
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrSetZero"></A>
+void <I></I>
+<B>Ddi_MgrSetZero</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  Ddi_Bdd_t * <b>zero</b> <i>zero constant</i>
+)
+</pre>
+<dd> Sets the zero constant
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrShuffle"></A>
+void <I></I>
+<B>Ddi_MgrShuffle</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>dd Manager to be Alligned</i>
+  int * <b>sortedIds</b>, <i>Array of sorted ids</i>
+  int  <b>nids</b> <i>Number of ids</i>
+)
+</pre>
+<dd> Reorders all DDs in a manager according to the input
+    order. The input specification may be partial, i.e.
+    it may include only a subset of variables.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_MgrUpdate"></A>
+void <I></I>
+<B>Ddi_MgrUpdate</B>(
+  Ddi_Mgr_t * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> update DDI manager after directly working on CUDD manager.
+    New variables have possibly been created.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_PrintCuddVersion"></A>
+void <I></I>
+<B>Ddi_PrintCuddVersion</B>(
+  FILE * <b>fp</b> <i></i>
+)
+</pre>
+<dd> Returns the version of CUDD package
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_PrintDdArray"></A>
+void <I></I>
+<B>Ddi_PrintDdArray</B>(
+  Ddi_Bddarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Prints the size of each function in a DdArray
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_PrintVararray">Ddi_PrintVararray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_PrintVararray"></A>
+void <I></I>
+<B>Ddi_PrintVararray</B>(
+  Ddi_Vararray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Prints the indices of a Vararray
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_PrintDdArray">Ddi_PrintDdArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_ProfileHeuristicEnum2String"></A>
+char * <I></I>
+<B>Ddi_ProfileHeuristicEnum2String</B>(
+  Cuplus_PruneHeuristic_e  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ProfileHeuristicString2Enum"></A>
+Cuplus_PruneHeuristic_e <I></I>
+<B>Ddi_ProfileHeuristicString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the dense method type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadCacheHits"></A>
+double <I></I>
+<B>Ddi_ReadCacheHits</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Returns the number of cache hits.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadCacheLookUps"></A>
+double <I></I>
+<B>Ddi_ReadCacheLookUps</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Returns the number of cache look-ups.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadCacheSlots"></A>
+unsigned int <I></I>
+<B>Ddi_ReadCacheSlots</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Reads the number of slots in the cache.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadCube"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_ReadCube</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  FILE * <b>fp</b>, <i></i>
+  int  <b>idOrName</b> <i></i>
+)
+</pre>
+<dd> The user can make a cube typing the index of variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadDdiName"></A>
+char * <I></I>
+<B>Ddi_ReadDdiName</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>source dd manager</i>
+)
+</pre>
+<dd> Returns the threshold for the next dynamic reordering.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadMaxCacheHard"></A>
+unsigned int <I></I>
+<B>Ddi_ReadMaxCacheHard</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Reads the maxCacheHard parameter of the manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadMaxCache"></A>
+unsigned int <I></I>
+<B>Ddi_ReadMaxCache</B>(
+  Ddi_Mgr_t* <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Returns the soft limit for the cache size.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadMinHit"></A>
+unsigned int <I></I>
+<B>Ddi_ReadMinHit</B>(
+  Ddi_Mgr_t * <b>dd</b> <i>dd manager</i>
+)
+</pre>
+<dd> Reads the hit ratio that causes resizing of the computed
+  table.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReadVarset"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_ReadVarset</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i></i>
+  FILE * <b>fp</b>, <i></i>
+  int  <b>idOrName</b> <i></i>
+)
+</pre>
+<dd> The user can make a cube typing the index of variables
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReorderingMethodEnum2String"></A>
+char * <I></I>
+<B>Ddi_ReorderingMethodEnum2String</B>(
+  Cudd_ReorderingType  <b>enumType</b> <i></i>
+)
+</pre>
+<dd> Given an Enumerated type Returns a string
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_ReorderingMethodString2Enum"></A>
+Cudd_ReorderingType <I></I>
+<B>Ddi_ReorderingMethodString2Enum</B>(
+  char * <b>string</b> <i>String to Analyze</i>
+)
+</pre>
+<dd> It receives a string; to facilitate the user that string
+    can be an easy-to-remember predefined code or an integer number
+    (interpreted as a string).
+    It returns the dense method type.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_SetDdiName"></A>
+void <I></I>
+<B>Ddi_SetDdiName</B>(
+  Ddi_Mgr_t * <b>dd</b>, <i>source dd manager</i>
+  char * <b>ddiName</b> <i></i>
+)
+</pre>
+<dd> Returns the threshold for the next dynamic reordering.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarAtLevel"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarAtLevel</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  int  <b>lev</b> <i></i>
+)
+</pre>
+<dd> Returns variable at a given level in the order
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_IthVar">Ddi_IthVar</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarAttachAuxid"></A>
+void <I></I>
+<B>Ddi_VarAttachAuxid</B>(
+  Ddi_Var_t * <b>var</b>, <i></i>
+  int  <b>auxid</b> <i></i>
+)
+</pre>
+<dd> Set the variable auxid of a variable
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarAttachName"></A>
+void <I></I>
+<B>Ddi_VarAttachName</B>(
+  Ddi_Var_t * <b>var</b>, <i></i>
+  char * <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the variable name given the index
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarAuxid"></A>
+int <I></I>
+<B>Ddi_VarAuxid</B>(
+  Ddi_Var_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> Return the variable auxid (-1 if auxids not defined)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarName">Ddi_VarName</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarCopy"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarCopy</B>(
+  Ddi_BddMgr * <b>dd2</b>, <i>destination manager</i>
+  Ddi_Var_t * <b>v</b> <i>variable to be copied</i>
+)
+</pre>
+<dd> Find the variable corresponding to v in the destination
+               manager. Variable correspondence is for now limited to
+               index matching.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarCurrPos"></A>
+int <I></I>
+<B>Ddi_VarCurrPos</B>(
+  Ddi_Var_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> Return current position of var in variable order
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarFromAuxid"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarFromAuxid</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  int  <b>auxid</b> <i></i>
+)
+</pre>
+<dd> Still a linear search !
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VArFromName">Ddi_VArFromName</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarFromCU"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarFromCU</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  DdNode * <b>v</b> <i></i>
+)
+</pre>
+<dd> Convert a CUDD variable to a DDI variable
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarFromName"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarFromName</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  char * <b>name</b> <i></i>
+)
+</pre>
+<dd> Still a linear search !
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarFromAuxid">Ddi_VarFromAuxid</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarInVarset"></A>
+int <I></I>
+<B>Ddi_VarInVarset</B>(
+  Ddi_Varset_t * <b>varset</b>, <i>var-set</i>
+  Ddi_Var_t * <b>var</b> <i>variable</i>
+)
+</pre>
+<dd> Return true (non 0) if var is in varset
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarIndex"></A>
+int <I></I>
+<B>Ddi_VarIndex</B>(
+  Ddi_Var_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> Return the variable index (CUDD variable index)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_IthVar">Ddi_IthVar</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarIsGrouped"></A>
+int <I></I>
+<B>Ddi_VarIsGrouped</B>(
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if variable is in variable group
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarMakeGroupFixed"></A>
+void <I></I>
+<B>Ddi_VarMakeGroupFixed</B>(
+  Ddi_BddMgr * <b>dd</b>, <i></i>
+  Ddi_Var_t * <b>v</b>, <i></i>
+  int  <b>grpSize</b> <i></i>
+)
+</pre>
+<dd> Same as Ddi_VarMakeGroup but no dynamic reordering allowed
+               within group
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarMakeGroupFixed">Ddi_VarMakeGroupFixed</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarMakeGroup"></A>
+void <I></I>
+<B>Ddi_VarMakeGroup</B>(
+  Ddi_BddMgr * <b>dd</b>, <i></i>
+  Ddi_Var_t * <b>v</b>, <i></i>
+  int  <b>grpSize</b> <i></i>
+)
+</pre>
+<dd> A group of variables is created for group sifting. 
+               The group starts at v and contains grpSize variables
+               (following v in the ordering. Sifting is allowed within the
+               group
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarMakeGroupFixed">Ddi_VarMakeGroupFixed</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarName"></A>
+char * <I></I>
+<B>Ddi_VarName</B>(
+  Ddi_Var_t * <b>var</b> <i></i>
+)
+</pre>
+<dd> Return the name of a variable
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarNewAtLevel"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarNewAtLevel</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i></i>
+  int  <b>lev</b> <i></i>
+)
+</pre>
+<dd> Returns a new variable at a given level in the order
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarNew">Ddi_VarNew</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarNew"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarNew</B>(
+  Ddi_BddMgr * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> Create a new variable (generated within a CUDD manager)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarNewAtLevel">Ddi_VarNewAtLevel</a>
+<a href="#Ddi_VarFromCU">Ddi_VarFromCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarReadGroup"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarReadGroup</B>(
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Return variable group including v. NULL if v is not in a group
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarSubst"></A>
+Ddi_Bdd_t * <I></I>
+<B>Ddi_VarSubst</B>(
+  Ddi_Bdd_t * <b>f</b>, <i>BDD</i>
+  Ddi_Vararray_t * <b>x</b>, <i>first array of variables</i>
+  Ddi_Vararray_t * <b>y</b> <i>second array of variables</i>
+)
+</pre>
+<dd> The function returns the pointer to a new function with the
+              variables swapped (x replace y), or NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarToCU"></A>
+DdNode * <I></I>
+<B>Ddi_VarToCU</B>(
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Return the CUDD bdd node of a variable
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VararrayAlloc"></A>
+Ddi_Vararray_t * <I></I>
+<B>Ddi_VararrayAlloc</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i>DDI manager</i>
+  int  <b>size</b> <i>array length</i>
+)
+</pre>
+<dd> Allocate a new array of variables of given length
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VararrayAppend"></A>
+void <I></I>
+<B>Ddi_VararrayAppend</B>(
+  Ddi_Vararray_t * <b>array1</b>, <i>first array</i>
+  Ddi_Vararray_t * <b>array2</b> <i>array to be appended</i>
+)
+</pre>
+<dd> Append the elements of array2 at the end of array1
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayJoin">Ddi_VararrayJoin</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayCopy"></A>
+Ddi_Vararray_t * <I></I>
+<B>Ddi_VararrayCopy</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i>dd Manager</i>
+  Ddi_Vararray_t * <b>old</b> <i>array of variables</i>
+)
+</pre>
+<dd> Variable correspondence is established "by index", i.e. 
+               variables with same index in different manager correspond
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayDup">Ddi_VararrayDup</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayDup"></A>
+Ddi_Vararray_t * <I></I>
+<B>Ddi_VararrayDup</B>(
+  Ddi_Vararray_t * <b>old</b> <i>array to be duplicated</i>
+)
+</pre>
+<dd> Only the "array" part is duplicated. Variables are never 
+               duplicated nor freed, except when closing the owner manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayAlloc">Ddi_VararrayAlloc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayMakeFromCU"></A>
+Ddi_Vararray_t * <I></I>
+<B>Ddi_VararrayMakeFromCU</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  DdNode ** <b>array</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> No variable dup is done (as all DDI operations working with
+               variables)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayToCU">Ddi_VararrayToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayMakeFromInt"></A>
+Ddi_Vararray_t * <I></I>
+<B>Ddi_VararrayMakeFromInt</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  int * <b>array</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Integer indexes are used as CUDD indexes.
+               No variable dup is done (as all DDI operations working with
+               variables)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayToCU">Ddi_VararrayToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayNum"></A>
+int <I></I>
+<B>Ddi_VararrayNum</B>(
+  Ddi_Vararray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Return the number of variables (entries) in array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VararrayRead"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VararrayRead</B>(
+  Ddi_Vararray_t * <b>array</b>, <i>variable array</i>
+  int  <b>i</b> <i>position</i>
+)
+</pre>
+<dd> Return the variable at i-th position in array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayInsert">Ddi_VararrayInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayToCU"></A>
+DdNode ** <I></I>
+<B>Ddi_VararrayToCU</B>(
+  Ddi_Vararray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Generate a dynamic allocated array of pointers to CUDD BDDs 
+              representing variables in input array.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayMakeFromCU">Ddi_VararrayMakeFromCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayToInt"></A>
+int * <I>array of integer</I>
+<B>Ddi_VararrayToInt</B>(
+  Ddi_Vararray_t * <b>array</b> <i>array of variables</i>
+)
+</pre>
+<dd> Integer indexes are taken from CUDD indexes.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayToCU">Ddi_VararrayToCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VararrayWrite"></A>
+void <I></I>
+<B>Ddi_VararrayWrite</B>(
+  Ddi_Vararray_t * <b>array</b>, <i>array of variables</i>
+  int  <b>pos</b>, <i>position of new element</i>
+  Ddi_Var_t * <b>var</b> <i>variable to be inserted</i>
+)
+</pre>
+<dd> Write a variable in array at given position
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VararrayRead">Ddi_VararrayRead</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetAddAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetAddAcc</B>(
+  Ddi_Varset_t * <b>vs</b>, <i>var-set</i>
+  Ddi_Var_t * <b>v</b> <i>the new variable added to var-set</i>
+)
+</pre>
+<dd> Add variable to var-set. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetAdd">Ddi_VarsetAdd</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetAdd"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetAdd</B>(
+  Ddi_Varset_t * <b>vs</b>, <i>var-set</i>
+  Ddi_Var_t * <b>v</b> <i>the new variable added to var-set</i>
+)
+</pre>
+<dd> Add variable to var-set. Result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetAddAcc">Ddi_VarsetAddAcc</a>
+<a href="#Ddi_VarsetRemove">Ddi_VarsetRemove</a>
+<a href="#Ddi_VarsetRemoveAcc">Ddi_VarsetRemoveAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetBottom"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarsetBottom</B>(
+  Ddi_Varset_t * <b>varset</b> <i>var-set</i>
+)
+</pre>
+<dd> Return the bottom variable in the ordering
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetTop">Ddi_VarsetTop</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetCopy"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetCopy</B>(
+  Ddi_BddMgr * <b>dd2</b>, <i>destination manager</i>
+  Ddi_Varset_t * <b>src</b> <i>var-set to be copied</i>
+)
+</pre>
+<dd> Copy a var-set to another manager
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetDiffAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetDiffAcc</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return difference of two var-sets. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnion">Ddi_VarsetUnion</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetDiff"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetDiff</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return difference of two var-sets. Result generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnionAcc">Ddi_VarsetUnionAcc</a>
+<a href="#Ddi_VarsetIntersect">Ddi_VarsetIntersect</a>
+<a href="#Ddi_VarsetDiff">Ddi_VarsetDiff</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetDup"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetDup</B>(
+  Ddi_Varset_t * <b>src</b> <i>var-set to be copied</i>
+)
+</pre>
+<dd> Duplicate a var-set
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetEqual"></A>
+int <I></I>
+<B>Ddi_VarsetEqual</B>(
+  Ddi_Varset_t * <b>varset1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>varset2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return true (non 0) if the two var-sets are equal
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetEvalFree"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetEvalFree</B>(
+  Ddi_Varset_t * <b>f</b>, <i>expression</i>
+  Ddi_Varset_t * <b>g</b> <i>varset to be freed</i>
+)
+</pre>
+<dd> Evaluates an expression and frees first argument
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetIntersectAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetIntersectAcc</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return intersection of two var-sets. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnion">Ddi_VarsetUnion</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetIntersect"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetIntersect</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return intersection of two var-sets. Result generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnion">Ddi_VarsetUnion</a>
+<a href="#Ddi_VarsetIntersectAcc">Ddi_VarsetIntersectAcc</a>
+<a href="#Ddi_VarsetDiff">Ddi_VarsetDiff</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetIsVoid"></A>
+int <I></I>
+<B>Ddi_VarsetIsVoid</B>(
+  Ddi_Varset_t * <b>varset</b> <i></i>
+)
+</pre>
+<dd> Return true (non 0) if var-set is empty
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetMakeFromArray"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetMakeFromArray</B>(
+  Ddi_Vararray_t * <b>va</b> <i></i>
+)
+</pre>
+<dd> Build a Ddi_Varset_t from a given variable array.
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetMakeFromCU"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetMakeFromCU</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i></i>
+  DdNode * <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Builds the Ddi_Varset_t structure from manager and node.
+               The reference count of the node is increased.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#DdiGenericAlloc">DdiGenericAlloc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetMakeFromVar"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetMakeFromVar</B>(
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Builds a Ddi_Varset_t structure from variable.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetMakeFromCU">Ddi_VarsetMakeFromCU</a>
+<a href="#Ddi_VarsetMakeFromArray">Ddi_VarsetMakeFromArray</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetNextAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetNextAcc</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Remove top variable from var-set. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetNext"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetNext</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Remove top variable from var-set. Result generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetNum"></A>
+int <I></I>
+<B>Ddi_VarsetNum</B>(
+  Ddi_Varset_t * <b>vars</b> <i>varset</i>
+)
+</pre>
+<dd> Return the number of variables in varset
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetPrint"></A>
+void <I></I>
+<B>Ddi_VarsetPrint</B>(
+  Ddi_Varset_t * <b>vars</b>, <i>Varset to Print</i>
+  int  <b>numberPerRow</b>, <i>Number of Names Printed on a Single Row</i>
+  char * <b>filename</b>, <i>File Name</i>
+  FILE * <b>fp</b> <i>output file pointer</i>
+)
+</pre>
+<dd> If numberPerRow is less or equal to 0 all the names are
+    printed-out on a single row.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetRemoveAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetRemoveAcc</B>(
+  Ddi_Varset_t * <b>vs</b>, <i></i>
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Remove variable from var-set. Result is accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetAdd">Ddi_VarsetAdd</a>
+<a href="#Ddi_VarsetRemove">Ddi_VarsetRemove</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetRemove"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetRemove</B>(
+  Ddi_Varset_t * <b>vs</b>, <i></i>
+  Ddi_Var_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Remove variable from var-set. Result is generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetAdd">Ddi_VarsetAdd</a>
+<a href="#Ddi_VarsetRemoveAcc">Ddi_VarsetRemoveAcc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetSwapVarsAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetSwapVarsAcc</B>(
+  Ddi_Varset_t * <b>vs</b>, <i>input varset</i>
+  Ddi_Vararray_t * <b>x</b>, <i>1-st array of variables</i>
+  Ddi_Vararray_t * <b>y</b> <i>2-nd array of variables</i>
+)
+</pre>
+<dd> Swap two sets of variables in varset. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetSwapVars"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetSwapVars</B>(
+  Ddi_Varset_t * <b>vs</b>, <i>input varset</i>
+  Ddi_Vararray_t * <b>x</b>, <i>1-st array of variables</i>
+  Ddi_Vararray_t * <b>y</b> <i>2-nd array of variables</i>
+)
+</pre>
+<dd> Return a new varset with the variables swapped 
+               (x replaces y and viceversa).
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetToCU"></A>
+Ddi_BddNode * <I></I>
+<B>Ddi_VarsetToCU</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Convert a varset to a Cudd cube
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetMakeFromCU">Ddi_VarsetMakeFromCU</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetTop"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarsetTop</B>(
+  Ddi_Varset_t * <b>varset</b> <i>var-set</i>
+)
+</pre>
+<dd> Return the top variable (in the ordering) in varset
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetBottom">Ddi_VarsetBottom</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetUnionAcc"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetUnionAcc</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return union of two var-sets. Result accumulated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnion">Ddi_VarsetUnion</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetUnion"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetUnion</B>(
+  Ddi_Varset_t * <b>v1</b>, <i>first var-set</i>
+  Ddi_Varset_t * <b>v2</b> <i>second var-set</i>
+)
+</pre>
+<dd> Return union of two var-sets. Result generated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetUnionAcc">Ddi_VarsetUnionAcc</a>
+<a href="#Ddi_VarsetIntersect">Ddi_VarsetIntersect</a>
+<a href="#Ddi_VarsetDiff">Ddi_VarsetDiff</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetVoid"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetVoid</B>(
+  Ddi_BddMgr * <b>ddm</b> <i></i>
+)
+</pre>
+<dd> The varset is generated, so it must eventually be freed
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetWalkCurr"></A>
+Ddi_Var_t * <I></I>
+<B>Ddi_VarsetWalkCurr</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Return curr var in varset walk
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetWalkEnd"></A>
+int <I></I>
+<B>Ddi_VarsetWalkEnd</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> test for varset walk end. Return trur (non 0) if end reached
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetWalkStart"></A>
+void <I></I>
+<B>Ddi_VarsetWalkStart</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Start Varset walk process. Set curr pointer to top BDD node
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetWalkStep"></A>
+void <I></I>
+<B>Ddi_VarsetWalkStep</B>(
+  Ddi_Varset_t * <b>vs</b> <i></i>
+)
+</pre>
+<dd> Varset walk process step. Set curr pointer to next BDD node
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayAlloc"></A>
+Ddi_Varsetarray_t * <I></I>
+<B>Ddi_VarsetarrayAlloc</B>(
+  Ddi_Mgr_t * <b>mgr</b>, <i>DDI manager</i>
+  int  <b>length</b> <i>array length</i>
+)
+</pre>
+<dd> Allocate a new array of varsets. The array slots are initialized 
+    with NULL pointers, so further Write operations are required.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayWrite">Ddi_VarsetarrayWrite</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayClear"></A>
+void <I></I>
+<B>Ddi_VarsetarrayClear</B>(
+  Ddi_Varsetarray_t * <b>array</b>, <i>array of varsets</i>
+  int  <b>pos</b> <i>position of element to be cleared</i>
+)
+</pre>
+<dd> clear array at given position (BDD freed and replaced by NULL)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayRead">Ddi_VarsetarrayRead</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayCopy"></A>
+Ddi_Varsetarray_t * <I></I>
+<B>Ddi_VarsetarrayCopy</B>(
+  Ddi_BddMgr * <b>ddm</b>, <i>dd Manager</i>
+  Ddi_Varsetarray_t * <b>old</b> <i>array of varsets</i>
+)
+</pre>
+<dd> Copy an array of varsets to a destination manager.
+    Variable correspondence is established "by index", i.e. 
+    variables with same index in different manager correspond
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayDup">Ddi_VarsetarrayDup</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayDup"></A>
+Ddi_Varsetarray_t * <I></I>
+<B>Ddi_VarsetarrayDup</B>(
+  Ddi_Varsetarray_t * <b>old</b> <i>array to be duplicated</i>
+)
+</pre>
+<dd> Duplicate an array of Varsets
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayAlloc">Ddi_VarsetarrayAlloc</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayInsertLast"></A>
+void <I></I>
+<B>Ddi_VarsetarrayInsertLast</B>(
+  Ddi_Varsetarray_t * <b>array</b>, <i>array of varsets</i>
+  Ddi_Varset_t * <b>vs</b> <i>varset to be written</i>
+)
+</pre>
+<dd> Insert varset in array at last position. 
+    The written varset is duplicated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayInsert">Ddi_VarsetarrayInsert</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayInsert"></A>
+void <I></I>
+<B>Ddi_VarsetarrayInsert</B>(
+  Ddi_Varsetarray_t * <b>array</b>, <i>array of varsets</i>
+  int  <b>pos</b>, <i>position of new element</i>
+  Ddi_Varset_t * <b>vs</b> <i>varset to be written</i>
+)
+</pre>
+<dd> Insert varset in array at given position. 
+    Previous non NULL entry is moved up. The written varset is duplicated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayRead">Ddi_VarsetarrayRead</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayNum"></A>
+int <I></I>
+<B>Ddi_VarsetarrayNum</B>(
+  Ddi_Varsetarray_t * <b>array</b> <i></i>
+)
+</pre>
+<dd> Return the number of entries in array
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayRead"></A>
+Ddi_Varset_t * <I></I>
+<B>Ddi_VarsetarrayRead</B>(
+  Ddi_Varsetarray_t * <b>array</b>, <i>varset array</i>
+  int  <b>i</b> <i>position</i>
+)
+</pre>
+<dd> Read varset at i-th position in array. As all read operations
+    no data duplication is done, so the returned varset should be duplicated
+    if further manipulations are required on it.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayWrite">Ddi_VarsetarrayWrite</a>
+</code>
+
+<dt><pre>
+<A NAME="Ddi_VarsetarrayWrite"></A>
+void <I></I>
+<B>Ddi_VarsetarrayWrite</B>(
+  Ddi_Varsetarray_t * <b>array</b>, <i>array of varsets</i>
+  int  <b>pos</b>, <i>position of new element</i>
+  Ddi_Varset_t * <b>vs</b> <i>varset to be written</i>
+)
+</pre>
+<dd> Write varset in array at given position. Previous non NULL entry
+    is freed. The written varset is duplicated
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Ddi_VarsetarrayRead">Ddi_VarsetarrayRead</a>
+</code>
+
+
+</DL>
+<HR>
+Last updated on 1010204 20h20
+</BODY></HTML>

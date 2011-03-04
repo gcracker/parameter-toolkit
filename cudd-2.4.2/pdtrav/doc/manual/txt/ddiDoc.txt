@@ -1,0 +1,3465 @@
+The ddi package
+
+Portability interface with the Decision Diagram package.
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Ddi_BddAndAcc()                Boolean AND. Result is accumulated
+
+Ddi_BddAndExistAcc()           Relational product (Exist(f&g,vars)). New
+                               result is accumulated
+
+Ddi_BddAndExist()              Relational product (Exist(f&g,vars)). New
+                               result is generated
+
+Ddi_BddAnd()                   Boolean AND. New result is generated
+
+Ddi_BddArraySetMeta()          Transform a BDD array to Meta BDD. Result
+                               accumulated
+
+Ddi_BddCofactorAcc()           Cofactor with variable. New result is
+                               accumulated
+
+Ddi_BddCofactor()              Cofactor with variable. New result is generated
+
+Ddi_BddCofexist()              Cofexist cofactor. New result is generated
+
+Ddi_BddComposeAcc()            Function composition x <- g in f. New result is
+                               accumulated
+
+Ddi_BddCompose()               Function composition x <- g in f. New result is
+                               generated
+
+Ddi_BddConstrainAcc()          Constrain cofactor. New result is accumulated
+
+Ddi_BddConstrain()             Constrain cofactor. New result is generated
+
+Ddi_BddCopyRemapVars()         Copy a Ddi_Bdd_t to a destination DDI manager
+
+Ddi_BddCopy()                  Copy a Ddi_Bdd_t to a destination DDI manager
+
+Ddi_BddCprojectAcc()           Compatible projector. New result is accumulated
+
+Ddi_BddCproject()              Compatible projector. New result is generated
+
+Ddi_BddDenseSet()              Compute the Dense Super or Subset of a Boolean
+                               functions
+
+Ddi_BddDiffAcc()               Boolean difference (f & !g). Result is
+                               accumulated
+
+Ddi_BddDiff()                  Boolean difference (f & !g). New result is
+                               generated
+
+Ddi_BddDup()                   Duplicate a Ddi_Bdd_t
+
+Ddi_BddEqual()                 Return true (non 0) if the two DDs are equal
+                               (f==g).
+
+Ddi_BddEvalFree()              Evaluate expression and free BDD node
+
+Ddi_BddExistAcc()              Existential abstraction. New result is
+                               accumulated
+
+Ddi_BddExist()                 Existential abstraction. New result is
+                               generated
+
+Ddi_BddForallAcc()             Universal abstraction. New result is
+                               accumulated
+
+Ddi_BddForall()                Universal abstraction. New result is generated
+
+Ddi_BddFromMeta()              Transform a BDD to Meta BDD. Result accumulated
+
+Ddi_BddIncluded()              Check for inclusion (f in g). Return non 0 if
+                               true
+
+Ddi_BddIsCube()                Return true (non 0) if f is a cube.
+
+Ddi_BddIsMeta()                Return true (non 0) if f is a meta BDD.
+
+Ddi_BddIsMono()                Return true (non 0) if f is a monolithic BDD.
+
+Ddi_BddIsOne()                 Return true (non 0) if f is the one constant.
+
+Ddi_BddIsPartConj()            Return true (non 0) if f is a conjunctively
+                               partitioned BDD.
+
+Ddi_BddIsPartDisj()            Return true (non 0) if f is a disjunctively
+                               partitioned BDD.
+
+Ddi_BddIsZero()                Return true (non 0) if f is the zero constant.
+
+Ddi_BddIteAcc()                If-Then-Else (ITE(f,g,h)). New result is
+                               accumulated
+
+Ddi_BddIte()                   If-Then-Else (ITE(f,g,h)). New result is
+                               generated
+
+Ddi_BddLoad()                  Loads BDD from file
+
+Ddi_BddMakeClustered()         Create a clustered BDD from a partitioned one
+
+Ddi_BddMakeConst()             Generate a Ddi_Bdd_t constant node (BDD zero or
+                               one)
+
+Ddi_BddMakeFromCU()            Build a Ddi_Bdd_t from a given CUDD node.
+
+Ddi_BddMakeFromMeta()          Transform a BDD to Meta BDD. Result generated
+
+Ddi_BddMakeLiteral()           Generate a literal from a variable
+
+Ddi_BddMakeMeta()              Transform a BDD to Meta BDD. Result generated
+
+Ddi_BddMakeMono()              Create a monolithic BDD from a partitioned one
+
+Ddi_BddMakePartConjFromArray() Build a conjunctively partitioned BDD from
+                               array of partitions
+
+Ddi_BddMakePartConjFromMono()  Build a conjunctively partitioned BDD from a
+                               monolithic BDD
+
+Ddi_BddMakePartConjVoid()      Build a conjunctively partitioned BDD with 0
+                               partitions
+
+Ddi_BddMakePartDisjFromArray() Build a disjunctively partitioned BDD from
+                               array of BDDs
+
+Ddi_BddMakePartDisjFromMono()  Build a disjunctively partitioned BDD from a
+                               monolithic BDD
+
+Ddi_BddMakePartDisjVoid()      Build a disjunctively partitioned BDD with 0
+                               partitions
+
+Ddi_BddNandAcc()               Boolean NAND (!(f&g)). New result is
+                               accumulated
+
+Ddi_BddNand()                  Boolean NAND (!(f&g)). New result is generated
+
+Ddi_BddNorAcc()                Boolean NOR (!(f|g)). New result is accumulated
+
+Ddi_BddNor()                   Boolean NOR (!(f|g)). New result is generated
+
+Ddi_BddNotAcc()                Boolean NOT. Result is accumulated
+
+Ddi_BddNot()                   Boolean NOT. New result is generated
+
+Ddi_BddOperation()
+
+Ddi_BddOrAcc()                 Boolean OR (f|g). New result is accumulated
+
+Ddi_BddOr()                    Boolean OR (f|g). New result is generated
+
+Ddi_BddPartExtract()           Return the i-th partition (conj/disj), and
+                               remove it from f.
+
+Ddi_BddPartInsertLast()        Add last partition. Result accumulated
+
+Ddi_BddPartInsert()            Add i-th partition. Result accumulated
+
+Ddi_BddPartNum()               Read the number of partitions (conj/disj).
+
+Ddi_BddPartRead()              Read the i-th partition (conj/disj) of f.
+
+Ddi_BddPartWrite()             Write i-th partition. Result accumulated
+
+Ddi_BddPickOneCubeAcc()        Pick one random on-set cube. Result is
+                               accumulated
+
+Ddi_BddPickOneCube()           Pick one random on-set cube. Result is
+                               generated
+
+Ddi_BddPickOneMintermAcc()     Pick one random on-set minterm. Result is
+                               accumulated
+
+Ddi_BddPickOneMinterm()        Pick one random on-set minterm. Result is
+                               generated
+
+Ddi_BddPrintCubeToString()     Output a cube to string. Return true if
+                               succesful.
+
+Ddi_BddPrintCubes()            Outputs the cubes of a BDD on file
+
+Ddi_BddPrintStats()            Prints Statistics of a BDD
+
+Ddi_BddPrintSupportAndCubes()
+
+Ddi_BddPrint()                 Prints a BDD
+
+Ddi_BddRelMakeFromArray()      Generate a Ddi_Bdd_t relation from array of
+                               functions
+
+Ddi_BddRestrictAcc()           Restrict cofactor. New result is accumulated
+
+Ddi_BddRestrict()              Restrict cofactor. New result is generated
+
+Ddi_BddSetClustered()          Create a clustered BDD from a partitioned one
+
+Ddi_BddSetMeta()               Transform a BDD to Meta BDD. Result accumulated
+
+Ddi_BddSetMono()               Convert a BDD to monolitic (if required).
+                               Result accumulated
+
+Ddi_BddSetPartConj()           Convert a BDD to conjunctively partitioned (if
+                               required).                 Result accumulated
+
+Ddi_BddSetPartDisj()           Convert a BDD to disjunctively partitioned (if
+                               required).                 Result accumulated
+
+Ddi_BddSize()                  Return BDD size (total amount of BDD nodes) of
+                               f
+
+Ddi_BddStore()                 Stores BDD on file
+
+Ddi_BddSubstVarsAcc()          Variable substitution x <- y in f. New result
+                               is accumulated
+
+Ddi_BddSubstVars()             Variable substitution x <- y in f. New result
+                               is generated
+
+Ddi_BddSuppAttach()            Attach support of f to f. Return pointer to f
+
+Ddi_BddSuppDetach()            Detach (and free) support attached to f. Return
+                               pointer to f
+
+Ddi_BddSuppRead()              Read the support attached to a Bdd.
+
+Ddi_BddSupp()                  Support of f. New result is generated
+
+Ddi_BddSwapVarsAcc()           Swap x and y variables in f. Result is
+                               accumulated
+
+Ddi_BddSwapVars()              Swap x and y variables in f. New result is
+                               generated
+
+Ddi_BddToCU()                  Convert a DDI function to the corresponding
+                               Cudd Node
+
+Ddi_BddTopVar()                Return the top BDD variable of f
+
+Ddi_BddXnorAcc()               Boolean XNOR (!(f^g)). New result is
+                               accumulated
+
+Ddi_BddXnor()                  Boolean XNOR (!(f^g)). New result is generated
+
+Ddi_BddXorAcc()                Boolean XOR (f^g). New result is accumulated
+
+Ddi_BddXor()                   Boolean XOR (f^g). New result is generated
+
+Ddi_BddarrayAlloc()            Allocate a new array of BDDs
+
+Ddi_BddarrayAppend()           Append the elements of array2 at the end of
+                               array1
+
+Ddi_BddarrayClear()            clear array at given position (BDD freed and
+                               replaced by NULL)
+
+Ddi_BddarrayCopy()             Copy an array of BDDs to a destination manager
+
+Ddi_BddarrayDup()              Duplicate an array of BDDs
+
+Ddi_BddarrayExtract()          Extract the BDD at i-th position in array
+
+Ddi_BddarrayInsertLast()       Insert a BDD in array at last (new) position
+
+Ddi_BddarrayInsert()           Insert a BDD in array at given position
+
+Ddi_BddarrayLoad()             Reads array of BDDs from a dump file
+
+Ddi_BddarrayMakeFromBddPart()  Generate a BDD array from partitions of
+                               partitioned BDD
+
+Ddi_BddarrayMakeFromCU()       Generate a BDD array from CUDD BDDs
+
+Ddi_BddarrayMakeMeta()         Transform a BDD array to Meta BDD. Result
+                               generated
+
+Ddi_BddarrayNum()              Return the number of BDDs (entries) in array
+
+Ddi_BddarrayOperation()
+
+Ddi_BddarrayPrintSupportAndCubes()
+
+
+Ddi_BddarrayRead()             Read the BDD at i-th position in array
+
+Ddi_BddarrayRemove()           Remove array entry at given position
+
+Ddi_BddarraySize()             Return the number of BDD nodes in a BDD array
+
+Ddi_BddarrayStore()            Writes array of BDDs in a dump file
+
+Ddi_BddarraySuppArray()        OLD(pdt-1). Return a vector of supports of BDD
+                               array elements
+
+Ddi_BddarraySupp()             Return the support of a BDD array
+
+Ddi_BddarrayToCU()             Generate an array of pointers to CUDD nodes
+
+Ddi_BddarrayWrite()            Write a BDD in array at given position
+
+Ddi_CountMinterm()             Check for inclusion (f in g). Return non 0 if
+                               true
+
+Ddi_DenseMethodEnum2String()   Given an Enumerated type Returns a string
+
+Ddi_DenseMethodString2Enum()   Given a string it Returns an Enumerated type
+
+Ddi_ExprBoolMake()             Build a Boolean Ddi_Expr_t from given sub-
+                               expressions.
+
+Ddi_ExprCtlMake()              Build a Ctl Ddi_Expr_t from given sub-
+                               expressions.
+
+Ddi_ExprDup()                  Duplicate a Ddi_Expr_t
+
+Ddi_ExprIsTerminal()           Return true (non 0) if expression is terminal
+                               (Bdd or string).
+
+Ddi_ExprLoad()                 Load EXPRESSION from file
+
+Ddi_ExprMakeFromBdd()          Build a Ddi_Expr_t from a given BDD.
+
+Ddi_ExprMakeFromString()       Build a Ddi_Expr_t from a given string.
+
+Ddi_ExprPrint()                Print a Ddi_Expr_t
+
+Ddi_ExprReadOpcode()           Read expression opcode
+
+Ddi_ExprReadSub()              Rear sub-expression at given position
+
+Ddi_ExprSubNum()               Read the number of sub-expressions.
+
+Ddi_ExprToBdd()                Retrieve the Bdd associated to the expression
+
+Ddi_ExprToString()             Retrieve the string associated to the
+                               expression
+
+Ddi_ExprWriteSub()             Write operand sub-expression to expression at
+                               given position.
+
+Ddi_GenericDup()               Generic dup
+
+Ddi_GenericFree()              Free the content of a generic DDI node
+
+Ddi_GenericLock()              Lock DDI node.
+
+Ddi_GenericOpAcc()             Compute generic operation. Result accumulated
+
+Ddi_GenericOp()                Compute generic operation. Result generated
+
+Ddi_GenericReadCode()          called through Ddi_ReadCode.
+
+Ddi_GenericReadMgr()           called through Ddi_ReadMgr.
+
+Ddi_GenericReadName()          called through Ddi_ReadName.
+
+Ddi_GenericSetName()           Set name field of DDI node
+
+Ddi_GenericUnlock()            Unlock DDI node.
+
+Ddi_IthVar()                   Return the variable of a given index
+
+Ddi_MetaActive()               Return true if Meta handling active
+                               (Ddi_MetaInit done)
+
+Ddi_MetaInit()                 Initialize Meta BDD handling in DDI manager
+
+Ddi_MetaQuit()                 Close Meta BDD handling in DDI manager
+
+Ddi_MgrAbortOnSiftDisable()    Disable Abort on sift.
+
+Ddi_MgrAbortOnSiftEnable()     Enable Abort on sift.
+
+Ddi_MgrAlign()                 Aligns the order of two managers.
+
+Ddi_MgrAutodynResume()         Resume autodyn if suspended.
+
+Ddi_MgrAutodynSuspend()        Suspend autodyn if active.
+
+Ddi_MgrCheckExtRef()           Check number of externally referenced DDI
+                               handles
+
+Ddi_MgrConsistencyCheck()      make checks on DDI manager. Return 0 for
+                               failure
+
+Ddi_MgrCreateGroups2()         Create groups of 2 variables
+
+Ddi_MgrDup()                   Creates a copy of a DdManager.
+
+Ddi_MgrInit()                  Creates a DdManager.
+
+Ddi_MgrOperation()
+
+Ddi_MgrOrdWrite()              Stores the variable ordering
+
+Ddi_MgrPeakProdLocalReset()    Reset peak product local
+
+Ddi_MgrPeakProdUpdate()        Update peak product stats
+
+Ddi_MgrPrintAllocStats()       Print DDI manager allocation statistics
+
+Ddi_MgrPrintExtRef()           print ids of external refs
+
+Ddi_MgrPrintStats()            Prints on standard outputs statistics on a DD
+                               manager
+
+Ddi_MgrQuit()                  Close a DdManager.
+
+Ddi_MgrReadCurrNodeId()        Read current node id field
+
+Ddi_MgrReadDynordThresh()      Returns the threshold for the next dynamic
+                               reordering.
+
+Ddi_MgrReadExistClustThresh()  Read part clustering threshold
+
+Ddi_MgrReadExtBddRef()         Read the counter of external references to BDDs
+
+Ddi_MgrReadExtBddarrayRef()    Read the counter of external references to BDD
+                               arrays
+
+Ddi_MgrReadExtRef()            Read the counter of external references
+
+Ddi_MgrReadExtVarsetRef()      Read the counter of external references to
+                               varsets
+
+Ddi_MgrReadMgrCU()             Reads the Cudd Manager
+
+Ddi_MgrReadOne()               Reads one constant
+
+Ddi_MgrReadOrdNamesAuxids()    Reads the variable ordering
+
+Ddi_MgrReadPeakProdGlobal()    Read peak product global
+
+Ddi_MgrReadPeakProdLocal()     Read peak product local
+
+Ddi_MgrReadVarauxids()         Reads the variable auxiliary ids
+
+Ddi_MgrReadVarnames()          Reads the variable names
+
+Ddi_MgrReadVerbosity()         Read verbosity
+
+Ddi_MgrReadZero()              Reads zero constant
+
+Ddi_MgrSetDynordThresh()       Returns the threshold for the next dynamic
+                               reordering.
+
+Ddi_MgrSetExistClustThresh()   Set part clustering threshold
+
+Ddi_MgrSetMgrCU()              Sets the CUDD manager
+
+Ddi_MgrSetOne()                Sets the one constant
+
+Ddi_MgrSetTracedId()           Set traced node id field
+
+Ddi_MgrSetVarauxids()          Sets the auxiliary variable ids
+
+Ddi_MgrSetVarnames()           Sets the names of variables
+
+Ddi_MgrSetVerbosity()          Set verbosity
+
+Ddi_MgrSetZero()               Sets the zero constant
+
+Ddi_MgrShuffle()               Reorders all DDs in a manager.
+
+Ddi_MgrUpdate()                update DDI manager after directly working on
+                               CUDD manager
+
+Ddi_PrintCuddVersion()         Returns the version of CUDD package
+
+Ddi_PrintDdArray()             Prints the size of each function in a DdArray
+
+Ddi_PrintVararray()            Prints the indices of a Vararray
+
+Ddi_ProfileHeuristicEnum2String()
+                               Given an Enumerated type Returns a string
+
+Ddi_ProfileHeuristicString2Enum()
+                               Given a string it Returns an Enumerated type
+
+Ddi_ReadCacheHits()            Returns the number of cache hits.
+
+Ddi_ReadCacheLookUps()         Returns the number of cache look-ups.
+
+Ddi_ReadCacheSlots()           Reads the number of slots in the cache.
+
+Ddi_ReadCube()                 Reads a cube from stdin
+
+Ddi_ReadDdiName()              Returns the threshold for the next dynamic
+                               reordering.
+
+Ddi_ReadMaxCacheHard()         Reads the maxCacheHard parameter of the
+                               manager.
+
+Ddi_ReadMaxCache()             Returns the soft limit for the cache size.
+
+Ddi_ReadMinHit()               Reads the hit ratio that causes resizing of the
+                               computed   table.
+
+Ddi_ReadVarset()               Reads a variable set from file
+
+Ddi_ReorderingMethodEnum2String()
+                               Given an Enumerated type Returns a string
+
+Ddi_ReorderingMethodString2Enum()
+                               Given a string it Returns an Enumerated type
+
+Ddi_SetDdiName()               Returns the threshold for the next dynamic
+                               reordering.
+
+Ddi_VarAtLevel()               Return variable at a given level in the order
+
+Ddi_VarAttachAuxid()           Set the variable auxid of a variable
+
+Ddi_VarAttachName()            Attach a given name to the variable
+
+Ddi_VarAuxid()                 Return the variable auxid (-1 if auxids not
+                               defined)
+
+Ddi_VarCopy()                  Copy a variable to a destination dd manager
+
+Ddi_VarCurrPos()               Return current position of var in variable
+                               order
+
+Ddi_VarDetachName()            Clear the name of a variable
+
+Ddi_VarFromAuxid()             Search a variable given the auxid
+
+Ddi_VarFromCU()                Convert a CUDD variable to a DDI variable
+
+Ddi_VarFromName()              Search a variable given the name
+
+Ddi_VarInVarset()              Return true (non 0) if var is in varset
+
+Ddi_VarIndex()                 Return the variable index (CUDD variable index)
+
+Ddi_VarIsGrouped()             Return true (non 0) if variable is in variable
+                               group
+
+Ddi_VarMakeGroupFixed()        Create a variable group with fixed inner order
+
+Ddi_VarMakeGroup()             Create a variable group
+
+Ddi_VarName()                  Return the name of a variable
+
+Ddi_VarNewAfterVar()           Create a new variable after (in the variable
+                               order)     the given variable.
+
+Ddi_VarNewAtLevel()            Returns a new variable at a given level in the
+                               order
+
+Ddi_VarNewBeforeVar()          Create a new variable before (in the variable
+                               order)     the given variable.
+
+Ddi_VarNew()                   Create a new variable (generated within a CUDD
+                               manager)
+
+Ddi_VarReadGroup()             Return variable group including v. NULL if v is
+                               not in a group
+
+Ddi_VarSubst()                 The function does a substitution of variables
+                               of a BDD
+
+Ddi_VarToCU()                  Return the CUDD bdd node of a variable
+
+Ddi_VararrayAlloc()            Allocate a new array of variables of given
+                               length
+
+Ddi_VararrayAppend()           Append the elements of array2 at the end of
+                               array1
+
+Ddi_VararrayClear()            clear array at given position (variable is
+                               replaced by NULL)
+
+Ddi_VararrayCopy()             Copy an array of variables to a destination
+                               maneger
+
+Ddi_VararrayDup()              Duplicate an array of variables
+
+Ddi_VararrayExtract()          Extract the variable at i-th position in array
+
+Ddi_VararrayInsertLast()       Insert a variable in array at last (new)
+                               position
+
+Ddi_VararrayInsert()           Insert a variable in array at given position
+
+Ddi_VararrayMakeFromCU()       Generate a variable array from CU vars (BDD
+                               nodes)
+
+Ddi_VararrayMakeFromInt()      Generate a variable array from array of integer
+                               indexes
+
+Ddi_VararrayNum()              Return the number of variables (entries) in
+                               array
+
+Ddi_VararrayRead()             Return the variable at i-th position in array
+
+Ddi_VararrayRemove()           Remove array entry at given position
+
+Ddi_VararrayToCU()             Generate an array of pointers to CUDD variables
+
+Ddi_VararrayToInt()            Generate an array of integer variable indexes
+
+Ddi_VararrayWrite()            Write a variable in array at given position
+
+Ddi_VarsetAddAcc()             Add variable to var-set. Result is accumulated
+
+Ddi_VarsetAdd()                Add variable to var-set. Result is generated
+
+Ddi_VarsetBottom()             Return the bottom variable in the ordering
+
+Ddi_VarsetCopy()               Copy a var-set to another manager
+
+Ddi_VarsetDiffAcc()            Return difference of two var-sets. Result
+                               accumulated
+
+Ddi_VarsetDiff()               Return difference of two var-sets. Result
+                               generated
+
+Ddi_VarsetDup()                Duplicate a var-set
+
+Ddi_VarsetEqual()              Return true (non 0) if the two var-sets are
+                               equal
+
+Ddi_VarsetEvalFree()           Evaluates an expression and frees first
+                               argument
+
+Ddi_VarsetIntersectAcc()       Return intersection of two var-sets. Result
+                               accumulated
+
+Ddi_VarsetIntersect()          Return intersection of two var-sets. Result
+                               generated
+
+Ddi_VarsetIsVoid()             Return true (non 0) if var-set is empty
+
+Ddi_VarsetMakeFromArray()      Build a Ddi_Varset_t from a given variable
+                               array.
+
+Ddi_VarsetMakeFromCU()         Build a Ddi_Varset_t from a given CUDD cube.
+
+Ddi_VarsetMakeFromVar()        Build a Ddi_Varset_t from a given variable.
+
+Ddi_VarsetNextAcc()            Remove top variable from var-set. Result
+                               accumulated
+
+Ddi_VarsetNext()               Remove top variable from var-set. Result
+                               generated
+
+Ddi_VarsetNum()                Return the number of variables in varset
+
+Ddi_VarsetPrint()              Print the varset variables sorted by id
+
+Ddi_VarsetRemoveAcc()          Remove variable from var-set. Result is
+                               accumulated
+
+Ddi_VarsetRemove()             Remove variable from var-set. Result is
+                               generated
+
+Ddi_VarsetSubstVarsAcc()       Variable substitution in varset. Result
+                               accumulated
+
+Ddi_VarsetSubstVars()          Variable substitution in varset. Result
+                               generated
+
+Ddi_VarsetSwapVarsAcc()        Swap two sets of variables in varset. Result
+                               accumulated
+
+Ddi_VarsetSwapVars()           Swap two sets of variables in varset. Result
+                               generated
+
+Ddi_VarsetToCU()               Convert a varset to a Cudd cube
+
+Ddi_VarsetTop()                Return the top variable (in the ordering) in
+                               varset
+
+Ddi_VarsetUnionAcc()           Return union of two var-sets. Result
+                               accumulated
+
+Ddi_VarsetUnion()              Return union of two var-sets. Result generated
+
+Ddi_VarsetVoid()               Return an empty var-set
+
+Ddi_VarsetWalkCurr()           Return curr var in varset walk
+
+Ddi_VarsetWalkEnd()            test for varset walk end
+
+Ddi_VarsetWalkStart()          Start Varset walk process
+
+Ddi_VarsetWalkStep()           Varset walk process step
+
+Ddi_VarsetarrayAlloc()         Allocate a new array of varsets
+
+Ddi_VarsetarrayClear()         clear array at given position (BDD freed and
+                               replaced by NULL)
+
+Ddi_VarsetarrayCopy()          Copy an array of varsets to a destination
+                               manager
+
+Ddi_VarsetarrayDup()           Duplicate an array of Varsets
+
+Ddi_VarsetarrayInsertLast()    Insert varset in array at last position
+
+Ddi_VarsetarrayInsert()        Insert varset in array at given position
+
+Ddi_VarsetarrayNum()           Return the number of entries in array
+
+Ddi_VarsetarrayRead()          Read varset at i-th position in array
+
+Ddi_VarsetarrayWrite()         Write varset in array at given position
+
+**********************************************************************
+
+The <b>DDI</b> package provides functions to manipulate the      following
+objects:     <ul>     <li>boolean functions (Ddi_Bdd_t)     <li>arrays of
+boolean functions (Ddi_Bddarray_t)     <li>variables (Ddi_Var_t)
+<li>arrays of variables (Ddi_Vararray_t)     <li>sets of variables
+(Ddi_Varset_t).     </ul>     It can be viewed both as a portability
+interface, concentrating     all dependancies from the BDD package, and as an
+upper level,     manipulating the previously listed BDD based data types.
+A particular feature, distinguishing this interface from other ones,     is
+the support for partitioned (conjunctive as well as disjunctive)
+functions.     This implementation is written on top of the CUDD package.
+
+Ddi_Bdd_t *
+Ddi_BddAndAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Compute f & g. Previous content of f is freed and new result is copyed to f.
+  Since f points to a handle, it can be passed by value: the handle is kept
+  when freeing old content. Accumulate type operations are useful to avoid
+  temporary variables and explicit free of old data. The pointer to f (old
+  handle) is returned so that the function may be used as operand for other
+  functions.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddAndExistAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g,
+  Ddi_Varset_t *    vars
+)
+  Relational product (Exist(f&g,vars)). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddAndExist(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g,
+  Ddi_Varset_t *    vars
+)
+  Relational product (Exist(f&g,vars)). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddAnd(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Compute f & g. A new result is generated and returned. Input parameters are
+  NOT changed
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddArraySetMeta(
+  Ddi_Bddarray_t *  f
+)
+  Transform a BDD array to Meta BDD. Result accumulated
+
+
+Ddi_Bdd_t *
+Ddi_BddCofactorAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Var_t *       v,
+  int               phase
+)
+  Cofactor with variable. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddCofactor(
+  Ddi_Bdd_t *       f,
+  Ddi_Var_t *       v,
+  int               phase
+)
+  Cofactor with variable. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddCofexist(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g,
+  Ddi_Varset_t *    smooth
+)
+  Constrain cofactor. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddComposeAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               array of variables
+  Ddi_Bddarray_t *  g                array of functions
+)
+  Function composition x <- g in f. New result is accumulated. Vector
+  composition algorithm is used.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddCompose(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               array of variables
+  Ddi_Bddarray_t *  g                array of functions
+)
+  Function composition x <- g in f. New result is generated. Vector
+  composition algorithm is used.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddConstrainAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Constrain cofactor. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddConstrain(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Constrain cofactor. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddCopyRemapVars(
+  Ddi_Mgr_t *       ddm,             destination manager
+  Ddi_Bdd_t *       old,             BDD to be duplicated
+  Ddi_Vararray_t *  varsOld,         old variable array
+  Ddi_Vararray_t *  varsNew          new variable array
+)
+  Copy a Ddi_Bdd_t to a destination DDI manager. Variable correspondence is
+  established "by index", i.e. variables with same index in different manager
+  correspond. Bdd is simply duplicated if destination manager is equal to the
+  source one.
+
+
+Ddi_Bdd_t *
+Ddi_BddCopy(
+  Ddi_Mgr_t *       ddm,             destination manager
+  Ddi_Bdd_t *       old              BDD to be duplicated
+)
+  Copy a Ddi_Bdd_t to a destination DDI manager. Variable correspondence is
+  established "by index", i.e. variables with same index in different manager
+  correspond. Bdd is simply duplicated if destination manager is equal to the
+  source one.
+
+
+Ddi_Bdd_t *
+Ddi_BddCprojectAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Compatible projector. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddCproject(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Compatible projector. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddDenseSet(
+  Ddi_DenseMethod_e method,          Operation Code
+  Ddi_Bdd_t *       f,               Operand
+  int               threshold,
+  int               safe,
+  int               quality,
+  double            hardlimit
+)
+  Compute the Dense Super or Subset of a Boolean functions
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddDiffAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean difference (f & !g). Result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddDiff(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean difference (f & !g). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddDup(
+  Ddi_Bdd_t *       f                BDD to be duplicated
+)
+  Duplicate a Ddi_Bdd_t. All pointed objects are recursively duplicated. In
+  case of partitioned BDDs, array of partitions are duplicated. Cudd BDDs are
+  referenced.
+
+
+int
+Ddi_BddEqual(
+  Ddi_Bdd_t *       f,               first dd
+  Ddi_Bdd_t *       g                second dd
+)
+  Return true (non 0) if the two DDs are equal (f==g). This test is presently
+  limited to monolithic BDDs.
+
+
+Ddi_Bdd_t *
+Ddi_BddEvalFree(
+  Ddi_Bdd_t *       f,               expression
+  Ddi_Bdd_t *       g                BDD to be freed
+)
+  Useful for accumulator like expressions (g=f(g,h)), i.e. computing a new
+  value for a variable and the old value must be freed. Avoids using temporary
+  variables. Since the f expression is evalued before passing actual
+  parameters, freeing of g occurs as last operation. <pre> E.g.
+  g=Ddi_BddEvalFree(Ddi_BddAnd(g,h),g). </pre> The "accumulator" style
+  operations introduced from version 2.0 of pdtrav should stongly reduce the
+  need for this technique. The above example can now be written as: <pre>
+  Ddi_BddAndAcc(g,h). </pre>
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddExistAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars
+)
+  Existential abstraction. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddExist(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars
+)
+  Existential abstraction. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddForallAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars
+)
+  Universal abstraction. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddForall(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars
+)
+  Universal abstraction. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddFromMeta(
+  Ddi_Bdd_t *       f
+)
+  Transform a BDD to Meta BDD. Result accumulated
+
+
+int
+Ddi_BddIncluded(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Check for inclusion (f in g). Return non 0 if true. This test requires the
+  second operand (g) to be monolithic, whereas monolithic and disjunctively
+  partitioned forms are allowed for first operand (f).
+
+
+int
+Ddi_BddIsCube(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is a cube. Monolithic BDD required.
+
+  Side Effects: none
+
+int
+Ddi_BddIsMeta(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is a meta BDD.
+
+  Side Effects: none
+
+int
+Ddi_BddIsMono(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is a monolithic BDD.
+
+  Side Effects: none
+
+int
+Ddi_BddIsOne(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is the one constant. This test is presently limited
+  to monolithic BDDs.
+
+  Side Effects: none
+
+int
+Ddi_BddIsPartConj(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is a conjunctively partitioned BDD.
+
+  Side Effects: none
+
+int
+Ddi_BddIsPartDisj(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is a disjunctively partitioned BDD.
+
+  Side Effects: none
+
+int
+Ddi_BddIsZero(
+  Ddi_Bdd_t *       f
+)
+  Return true (non 0) if f is the zero constant. This test is presently
+  limited to monolithic BDDs.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddIteAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g,
+  Ddi_Bdd_t *       h
+)
+  If-Then-Else (ITE(f,g,h)). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddIte(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g,
+  Ddi_Bdd_t *       h
+)
+  If-Then-Else (ITE(f,g,h)). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddLoad(
+  Ddi_BddMgr *      dd,              dd manager
+  int               varmatchmode,    variable matching mode
+  char              mode,            loading mode
+  char *            filename,        file name
+  FILE *            fp               file pointer
+)
+  This function loads only a BDD. If the file contain a BDDs' array, then will
+  be load only the first BDD.<br> The BDD on file must be in the DDDMP format.
+  The parameter "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_BINARY or
+  DDDMP_MODE_DEFAULT.<br> The function returns the pointer of BDD root if
+  succefully loaded, NULL otherwise.
+
+  Side Effects: None
+
+Ddi_Bdd_t *
+Ddi_BddMakeClustered(
+  Ddi_Bdd_t *       f,               input function
+  int               threshold        size threshold
+)
+  Create a clustered BDD from a partitioned one. Conjunctions/disjunctions are
+  executed up to the size threshold (sizes greater than threshold are
+  aborted).
+
+
+Ddi_Bdd_t *
+Ddi_BddMakeConst(
+  Ddi_Mgr_t *       mgr,
+  int               value            non 0: true (one), 0: false (zero)
+)
+  Generate a Ddi_Bdd_t constant node (BDD zero or one). The proper constant
+  node within the manager is duplicated.
+
+
+Ddi_Bdd_t *
+Ddi_BddMakeFromCU(
+  Ddi_Mgr_t *       mgr,
+  DdNode *          bdd
+)
+  Build the Ddi_Bdd_t structure (by means of DdiGenericAlloc) from manager and
+  CUDD node. The reference count of the node is increased.
+
+
+Ddi_Bdd_t *
+Ddi_BddMakeFromMeta(
+  Ddi_Bdd_t *       f
+)
+  Transform a BDD to Meta BDD. Result generated
+
+
+Ddi_Bdd_t *
+Ddi_BddMakeLiteral(
+  Ddi_Var_t *       v,
+  int               polarity         non 0: affirmed (v), 0: complemented
+                                     literal (!v)
+)
+  Generate a literal from a variable. The literal can be either affirmed or
+  complemented.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddMakeMeta(
+  Ddi_Bdd_t *       f
+)
+  Transform a BDD to Meta BDD. Result generated
+
+
+Ddi_Bdd_t *
+Ddi_BddMakeMono(
+  Ddi_Bdd_t *       f                input function
+)
+  Create a monolithic BDD from a partitioned one
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartConjFromArray(
+  Ddi_Bddarray_t *  array
+)
+  Build a conjunctively partitioned BDD from array of partitions
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartConjFromMono(
+  Ddi_Bdd_t *       mono
+)
+  Build a conjunctively partitioned BDD from a monolithic BDD
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartConjVoid(
+  Ddi_Mgr_t *       mgr
+)
+  Build a conjunctively partitioned BDD with 0 partitions
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartDisjFromArray(
+  Ddi_Bddarray_t *  array
+)
+  Build a disjunctively partitioned BDD from array of BDDs
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartDisjFromMono(
+  Ddi_Bdd_t *       mono
+)
+  Build a disjunctively partitioned BDD from a monolithic BDD
+
+
+Ddi_Bdd_t *
+Ddi_BddMakePartDisjVoid(
+  Ddi_Mgr_t *       mgr
+)
+  Build a disjunctively partitioned BDD with 0 partitions
+
+
+Ddi_Bdd_t *
+Ddi_BddNandAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean NAND (!(f&g)). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddNand(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean NAND (!(f&g)). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddNorAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean NOR (!(f|g)). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddNor(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean NOR (!(f|g)). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddNotAcc(
+  Ddi_Bdd_t *       f
+)
+  Boolean NOT. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddNot(
+  Ddi_Bdd_t *       f
+)
+  Boolean NOT. New result is generated
+
+  Side Effects: none
+
+int
+Ddi_BddOperation(
+  Ddi_Mgr_t *       defaultDdMgr,    Default DD Manager
+  Ddi_Bdd_t **      bddP,            BDD Pointer to manipulate
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlag       Type of the Pointer Returned
+)
+
+
+Ddi_Bdd_t *
+Ddi_BddOrAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean OR (f|g). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddOr(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean OR (f|g). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddPartExtract(
+  Ddi_Bdd_t *       f,
+  int               i
+)
+  Return the i-th partition (conj/disj), and remove it from f.
+
+
+Ddi_Bdd_t *
+Ddi_BddPartInsertLast(
+  Ddi_Bdd_t *       f,               partitioned BDD
+  Ddi_Bdd_t *       newp             new partition
+)
+  Add new partition at last position. Result accumulated
+
+
+Ddi_Bdd_t *
+Ddi_BddPartInsert(
+  Ddi_Bdd_t *       f,               partitioned BDD
+  int               i,               position of new partition
+  Ddi_Bdd_t *       newp             new partition
+)
+  Add new partition at position i. Result accumulated. Higher partitions are
+  shifted.
+
+
+int
+Ddi_BddPartNum(
+  Ddi_Bdd_t *       f
+)
+  Read the number of partitions (conj/disj). In case of monolithic BDD, 1 is
+  returned, in case of partitioned BDDs, the number of partitions.
+
+
+Ddi_Bdd_t *
+Ddi_BddPartRead(
+  Ddi_Bdd_t *       f,
+  int               i
+)
+  Read the i-th partition (conj/disj) of f.
+
+
+Ddi_Bdd_t *
+Ddi_BddPartWrite(
+  Ddi_Bdd_t *       f,               partitioned BDD
+  int               i,               position of new partition
+  Ddi_Bdd_t *       newp             new partition
+)
+  Write new partition at position i. Result accumulated. Same as insert if
+  position is PartNum+1. Otherwise i-th partition is freed and overwritten, so
+  Write is acrually a partition "replace" or "rewrite" operation.
+
+
+Ddi_Bdd_t *
+Ddi_BddPickOneCubeAcc(
+  Ddi_Bdd_t *       f
+)
+  Pick one random on-set cube. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddPickOneCube(
+  Ddi_Bdd_t *       f
+)
+  Pick one random on-set cube. Result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddPickOneMintermAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars             set of variables defining the minterm
+                                     space
+)
+  Pick one random on-set minterm. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddPickOneMinterm(
+  Ddi_Bdd_t *       f,
+  Ddi_Varset_t *    vars             set of variables defining the minterm
+                                     space
+)
+  Pick one random on-set minterm. Result is generated
+
+  Side Effects: none
+
+int
+Ddi_BddPrintCubeToString(
+  Ddi_Bdd_t *       f,               BDD
+  Ddi_Varset_t *    vars,            Variables
+  char *            string           output string
+)
+  Output a cube to string. Return true if succesful. The set of variables to
+  be considered is given as input (if NULL, true support is used). Variables
+  are sorted by absolute index (which is constant across sifting), NOT by
+  variable ordering. The procedure allows omitting variables in the true
+  support, which are existentially quantified out by cube.
+
+  Side Effects: None
+
+int
+Ddi_BddPrintCubes(
+  Ddi_Bdd_t *       f,               BDD
+  Ddi_Varset_t *    vars,            Variables
+  int               cubeNumberMax,   Maximum number of cubes printed
+  int               formatPla,       Prints a 1 at the end of the cube (PLA
+                                     format)
+  char *            filename,        File Name
+  FILE *            fp               Pointer to the store file
+)
+  This function outputs the cubes of a BDD on file. Only monolithic BDDs are
+  supported. The set of variables to be considered is given as input (if NULL
+  the true support is used), to allow generating don't cares, data are sorted
+  by absolute index, NOT by variable ordering. The procedure allows omitting
+  variables in the true support, which are existentially quantified out before
+  generating cubes, to avoid repetitions. A limit on the number of cubes
+  generated can be specified. Use a negative value for no bound.
+
+  Side Effects: None
+
+void
+Ddi_BddPrintStats(
+  Ddi_Bdd_t *       f,
+  FILE *            fp
+)
+  Prints Statistics of a BDD
+
+  Side Effects: none
+
+int
+Ddi_BddPrintSupportAndCubes(
+  Ddi_Bdd_t *       f,               BDD
+  int               numberPerRow,    Number of Names Printed on a Single Row
+  int               cubeNumberMax,   Maximum number of cubes printed
+  int               formatPla,       Prints a 1 at the end of the cube (PLA
+                                     format)
+  char *            filename,        File Name
+  FILE *            fp               Pointer to the store file
+)
+  Use a negative value to indicate no bound in the number of printed cubes.
+
+  Side Effects: none
+
+void
+Ddi_BddPrint(
+  Ddi_Bdd_t *       f,
+  FILE *            fp
+)
+  Prints a BDD
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddRelMakeFromArray(
+  Ddi_Bddarray_t *  Fa,              array of functions
+  Ddi_Vararray_t *  Va               array of range variables
+)
+  Generate a Ddi_Bdd_t relation from array of functions. Relation is generated
+  considering function variables domain, and range variables as co-domain. I-
+  th range variable corresponds to i-th function.
+
+
+Ddi_Bdd_t *
+Ddi_BddRestrictAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Restrict cofactor. New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddRestrict(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Restrict cofactor. New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddSetClustered(
+  Ddi_Bdd_t *       f,               input function
+  int               threshold        size threshold
+)
+  Create a clustered BDD from a partitioned one. Conjunctions/disjunctions are
+  executed up to the size threshold (sizes greater than threshold are
+  aborted).
+
+
+Ddi_Bdd_t *
+Ddi_BddSetMeta(
+  Ddi_Bdd_t *       f
+)
+  Transform a BDD to Meta BDD. Result accumulated
+
+
+Ddi_Bdd_t *
+Ddi_BddSetMono(
+  Ddi_Bdd_t *       f                input function
+)
+  Convert a BDD to monolitic (if required). Result accumulated
+
+
+Ddi_Bdd_t *
+Ddi_BddSetPartConj(
+  Ddi_Bdd_t *       f
+)
+  Convert a BDD to conjunctively partitioned (if required). Result accumulated
+
+
+Ddi_Bdd_t *
+Ddi_BddSetPartDisj(
+  Ddi_Bdd_t *       f
+)
+  Convert a BDD to disjunctively partitioned (if required). Result accumulated
+
+
+int
+Ddi_BddSize(
+  Ddi_Bdd_t *       f
+)
+  Return BDD size (total amount of BDD nodes) of f. In case of partitioned or
+  meta BDDs the sharing size is returned (shared subgraphs are counted once).
+
+
+int
+Ddi_BddStore(
+  Ddi_Bdd_t *       f,               BDD
+  char *            ddname,          dd name (or NULL)
+  char              mode,            storing mode
+  char *            filename,        file name
+  FILE *            fp               pointer to the store file
+)
+  This function stores only a BDD (not a BDD array). The BDD is stored in the
+  DDDMP format. The parameter "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_BINARY
+  or DDDMP_MODE_DEFAULT.<br> The function returns 1 if succefully stored, 0
+  otherwise.
+
+  Side Effects: None
+
+Ddi_Bdd_t *
+Ddi_BddSubstVarsAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Variable substitution x <- y in f. New result is accumulated. Variable
+  correspondence is established by position in x, y. Substitution is done by
+  compose. This differs from variable swapping since some y vars may be
+  present in x as well as in the support of f.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddSubstVars(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Variable substitution x <- y in f. New result is generated. Variable
+  correspondence is established by position in x, y. Substitution is done by
+  compose. This differs from variable swapping since some y vars may be
+  present in x as well as in the support of f.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddSuppAttach(
+  Ddi_Bdd_t *       f
+)
+  The support of f is the set of variables f depends on. This function
+  generates the support of f and hooks it to proper field of f, so that no BDD
+  traversal is done in further calls of Ddi_BddSupp.
+
+  Side Effects: support is attached to f
+
+Ddi_Bdd_t *
+Ddi_BddSuppDetach(
+  Ddi_Bdd_t *       f
+)
+  Detach (and free) support attached to f. Return pointer to f
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_BddSuppRead(
+  Ddi_Bdd_t *       f
+)
+  Read the support attached to a Bdd. The support is not duplicated, as would
+  Ddi_BddSupp with attached support. Return NULL if support is not attached.
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_BddSupp(
+  Ddi_Bdd_t *       f
+)
+  The support of f is the set of variables f depends on. This function has no
+  "accumulated" version, but a related function (Ddi_BddSuppAttach) which
+  attaches the support to a function, so that no BDD traversal is done in
+  further calls of Ddi_BddSupp.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddSwapVarsAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Swap x and y variables in f. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddSwapVars(
+  Ddi_Bdd_t *       f,
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Swap x and y variables in f. New result is generated
+
+  Side Effects: none
+
+Ddi_BddNode *
+Ddi_BddToCU(
+  Ddi_Bdd_t *       f
+)
+  Convert a DDI function to the corresponding Cudd Node. This is done by
+  reading the proper field (pointing to a cudd node) in the DDI node. No ref
+  is done on the returned node.
+
+
+Ddi_Var_t *
+Ddi_BddTopVar(
+  Ddi_Bdd_t *       f
+)
+  Return the top BDD variable of f
+
+
+Ddi_Bdd_t *
+Ddi_BddXnorAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean XNOR (!(f^g)). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddXnor(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean XNOR (!(f^g)). New result is generated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddXorAcc(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean XOR (f^g). New result is accumulated
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddXor(
+  Ddi_Bdd_t *       f,
+  Ddi_Bdd_t *       g
+)
+  Boolean XOR (f^g). New result is generated
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayAlloc(
+  Ddi_Mgr_t *       mgr,             DDI manager
+  int               length           array length
+)
+  Allocate a new array of BDDs. The array slots are initialized with NULL
+  pointers, so further Write operations are required.
+
+  Side Effects: none
+
+void
+Ddi_BddarrayAppend(
+  Ddi_Bddarray_t *  array1,          first array
+  Ddi_Bddarray_t *  array2           array to be appended
+)
+  Append the elements of array2 at the end of array1. As all array
+  write/insert operations, new entries are duplicated.
+
+  Side Effects: none
+
+void
+Ddi_BddarrayClear(
+  Ddi_Bddarray_t *  array,           array of BDDs
+  int               pos              position of element to be cleared
+)
+  clear array at given position (BDD freed and replaced by NULL)
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayCopy(
+  Ddi_BddMgr *      ddm,             dd Manager
+  Ddi_Bddarray_t *  old              array of BDDs
+)
+  Copy an array of BDDs to a destination manager. Variable correspondence is
+  established "by index", i.e. variables with same index in different manager
+  correspond
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayDup(
+  Ddi_Bddarray_t *  old              array to be duplicated
+)
+  Duplicate an array of BDDs
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddarrayExtract(
+  Ddi_Bddarray_t *  array,           BDD array
+  int               i                position
+)
+  Extract the BDD at i-th position in array. The extracted BDD is removed from
+  the array and the following entries are shifted up.
+
+
+void
+Ddi_BddarrayInsertLast(
+  Ddi_Bddarray_t *  array,           array of BDDs
+  Ddi_Bdd_t *       f                BDD to be written
+)
+  Insert a BDD in array at last (new) position
+
+  Side Effects: none
+
+void
+Ddi_BddarrayInsert(
+  Ddi_Bddarray_t *  array,           array of BDDs
+  int               pos,             position of new element
+  Ddi_Bdd_t *       f                BDD to be written
+)
+  Insert a BDD in array at given position. Following entries are shifted down.
+  The written BDD (f) is duplicated
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayLoad(
+  Ddi_BddMgr *      dd,              dd manager
+  char **           vnames,          variable names
+  int *             vauxids,         variable auxids
+  int               mode,            storing mode selector
+  char *            file,            name file
+  FILE *            fp               file pointer
+)
+  This function loads a BDDs'array.<br> The BDD on file must be in the DDDMP
+  format. The parameter "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_COMPRESSED
+  or DDDMP_MODE_AUTOMATIC.<br> The function returns the pointer of array if
+  succefully loaded, NULL otherwise.
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayMakeFromBddPart(
+  Ddi_Bdd_t *       part
+)
+  Generate a BDD array from partitions of partitioned BDD
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayMakeFromCU(
+  Ddi_Mgr_t *       mgr,
+  DdNode **         array,
+  int               n
+)
+  Generate a BDD array from CUDD BDDs. The function allocates a Ddi_Bddarray_t
+  structure, then write monolithic components to proper array slots.
+
+  Side Effects: none
+
+Ddi_Bddarray_t *
+Ddi_BddarrayMakeMeta(
+  Ddi_Bddarray_t *  f
+)
+  Transform a BDD array to Meta BDD. Result generated
+
+
+int
+Ddi_BddarrayNum(
+  Ddi_Bddarray_t *  array
+)
+  Return the number of BDDs (entries) in array
+
+  Side Effects: none
+
+int
+Ddi_BddarrayOperation(
+  Ddi_Mgr_t *       defaultDdMgr,    Default BDD Manager
+  Ddi_Bddarray_t ** bddArrayP,       BDD Array Pointer to manipulate
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlag       Type of the Pointer Returned
+)
+
+
+int
+Ddi_BddarrayPrintSupportAndCubes(
+  Ddi_Bddarray_t *  fArray,          BDD Array
+  int               numberPerRow,    Number of Names Printed on a Single Row
+  int               cubeNumberMax,   Maximum number of cubes printed
+  int               formatPla,       Prints a 1 at the end of the cube (PLA
+                                     format)
+  int               reverse,         Reverse Order if 1
+  char *            filename,        File Name
+  FILE *            fp               Pointer to the store file
+)
+  Use a negative value to indicate no bound in the number of printed cubes.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_BddarrayRead(
+  Ddi_Bddarray_t *  array,           BDD array
+  int               i                position
+)
+  Read the BDD at i-th position in array. As all read operations no data
+  duplication is done, so the returned BDD should be duplicated if further
+  manipulations are required on it.
+
+  Side Effects: none
+
+void
+Ddi_BddarrayRemove(
+  Ddi_Bddarray_t *  array,           array of BDDs
+  int               pos              position of element to be cleared
+)
+  Remove array entry at given position. This operation is equivalent to
+  extract + free of extracted BDD.
+
+  Side Effects: none
+
+int
+Ddi_BddarraySize(
+  Ddi_Bddarray_t *  array
+)
+  Count the numbers of BDD nodes in a BDD array. Shared nodes are counted
+  once.
+
+  Side Effects: none
+
+int
+Ddi_BddarrayStore(
+  Ddi_Bddarray_t *  array,           array to be stored
+  char *            ddname,          dd name (or NULL)
+  char **           vnames,          array of variable names (or NULL)
+  char **           rnames,          array of root names (or NULL)
+  int *             vauxids,         array of aux var ids (or NULL)
+  int               mode,            storing mode selector
+  char *            fname,           file name
+  FILE *            fp               pointer to the store file
+)
+  This function stores a BDD array using the DDDMP format. The parameter
+  "mode" can be DDDMP_MODE_TEXT, DDDMP_MODE_COMPRESSED or
+  DDDMP_MODE_AUTOMATIC.<br> The function returns 1 if succefully stored, 0
+  otherwise.
+
+  Side Effects: none
+
+Ddi_Varset_t **
+Ddi_BddarraySuppArray(
+  Ddi_Bddarray_t *  fArray           array of function
+)
+  OLD(pdt-1). Return a vector of supports of BDD array elements. Should be
+  replaced by Varsetarray usage
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_BddarraySupp(
+  Ddi_Bddarray_t *  array            BDDs'array
+)
+  Returns a var-set representing the global support of the array
+
+
+DdNode **
+Ddi_BddarrayToCU(
+  Ddi_Bddarray_t *  array
+)
+  Generate a dynamically allocated array of pointers to CUDD BDDs, one for
+  each entry in the DDI array. Array entries are required to be monolithic.
+  The number of array entries is equal to Ddi_BddarrayNum(array), but the
+  array is overdimensioned (by one NULL slot) to make it NULL-terminated. The
+  array of pointers is allocated (so explicit free is required), whereas the
+  CUDD nodes are NOT referenced.
+
+  Side Effects: none
+
+void
+Ddi_BddarrayWrite(
+  Ddi_Bddarray_t *  array,           array of BDDs
+  int               pos,             position of new element
+  Ddi_Bdd_t *       f                BDD to be written
+)
+  Write a BDD in array at given position. Previous non NULL entry is freed.
+  The written BDD (f) is duplicated
+
+  Side Effects: none
+
+double
+Ddi_CountMinterm(
+  Ddi_Bdd_t *       f,
+  int               nvar
+)
+  Check for inclusion (f in g). Return non 0 if true. This test requires the
+  second operand (g) to be monolithic, whereas monolithic and disjunctively
+  partitioned forms are allowed for first operand (f).
+
+
+char *
+Ddi_DenseMethodEnum2String(
+  Ddi_DenseMethod_e enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Ddi_DenseMethod_e
+Ddi_DenseMethodString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the dense method type.
+
+  Side Effects: none
+
+Ddi_Expr_t *
+Ddi_ExprBoolMake(
+  Ddi_Mgr_t *       mgr,
+  Ddi_Expr_t *      op1,
+  Ddi_Expr_t *      op2
+)
+  Build a Boolean Ddi_Expr_t from given sub-expressions.
+
+
+Ddi_Expr_t *
+Ddi_ExprCtlMake(
+  Ddi_Mgr_t *       mgr,
+  int               opcode,
+  Ddi_Expr_t *      op1,
+  Ddi_Expr_t *      op2,
+  Ddi_Expr_t *      op3
+)
+  Build a Ctl Ddi_Expr_t from given sub-expressions.
+
+
+Ddi_Expr_t *
+Ddi_ExprDup(
+  Ddi_Expr_t *      f                expression to be duplicated
+)
+  Duplicate a Ddi_Expr_t. Duplication is propagated recursively.
+
+
+int
+Ddi_ExprIsTerminal(
+  Ddi_Expr_t *      e
+)
+  Return true (non 0) if expression is terminal (Bdd or string).
+
+  Side Effects: none
+
+Ddi_Expr_t *
+Ddi_ExprLoad(
+  Ddi_BddMgr *      dd,              dd manager
+  char *            filename,        file name
+  FILE *            fp               file pointer
+)
+  Load EXPRESSION from file
+
+  Side Effects: None
+
+Ddi_Expr_t *
+Ddi_ExprMakeFromBdd(
+  Ddi_Bdd_t *       f
+)
+  Build the Ddi_Expr_t structure (by means of DdiGenericAlloc) from BDD
+  handle.
+
+
+Ddi_Expr_t *
+Ddi_ExprMakeFromString(
+  Ddi_Mgr_t *       mgr,
+  char *            s
+)
+  Build a Ddi_Expr_t from a given string.
+
+
+void
+Ddi_ExprPrint(
+  Ddi_Expr_t *      f,
+  FILE *            fp
+)
+  Print a Ddi_Expr_t
+
+
+int
+Ddi_ExprReadOpcode(
+  Ddi_Expr_t *      e
+)
+  Read expression opcode
+
+
+Ddi_Expr_t *
+Ddi_ExprReadSub(
+  Ddi_Expr_t *      e,
+  int               i
+)
+  Rear sub-expression at given position
+
+
+int
+Ddi_ExprSubNum(
+  Ddi_Expr_t *      e
+)
+  Read the number of sub-expressions. In case of terminal expressioins (Bdd or
+  String), 0 is returned.
+
+
+Ddi_Bdd_t *
+Ddi_ExprToBdd(
+  Ddi_Expr_t *      e
+)
+  Retrieve the Bdd associated to the expression. Result is NOT duplicated (in
+  other words, the BDD field is read)
+
+
+char *
+Ddi_ExprToString(
+  Ddi_Expr_t *      e
+)
+  Retrieve the string associated to the expression. Result is NOT duplicated
+  (in other words, the BDD field is read)
+
+
+Ddi_Expr_t *
+Ddi_ExprWriteSub(
+  Ddi_Expr_t *      e,
+  int               pos,
+  Ddi_Expr_t *      op
+)
+  Write operand sub-expression to expression at given position. Sub-expression
+  is added if not present, rewritten (by freeing the old one) if present at
+  specified position
+
+
+Ddi_Generic_t *
+Ddi_GenericDup(
+  Ddi_Generic_t *   f
+)
+  Generic dup
+
+  Side Effects: none
+
+void
+Ddi_GenericFree(
+  Ddi_Generic_t *   f                block to be freed
+)
+  Free the content of a generic DDI node
+
+
+void
+Ddi_GenericLock(
+  Ddi_Generic_t *   f
+)
+  Lock DDI node so that cannot be freed unless unlocked. Used as a protection
+  mechanism for internal objects (array entries, partitions, ...
+
+
+Ddi_Generic_t *
+Ddi_GenericOpAcc(
+  Ddi_OpCode_e      opcode,          operation code
+  Ddi_Generic_t *   f,               first operand
+  Ddi_Generic_t *   g,               first operand
+  Ddi_Generic_t *   h                first operand
+)
+  Compute generic operation. Result accumulated
+
+  Side Effects: none
+
+Ddi_Generic_t *
+Ddi_GenericOp(
+  Ddi_OpCode_e      opcode,          operation code
+  Ddi_Generic_t *   f,               first operand
+  Ddi_Generic_t *   g,               first operand
+  Ddi_Generic_t *   h                first operand
+)
+  Compute generic operation. Result generated
+
+  Side Effects: none
+
+Ddi_Code_e
+Ddi_GenericReadCode(
+  Ddi_Generic_t *   f
+)
+  called through Ddi_ReadCode.
+
+  Side Effects: Ddi_ReadCode
+
+Ddi_Mgr_t *
+Ddi_GenericReadMgr(
+  Ddi_Generic_t *   f
+)
+  called through Ddi_ReadMgr.
+
+  Side Effects: Ddi_ReadMgr
+
+char *
+Ddi_GenericReadName(
+  Ddi_Generic_t *   f
+)
+  called through Ddi_ReadName.
+
+  Side Effects: Ddi_ReadName
+
+void
+Ddi_GenericSetName(
+  Ddi_Generic_t *   f,               block to be freed
+  char *            name
+)
+  Set name field of DDI node
+
+
+void
+Ddi_GenericUnlock(
+  Ddi_Generic_t *   f
+)
+  Unlock DDI node so that can be freed again.
+
+
+Ddi_Var_t *
+Ddi_IthVar(
+  Ddi_BddMgr *      ddm,
+  int               index
+)
+  Return the variable of a given index
+
+  Side Effects: none
+
+int
+Ddi_MetaActive(
+  Ddi_Mgr_t *       ddm
+)
+  Return true if Meta handling active (Ddi_MetaInit done)
+
+
+void
+Ddi_MetaInit(
+  Ddi_Mgr_t *       ddm,
+  Ddi_Meta_Method_e method,
+  Ddi_Bdd_t *       ref,
+  Ddi_Varset_t *    firstGroup,
+  int               sizeMin
+)
+  Initialize Meta BDD handling in DDI manager
+
+
+void
+Ddi_MetaQuit(
+  Ddi_Mgr_t *       ddm
+)
+  Close Meta BDD handling in DDI manager. This enables further opening of Meta
+  BDD management with different method/parameters
+
+
+void
+Ddi_MgrAbortOnSiftDisable(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Disable Abort on sift.
+
+  Side Effects: none
+
+void
+Ddi_MgrAbortOnSiftEnable(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Enable Abort on sift.
+
+  Side Effects: none
+
+void
+Ddi_MgrAlign(
+  Ddi_Mgr_t *       dd,              dd manager to be aligned
+  Ddi_Mgr_t *       ddRef            reference dd manager
+)
+  Aligns the order of two managers.
+
+  Side Effects: none
+
+void
+Ddi_MgrAutodynResume(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Resume autodyn if suspended.
+
+  Side Effects: none
+
+void
+Ddi_MgrAutodynSuspend(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Suspend autodyn if active.
+
+  Side Effects: none
+
+int
+Ddi_MgrCheckExtRef(
+  Ddi_Mgr_t *       ddm,
+  int               n
+)
+  Check number of externally referenced DDI handles. This is the numer of
+  generic nodes (allocated - freed), diminished by the number of locked nodes
+  + 3 (2 constants + variable array). Return 0 upon failure.
+
+  Side Effects: none
+
+int
+Ddi_MgrConsistencyCheck(
+  Ddi_Mgr_t *       ddm
+)
+  make checks on DDI manager. Return 0 for failure
+
+  Side Effects: none
+
+void
+Ddi_MgrCreateGroups2(
+  Ddi_Mgr_t *       dd,              manager
+  Ddi_Vararray_t *  vfix,            first array
+  Ddi_Vararray_t *  vmov             first array
+)
+  Create groups of 2 variables: variables of corresponding indexes in vfix and
+  vmov are coupled. If vmov[i
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Ddi_MgrDup(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Creates a copy of a DdManager.
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Ddi_MgrInit(
+  char *            ddiName,         Name of the DDI structure
+  DdManager *       CUMgr,           Input CD manager. Created if NULL
+  unsigned int      nvar,            Initial Number of Variables
+  unsigned int      numSlots,        Initial Size of Unique Table
+  unsigned int      cacheSize,       Initial Size of Computed Table (cache)
+  unsigned long     memorySizeMax    Max size of Memory
+)
+  Creates a DdManager.
+
+  Side Effects: none
+
+int
+Ddi_MgrOperation(
+  Ddi_Mgr_t **      ddMgrP,          DD Manager Pointer
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlagP      Type of the Pointer Returned
+)
+
+  Side Effects: To be congruent operationFlag should be a Pdtutil_MgrOp_t
+  type, and returnFlag of Pdtutil_MgrRet_t type.
+
+int
+Ddi_MgrOrdWrite(
+  Ddi_Mgr_t *       dd,              Decision Diagram Manager
+  char *            filename,        File Name
+  FILE *            fp,              Pointer to Store File
+  Pdtutil_VariableO ordFileFormat    File Format
+)
+  This function stores the variable ordering of a dd manager. Variable names
+  and aux ids are used.
+
+  Side Effects: None
+
+void
+Ddi_MgrPeakProdLocalReset(
+  Ddi_Mgr_t *       ddiMgr           Decision Diagram Interface Manager
+)
+  Reset peak product local
+
+  Side Effects: none
+
+void
+Ddi_MgrPeakProdUpdate(
+  Ddi_Mgr_t *       ddiMgr,          Decision Diagram Interface Manager
+  int               size
+)
+  Update peak product stats
+
+  Side Effects: none
+
+void
+Ddi_MgrPrintAllocStats(
+  Ddi_Mgr_t *       ddm,
+  FILE *            fp
+)
+  Print DDI manager allocation statistics
+
+
+void
+Ddi_MgrPrintExtRef(
+  Ddi_Mgr_t *       ddm,
+  int               minNodeId
+)
+  print ids of external refs
+
+  Side Effects: none
+
+void
+Ddi_MgrPrintStats(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Prints on standard outputs statistics on a DD manager
+
+  Side Effects: none
+
+void
+Ddi_MgrQuit(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Close a DdManager.
+
+  Side Effects: none
+
+int
+Ddi_MgrReadCurrNodeId(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read current node id field. DDI nodes are identified by this id, which is
+  incremented at any new node creation.
+
+  Side Effects: none
+
+unsigned int
+Ddi_MgrReadDynordThresh(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Returns the threshold for the next dynamic reordering.
+
+  Side Effects: none
+
+int
+Ddi_MgrReadExistClustThresh(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read part clustering threshold. This is the threshold used for
+  quantification operators on partitioned BDDs.
+
+  Side Effects: none
+
+int
+Ddi_MgrReadExtBddRef(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read the number of externally referenced BDD handles. This is the number of
+  allocated - freed, diminished by the number of locked nodes.
+
+  Side Effects: none
+
+int
+Ddi_MgrReadExtBddarrayRef(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read the number of externally referenced BDD array handles. This is the
+  number of allocated - freed, diminished by the number of locked nodes.
+
+  Side Effects: none
+
+int
+Ddi_MgrReadExtRef(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read the number of externally referenced DDI handles. This is the numer of
+  generic nodes (allocated - freed), diminished by the number of locked nodes
+  + 3 (2 constants + variable array).
+
+  Side Effects: none
+
+int
+Ddi_MgrReadExtVarsetRef(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Read the number of externally referenced varset handles. This is the number
+  of allocated - freed, diminished by the number of locked nodes.
+
+  Side Effects: none
+
+DdManager *
+Ddi_MgrReadMgrCU(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads the Cudd Manager
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_MgrReadOne(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads one constant
+
+  Side Effects: none
+
+int
+Ddi_MgrReadOrdNamesAuxids(
+  Ddi_Mgr_t *       dd,              Manager
+  char *            filename,        File Name
+  FILE *            fp,              Pointer to the Store File
+  Pdtutil_VariableO ordFileFormat    File Format
+)
+  This function reads the variable ordering of a dd manager. Existing
+  variables with names in the ordering are shuffled to match the ordering.
+
+  Side Effects: None
+
+int
+Ddi_MgrReadPeakProdGlobal(
+  Ddi_Mgr_t *       ddiMgr           Decision Diagram Interface Manager
+)
+  Read peak product global
+
+  Side Effects: none
+
+int
+Ddi_MgrReadPeakProdLocal(
+  Ddi_Mgr_t *       ddiMgr           Decision Diagram Interface Manager
+)
+  Read peak product local
+
+  Side Effects: none
+
+int *
+Ddi_MgrReadVarauxids(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads the variable auxiliary ids
+
+  Side Effects: none
+
+char**
+Ddi_MgrReadVarnames(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads the variable names
+
+  Side Effects: none
+
+Pdtutil_VerbLevel_e
+Ddi_MgrReadVerbosity(
+  Ddi_Mgr_t *       ddiMgr           Decision Diagram Interface Manager
+)
+  Read verbosity
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_MgrReadZero(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads zero constant
+
+  Side Effects: none
+
+void
+Ddi_MgrSetDynordThresh(
+  Ddi_Mgr_t *       dd,              source dd manager
+  unsigned int      th               threshold
+)
+  Returns the threshold for the next dynamic reordering.
+
+  Side Effects: none
+
+void
+Ddi_MgrSetExistClustThresh(
+  Ddi_Mgr_t *       dd,              source dd manager
+  int               th
+)
+  Set part clustering threshold. This is the threshold used for quantification
+  operators on partitioned BDDs.
+
+  Side Effects: none
+
+void
+Ddi_MgrSetMgrCU(
+  Ddi_Mgr_t *       dd,              source dd manager
+  DdManager *       m                CUDD manager
+)
+  Sets the CUDD manager
+
+  Side Effects: none
+
+void
+Ddi_MgrSetOne(
+  Ddi_Mgr_t *       dd,              source dd manager
+  Ddi_Bdd_t *       one              one constant
+)
+  Sets the one constant
+
+  Side Effects: none
+
+void
+Ddi_MgrSetTracedId(
+  Ddi_Mgr_t *       dd,              source dd manager
+  int               id
+)
+  Set traced node id field. Creation of node >= id are logged using
+  DdiTraceNodeAlloc. This is expecially useful for debugging BDD leaks and
+  memory bugs. To watch generation of node with given ID, put a breakpoint on
+  DdiTraceNodeAlloc after setting manager tracedId to ID
+  (Ddi_MgrSetTracedId(dd,ID)).
+
+  Side Effects: none
+
+void
+Ddi_MgrSetVarauxids(
+  Ddi_Mgr_t *       dd,              source dd manager
+  int *             va               auxiliary variable ids
+)
+  Sets the auxiliary variable ids
+
+  Side Effects: none
+
+void
+Ddi_MgrSetVarnames(
+  Ddi_Mgr_t *       dd,              source dd manager
+  char **           vn               names of variables
+)
+  Sets the names of variables
+
+  Side Effects: none
+
+void
+Ddi_MgrSetVerbosity(
+  Ddi_Mgr_t *       ddiMgr,          Decision Diagram Interface Manager
+  Pdtutil_VerbLevel verbosity        Verbosity Level
+)
+  Set verbosity
+
+  Side Effects: none
+
+void
+Ddi_MgrSetZero(
+  Ddi_Mgr_t *       dd,              source dd manager
+  Ddi_Bdd_t *       zero             zero constant
+)
+  Sets the zero constant
+
+  Side Effects: none
+
+void
+Ddi_MgrShuffle(
+  Ddi_Mgr_t *       dd,              dd Manager to be Alligned
+  int *             sortedIds,       Array of sorted ids
+  int               nids             Number of ids
+)
+  Reorders all DDs in a manager according to the input order. The input
+  specification may be partial, i.e. it may include only a subset of
+  variables.
+
+  Side Effects: none
+
+void
+Ddi_MgrUpdate(
+  Ddi_Mgr_t *       ddm
+)
+  update DDI manager after directly working on CUDD manager. New variables
+  have possibly been created.
+
+  Side Effects: none
+
+void
+Ddi_PrintCuddVersion(
+  FILE *            fp
+)
+  Returns the version of CUDD package
+
+  Side Effects: none
+
+void
+Ddi_PrintDdArray(
+  Ddi_Bddarray_t *  array
+)
+  Prints the size of each function in a DdArray
+
+  Side Effects: None
+
+void
+Ddi_PrintVararray(
+  Ddi_Vararray_t *  array
+)
+  Prints the indices of a Vararray
+
+  Side Effects: None
+
+char *
+Ddi_ProfileHeuristicEnum2String(
+  Cuplus_PruneHeuri enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Cuplus_PruneHeuristic_e
+Ddi_ProfileHeuristicString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the dense method type.
+
+  Side Effects: none
+
+double
+Ddi_ReadCacheHits(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Returns the number of cache hits.
+
+  Side Effects: none
+
+double
+Ddi_ReadCacheLookUps(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Returns the number of cache look-ups.
+
+  Side Effects: none
+
+unsigned int
+Ddi_ReadCacheSlots(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Reads the number of slots in the cache.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_ReadCube(
+  Ddi_Mgr_t *       dd,
+  FILE *            fp,
+  int               idOrName
+)
+  The user can make a cube typing the index of variables
+
+  Side Effects: none
+
+char *
+Ddi_ReadDdiName(
+  Ddi_Mgr_t *       dd               source dd manager
+)
+  Returns the threshold for the next dynamic reordering.
+
+  Side Effects: none
+
+unsigned int
+Ddi_ReadMaxCacheHard(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Reads the maxCacheHard parameter of the manager.
+
+  Side Effects: none
+
+unsigned int
+Ddi_ReadMaxCache(
+  Ddi_Mgr_t*        dd               dd manager
+)
+  Returns the soft limit for the cache size.
+
+  Side Effects: none
+
+unsigned int
+Ddi_ReadMinHit(
+  Ddi_Mgr_t *       dd               dd manager
+)
+  Reads the hit ratio that causes resizing of the computed table.
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_ReadVarset(
+  Ddi_Mgr_t *       dd,
+  FILE *            fp,
+  int               idOrName
+)
+  The user can make a cube typing the index of variables
+
+  Side Effects: none
+
+char *
+Ddi_ReorderingMethodEnum2String(
+  Cudd_ReorderingTy enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Cudd_ReorderingType
+Ddi_ReorderingMethodString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the dense method type.
+
+  Side Effects: none
+
+void
+Ddi_SetDdiName(
+  Ddi_Mgr_t *       dd,              source dd manager
+  char *            ddiName
+)
+  Returns the threshold for the next dynamic reordering.
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarAtLevel(
+  Ddi_BddMgr *      ddm,
+  int               lev
+)
+  Return variable at a given level in the order
+
+  Side Effects: none
+
+void
+Ddi_VarAttachAuxid(
+  Ddi_Var_t *       var,
+  int               auxid
+)
+  Set the variable auxid of a variable
+
+  Side Effects: none
+
+void
+Ddi_VarAttachName(
+  Ddi_Var_t *       var,
+  char *            name
+)
+  Attach a given name to the variable
+
+  Side Effects: none
+
+int
+Ddi_VarAuxid(
+  Ddi_Var_t *       var
+)
+  Return the variable auxid (-1 if auxids not defined)
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarCopy(
+  Ddi_BddMgr *      dd2,             destination manager
+  Ddi_Var_t *       v                variable to be copied
+)
+  Find the variable corresponding to v in the destination manager. Variable
+  correspondence is for now limited to index matching.
+
+  Side Effects: none
+
+int
+Ddi_VarCurrPos(
+  Ddi_Var_t *       var
+)
+  Return current position of var in variable order
+
+  Side Effects: none
+
+void
+Ddi_VarDetachName(
+  Ddi_Var_t *       var
+)
+  Clear the name of a variable
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarFromAuxid(
+  Ddi_BddMgr *      ddm,
+  int               auxid
+)
+  Still a linear search !
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarFromCU(
+  Ddi_BddMgr *      ddm,
+  DdNode *          v
+)
+  Convert a CUDD variable to a DDI variable
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarFromName(
+  Ddi_BddMgr *      ddm,
+  char *            name
+)
+  Still a linear search !
+
+  Side Effects: none
+
+int
+Ddi_VarInVarset(
+  Ddi_Varset_t *    varset,          var-set
+  Ddi_Var_t *       var              variable
+)
+  Return true (non 0) if var is in varset
+
+  Side Effects: none
+
+int
+Ddi_VarIndex(
+  Ddi_Var_t *       var
+)
+  Return the variable index (CUDD variable index)
+
+  Side Effects: none
+
+int
+Ddi_VarIsGrouped(
+  Ddi_Var_t *       v
+)
+  Return true (non 0) if variable is in variable group
+
+  Side Effects: none
+
+void
+Ddi_VarMakeGroupFixed(
+  Ddi_BddMgr *      dd,
+  Ddi_Var_t *       v,
+  int               grpSize
+)
+  Same as Ddi_VarMakeGroup but no dynamic reordering allowed within group
+
+  Side Effects: none
+
+void
+Ddi_VarMakeGroup(
+  Ddi_BddMgr *      dd,
+  Ddi_Var_t *       v,
+  int               grpSize
+)
+  A group of variables is created for group sifting. The group starts at v and
+  contains grpSize variables (following v in the ordering. Sifting is allowed
+  within the group
+
+  Side Effects: none
+
+char *
+Ddi_VarName(
+  Ddi_Var_t *       var
+)
+  Return the name of a variable
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarNewAfterVar(
+  Ddi_Var_t *       var
+)
+  Create a new variable after (in the variable order) the given variable.
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarNewAtLevel(
+  Ddi_BddMgr *      ddm,
+  int               lev
+)
+  Returns a new variable at a given level in the order
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarNewBeforeVar(
+  Ddi_Var_t *       var
+)
+  Create a new variable before (in the variable order) the given variable.
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarNew(
+  Ddi_BddMgr *      ddm
+)
+  Create a new variable (generated within a CUDD manager)
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarReadGroup(
+  Ddi_Var_t *       v
+)
+  Return variable group including v. NULL if v is not in a group
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Ddi_VarSubst(
+  Ddi_Bdd_t *       f,               BDD
+  Ddi_Vararray_t *  x,               first array of variables
+  Ddi_Vararray_t *  y                second array of variables
+)
+  The function returns the pointer to a new function with the variables
+  swapped (x replace y), or NULL otherwise.
+
+  Side Effects: none
+
+DdNode *
+Ddi_VarToCU(
+  Ddi_Var_t *       v
+)
+  Return the CUDD bdd node of a variable
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Ddi_VararrayAlloc(
+  Ddi_Mgr_t *       mgr,             DDI manager
+  int               size             array length
+)
+  Allocate a new array of variables of given length
+
+  Side Effects: none
+
+void
+Ddi_VararrayAppend(
+  Ddi_Vararray_t *  array1,          first array
+  Ddi_Vararray_t *  array2           array to be appended
+)
+  Append the elements of array2 at the end of array1
+
+  Side Effects: none
+
+void
+Ddi_VararrayClear(
+  Ddi_Vararray_t *  array,           array of variables
+  int               pos              position of element to be cleared
+)
+  clear array at given position (variable is replaced by NULL)
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Ddi_VararrayCopy(
+  Ddi_BddMgr *      ddm,             dd Manager
+  Ddi_Vararray_t *  old              array of variables
+)
+  Variable correspondence is established "by index", i.e. variables with same
+  index in different manager correspond
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Ddi_VararrayDup(
+  Ddi_Vararray_t *  old              array to be duplicated
+)
+  Only the "array" part is duplicated. Variables are never duplicated nor
+  freed, except when closing the owner manager
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VararrayExtract(
+  Ddi_Vararray_t *  array,           variable array
+  int               i                position
+)
+  Extract the variable at i-th position in array. The extracted variable is
+  removed from the array and the following entries are shifted up.
+
+
+void
+Ddi_VararrayInsertLast(
+  Ddi_Vararray_t *  array,           array of variables
+  Ddi_Var_t *       v                variable to be written
+)
+  Insert a variable in array at last (new) position
+
+  Side Effects: none
+
+void
+Ddi_VararrayInsert(
+  Ddi_Vararray_t *  array,           array of variables
+  int               pos,             position of new element
+  Ddi_Var_t *       v                variable to be written
+)
+  Insert a variable in array at given position. Following entries are shifted
+  down.
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Ddi_VararrayMakeFromCU(
+  Ddi_Mgr_t *       mgr,
+  DdNode **         array,
+  int               n
+)
+  No variable dup is done (as all DDI operations working with variables)
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Ddi_VararrayMakeFromInt(
+  Ddi_Mgr_t *       mgr,
+  int *             array,
+  int               n
+)
+  Integer indexes are used as CUDD indexes. No variable dup is done (as all
+  DDI operations working with variables)
+
+  Side Effects: none
+
+int
+Ddi_VararrayNum(
+  Ddi_Vararray_t *  array
+)
+  Return the number of variables (entries) in array
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VararrayRead(
+  Ddi_Vararray_t *  array,           variable array
+  int               i                position
+)
+  Return the variable at i-th position in array
+
+  Side Effects: none
+
+void
+Ddi_VararrayRemove(
+  Ddi_Vararray_t *  array,           array of variables
+  int               pos              position of element to be cleared
+)
+  Remove array entry at given position. This operation is equivalent to
+  extract (but return type is void).
+
+  Side Effects: none
+
+DdNode **
+Ddi_VararrayToCU(
+  Ddi_Vararray_t *  array
+)
+  Generate a dynamic allocated array of pointers to CUDD BDDs representing
+  variables in input array.
+
+  Side Effects: none
+
+int *                                array of integer
+Ddi_VararrayToInt(
+  Ddi_Vararray_t *  array            array of variables
+)
+  Generate a dynamically allocated array of integer variable indexes. Integer
+  indexes are taken from CUDD indexes.
+
+  Side Effects: none
+
+void
+Ddi_VararrayWrite(
+  Ddi_Vararray_t *  array,           array of variables
+  int               pos,             position of new element
+  Ddi_Var_t *       var              variable to be inserted
+)
+  Write a variable in array at given position
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetAddAcc(
+  Ddi_Varset_t *    vs,              var-set
+  Ddi_Var_t *       v                the new variable added to var-set
+)
+  Add variable to var-set. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetAdd(
+  Ddi_Varset_t *    vs,              var-set
+  Ddi_Var_t *       v                the new variable added to var-set
+)
+  Add variable to var-set. Result is generated
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarsetBottom(
+  Ddi_Varset_t *    varset           var-set
+)
+  Return the bottom variable in the ordering
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetCopy(
+  Ddi_BddMgr *      dd2,             destination manager
+  Ddi_Varset_t *    src              var-set to be copied
+)
+  Copy a var-set to another manager
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetDiffAcc(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return difference of two var-sets. Result accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetDiff(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return difference of two var-sets. Result generated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetDup(
+  Ddi_Varset_t *    src              var-set to be copied
+)
+  Duplicate a var-set
+
+  Side Effects: none
+
+int
+Ddi_VarsetEqual(
+  Ddi_Varset_t *    varset1,         first var-set
+  Ddi_Varset_t *    varset2          second var-set
+)
+  Return true (non 0) if the two var-sets are equal
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetEvalFree(
+  Ddi_Varset_t *    f,               expression
+  Ddi_Varset_t *    g                varset to be freed
+)
+  Evaluates an expression and frees first argument
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetIntersectAcc(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return intersection of two var-sets. Result accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetIntersect(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return intersection of two var-sets. Result generated
+
+  Side Effects: none
+
+int
+Ddi_VarsetIsVoid(
+  Ddi_Varset_t *    varset
+)
+  Return true (non 0) if var-set is empty
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetMakeFromArray(
+  Ddi_Vararray_t *  va
+)
+  Build a Ddi_Varset_t from a given variable array.
+
+
+Ddi_Varset_t *
+Ddi_VarsetMakeFromCU(
+  Ddi_Mgr_t *       mgr,
+  DdNode *          bdd
+)
+  Builds the Ddi_Varset_t structure from manager and node. The reference count
+  of the node is increased.
+
+
+Ddi_Varset_t *
+Ddi_VarsetMakeFromVar(
+  Ddi_Var_t *       v
+)
+  Builds a Ddi_Varset_t structure from variable.
+
+
+Ddi_Varset_t *
+Ddi_VarsetNextAcc(
+  Ddi_Varset_t *    vs
+)
+  Remove top variable from var-set. Result accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetNext(
+  Ddi_Varset_t *    vs
+)
+  Remove top variable from var-set. Result generated
+
+  Side Effects: none
+
+int
+Ddi_VarsetNum(
+  Ddi_Varset_t *    vars             varset
+)
+  Return the number of variables in varset
+
+  Side Effects: none
+
+void
+Ddi_VarsetPrint(
+  Ddi_Varset_t *    vars,            Varset to Print
+  int               numberPerRow,    Number of Names Printed on a Single Row
+  char *            filename,        File Name
+  FILE *            fp               output file pointer
+)
+  If numberPerRow is less or equal to 0 all the names are printed-out on a
+  single row.
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetRemoveAcc(
+  Ddi_Varset_t *    vs,
+  Ddi_Var_t *       v
+)
+  Remove variable from var-set. Result is accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetRemove(
+  Ddi_Varset_t *    vs,
+  Ddi_Var_t *       v
+)
+  Remove variable from var-set. Result is generated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetSubstVarsAcc(
+  Ddi_Varset_t *    vs,              input varset
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Return a new varset with variable substitution x <- y.
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetSubstVars(
+  Ddi_Varset_t *    vs,              input varset
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Return a new varset with variable substitution x <- y.
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetSwapVarsAcc(
+  Ddi_Varset_t *    vs,              input varset
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Swap two sets of variables in varset. Result accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetSwapVars(
+  Ddi_Varset_t *    vs,              input varset
+  Ddi_Vararray_t *  x,               1-st array of variables
+  Ddi_Vararray_t *  y                2-nd array of variables
+)
+  Return a new varset with the variables swapped (x replaces y and viceversa).
+
+  Side Effects: none
+
+Ddi_BddNode *
+Ddi_VarsetToCU(
+  Ddi_Varset_t *    vs
+)
+  Convert a varset to a Cudd cube
+
+  Side Effects: Convert a varset to a Cudd cube. The returned node is NOT
+  referenced
+
+Ddi_Var_t *
+Ddi_VarsetTop(
+  Ddi_Varset_t *    varset           var-set
+)
+  Return the top variable (in the ordering) in varset
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetUnionAcc(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return union of two var-sets. Result accumulated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetUnion(
+  Ddi_Varset_t *    v1,              first var-set
+  Ddi_Varset_t *    v2               second var-set
+)
+  Return union of two var-sets. Result generated
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetVoid(
+  Ddi_BddMgr *      ddm
+)
+  The varset is generated, so it must eventually be freed
+
+  Side Effects: none
+
+Ddi_Var_t *
+Ddi_VarsetWalkCurr(
+  Ddi_Varset_t *    vs
+)
+  Return curr var in varset walk
+
+  Side Effects: none
+
+int
+Ddi_VarsetWalkEnd(
+  Ddi_Varset_t *    vs
+)
+  test for varset walk end. Return trur (non 0) if end reached
+
+  Side Effects: none
+
+void
+Ddi_VarsetWalkStart(
+  Ddi_Varset_t *    vs
+)
+  Start Varset walk process. Set curr pointer to top BDD node
+
+  Side Effects: none
+
+void
+Ddi_VarsetWalkStep(
+  Ddi_Varset_t *    vs
+)
+  Varset walk process step. Set curr pointer to next BDD node
+
+  Side Effects: none
+
+Ddi_Varsetarray_t *
+Ddi_VarsetarrayAlloc(
+  Ddi_Mgr_t *       mgr,             DDI manager
+  int               length           array length
+)
+  Allocate a new array of varsets. The array slots are initialized with NULL
+  pointers, so further Write operations are required.
+
+  Side Effects: none
+
+void
+Ddi_VarsetarrayClear(
+  Ddi_Varsetarray_t array,           array of varsets
+  int               pos              position of element to be cleared
+)
+  clear array at given position (BDD freed and replaced by NULL)
+
+  Side Effects: none
+
+Ddi_Varsetarray_t *
+Ddi_VarsetarrayCopy(
+  Ddi_BddMgr *      ddm,             dd Manager
+  Ddi_Varsetarray_t old              array of varsets
+)
+  Copy an array of varsets to a destination manager. Variable correspondence
+  is established "by index", i.e. variables with same index in different
+  manager correspond
+
+  Side Effects: none
+
+Ddi_Varsetarray_t *
+Ddi_VarsetarrayDup(
+  Ddi_Varsetarray_t old              array to be duplicated
+)
+  Duplicate an array of Varsets
+
+  Side Effects: none
+
+void
+Ddi_VarsetarrayInsertLast(
+  Ddi_Varsetarray_t array,           array of varsets
+  Ddi_Varset_t *    vs               varset to be written
+)
+  Insert varset in array at last position. The written varset is duplicated
+
+  Side Effects: none
+
+void
+Ddi_VarsetarrayInsert(
+  Ddi_Varsetarray_t array,           array of varsets
+  int               pos,             position of new element
+  Ddi_Varset_t *    vs               varset to be written
+)
+  Insert varset in array at given position. Previous non NULL entry is moved
+  up. The written varset is duplicated
+
+  Side Effects: none
+
+int
+Ddi_VarsetarrayNum(
+  Ddi_Varsetarray_t array
+)
+  Return the number of entries in array
+
+  Side Effects: none
+
+Ddi_Varset_t *
+Ddi_VarsetarrayRead(
+  Ddi_Varsetarray_t array,           varset array
+  int               i                position
+)
+  Read varset at i-th position in array. As all read operations no data
+  duplication is done, so the returned varset should be duplicated if further
+  manipulations are required on it.
+
+  Side Effects: none
+
+void
+Ddi_VarsetarrayWrite(
+  Ddi_Varsetarray_t array,           array of varsets
+  int               pos,             position of new element
+  Ddi_Varset_t *    vs               varset to be written
+)
+  Write varset in array at given position. Previous non NULL entry is freed.
+  The written varset is duplicated
+
+  Side Effects: none
+

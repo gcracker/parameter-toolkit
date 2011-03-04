@@ -1,0 +1,253 @@
+This is TeX, Version 3.14159 (Web2C 7.3) (format=latex 1999.4.5)  25 MAR 2001 21:58
+**./images.tex
+(./images.tex
+LaTeX2e <1998/12/01>
+Babel <v3.6k> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+(/usr/share/texmf/tex/latex/base/latex209.def
+File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
+
+          Entering LaTeX 2.09 COMPATIBILITY MODE
+ *************************************************************
+    !!WARNING!!    !!WARNING!!    !!WARNING!!    !!WARNING!!   
+ 
+ This mode attempts to provide an emulation of the LaTeX 2.09
+ author environment so that OLD documents can be successfully
+ processed. It should NOT be used for NEW documents!
+ 
+ New documents should use Standard LaTeX conventions and start
+ with the \documentclass command.
+ 
+ Compatibility mode is UNLIKELY TO WORK with LaTeX 2.09 style
+ files that change any internal macros, especially not with
+ those that change the FONT SELECTION or OUTPUT ROUTINES.
+ 
+ Therefore such style files MUST BE UPDATED to use
+          Current Standard LaTeX: LaTeX2e.
+ If you suspect that you may be using such a style file, which
+ is probably very, very old by now, then you should attempt to
+ get it updated by sending a copy of this error message to the
+ author of that file.
+ *************************************************************
+
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+\@cla=\count79
+\@clb=\count80
+\mscount=\count81
+(/usr/share/texmf/tex/latex/base/tracefnt.sty
+Package: tracefnt 1997/05/29 v3.0j Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 83.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 275.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 276.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 277.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 283.
+LaTeX Info: Redefining \em on input line 293.
+(/usr/share/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 29.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 357.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 359.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 361.
+(/usr/share/texmf/tex/latex/config/latex209.cfg) (/usr/share/texmf/tex/latex/to
+ols/rawfonts.sty
+Package: rawfonts 1994/05/08 Low-level LaTeX 2.09 font compatibility
+(/usr/share/texmf/tex/latex/tools/somedefs.sty
+Package: somedefs 1994/06/01 Toolkit for optional definitions
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 34.
+(/usr/share/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2eLaTeX symbol font definitions
+))) (/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 1999/01/07 v1.4a Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size11.clo
+File: size11.clo 1999/01/07 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+Compatibility mode: definition of \rm ignored.
+Compatibility mode: definition of \sf ignored.
+Compatibility mode: definition of \tt ignored.
+Compatibility mode: definition of \bf ignored.
+Compatibility mode: definition of \it ignored.
+Compatibility mode: definition of \sl ignored.
+Compatibility mode: definition of \sc ignored.
+LaTeX Info: Redefining \cal on input line 488.
+LaTeX Info: Redefining \mit on input line 489.
+\bibindent=\dimen105
+)
+\sizebox=\box26
+\lthtmlwrite=\write3
+
+! LaTeX Error: Command \selectlanguage already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \providecommand{\selectlanguage}[1]{}
+                                           %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(images.aux)
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+
+latex2htmlLength hsize=349.0pt
+
+latex2htmlLength vsize=680.42998pt
+
+latex2htmlLength hoffset=0.0pt
+
+latex2htmlLength voffset=0.0pt
+
+latex2htmlLength topmargin=0.0pt
+
+latex2htmlLength topskip=0.00003pt
+
+latex2htmlLength headheight=0.0pt
+
+latex2htmlLength headsep=0.0pt
+
+latex2htmlLength parskip=4.71457pt plus 0.94289pt minus 0.94289pt
+
+latex2htmlLength oddsidemargin=-25.29494pt
+
+latex2htmlLength evensidemargin=-25.29494pt
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 141.
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10.95 <DIV
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+\OT1/cmr/m/n/10.95 ALIGN="CENTER">
+ []
+
+l2hSize :tex2html_wrap_inline549:28.74748pt::28.74748pt::108.95253pt.
+[1
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+[]\OT1/cmr/m/n/10.95 <DIV
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+\OT1/cmr/m/n/10.95 ALIGN="CENTER">
+ []
+
+l2hSize :tex2html_wrap_inline550:28.74748pt::28.74748pt::108.95253pt.
+[2
+
+
+]
+Underfull \hbox (badness 1515) in paragraph at lines 166--166
+[]\OT1/cmr/m/n/10.95 <DIV ALIGN="CENTER"> Po-litec-ni-co di
+ []
+
+l2hSize :tex2html_wrap_inline551:35.60832pt::35.60832pt::217.35753pt.
+[3
+
+
+]
+l2hSize :tex2html_wrap_inline138:7.07185pt::0.0pt::16.97255pt.
+[4
+
+
+]
+l2hSize :tex2html_wrap_inline140:7.07185pt::0.0pt::16.97255pt.
+[5
+
+
+]
+l2hSize :tex2html_wrap_inline142:7.07185pt::0.0pt::11.49754pt.
+[6
+
+
+]
+l2hSize :tex2html_wrap_inline144:8.10416pt::8.10416pt::67.7018pt.
+[7
+
+
+]
+l2hSize :tex2html_wrap_inline146:8.10416pt::8.10416pt::40.83434pt.
+[8
+
+
+]
+l2hSize :tex2html_wrap_inline148:7.07185pt::0.0pt::6.24812pt.
+[9
+
+
+]
+l2hSize :tex2html_wrap_inline154:7.07185pt::0.0pt::6.24812pt.
+[10
+
+
+]
+l2hSize :tex2html_wrap_inline156:8.10416pt::8.10416pt::147.6115pt.
+[11
+
+
+]
+l2hSize :tex2html_wrap_inline158:8.10416pt::8.10416pt::103.36151pt.
+[12
+
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 532 strings out of 10898
+ 5656 string characters out of 72048
+ 47160 words of memory out of 263001
+ 3481 multiletter control sequences out of 10000+0
+ 22500 words of font info for 84 fonts, out of 200000 for 1000
+ 15 hyphenation exceptions out of 1000
+ 25i,4n,22p,378b,218s stack positions out of 300i,100n,500p,30000b,4000s
+
+Output written on images.dvi (12 pages, 2100 bytes).

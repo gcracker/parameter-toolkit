@@ -1,0 +1,1075 @@
+The fsm package
+
+External header file for package Fsm
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Fsm_BddFormatInt2String()      Given an Integer Returns a string
+
+Fsm_BddFormatString2Int()      Given a string it Returns an Integer.
+
+Fsm_MgrDup()                   Duplicates FSM structure.
+
+Fsm_MgrFree()                  Frees unused FSM structure members
+
+Fsm_MgrInit()                  Initializes the FSM structure.
+
+Fsm_MgrLoadFromBlif()          Reads description of a fsmMgr (BLIF format)
+                               from file
+
+Fsm_MgrLoad()
+
+Fsm_MgrOperation()
+
+Fsm_MgrPMBuild()
+
+Fsm_MgrPrintPrm()              Prints the permutation on file "tmp.prm"
+
+Fsm_MgrPrintStats()            Prints Statistics on the FSM Structure
+
+Fsm_MgrReadBddFormat()
+
+Fsm_MgrReadDdManager()
+
+Fsm_MgrReadDeltaBDD()
+
+Fsm_MgrReadDeltaName()
+
+Fsm_MgrReadFileName()
+
+Fsm_MgrReadFileOrd()           Reads variable order from a <em>.ord</em> file
+
+Fsm_MgrReadFromBDD()
+
+Fsm_MgrReadFromName()
+
+Fsm_MgrReadFromString()
+
+Fsm_MgrReadFsmName()
+
+Fsm_MgrReadIndexI()
+
+Fsm_MgrReadIndexNS()
+
+Fsm_MgrReadIndexO()
+
+Fsm_MgrReadIndexPS()
+
+Fsm_MgrReadInitBDD()
+
+Fsm_MgrReadInitName()
+
+Fsm_MgrReadInitString()
+
+Fsm_MgrReadInvauxids()
+
+Fsm_MgrReadLambdaBDD()
+
+Fsm_MgrReadLambdaName()
+
+Fsm_MgrReadNI()
+
+Fsm_MgrReadNL()
+
+Fsm_MgrReadNO()
+
+Fsm_MgrReadNameI()
+
+Fsm_MgrReadNameNS()
+
+Fsm_MgrReadNameO()
+
+Fsm_MgrReadNamePS()
+
+Fsm_MgrReadOrdFileName()
+
+Fsm_MgrReadOrdNodeName()
+
+Fsm_MgrReadOrdNodeid()
+
+Fsm_MgrReadReachedBDD()
+
+Fsm_MgrReadReachedName()
+
+Fsm_MgrReadReachedString()
+
+Fsm_MgrReadSX()
+
+Fsm_MgrReadTrBDD()
+
+Fsm_MgrReadTrName()
+
+Fsm_MgrReadTrString()
+
+Fsm_MgrReadVarI()
+
+Fsm_MgrReadVarNS()
+
+Fsm_MgrReadVarO()
+
+Fsm_MgrReadVarPS()
+
+Fsm_MgrReadVarauxids()
+
+Fsm_MgrReadVarnames()
+
+Fsm_MgrReadVerbosity()
+
+Fsm_MgrReadY()
+
+Fsm_MgrReadZ()
+
+Fsm_MgrSetBddFormat()
+
+Fsm_MgrSetDdManager()
+
+Fsm_MgrSetDeltaBDD()
+
+Fsm_MgrSetDeltaName()
+
+Fsm_MgrSetFileName()
+
+Fsm_MgrSetFromBDD()
+
+Fsm_MgrSetFromName()
+
+Fsm_MgrSetFromString()
+
+Fsm_MgrSetFsmName()
+
+Fsm_MgrSetIndexI()
+
+Fsm_MgrSetIndexNS()
+
+Fsm_MgrSetIndexO()
+
+Fsm_MgrSetIndexPS()
+
+Fsm_MgrSetInitBDD()
+
+Fsm_MgrSetInitName()
+
+Fsm_MgrSetInitString()
+
+Fsm_MgrSetInvauxids()
+
+Fsm_MgrSetLambdaBDD()
+
+Fsm_MgrSetLambdaName()
+
+Fsm_MgrSetNI()
+
+Fsm_MgrSetNL()
+
+Fsm_MgrSetNO()
+
+Fsm_MgrSetNameI()
+
+Fsm_MgrSetNameNS()
+
+Fsm_MgrSetNameO()
+
+Fsm_MgrSetNamePS()
+
+Fsm_MgrSetOrdFileName()
+
+Fsm_MgrSetOrdNodeName()
+
+Fsm_MgrSetOrdNodeid()
+
+Fsm_MgrSetReachedBDD()
+
+Fsm_MgrSetReachedName()
+
+Fsm_MgrSetReachedString()
+
+Fsm_MgrSetSX()
+
+Fsm_MgrSetTrBDD()
+
+Fsm_MgrSetTrName()
+
+Fsm_MgrSetTrString()
+
+Fsm_MgrSetVarI()
+
+Fsm_MgrSetVarNS()
+
+Fsm_MgrSetVarO()
+
+Fsm_MgrSetVarPS()
+
+Fsm_MgrSetVarauxids()
+
+Fsm_MgrSetVarnamesOne()
+
+Fsm_MgrSetVarnames()
+
+Fsm_MgrSetVerbosity()
+
+Fsm_MgrSetY()
+
+Fsm_MgrSetZ()
+
+Fsm_MgrStore()                 Stores (on file o stdout) of FSM structure
+
+Fsm_PortBnetBuildNodeBDD()     Builds the BDD for the function of a node.
+
+Fsm_PortBnetDfsVariableOrder() Orders the BDD variables by DFS.
+
+Fsm_PortBnetFreeNetwork()      Frees a boolean network created by
+                               Fsm_PortBnetReadNetwork.
+
+Fsm_PortBnetReadNetwork()      Reads boolean network from blif file.
+
+Fsm_PortBnetReadOrder()        Reads the variable order from a file.
+
+Fsm_PortNtrBuildDDs()          Builds DDs for a network outputs and next state
+                               functions.
+
+Fsm_PortNtrInitState()         Builds the BDD of the initial state(s).
+
+**********************************************************************
+
+This package provides functions to read in and write out     descriptions of
+FSMs in the PdTrav format.<br>     Support to read a blif file are also
+given. <p>      External procedures included in this module are:     <ul>
+<li> Fsm_MgrLoad ()     <li> Fsm_MgrStore ()     <li> Fsm_MgrInit ()     <li>
+Fsm_MgrFree ()     <li> Fsm_MgrDup ()     </ul>     <p>      The FSM (name
+myFsm) structure follows the following schema:<p>     .Fsm myFsm<br>     </P>
+.Size<br>       .i 4<br>       .o 1<br>       .l 3<br>     .EndSize<br>
+</P>     .Ord<br>       .ordFile myFsmFSM.ord<br>     .EndOrd<br>     </P>
+.Name<br>       .i G0 G1 G2 G3<br>       .ps G5 G6 G7<br>       .ns G5$NS
+G6$NS G7$NS<br>     .EndName<br>     </P>     .Index<br>       .i 0 1 2 3<br>
+.ps 4 5 6<br>       .ns 7 8 9<br>     .EndIndex<br>     </P>     .Delta<br>
+.bddFile myFsmdelta.bdd<br>     .EndDelta<br>     </P>     .Lambda<br>
+.bddFile myFsmlambda.bdd<br>     .EndLambda<br>     </P>     .InitState<br>
+.bddFile myFsms0.bdd<br>     .EndInitState<br>     </P>     .Tr<br>
+.bddFile myFsmTR.bdd<br>     .EndTr<br>     </P>     .Reached<br>
+.bddFile myFsmReached.bdd<br>     .EndReached<br>     </P>     .EndFsm<p>
+The functions to read a blif file are partially taken, almost verbatim,
+from the nanotrav directory of the Cudd-2.3.0 package.<br>     The original
+names have been modified changing the prefix in the     following way:<p>
+Port_ ---> Fsm_Port<br>     Port ---> FsmPort<br>     port ---> fsmPort<br>
+PORT_ ---> FSM_<p>     The functions directly called by nanotrav are:
+<pre>     (name in nanotrav)     (name in the fsmPort package)     </P>
+Bnet_ReadNetwork       Fsm_PortBnetReadNetwork     Bnet_FreeNetwork
+Fsm_PortBnetFreeNetwork     Ntr_buildDDs           Fsm_PortNtrBuildDDs
+Ntr_initState          Fsm_PortNtrInitState     </pre>     <p>
+fsmPortBnet.c contains the parts taken from bnet.c     fsmPortNtr.c contains
+the parts taken from ntr.c.
+
+char *
+Fsm_BddFormatInt2String(
+  int               intValue
+)
+  Given an Integer Returns a string
+
+  Side Effects: none
+
+int
+Fsm_BddFormatString2Int(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the integer DDDMP value.
+
+  Side Effects: none
+
+Fsm_Mgr_t *
+Fsm_MgrDup(
+  Fsm_Mgr_t *       fsmMgr           FSM Manager
+)
+  Duplicates FSM structure.
+
+  Side Effects: none
+
+void
+Fsm_MgrFree(
+  Fsm_Mgr_t *       fsmMgr           FSM Manager
+)
+  Frees unused FSM structure members
+
+  Side Effects: none
+
+Fsm_Mgr_t *
+Fsm_MgrInit(
+  char *            fsmName          Name of the FSM structure
+)
+  Initializes the FSM structure.
+
+  Side Effects: none
+
+int
+Fsm_MgrLoadFromBlif(
+  Fsm_Mgr_t **      fsmMgrP,         FSM Pointer
+  Ddi_DdMgr *       dd,              dd manager
+  char *            fileFsmName,     FSM File Name
+  char *            fileOrdName,     ORD File Name
+  int               bddFlag          Not Used For Now
+)
+  The function gives a compatible DDI: <ul> <li>number of primary input
+  <li>number of latches <li>array of primary input variables <li>array of
+  present state variables <li>array of next state variables <li>array of next
+  state functions <li>array of partitioned transition relation </ul>
+
+  Side Effects: None
+
+int
+Fsm_MgrLoad(
+  Fsm_Mgr_t **      fsmMgrP,         FSM Pointer
+  Ddi_DdMgr *       dd,              Main DD manager
+  char *            fileFsmName,     Input file name
+  char *            fileOrdName,     ORD File Name
+  int               bddFlag          0=Do non load BDD (default), 1=Load BDD
+)
+
+
+int
+Fsm_MgrOperation(
+  Fsm_Mgr_t *       fsmMgr,          FSM Manager
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlagP      Type of the Pointer Returned
+)
+
+
+int
+Fsm_MgrPMBuild(
+  Fsm_Mgr_t **      fsmMgrPMP,       FSM Product Machine Pointer
+  Fsm_Mgr_t *       fsmMgr1,         First FSM
+  Fsm_Mgr_t *       fsmMgr2          Second FSM
+)
+
+
+void
+Fsm_MgrPrintPrm(
+  Fsm_Mgr_t *       fsmMgr
+)
+  Prints the permutation on file "tmp.prm"
+
+  Side Effects: none
+
+void
+Fsm_MgrPrintStats(
+  Fsm_Mgr_t *       fsmMgr
+)
+  Prints Statistics on the FSM Structure
+
+  Side Effects: none
+
+int
+Fsm_MgrReadBddFormat(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_DdMgr *
+Fsm_MgrReadDdManager(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_DdArray_t *
+Fsm_MgrReadDeltaBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadDeltaName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadFileName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+void
+Fsm_MgrReadFileOrd(
+  FILE *            fp,
+  Fsm_Mgr_t *       fsmMgr
+)
+  Reads variable order from a <em>.ord</em> file
+
+
+Ddi_Dd_t *
+Fsm_MgrReadFromBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadFromName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadFromString(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadFsmName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadIndexI(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadIndexNS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadIndexO(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadIndexPS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_Dd_t *
+Fsm_MgrReadInitBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadInitName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadInitString(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadInvauxids(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_DdArray_t *
+Fsm_MgrReadLambdaBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadLambdaName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int
+Fsm_MgrReadNI(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int
+Fsm_MgrReadNL(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int
+Fsm_MgrReadNO(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadNameI(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadNameNS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadNameO(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadNamePS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadOrdFileName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadOrdNodeName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadOrdNodeid(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_Dd_t *
+Fsm_MgrReadReachedBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadReachedName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadReachedString(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadSX(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_Dd_t *
+Fsm_MgrReadTrBDD(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadTrName(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char *
+Fsm_MgrReadTrString(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadVarI(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadVarNS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadVarO(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadVarPS(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+int *
+Fsm_MgrReadVarauxids(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+char **
+Fsm_MgrReadVarnames(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Pdtutil_VerbLevel_e
+Fsm_MgrReadVerbosity(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadY(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+Ddi_VarArray_t *
+Fsm_MgrReadZ(
+  Fsm_Mgr_t *       fsmMgr
+)
+
+
+void
+Fsm_MgrSetBddFormat(
+  Fsm_Mgr_t *       fsmMgr,
+  int               var
+)
+
+
+void
+Fsm_MgrSetDdManager(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_DdMgr *       var
+)
+
+
+void
+Fsm_MgrSetDeltaBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_DdArray_t *   var
+)
+
+
+void
+Fsm_MgrSetDeltaName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetFileName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            fileName
+)
+
+
+void
+Fsm_MgrSetFromBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_Dd_t *        var
+)
+
+
+void
+Fsm_MgrSetFromName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetFromString(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetFsmName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            fsmName
+)
+
+
+void
+Fsm_MgrSetIndexI(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetIndexNS(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetIndexO(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetIndexPS(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetInitBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_Dd_t *        var
+)
+
+
+void
+Fsm_MgrSetInitName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetInitString(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetInvauxids(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetLambdaBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_DdArray_t *   var
+)
+
+
+void
+Fsm_MgrSetLambdaName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetNI(
+  Fsm_Mgr_t *       fsmMgr,
+  int               var
+)
+
+
+void
+Fsm_MgrSetNL(
+  Fsm_Mgr_t *       fsmMgr,
+  int               var
+)
+
+
+void
+Fsm_MgrSetNO(
+  Fsm_Mgr_t *       fsmMgr,
+  int               var
+)
+
+
+void
+Fsm_MgrSetNameI(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetNameNS(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetNameO(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetNamePS(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetOrdFileName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetOrdNodeName(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetOrdNodeid(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetReachedBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_Dd_t *        var
+)
+
+
+void
+Fsm_MgrSetReachedName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetReachedString(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetSX(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetTrBDD(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_Dd_t *        var
+)
+
+
+void
+Fsm_MgrSetTrName(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetTrString(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var
+)
+
+
+void
+Fsm_MgrSetVarI(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetVarNS(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetVarO(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetVarPS(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetVarauxids(
+  Fsm_Mgr_t *       fsmMgr,
+  int *             var
+)
+
+
+void
+Fsm_MgrSetVarnamesOne(
+  Fsm_Mgr_t *       fsmMgr,
+  char *            var,
+  int               i
+)
+
+
+void
+Fsm_MgrSetVarnames(
+  Fsm_Mgr_t *       fsmMgr,
+  char **           var
+)
+
+
+void
+Fsm_MgrSetVerbosity(
+  Fsm_Mgr_t *       fsmMgr,
+  Pdtutil_VerbLevel var
+)
+
+
+void
+Fsm_MgrSetY(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+void
+Fsm_MgrSetZ(
+  Fsm_Mgr_t *       fsmMgr,
+  Ddi_VarArray_t *  var
+)
+
+
+int
+Fsm_MgrStore(
+  Fsm_Mgr_t *       fsmMgr,          struttura FSM
+  char *            fileName,        output file name
+  FILE *            fp,              file pointer
+  int               bddFlag,         Flag to Store or Not BDD on Files
+  int               bddFormat        0 = default, 1 = text, 2 = binary
+)
+  Stores (on file o stdout) of FSM structure
+
+
+int
+Fsm_PortBnetBuildNodeBDD(
+  DdManager *       dd,              DD manager
+  FsmPortBnetNode_t nd,              node of the boolean network
+  st_table *        hash,            symbol table of the boolean network
+  int               params,          type of DD to be built
+  int               nodrop           retain the intermediate node DDs until
+                                     the end
+)
+  Builds the BDD for the function of a node and stores a pointer to it in the
+  dd field of the node itself. The reference count of the BDD is incremented.
+  If params is PORT_BNETLOCAL_DD, then the BDD is built in terms of the local
+  inputs to the node; otherwise, if params is PORT_BNETGLOBAL_DD, the BDD is
+  built in terms of the network primary inputs. To build the global BDD of a
+  node, the BDDs for its local inputs must exist. If that is not the case,
+  Fsm_PortBnetBuildNodeBDD recursively builds them. Likewise, to create the
+  local BDD for a node, the local inputs must have variables assigned to them.
+  If that is not the case, Fsm_PortBnetBuildNodeBDD recursively assigns
+  variables to nodes. Fsm_PortBnetBuildNodeBDD returns 1 in case of success; 0
+  otherwise.
+
+  Side Effects: Sets the dd field of the node.
+
+int
+Fsm_PortBnetDfsVariableOrder(
+  DdManager *       dd,
+  FsmPortBnetNetwor net
+)
+  Orders the BDD variables by DFS. Returns 1 in case of success; 0 otherwise.
+
+  Side Effects: Uses the visited flags of the nodes.
+
+void
+Fsm_PortBnetFreeNetwork(
+  FsmPortBnetNetwor net
+)
+  Frees a boolean network created by Fsm_PortBnetReadNetwork.
+
+  Side Effects: None
+
+FsmPortBnetNetwork_t *
+Fsm_PortBnetReadNetwork(
+  FILE *            fp,              pointer to the blif file
+  int               pr               verbosity level
+)
+  Reads a boolean network from a blif file. A very restricted subset of blif
+  is supfsmPorted. Specifically: <ul> <li> The only directives recognized are:
+  <ul> <li> .model <li> .inputs <li> .outputs <li> .latch <li> .names <li>
+  .exdc <li> .wire_load_slope <li> .end </ul> <li> Latches must have an
+  initial values and no other parameters specified. <li> Lines must not exceed
+  MAXLENGTH-1 characters, and individual names must not exceed 1023
+  characters. </ul> Caveat emptor: There may be other limitations as well. One
+  should check the syntax of the blif file with some other tool before relying
+  on this parser. Fsm_PortBnetReadNetwork returns a pointer to the network if
+  successful; NULL otherwise.
+
+  Side Effects: None
+
+int
+Fsm_PortBnetReadOrder(
+  DdManager *       dd,
+  char *            ordFile,
+  FsmPortBnetNetwor net,
+  int               locGlob,
+  int               nodrop
+)
+  Reads the variable order from a file. Returns 1 if successful; 0 otherwise.
+
+  Side Effects: The BDDs for the primary inputs and present state variables
+  are built.
+
+int
+Fsm_PortNtrBuildDDs(
+  FsmPortBnetNetwor net,             network for which DDs are to be built
+  DdManager *       dd,              DD manager
+  FsmPortNtrOptions option,          option structure
+  FsmPortBnetNetwor net2             companion network with which inputs may
+                                     be shared
+)
+  Builds DDs for a network outputs and next state functions. The method is
+  really brain-dead, but it is very simple. Returns 1 in case of success; 0
+  otherwise. Some inputs to the network may be shared with another network
+  whose DDs have already been built. In this case we want to share the DDs as
+  well.
+
+  Side Effects: the dd fields of the network nodes are modified. Uses the
+  count fields of the nodes.
+
+DdNode *
+Fsm_PortNtrInitState(
+  DdManager *       dd,
+  FsmPortBnetNetwor net,
+  FsmPortNtrOptions option
+)
+  Builds the BDD of the initial state(s). Returns a BDD if successful; NULL
+  otherwise.
+
+  Side Effects: None
+

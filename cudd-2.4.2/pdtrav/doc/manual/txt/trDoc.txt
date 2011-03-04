@@ -1,0 +1,679 @@
+The tr package
+
+Funtions to manipolate Transition Relation
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Tr_ImgMethodEnum2String()      Given an Enumerated type Returns a string
+
+Tr_ImgMethodString2Enum()      Given a string it Returns an Enumerated type
+
+Tr_Img()                       Compute image of a conjunctively partitioned
+                               transition     relation.
+
+Tr_MgrInit()                   Creates a DdManager.
+
+Tr_MgrOperation()              Performs an Operation on a Transition Relation
+                               Manager.
+
+Tr_MgrPrintStats()             Prints Statistics on a Transition Relation
+                               Manager.
+
+Tr_MgrQuit()                   Closes a Transition Relation Manager.
+
+Tr_MgrReadClustThreshold()     Read cluster threshold
+
+Tr_MgrReadDdiMgrDefault()      Read default DDi Mgr
+
+Tr_MgrReadImgMethod()          Read the image method selection
+
+Tr_MgrReadI()                  Read PI array
+
+Tr_MgrReadMaxIter()            Read the maximum number of closure iterations.
+
+Tr_MgrReadNS()                 Read NS array in the Transition Relation
+                               Manager.
+
+Tr_MgrReadPS()                 Read PS array in the Transition Relation
+                               Manager.
+
+Tr_MgrReadPartThFrom()         Read partitioning threshold for from
+
+Tr_MgrReadPartThTr()           Read partitioning threshold for TR
+
+Tr_MgrReadPartitionMethod()    Read
+
+Tr_MgrReadSortMethod()         Read sort method
+
+Tr_MgrReadSortW()              Read sort weight
+
+Tr_MgrReadSquaringMethod()     Read the squaring method
+
+Tr_MgrReadTrName()             Read verbosity
+
+Tr_MgrReadTr()                 Read TR in the Transition Relation Manager.
+
+Tr_MgrReadVerbosity()          Read verbosity
+
+Tr_MgrSetAuxFuns()             Set the auxVars array in the Transition
+                               Relation Manager.
+
+Tr_MgrSetAuxVars()             Set the auxVars array in the Transition
+                               Relation Manager.
+
+Tr_MgrSetClustSmoothPi()       Set the cluster smoothPi flag
+
+Tr_MgrSetClustThreshold()      Set the cluster threshold
+
+Tr_MgrSetDdiMgrDefault()       Set default DDi Mgr on the Transition Relation
+                               Manager.
+
+Tr_MgrSetImgMethod()           Set the image method selection
+
+Tr_MgrSetImgSmoothPi()         Set the image smoothPi flag
+
+Tr_MgrSetI()                   Set the PI array
+
+Tr_MgrSetMaxIter()             Set the maximum number of closure iterations
+
+Tr_MgrSetNS()                  Set the NS array in the Transition Relation
+                               Manager.
+
+Tr_MgrSetPS()                  Set the PS array
+
+Tr_MgrSetPartThFrom()          Set partitioning threshold for from
+
+Tr_MgrSetPartThTr()            Set partitioning threshold for TR
+
+Tr_MgrSetPartitionMethod()     Set
+
+Tr_MgrSetSortMethod()          Set the sort Method
+
+Tr_MgrSetSortW()               Set the sort weight
+
+Tr_MgrSetSquaringMethod()      Set the squaring method
+
+Tr_MgrSetTrName()
+
+Tr_MgrSetTr()                  Set the Transition Relation in the Transition
+                               Relation     Manager.
+
+Tr_MgrSetVerbosity()           Set the period for verbosity enabling.
+
+Tr_RemoveLambdaLatches()       Remove Lambda Latches
+
+Tr_TrBdd()                     Return Bdd relation field
+
+Tr_TrDup()                     Duplicate a TR
+
+Tr_TrFree()                    Release a TR.
+
+Tr_TrMakeFromExpr()            Create a TR from expression.
+
+Tr_TrMakeFromRel()             Create a TR from relation.
+
+Tr_TrMakePartConjFromFuns()    Create a conjunctively partitioned TR from
+                               array of functions.
+
+Tr_TrMgr()                     Return tr Manager
+
+Tr_TrReverseAcc()              Reverse a TR by swapping present/next state
+                               variables
+
+Tr_TrReverse()                 Reverse a TR by swapping present/next state
+                               variables
+
+Tr_TrSetClustered()            Transform tr to clustered form.
+
+Tr_TrSetMono()                 Reduce tr from partitioned/clustered to
+                               monolithic.
+
+Tr_TrSortEnum2String()         Given an Enumerated type Returns a string
+
+Tr_TrSortIwls95()              Sorting an array of BDDs
+
+Tr_TrSortString2Enum()         Given a string it Returns an Enumerated type
+
+Tr_TransClosure()              Build transitive closure of a Transition
+                               Relation     by means of iterative squaring
+
+**********************************************************************
+
+The <b>Tr</b> (<em>Transition Relation</em>) package provides     a set of
+functions to manipolate the Transition Relation.<br>     The transition
+relation can be built using the monolithic form or     clustering
+heuristics.<br>     Squaring it, transitive closure, is also possible.<br>
+External procedures included in this package:     <ul>
+<li>Tr_BddarrayAndExist()      <li>Tr_CreateTrv()      <li>Tr_BddarraySort()
+</ul>
+
+char *
+Tr_ImgMethodEnum2String(
+  Tr_ImgMethod_e    enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Tr_ImgMethod_e
+Tr_ImgMethodString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the enumerated type.
+
+  Side Effects: none
+
+Ddi_Bdd_t *
+Tr_Img(
+  Tr_Tr_t *         TR,              Partitioned TR
+  Ddi_Bdd_t *       from             Input constrain
+)
+  Compute image of a conjunctively partitioned transition relation.
+
+  Side Effects: None
+
+Tr_Mgr_t *
+Tr_MgrInit(
+  char *            trName,          Name of the FSM structure
+  Ddi_Mgr_t *       dd               Decision Diagram Manager
+)
+  Creates a DdManager.
+
+  Side Effects: none
+
+int
+Tr_MgrOperation(
+  Tr_Mgr_t *        trMgr,           TR Manager
+  char *            string,          String
+  Pdtutil_MgrOp_t   operationFlag,   Operation Flag
+  void **           voidPointer,     Generic Pointer
+  Pdtutil_MgrRet_t  returnFlagP      Type of the Pointer Returned
+)
+  Performs an Operation on a Transition Relation Manager. The allowed
+  operations are specified by the enumerated type Pdtutil_MgrOp_t. Returns the
+  result of the operation, the enumerated type Pdtutil_MgrRet_t.
+
+
+int
+Tr_MgrPrintStats(
+  Tr_Mgr_t *        trMgr            Tr manager
+)
+  Prints Statistics on a Transition Relation Manager on standard output.
+
+
+void
+Tr_MgrQuit(
+  Tr_Mgr_t *        trMgr            Tr manager
+)
+  Closes a Transition Relation Manager freeing all the correlated fields.
+
+  Side Effects: none
+
+int
+Tr_MgrReadClustThreshold(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read cluster threshold
+
+  Side Effects: none
+
+Ddi_Mgr_t *
+Tr_MgrReadDdiMgrDefault(
+  Tr_Mgr_t *        trMgr            trersal manager
+)
+  Read default DDi Mgr
+
+  Side Effects: none
+
+Tr_ImgMethod_e
+Tr_MgrReadImgMethod(
+  Tr_Mgr_t *        trMgr            Tr Manager
+)
+  Read the image method selection
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Tr_MgrReadI(
+  Tr_Mgr_t *        trMgr            tr manager
+)
+  Read PI array
+
+  Side Effects: none
+
+int
+Tr_MgrReadMaxIter(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read the maximum number of closure iterations.
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Tr_MgrReadNS(
+  Tr_Mgr_t *        trMgr            tr manager
+)
+  Read NS array in the Transition Relation Manager.
+
+  Side Effects: none
+
+Ddi_Vararray_t *
+Tr_MgrReadPS(
+  Tr_Mgr_t *        trMgr            tr manager
+)
+  Read PS array in the Transition Relation Manager.
+
+  Side Effects: none
+
+int
+Tr_MgrReadPartThFrom(
+  Tr_Mgr_t *        trMgr            Tr Manager
+)
+  Read partitioning threshold for from
+
+  Side Effects: none
+
+int
+Tr_MgrReadPartThTr(
+  Tr_Mgr_t *        trMgr            Tr Manager
+)
+  Read partitioning threshold for TR
+
+  Side Effects: none
+
+Part_Method_e
+Tr_MgrReadPartitionMethod(
+  Tr_Mgr_t *        trMgr            Tr Manager
+)
+  Read
+
+  Side Effects: none
+
+Tr_Sort_e
+Tr_MgrReadSortMethod(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read sort method
+
+  Side Effects: none
+
+double
+Tr_MgrReadSortW(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               i
+)
+  Read sort weight
+
+  Side Effects: none
+
+int
+Tr_MgrReadSquaringMethod(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read the squaring method
+
+  Side Effects: none
+
+char *
+Tr_MgrReadTrName(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read verbosity
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_MgrReadTr(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read TR in the Transition Relation Manager.
+
+  Side Effects: none
+
+Pdtutil_VerbLevel_e
+Tr_MgrReadVerbosity(
+  Tr_Mgr_t *        trMgr            Transition Relation Manager
+)
+  Read verbosity
+
+  Side Effects: none
+
+void
+Tr_MgrSetAuxFuns(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Ddi_Bddarray_t *  auxFuns          Array of functions
+)
+  Set the auxVars array in the Transition Relation Manager.
+
+  Side Effects: none
+
+void
+Tr_MgrSetAuxVars(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Ddi_Vararray_t *  auxVars          Array of variables
+)
+  Set the auxVars array in the Transition Relation Manager.
+
+  Side Effects: none
+
+void
+Tr_MgrSetClustSmoothPi(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               val
+)
+  Set the cluster smoothPi flag
+
+  Side Effects: none
+
+void
+Tr_MgrSetClustThreshold(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               ClustThreshold   Threshold
+)
+  Set the cluster threshold
+
+  Side Effects: none
+
+void
+Tr_MgrSetDdiMgrDefault(
+  Tr_Mgr_t *        trMgr,           trersal manager
+  Ddi_Mgr_t *       mgr              dd Manager
+)
+  Set default DDi Mgr on the Transition Relation Manager.
+
+  Side Effects: none
+
+void
+Tr_MgrSetImgMethod(
+  Tr_Mgr_t *        trMgr,           Tr Manager
+  Tr_ImgMethod_e    imgMethod        Image Method
+)
+  Set the image method selection
+
+  Side Effects: none
+
+void
+Tr_MgrSetImgSmoothPi(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               val
+)
+  Set the image smoothPi flag
+
+  Side Effects: none
+
+void
+Tr_MgrSetI(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Ddi_Vararray_t *  i                Array of variables
+)
+  Set the PI array
+
+  Side Effects: none
+
+void
+Tr_MgrSetMaxIter(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               maxIter          max iterations
+)
+  Set the maximum number of closure iterations
+
+  Side Effects: none
+
+void
+Tr_MgrSetNS(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Ddi_Vararray_t *  ns               Array of variables
+)
+  Set the NS array in the Transition Relation Manager.
+
+  Side Effects: none
+
+void
+Tr_MgrSetPS(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Ddi_Vararray_t *  ps               Array of Variables
+)
+  Set the PS array
+
+  Side Effects: none
+
+void
+Tr_MgrSetPartThFrom(
+  Tr_Mgr_t *        trMgr,           Tr Manager
+  int               threshold        Threshold value (-1 for no threshold)
+)
+  Set partitioning threshold for from
+
+  Side Effects: none
+
+void
+Tr_MgrSetPartThTr(
+  Tr_Mgr_t *        trMgr,           Tr Manager
+  int               threshold        Threshold value (-1 for no threshold)
+)
+  Set partitioning threshold for TR
+
+  Side Effects: none
+
+void
+Tr_MgrSetPartitionMethod(
+  Tr_Mgr_t *        trMgr,           Tr Manager
+  Part_Method_e     partitionMethod  Partition Method
+)
+  Set
+
+  Side Effects: none
+
+void
+Tr_MgrSetSortMethod(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Tr_Sort_e         sortMethod       Method
+)
+  Set the sort Method
+
+  Side Effects: none
+
+void
+Tr_MgrSetSortW(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               i,
+  double            SortW            Weight
+)
+  Set the sort weight
+
+  Side Effects: none
+
+void
+Tr_MgrSetSquaringMethod(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  int               method           Method
+)
+  Set the squaring method
+
+  Side Effects: none
+
+void
+Tr_MgrSetTrName(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  char *            trName           Traversal Manager Name
+)
+
+  Side Effects: none
+
+void
+Tr_MgrSetTr(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Tr_Tr_t *         tr               Transition Relation
+)
+  Set the Transition Relation in the Transition Relation Manager.
+
+  Side Effects: none
+
+void
+Tr_MgrSetVerbosity(
+  Tr_Mgr_t *        trMgr,           Transition Relation Manager
+  Pdtutil_VerbLevel verbosity        Verbosity
+)
+  Set the period for verbosity enabling.
+
+  Side Effects: none
+
+void
+Tr_RemoveLambdaLatches(
+  Tr_Tr_t *         tr
+)
+  Remove the so-called lambda-latches following the strategy presented at
+  ICCAD'96 by Cabodi, Camurati, Quer.
+
+
+Ddi_Bdd_t *
+Tr_TrBdd(
+  Tr_Tr_t *         tr
+)
+  Return Bdd relation field
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrDup(
+  Tr_Tr_t *         old
+)
+  Duplicate a TR
+
+  Side Effects: none
+
+void
+Tr_TrFree(
+  Tr_Tr_t *         tr
+)
+  Release a TR.
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrMakeFromExpr(
+  Tr_Mgr_t *        trMgr,
+  Ddi_Expr_t *      expr
+)
+  Create a TR from expression.
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrMakeFromRel(
+  Tr_Mgr_t *        trMgr,
+  Ddi_Bdd_t *       bdd
+)
+  Create a TR from relation.
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrMakePartConjFromFuns(
+  Tr_Mgr_t *        trMgr,
+  Ddi_Bddarray_t *  Fa,
+  Ddi_Vararray_t *  Va
+)
+  Create a conjunctively partitioned TR from array of functions.
+
+  Side Effects: none
+
+Tr_Mgr_t *
+Tr_TrMgr(
+  Tr_Tr_t *         tr
+)
+  Return tr Manager
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrReverseAcc(
+  Tr_Tr_t *         tr
+)
+  Reverse a TR by swapping present/next state variables
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrReverse(
+  Tr_Tr_t *         old
+)
+  Reverse a TR by swapping present/next state variables
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrSetClustered(
+  Tr_Tr_t *         tr
+)
+  Transform tr to clustered form.
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TrSetMono(
+  Tr_Tr_t *         tr
+)
+  Reduce tr from partitioned/clustered to monolithic.
+
+  Side Effects: none
+
+char *
+Tr_TrSortEnum2String(
+  Tr_Sort_e         enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+int
+Tr_TrSortIwls95(
+  Tr_Tr_t *         tr
+)
+  Given an BDDs'array , the function sorts the BDDs in the array in order to
+  find the best sort for compute esistential abstraction of BDDs product. The
+  smoothing variable set should include the quantifying ones, too. It returns
+  1 if successfully sorted, 0 otherwise.
+
+  Side Effects: none
+
+Tr_Sort_e
+Tr_TrSortString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the verbosity enumerated type.
+
+  Side Effects: none
+
+Tr_Tr_t *
+Tr_TransClosure(
+  Tr_Tr_t *         tr
+)
+  Transitive closure of a Monolithic or Disjunctively partitioned Transition
+  Relation is operated using the iterative squaring method, expressed by the
+  following recurrence equations: <p> T(0)(s,y) = TR(s,y) <br> T(i+1)(s,y)=
+  TR(s,y) + Exist(z) ( T(i)(s,z) * T(i)(z,y) ) <p> The least fixed point is T*
+  (<em>transitive closure</em>) and the number of iterations required to
+  compute T* is logarithmic in the sequential depth of TR (the diameter of the
+  state transition graph represented by TR).<br> The transitive closure
+  describes the pairs of states that are connected by at least one path in the
+  state graph of FSM. This function is a shell to TrBuildTransClosure, where
+  the job is really done. Nothing is done here if the array of "intermediate"
+  z variables is not NULL, whereas a temporary BDD manager is created (and
+  destroyed when the job is done) if z is NULL, to avoid creating new
+  variables in the original manager. Primary input variables (NON quantifying
+  and NON state variables) are not taken into account. This means that they
+  are NOT duplicated at every step as in standart squaring. They should (since
+  they could) be quantifyed out from a monolithic or disjunctively partitioned
+  TR. Otherwise the algorithm only closes paths with constant input values.
+
+  Side Effects: A Ddi Manager (a BDD manager) is temporarily allocated if
+  required for all the operations involved, if the auxiliary set of variables
+  (Zs) must be created.
+

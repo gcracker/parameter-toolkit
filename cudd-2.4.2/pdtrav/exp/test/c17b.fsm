@@ -1,0 +1,22 @@
+.Fsm fsm
+
+.Size
+   .i 5
+   .o 2
+   .l 0
+.EndSize
+
+.Ord
+   .ordFile c17bFSM.ord
+.EndOrd
+
+.Name
+   .i 1GAT(0) 2GAT(1) 3GAT(2) 6GAT(3) 7GAT(4) 
+   .o 22GAT(10) 23GAT(9) 
+.EndName
+
+.Index
+   .i 0 1 2 3 4 
+.EndIndex
+
+.EndFsm

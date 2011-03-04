@@ -1,0 +1,236 @@
+<HTML>
+<HEAD><TITLE>tr package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="trAllDet.html#BddSizeCompare" TARGET="MAIN"><CODE>BddSizeCompare()</CODE></A>
+<DD> Compares BDDs for SIZE-SORTING method
+
+<DT> <A HREF="trAllDet.html#MaxMinVSupportCompare" TARGET="MAIN"><CODE>MaxMinVSupportCompare()</CODE></A>
+<DD> Compares BDDs for MAX-MIN-V-SORTING method.
+
+<DT> <A HREF="trAllDet.html#SetSortWeights" TARGET="MAIN"><CODE>SetSortWeights()</CODE></A>
+<DD> Set sort settings in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#ShowSortWeights" TARGET="MAIN"><CODE>ShowSortWeights()</CODE></A>
+<DD> Show sort settings.
+
+<DT> <A HREF="trAllDet.html#TrAlloc" TARGET="MAIN"><CODE>TrAlloc()</CODE></A>
+<DD> insert a TR in TR manager list.
+
+<DT> <A HREF="trAllDet.html#TrBuildTransClosure" TARGET="MAIN"><CODE>TrBuildTransClosure()</CODE></A>
+<DD> Build transitive closure of a Transition Relation
+    by means of iterative squaring
+
+<DT> <A HREF="trAllDet.html#TrCompose" TARGET="MAIN"><CODE>TrCompose()</CODE></A>
+<DD> Compute : EXIST(z) (f(s,z) * g(z,y) )
+
+<DT> <A HREF="trAllDet.html#TrImgApproxConjPartTr" TARGET="MAIN"><CODE>TrImgApproxConjPartTr()</CODE></A>
+<DD> Compute approx image of a conjunctively partitioned transition 
+    relation.
+
+<DT> <A HREF="trAllDet.html#TrImgConjPartTr" TARGET="MAIN"><CODE>TrImgConjPartTr()</CODE></A>
+<DD> Internal image computation function.
+
+<DT> <A HREF="trAllDet.html#TrImgDisjPartSet" TARGET="MAIN"><CODE>TrImgDisjPartSet()</CODE></A>
+<DD> Compute image of a disjunctively partitioned from set.
+
+<DT> <A HREF="trAllDet.html#TrImgDisjPartTr" TARGET="MAIN"><CODE>TrImgDisjPartTr()</CODE></A>
+<DD> Compute image of a disjunctively partitioned transition
+    relation
+
+<DT> <A HREF="trAllDet.html#TrTrRelWrite" TARGET="MAIN"><CODE>TrTrRelWrite()</CODE></A>
+<DD> Write (replace) Bdd relation.
+
+<DT> <A HREF="trAllDet.html#Tr_ImgMethodEnum2String" TARGET="MAIN"><CODE>Tr_ImgMethodEnum2String()</CODE></A>
+<DD> Given an Enumerated type Returns a string
+
+<DT> <A HREF="trAllDet.html#Tr_ImgMethodString2Enum" TARGET="MAIN"><CODE>Tr_ImgMethodString2Enum()</CODE></A>
+<DD> Given a string it Returns an Enumerated type
+
+<DT> <A HREF="trAllDet.html#Tr_Img" TARGET="MAIN"><CODE>Tr_Img()</CODE></A>
+<DD> Compute image of a conjunctively partitioned transition
+    relation.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrInit" TARGET="MAIN"><CODE>Tr_MgrInit()</CODE></A>
+<DD> Creates a DdManager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrOperation" TARGET="MAIN"><CODE>Tr_MgrOperation()</CODE></A>
+<DD> Performs an Operation on a Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrPrintStats" TARGET="MAIN"><CODE>Tr_MgrPrintStats()</CODE></A>
+<DD> Prints Statistics on a Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrQuit" TARGET="MAIN"><CODE>Tr_MgrQuit()</CODE></A>
+<DD> Closes a Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadClustThreshold" TARGET="MAIN"><CODE>Tr_MgrReadClustThreshold()</CODE></A>
+<DD> Read cluster threshold
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadDdiMgrDefault" TARGET="MAIN"><CODE>Tr_MgrReadDdiMgrDefault()</CODE></A>
+<DD> Read default DDi Mgr
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadImgMethod" TARGET="MAIN"><CODE>Tr_MgrReadImgMethod()</CODE></A>
+<DD> Read the image method selection
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadI" TARGET="MAIN"><CODE>Tr_MgrReadI()</CODE></A>
+<DD> Read PI array
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadMaxIter" TARGET="MAIN"><CODE>Tr_MgrReadMaxIter()</CODE></A>
+<DD> Read the maximum number of closure iterations.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadNS" TARGET="MAIN"><CODE>Tr_MgrReadNS()</CODE></A>
+<DD> Read NS array in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadPS" TARGET="MAIN"><CODE>Tr_MgrReadPS()</CODE></A>
+<DD> Read PS array in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadPartThFrom" TARGET="MAIN"><CODE>Tr_MgrReadPartThFrom()</CODE></A>
+<DD> Read partitioning threshold for from
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadPartThTr" TARGET="MAIN"><CODE>Tr_MgrReadPartThTr()</CODE></A>
+<DD> Read partitioning threshold for TR
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadPartitionMethod" TARGET="MAIN"><CODE>Tr_MgrReadPartitionMethod()</CODE></A>
+<DD> Read
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadSortMethod" TARGET="MAIN"><CODE>Tr_MgrReadSortMethod()</CODE></A>
+<DD> Read sort method
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadSortW" TARGET="MAIN"><CODE>Tr_MgrReadSortW()</CODE></A>
+<DD> Read sort weight
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadSquaringMethod" TARGET="MAIN"><CODE>Tr_MgrReadSquaringMethod()</CODE></A>
+<DD> Read the squaring method
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadTrName" TARGET="MAIN"><CODE>Tr_MgrReadTrName()</CODE></A>
+<DD> Read verbosity
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadTr" TARGET="MAIN"><CODE>Tr_MgrReadTr()</CODE></A>
+<DD> Read TR in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrReadVerbosity" TARGET="MAIN"><CODE>Tr_MgrReadVerbosity()</CODE></A>
+<DD> Read verbosity
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetAuxFuns" TARGET="MAIN"><CODE>Tr_MgrSetAuxFuns()</CODE></A>
+<DD> Set the auxVars array in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetAuxVars" TARGET="MAIN"><CODE>Tr_MgrSetAuxVars()</CODE></A>
+<DD> Set the auxVars array in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetClustSmoothPi" TARGET="MAIN"><CODE>Tr_MgrSetClustSmoothPi()</CODE></A>
+<DD> Set the cluster smoothPi flag
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetClustThreshold" TARGET="MAIN"><CODE>Tr_MgrSetClustThreshold()</CODE></A>
+<DD> Set the cluster threshold
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetDdiMgrDefault" TARGET="MAIN"><CODE>Tr_MgrSetDdiMgrDefault()</CODE></A>
+<DD> Set default DDi Mgr on the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetImgMethod" TARGET="MAIN"><CODE>Tr_MgrSetImgMethod()</CODE></A>
+<DD> Set the image method selection
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetImgSmoothPi" TARGET="MAIN"><CODE>Tr_MgrSetImgSmoothPi()</CODE></A>
+<DD> Set the image smoothPi flag
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetI" TARGET="MAIN"><CODE>Tr_MgrSetI()</CODE></A>
+<DD> Set the PI array
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetMaxIter" TARGET="MAIN"><CODE>Tr_MgrSetMaxIter()</CODE></A>
+<DD> Set the maximum number of closure iterations
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetNS" TARGET="MAIN"><CODE>Tr_MgrSetNS()</CODE></A>
+<DD> Set the NS array in the Transition Relation Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetPS" TARGET="MAIN"><CODE>Tr_MgrSetPS()</CODE></A>
+<DD> Set the PS array
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetPartThFrom" TARGET="MAIN"><CODE>Tr_MgrSetPartThFrom()</CODE></A>
+<DD> Set partitioning threshold for from
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetPartThTr" TARGET="MAIN"><CODE>Tr_MgrSetPartThTr()</CODE></A>
+<DD> Set partitioning threshold for TR
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetPartitionMethod" TARGET="MAIN"><CODE>Tr_MgrSetPartitionMethod()</CODE></A>
+<DD> Set
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetSortMethod" TARGET="MAIN"><CODE>Tr_MgrSetSortMethod()</CODE></A>
+<DD> Set the sort Method
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetSortW" TARGET="MAIN"><CODE>Tr_MgrSetSortW()</CODE></A>
+<DD> Set the sort weight
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetSquaringMethod" TARGET="MAIN"><CODE>Tr_MgrSetSquaringMethod()</CODE></A>
+<DD> Set the squaring method
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetTrName" TARGET="MAIN"><CODE>Tr_MgrSetTrName()</CODE></A>
+<DD> 
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetTr" TARGET="MAIN"><CODE>Tr_MgrSetTr()</CODE></A>
+<DD> Set the Transition Relation in the Transition Relation
+    Manager.
+
+<DT> <A HREF="trAllDet.html#Tr_MgrSetVerbosity" TARGET="MAIN"><CODE>Tr_MgrSetVerbosity()</CODE></A>
+<DD> Set the period for verbosity enabling.
+
+<DT> <A HREF="trAllDet.html#Tr_RemoveLambdaLatches" TARGET="MAIN"><CODE>Tr_RemoveLambdaLatches()</CODE></A>
+<DD> Remove Lambda Latches
+
+<DT> <A HREF="trAllDet.html#Tr_TrBdd" TARGET="MAIN"><CODE>Tr_TrBdd()</CODE></A>
+<DD> Return Bdd relation field
+
+<DT> <A HREF="trAllDet.html#Tr_TrDup" TARGET="MAIN"><CODE>Tr_TrDup()</CODE></A>
+<DD> Duplicate a TR
+
+<DT> <A HREF="trAllDet.html#Tr_TrFree" TARGET="MAIN"><CODE>Tr_TrFree()</CODE></A>
+<DD> Release a TR.
+
+<DT> <A HREF="trAllDet.html#Tr_TrMakeFromExpr" TARGET="MAIN"><CODE>Tr_TrMakeFromExpr()</CODE></A>
+<DD> Create a TR from expression.
+
+<DT> <A HREF="trAllDet.html#Tr_TrMakeFromRel" TARGET="MAIN"><CODE>Tr_TrMakeFromRel()</CODE></A>
+<DD> Create a TR from relation.
+
+<DT> <A HREF="trAllDet.html#Tr_TrMakePartConjFromFuns" TARGET="MAIN"><CODE>Tr_TrMakePartConjFromFuns()</CODE></A>
+<DD> Create a conjunctively partitioned TR from array of functions.
+
+<DT> <A HREF="trAllDet.html#Tr_TrMgr" TARGET="MAIN"><CODE>Tr_TrMgr()</CODE></A>
+<DD> Return tr Manager
+
+<DT> <A HREF="trAllDet.html#Tr_TrReverseAcc" TARGET="MAIN"><CODE>Tr_TrReverseAcc()</CODE></A>
+<DD> Reverse a TR by swapping present/next state variables
+
+<DT> <A HREF="trAllDet.html#Tr_TrReverse" TARGET="MAIN"><CODE>Tr_TrReverse()</CODE></A>
+<DD> Reverse a TR by swapping present/next state variables
+
+<DT> <A HREF="trAllDet.html#Tr_TrSetClustered" TARGET="MAIN"><CODE>Tr_TrSetClustered()</CODE></A>
+<DD> Transform tr to clustered form.
+
+<DT> <A HREF="trAllDet.html#Tr_TrSetMono" TARGET="MAIN"><CODE>Tr_TrSetMono()</CODE></A>
+<DD> Reduce tr from partitioned/clustered to monolithic.
+
+<DT> <A HREF="trAllDet.html#Tr_TrSortEnum2String" TARGET="MAIN"><CODE>Tr_TrSortEnum2String()</CODE></A>
+<DD> Given an Enumerated type Returns a string
+
+<DT> <A HREF="trAllDet.html#Tr_TrSortIwls95" TARGET="MAIN"><CODE>Tr_TrSortIwls95()</CODE></A>
+<DD> Sorting an array of BDDs
+
+<DT> <A HREF="trAllDet.html#Tr_TrSortString2Enum" TARGET="MAIN"><CODE>Tr_TrSortString2Enum()</CODE></A>
+<DD> Given a string it Returns an Enumerated type
+
+<DT> <A HREF="trAllDet.html#Tr_TransClosure" TARGET="MAIN"><CODE>Tr_TransClosure()</CODE></A>
+<DD> Build transitive closure of a Transition Relation
+    by means of iterative squaring
+
+<DT> <A HREF="trAllDet.html#WeightedSort" TARGET="MAIN"><CODE>WeightedSort()</CODE></A>
+<DD> Compares BDDs for WEIGTHED-SORT method
+
+</DL>
+
+<HR>
+
+Last updated on 1010515 11h48
+</BODY></HTML>

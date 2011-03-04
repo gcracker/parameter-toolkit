@@ -1,0 +1,88 @@
+# Running Date: Thu Jun 17 00:28:55 CEST 1999
+# HostName: localhost.localdomain
+# Command: ../bin/pdtrav 
+# PdTrav Version: 1.2
+# DD Version: Cudd-2.3.0
+Cmd Manager Init ... Done
+Reading Commands File stdin
+PdTrav> #
+@stdin: #
+PdTrav> # PdTRAV-1.2 package
+@stdin: #
+PdTrav> # Revision: Version 1.2 June 01, 1999
+@stdin: #
+PdTrav> # Authors: Gianpiero Cabodi and Stefano Quer
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # This Script File Creates the Monolothic Transition Relation for
+@stdin: #
+PdTrav> # circuit s713 and then take the dense subset
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # Usage: run pdtrav, then on the pdtrav prompt type
+@stdin: #
+PdTrav> # @s713TrDense.cmd 
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> ### Script starts here #################################################
+@stdin: #
+PdTrav> 
+PdTrav>   # Initialize Decision Diagram Manager
+@stdin: #
+PdTrav> 
+PdTrav> ddm_init
+@stdin: ddm_init
+Dd Manager Init ... Done
+PdTrav> 
+PdTrav>   # Read blif file and create BDD for deltas and lambdas with default
+@stdin: #
+PdTrav>   # variable order
+@stdin: #
+PdTrav> 
+PdTrav> fsm_read --blif s713.blif
+@stdin: fsm_read --blif s713.blif
+1352 non-zero DD reference counts after building DDs
+FSM Manager Init ... Done
+FSM Loading ...
+Done
+PdTrav> tr_init --build
+@stdin: tr_init --build
+Transition Relation Manager Init ... Done
+PdTrav> tr_cluster --mono
+@stdin: tr_cluster --mono
+PdTrav> 
+PdTrav>   # Get Statistics on Transition Relation and Manager
+@stdin: #
+PdTrav> 
+PdTrav> stats tr.tr
+@stdin: stats tr.tr
+Monolitic BDD
+Size:    4112
+Density:    477.1
+PdTrav> stats tr
+@stdin: stats tr
+Transition Relation Manager Name tr
+Total CPU Time: 0.31 sec
+PdTrav> 
+PdTrav>   # Partition the transition relation using one among different
+@stdin: #
+PdTrav>   # possible paritition methods
+@stdin: #
+PdTrav> 
+PdTrav> bdd_denseset --method SubCompress --threshold 1000 tr.tr
+@stdin: bdd_denseset --method SubCompress --threshold 1000 tr.tr
+Monolitic BDD
+Size:    78
+Density:    398.1
+PdTrav> 
+PdTrav> stats tr.tr
+@stdin: stats tr.tr
+Monolitic BDD
+Size:    78
+Density:    398.1
+PdTrav> quit
+@stdin: quit
+PdTrav end!

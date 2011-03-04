@@ -1,0 +1,1103 @@
+<HTML>
+<HEAD><TITLE>ddi package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="ddiAllDet.html#ArrayOpIterate" TARGET="MAIN"><CODE>ArrayOpIterate()</CODE></A>
+<DD> Iterate operation on array entries (accumulate mode used)
+
+<DT> <A HREF="ddiAllDet.html#ArrayResize" TARGET="MAIN"><CODE>ArrayResize()</CODE></A>
+<DD> Resize a DDI array
+
+<DT> <A HREF="ddiAllDet.html#ArraySupp" TARGET="MAIN"><CODE>ArraySupp()</CODE></A>
+<DD> Iterate operation on array entries (accumulate mode used)
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayAlloc" TARGET="MAIN"><CODE>DdiArrayAlloc()</CODE></A>
+<DD> Allocate a new array
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayAppend" TARGET="MAIN"><CODE>DdiArrayAppend()</CODE></A>
+<DD> Append array2 at the end of array1
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayCopy" TARGET="MAIN"><CODE>DdiArrayCopy()</CODE></A>
+<DD> Copy a BDD array to a destination manager.
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayDup" TARGET="MAIN"><CODE>DdiArrayDup()</CODE></A>
+<DD> Duplicate an array.
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayExtract" TARGET="MAIN"><CODE>DdiArrayExtract()</CODE></A>
+<DD> Extracts i-th element array
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayFree" TARGET="MAIN"><CODE>DdiArrayFree()</CODE></A>
+<DD> Frees a DDI array
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayInsert" TARGET="MAIN"><CODE>DdiArrayInsert()</CODE></A>
+<DD> Insert in array at i-th position
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayNum" TARGET="MAIN"><CODE>DdiArrayNum()</CODE></A>
+<DD> Returns the number of elements of the array
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayRead" TARGET="MAIN"><CODE>DdiArrayRead()</CODE></A>
+<DD> Reads i-th element array
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayStore" TARGET="MAIN"><CODE>DdiArrayStore()</CODE></A>
+<DD> Writes array of BDDs in a dump file
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayToCU" TARGET="MAIN"><CODE>DdiArrayToCU()</CODE></A>
+<DD> Generate an array of pointers to CUDD nodes
+
+<DT> <A HREF="ddiAllDet.html#DdiArrayWrite" TARGET="MAIN"><CODE>DdiArrayWrite()</CODE></A>
+<DD> Write in array at i-th position
+
+<DT> <A HREF="ddiAllDet.html#DdiDeferredFree" TARGET="MAIN"><CODE>DdiDeferredFree()</CODE></A>
+<DD> Schedule free of a generic block
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericAlloc" TARGET="MAIN"><CODE>DdiGenericAlloc()</CODE></A>
+<DD> Allocate and initialize a new DDI block
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericBddSize" TARGET="MAIN"><CODE>DdiGenericBddSize()</CODE></A>
+<DD> Compute BDD size
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericCopy" TARGET="MAIN"><CODE>DdiGenericCopy()</CODE></A>
+<DD> Copy a DDI node to a destination manager
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericDataCopy" TARGET="MAIN"><CODE>DdiGenericDataCopy()</CODE></A>
+<DD> Copy the content of a DDI node to another one
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericDup" TARGET="MAIN"><CODE>DdiGenericDup()</CODE></A>
+<DD> Duplicate a DDI node
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericFree" TARGET="MAIN"><CODE>DdiGenericFree()</CODE></A>
+<DD> Free the content of a generic DDI node
+
+<DT> <A HREF="ddiAllDet.html#DdiGenericOp" TARGET="MAIN"><CODE>DdiGenericOp()</CODE></A>
+<DD> Compute operation
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaAndAcc" TARGET="MAIN"><CODE>DdiMetaAndAcc()</CODE></A>
+<DD> Operate And between two Meta BDDs
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaAndExistAcc" TARGET="MAIN"><CODE>DdiMetaAndExistAcc()</CODE></A>
+<DD> Operate And-Exist between Meta BDD and monolithic BDD
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaComposeAcc" TARGET="MAIN"><CODE>DdiMetaComposeAcc()</CODE></A>
+<DD> Operate compose
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaDoCompl" TARGET="MAIN"><CODE>DdiMetaDoCompl()</CODE></A>
+<DD> Complement (not) meta BDD. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaDup" TARGET="MAIN"><CODE>DdiMetaDup()</CODE></A>
+<DD> Duplicate meta struct
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaFree" TARGET="MAIN"><CODE>DdiMetaFree()</CODE></A>
+<DD> Free meta struct and pointed arrays: one, zero and dc.
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaIsConst" TARGET="MAIN"><CODE>DdiMetaIsConst()</CODE></A>
+<DD> Return true if meta BDD is constant
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaOrAcc" TARGET="MAIN"><CODE>DdiMetaOrAcc()</CODE></A>
+<DD> Operate Or between two Meta BDDs
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaSubstVarsAcc" TARGET="MAIN"><CODE>DdiMetaSubstVarsAcc()</CODE></A>
+<DD> Operate variable substitution
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaSupp" TARGET="MAIN"><CODE>DdiMetaSupp()</CODE></A>
+<DD> Return support of Meta BDD
+
+<DT> <A HREF="ddiAllDet.html#DdiMetaSwapVarsAcc" TARGET="MAIN"><CODE>DdiMetaSwapVarsAcc()</CODE></A>
+<DD> Operate variable swap
+
+<DT> <A HREF="ddiAllDet.html#DdiMgrCheckVararraySize" TARGET="MAIN"><CODE>DdiMgrCheckVararraySize()</CODE></A>
+<DD> make checks and resizes arrays if required
+
+<DT> <A HREF="ddiAllDet.html#DdiMgrGarbageCollect" TARGET="MAIN"><CODE>DdiMgrGarbageCollect()</CODE></A>
+<DD> Garbage collect freed nodes (handles) in manager node list
+
+<DT> <A HREF="ddiAllDet.html#DdiMgrMakeVarGroup" TARGET="MAIN"><CODE>DdiMgrMakeVarGroup()</CODE></A>
+<DD> Create a variable group
+
+<DT> <A HREF="ddiAllDet.html#DdiMgrReadIntRef" TARGET="MAIN"><CODE>DdiMgrReadIntRef()</CODE></A>
+<DD> Read the counter of internal references
+
+<DT> <A HREF="ddiAllDet.html#DdiTraceNodeAlloc" TARGET="MAIN"><CODE>DdiTraceNodeAlloc()</CODE></A>
+<DD> Trace allocation of DDI node
+
+<DT> <A HREF="ddiAllDet.html#DdiVarNewFromCU" TARGET="MAIN"><CODE>DdiVarNewFromCU()</CODE></A>
+<DD> Create a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddAndAcc" TARGET="MAIN"><CODE>Ddi_BddAndAcc()</CODE></A>
+<DD> Boolean AND. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddAndExistAcc" TARGET="MAIN"><CODE>Ddi_BddAndExistAcc()</CODE></A>
+<DD> Relational product (Exist(f&g,vars)). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddAndExist" TARGET="MAIN"><CODE>Ddi_BddAndExist()</CODE></A>
+<DD> Relational product (Exist(f&g,vars)). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddAnd" TARGET="MAIN"><CODE>Ddi_BddAnd()</CODE></A>
+<DD> Boolean AND. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddArraySetMeta" TARGET="MAIN"><CODE>Ddi_BddArraySetMeta()</CODE></A>
+<DD> Transform a BDD array to Meta BDD. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCofactorAcc" TARGET="MAIN"><CODE>Ddi_BddCofactorAcc()</CODE></A>
+<DD> Cofactor with variable. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCofactor" TARGET="MAIN"><CODE>Ddi_BddCofactor()</CODE></A>
+<DD> Cofactor with variable. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCofexist" TARGET="MAIN"><CODE>Ddi_BddCofexist()</CODE></A>
+<DD> Cofexist cofactor. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddComposeAcc" TARGET="MAIN"><CODE>Ddi_BddComposeAcc()</CODE></A>
+<DD> Function composition x <- g in f. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCompose" TARGET="MAIN"><CODE>Ddi_BddCompose()</CODE></A>
+<DD> Function composition x <- g in f. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddConstrainAcc" TARGET="MAIN"><CODE>Ddi_BddConstrainAcc()</CODE></A>
+<DD> Constrain cofactor. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddConstrain" TARGET="MAIN"><CODE>Ddi_BddConstrain()</CODE></A>
+<DD> Constrain cofactor. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCopyRemapVars" TARGET="MAIN"><CODE>Ddi_BddCopyRemapVars()</CODE></A>
+<DD> Copy a Ddi_Bdd_t to a destination DDI manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCopy" TARGET="MAIN"><CODE>Ddi_BddCopy()</CODE></A>
+<DD> Copy a Ddi_Bdd_t to a destination DDI manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCprojectAcc" TARGET="MAIN"><CODE>Ddi_BddCprojectAcc()</CODE></A>
+<DD> Compatible projector. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddCproject" TARGET="MAIN"><CODE>Ddi_BddCproject()</CODE></A>
+<DD> Compatible projector. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddDenseSet" TARGET="MAIN"><CODE>Ddi_BddDenseSet()</CODE></A>
+<DD> Compute the Dense Super or Subset of a Boolean functions
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddDiffAcc" TARGET="MAIN"><CODE>Ddi_BddDiffAcc()</CODE></A>
+<DD> Boolean difference (f & !g). Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddDiff" TARGET="MAIN"><CODE>Ddi_BddDiff()</CODE></A>
+<DD> Boolean difference (f & !g). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddDup" TARGET="MAIN"><CODE>Ddi_BddDup()</CODE></A>
+<DD> Duplicate a Ddi_Bdd_t
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddEqual" TARGET="MAIN"><CODE>Ddi_BddEqual()</CODE></A>
+<DD> Return true (non 0) if the two DDs are equal (f==g).
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddEvalFree" TARGET="MAIN"><CODE>Ddi_BddEvalFree()</CODE></A>
+<DD> Evaluate expression and free BDD node
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddExistAcc" TARGET="MAIN"><CODE>Ddi_BddExistAcc()</CODE></A>
+<DD> Existential abstraction. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddExist" TARGET="MAIN"><CODE>Ddi_BddExist()</CODE></A>
+<DD> Existential abstraction. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddForallAcc" TARGET="MAIN"><CODE>Ddi_BddForallAcc()</CODE></A>
+<DD> Universal abstraction. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddForall" TARGET="MAIN"><CODE>Ddi_BddForall()</CODE></A>
+<DD> Universal abstraction. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddFromMeta" TARGET="MAIN"><CODE>Ddi_BddFromMeta()</CODE></A>
+<DD> Transform a BDD to Meta BDD. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIncluded" TARGET="MAIN"><CODE>Ddi_BddIncluded()</CODE></A>
+<DD> Check for inclusion (f in g). Return non 0 if true
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsCube" TARGET="MAIN"><CODE>Ddi_BddIsCube()</CODE></A>
+<DD> Return true (non 0) if f is a cube.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsMeta" TARGET="MAIN"><CODE>Ddi_BddIsMeta()</CODE></A>
+<DD> Return true (non 0) if f is a meta BDD.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsMono" TARGET="MAIN"><CODE>Ddi_BddIsMono()</CODE></A>
+<DD> Return true (non 0) if f is a monolithic BDD.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsOne" TARGET="MAIN"><CODE>Ddi_BddIsOne()</CODE></A>
+<DD> Return true (non 0) if f is the one constant.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsPartConj" TARGET="MAIN"><CODE>Ddi_BddIsPartConj()</CODE></A>
+<DD> Return true (non 0) if f is a conjunctively partitioned BDD.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsPartDisj" TARGET="MAIN"><CODE>Ddi_BddIsPartDisj()</CODE></A>
+<DD> Return true (non 0) if f is a disjunctively partitioned BDD.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIsZero" TARGET="MAIN"><CODE>Ddi_BddIsZero()</CODE></A>
+<DD> Return true (non 0) if f is the zero constant.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIteAcc" TARGET="MAIN"><CODE>Ddi_BddIteAcc()</CODE></A>
+<DD> If-Then-Else (ITE(f,g,h)). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddIte" TARGET="MAIN"><CODE>Ddi_BddIte()</CODE></A>
+<DD> If-Then-Else (ITE(f,g,h)). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddLoad" TARGET="MAIN"><CODE>Ddi_BddLoad()</CODE></A>
+<DD> Loads BDD from file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeClustered" TARGET="MAIN"><CODE>Ddi_BddMakeClustered()</CODE></A>
+<DD> Create a clustered BDD from a partitioned one
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeConst" TARGET="MAIN"><CODE>Ddi_BddMakeConst()</CODE></A>
+<DD> Generate a Ddi_Bdd_t constant node (BDD zero or one)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeFromCU" TARGET="MAIN"><CODE>Ddi_BddMakeFromCU()</CODE></A>
+<DD> Build a Ddi_Bdd_t from a given CUDD node.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeFromMeta" TARGET="MAIN"><CODE>Ddi_BddMakeFromMeta()</CODE></A>
+<DD> Transform a BDD to Meta BDD. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeLiteral" TARGET="MAIN"><CODE>Ddi_BddMakeLiteral()</CODE></A>
+<DD> Generate a literal from a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeMeta" TARGET="MAIN"><CODE>Ddi_BddMakeMeta()</CODE></A>
+<DD> Transform a BDD to Meta BDD. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakeMono" TARGET="MAIN"><CODE>Ddi_BddMakeMono()</CODE></A>
+<DD> Create a monolithic BDD from a partitioned one
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartConjFromArray" TARGET="MAIN"><CODE>Ddi_BddMakePartConjFromArray()</CODE></A>
+<DD> Build a conjunctively partitioned BDD from array of partitions
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartConjFromMono" TARGET="MAIN"><CODE>Ddi_BddMakePartConjFromMono()</CODE></A>
+<DD> Build a conjunctively partitioned BDD from a monolithic BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartConjVoid" TARGET="MAIN"><CODE>Ddi_BddMakePartConjVoid()</CODE></A>
+<DD> Build a conjunctively partitioned BDD with 0 partitions
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartDisjFromArray" TARGET="MAIN"><CODE>Ddi_BddMakePartDisjFromArray()</CODE></A>
+<DD> Build a disjunctively partitioned BDD from array of BDDs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartDisjFromMono" TARGET="MAIN"><CODE>Ddi_BddMakePartDisjFromMono()</CODE></A>
+<DD> Build a disjunctively partitioned BDD from a monolithic BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddMakePartDisjVoid" TARGET="MAIN"><CODE>Ddi_BddMakePartDisjVoid()</CODE></A>
+<DD> Build a disjunctively partitioned BDD with 0 partitions
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNandAcc" TARGET="MAIN"><CODE>Ddi_BddNandAcc()</CODE></A>
+<DD> Boolean NAND (!(f&g)). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNand" TARGET="MAIN"><CODE>Ddi_BddNand()</CODE></A>
+<DD> Boolean NAND (!(f&g)). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNorAcc" TARGET="MAIN"><CODE>Ddi_BddNorAcc()</CODE></A>
+<DD> Boolean NOR (!(f|g)). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNor" TARGET="MAIN"><CODE>Ddi_BddNor()</CODE></A>
+<DD> Boolean NOR (!(f|g)). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNotAcc" TARGET="MAIN"><CODE>Ddi_BddNotAcc()</CODE></A>
+<DD> Boolean NOT. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddNot" TARGET="MAIN"><CODE>Ddi_BddNot()</CODE></A>
+<DD> Boolean NOT. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddOperation" TARGET="MAIN"><CODE>Ddi_BddOperation()</CODE></A>
+<DD> 
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddOrAcc" TARGET="MAIN"><CODE>Ddi_BddOrAcc()</CODE></A>
+<DD> Boolean OR (f|g). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddOr" TARGET="MAIN"><CODE>Ddi_BddOr()</CODE></A>
+<DD> Boolean OR (f|g). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartExtract" TARGET="MAIN"><CODE>Ddi_BddPartExtract()</CODE></A>
+<DD> Return the i-th partition (conj/disj), and remove it from f.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartInsertLast" TARGET="MAIN"><CODE>Ddi_BddPartInsertLast()</CODE></A>
+<DD> Add last partition. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartInsert" TARGET="MAIN"><CODE>Ddi_BddPartInsert()</CODE></A>
+<DD> Add i-th partition. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartNum" TARGET="MAIN"><CODE>Ddi_BddPartNum()</CODE></A>
+<DD> Read the number of partitions (conj/disj).
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartRead" TARGET="MAIN"><CODE>Ddi_BddPartRead()</CODE></A>
+<DD> Read the i-th partition (conj/disj) of f.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPartWrite" TARGET="MAIN"><CODE>Ddi_BddPartWrite()</CODE></A>
+<DD> Write i-th partition. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPickOneCubeAcc" TARGET="MAIN"><CODE>Ddi_BddPickOneCubeAcc()</CODE></A>
+<DD> Pick one random on-set cube. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPickOneCube" TARGET="MAIN"><CODE>Ddi_BddPickOneCube()</CODE></A>
+<DD> Pick one random on-set cube. Result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPickOneMintermAcc" TARGET="MAIN"><CODE>Ddi_BddPickOneMintermAcc()</CODE></A>
+<DD> Pick one random on-set minterm. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPickOneMinterm" TARGET="MAIN"><CODE>Ddi_BddPickOneMinterm()</CODE></A>
+<DD> Pick one random on-set minterm. Result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPrintCubeToString" TARGET="MAIN"><CODE>Ddi_BddPrintCubeToString()</CODE></A>
+<DD> Output a cube to string. Return true if succesful.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPrintCubes" TARGET="MAIN"><CODE>Ddi_BddPrintCubes()</CODE></A>
+<DD> Outputs the cubes of a BDD on file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPrintStats" TARGET="MAIN"><CODE>Ddi_BddPrintStats()</CODE></A>
+<DD> Prints Statistics of a BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPrintSupportAndCubes" TARGET="MAIN"><CODE>Ddi_BddPrintSupportAndCubes()</CODE></A>
+<DD> 
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddPrint" TARGET="MAIN"><CODE>Ddi_BddPrint()</CODE></A>
+<DD> Prints a BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddRelMakeFromArray" TARGET="MAIN"><CODE>Ddi_BddRelMakeFromArray()</CODE></A>
+<DD> Generate a Ddi_Bdd_t relation from array of functions
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddRestrictAcc" TARGET="MAIN"><CODE>Ddi_BddRestrictAcc()</CODE></A>
+<DD> Restrict cofactor. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddRestrict" TARGET="MAIN"><CODE>Ddi_BddRestrict()</CODE></A>
+<DD> Restrict cofactor. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSetClustered" TARGET="MAIN"><CODE>Ddi_BddSetClustered()</CODE></A>
+<DD> Create a clustered BDD from a partitioned one
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSetMeta" TARGET="MAIN"><CODE>Ddi_BddSetMeta()</CODE></A>
+<DD> Transform a BDD to Meta BDD. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSetMono" TARGET="MAIN"><CODE>Ddi_BddSetMono()</CODE></A>
+<DD> Convert a BDD to monolitic (if required). Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSetPartConj" TARGET="MAIN"><CODE>Ddi_BddSetPartConj()</CODE></A>
+<DD> Convert a BDD to conjunctively partitioned (if required). 
+               Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSetPartDisj" TARGET="MAIN"><CODE>Ddi_BddSetPartDisj()</CODE></A>
+<DD> Convert a BDD to disjunctively partitioned (if required). 
+               Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSize" TARGET="MAIN"><CODE>Ddi_BddSize()</CODE></A>
+<DD> Return BDD size (total amount of BDD nodes) of f
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddStore" TARGET="MAIN"><CODE>Ddi_BddStore()</CODE></A>
+<DD> Stores BDD on file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSubstVarsAcc" TARGET="MAIN"><CODE>Ddi_BddSubstVarsAcc()</CODE></A>
+<DD> Variable substitution x <- y in f. New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSubstVars" TARGET="MAIN"><CODE>Ddi_BddSubstVars()</CODE></A>
+<DD> Variable substitution x <- y in f. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSuppAttach" TARGET="MAIN"><CODE>Ddi_BddSuppAttach()</CODE></A>
+<DD> Attach support of f to f. Return pointer to f
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSuppDetach" TARGET="MAIN"><CODE>Ddi_BddSuppDetach()</CODE></A>
+<DD> Detach (and free) support attached to f. Return pointer to f
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSuppRead" TARGET="MAIN"><CODE>Ddi_BddSuppRead()</CODE></A>
+<DD> Read the support attached to a Bdd.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSupp" TARGET="MAIN"><CODE>Ddi_BddSupp()</CODE></A>
+<DD> Support of f. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSwapVarsAcc" TARGET="MAIN"><CODE>Ddi_BddSwapVarsAcc()</CODE></A>
+<DD> Swap x and y variables in f. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddSwapVars" TARGET="MAIN"><CODE>Ddi_BddSwapVars()</CODE></A>
+<DD> Swap x and y variables in f. New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddToCU" TARGET="MAIN"><CODE>Ddi_BddToCU()</CODE></A>
+<DD> Convert a DDI function to the corresponding Cudd Node
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddTopVar" TARGET="MAIN"><CODE>Ddi_BddTopVar()</CODE></A>
+<DD> Return the top BDD variable of f
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddXnorAcc" TARGET="MAIN"><CODE>Ddi_BddXnorAcc()</CODE></A>
+<DD> Boolean XNOR (!(f^g)). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddXnor" TARGET="MAIN"><CODE>Ddi_BddXnor()</CODE></A>
+<DD> Boolean XNOR (!(f^g)). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddXorAcc" TARGET="MAIN"><CODE>Ddi_BddXorAcc()</CODE></A>
+<DD> Boolean XOR (f^g). New result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddXor" TARGET="MAIN"><CODE>Ddi_BddXor()</CODE></A>
+<DD> Boolean XOR (f^g). New result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayAlloc" TARGET="MAIN"><CODE>Ddi_BddarrayAlloc()</CODE></A>
+<DD> Allocate a new array of BDDs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayAppend" TARGET="MAIN"><CODE>Ddi_BddarrayAppend()</CODE></A>
+<DD> Append the elements of array2 at the end of array1
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayClear" TARGET="MAIN"><CODE>Ddi_BddarrayClear()</CODE></A>
+<DD> clear array at given position (BDD freed and replaced by NULL)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayCopy" TARGET="MAIN"><CODE>Ddi_BddarrayCopy()</CODE></A>
+<DD> Copy an array of BDDs to a destination manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayDup" TARGET="MAIN"><CODE>Ddi_BddarrayDup()</CODE></A>
+<DD> Duplicate an array of BDDs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayExtract" TARGET="MAIN"><CODE>Ddi_BddarrayExtract()</CODE></A>
+<DD> Extract the BDD at i-th position in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayInsertLast" TARGET="MAIN"><CODE>Ddi_BddarrayInsertLast()</CODE></A>
+<DD> Insert a BDD in array at last (new) position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayInsert" TARGET="MAIN"><CODE>Ddi_BddarrayInsert()</CODE></A>
+<DD> Insert a BDD in array at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayLoad" TARGET="MAIN"><CODE>Ddi_BddarrayLoad()</CODE></A>
+<DD> Reads array of BDDs from a dump file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayMakeFromBddPart" TARGET="MAIN"><CODE>Ddi_BddarrayMakeFromBddPart()</CODE></A>
+<DD> Generate a BDD array from partitions of partitioned BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayMakeFromCU" TARGET="MAIN"><CODE>Ddi_BddarrayMakeFromCU()</CODE></A>
+<DD> Generate a BDD array from CUDD BDDs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayMakeMeta" TARGET="MAIN"><CODE>Ddi_BddarrayMakeMeta()</CODE></A>
+<DD> Transform a BDD array to Meta BDD. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayNum" TARGET="MAIN"><CODE>Ddi_BddarrayNum()</CODE></A>
+<DD> Return the number of BDDs (entries) in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayOperation" TARGET="MAIN"><CODE>Ddi_BddarrayOperation()</CODE></A>
+<DD> 
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayPrintSupportAndCubes" TARGET="MAIN"><CODE>Ddi_BddarrayPrintSupportAndCubes()</CODE></A>
+<DD> 
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayRead" TARGET="MAIN"><CODE>Ddi_BddarrayRead()</CODE></A>
+<DD> Read the BDD at i-th position in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayRemove" TARGET="MAIN"><CODE>Ddi_BddarrayRemove()</CODE></A>
+<DD> Remove array entry at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarraySize" TARGET="MAIN"><CODE>Ddi_BddarraySize()</CODE></A>
+<DD> Return the number of BDD nodes in a BDD array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayStore" TARGET="MAIN"><CODE>Ddi_BddarrayStore()</CODE></A>
+<DD> Writes array of BDDs in a dump file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarraySuppArray" TARGET="MAIN"><CODE>Ddi_BddarraySuppArray()</CODE></A>
+<DD> OLD(pdt-1). Return a vector of supports of BDD array elements
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarraySupp" TARGET="MAIN"><CODE>Ddi_BddarraySupp()</CODE></A>
+<DD> Return the support of a BDD array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayToCU" TARGET="MAIN"><CODE>Ddi_BddarrayToCU()</CODE></A>
+<DD> Generate an array of pointers to CUDD nodes
+
+<DT> <A HREF="ddiAllDet.html#Ddi_BddarrayWrite" TARGET="MAIN"><CODE>Ddi_BddarrayWrite()</CODE></A>
+<DD> Write a BDD in array at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_CountMinterm" TARGET="MAIN"><CODE>Ddi_CountMinterm()</CODE></A>
+<DD> Check for inclusion (f in g). Return non 0 if true
+
+<DT> <A HREF="ddiAllDet.html#Ddi_DenseMethodEnum2String" TARGET="MAIN"><CODE>Ddi_DenseMethodEnum2String()</CODE></A>
+<DD> Given an Enumerated type Returns a string
+
+<DT> <A HREF="ddiAllDet.html#Ddi_DenseMethodString2Enum" TARGET="MAIN"><CODE>Ddi_DenseMethodString2Enum()</CODE></A>
+<DD> Given a string it Returns an Enumerated type
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprBoolMake" TARGET="MAIN"><CODE>Ddi_ExprBoolMake()</CODE></A>
+<DD> Build a Boolean Ddi_Expr_t from given sub-expressions.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprCtlMake" TARGET="MAIN"><CODE>Ddi_ExprCtlMake()</CODE></A>
+<DD> Build a Ctl Ddi_Expr_t from given sub-expressions.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprDup" TARGET="MAIN"><CODE>Ddi_ExprDup()</CODE></A>
+<DD> Duplicate a Ddi_Expr_t
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprIsTerminal" TARGET="MAIN"><CODE>Ddi_ExprIsTerminal()</CODE></A>
+<DD> Return true (non 0) if expression is terminal (Bdd or string).
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprLoad" TARGET="MAIN"><CODE>Ddi_ExprLoad()</CODE></A>
+<DD> Load EXPRESSION from file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprMakeFromBdd" TARGET="MAIN"><CODE>Ddi_ExprMakeFromBdd()</CODE></A>
+<DD> Build a Ddi_Expr_t from a given BDD.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprMakeFromString" TARGET="MAIN"><CODE>Ddi_ExprMakeFromString()</CODE></A>
+<DD> Build a Ddi_Expr_t from a given string.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprPrint" TARGET="MAIN"><CODE>Ddi_ExprPrint()</CODE></A>
+<DD> Print a Ddi_Expr_t
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprReadOpcode" TARGET="MAIN"><CODE>Ddi_ExprReadOpcode()</CODE></A>
+<DD> Read expression opcode
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprReadSub" TARGET="MAIN"><CODE>Ddi_ExprReadSub()</CODE></A>
+<DD> Rear sub-expression at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprSubNum" TARGET="MAIN"><CODE>Ddi_ExprSubNum()</CODE></A>
+<DD> Read the number of sub-expressions.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprToBdd" TARGET="MAIN"><CODE>Ddi_ExprToBdd()</CODE></A>
+<DD> Retrieve the Bdd associated to the expression
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprToString" TARGET="MAIN"><CODE>Ddi_ExprToString()</CODE></A>
+<DD> Retrieve the string associated to the expression
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ExprWriteSub" TARGET="MAIN"><CODE>Ddi_ExprWriteSub()</CODE></A>
+<DD> Write operand sub-expression to expression at given position.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericDup" TARGET="MAIN"><CODE>Ddi_GenericDup()</CODE></A>
+<DD> Generic dup
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericFree" TARGET="MAIN"><CODE>Ddi_GenericFree()</CODE></A>
+<DD> Free the content of a generic DDI node
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericLock" TARGET="MAIN"><CODE>Ddi_GenericLock()</CODE></A>
+<DD> Lock DDI node.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericOpAcc" TARGET="MAIN"><CODE>Ddi_GenericOpAcc()</CODE></A>
+<DD> Compute generic operation. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericOp" TARGET="MAIN"><CODE>Ddi_GenericOp()</CODE></A>
+<DD> Compute generic operation. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericReadCode" TARGET="MAIN"><CODE>Ddi_GenericReadCode()</CODE></A>
+<DD> called through Ddi_ReadCode.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericReadMgr" TARGET="MAIN"><CODE>Ddi_GenericReadMgr()</CODE></A>
+<DD> called through Ddi_ReadMgr.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericReadName" TARGET="MAIN"><CODE>Ddi_GenericReadName()</CODE></A>
+<DD> called through Ddi_ReadName.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericSetName" TARGET="MAIN"><CODE>Ddi_GenericSetName()</CODE></A>
+<DD> Set name field of DDI node
+
+<DT> <A HREF="ddiAllDet.html#Ddi_GenericUnlock" TARGET="MAIN"><CODE>Ddi_GenericUnlock()</CODE></A>
+<DD> Unlock DDI node.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_IthVar" TARGET="MAIN"><CODE>Ddi_IthVar()</CODE></A>
+<DD> Return the variable of a given index
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MetaActive" TARGET="MAIN"><CODE>Ddi_MetaActive()</CODE></A>
+<DD> Return true if Meta handling active (Ddi_MetaInit done)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MetaInit" TARGET="MAIN"><CODE>Ddi_MetaInit()</CODE></A>
+<DD> Initialize Meta BDD handling in DDI manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MetaQuit" TARGET="MAIN"><CODE>Ddi_MetaQuit()</CODE></A>
+<DD> Close Meta BDD handling in DDI manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrAbortOnSiftDisable" TARGET="MAIN"><CODE>Ddi_MgrAbortOnSiftDisable()</CODE></A>
+<DD> Disable Abort on sift.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrAbortOnSiftEnable" TARGET="MAIN"><CODE>Ddi_MgrAbortOnSiftEnable()</CODE></A>
+<DD> Enable Abort on sift.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrAlign" TARGET="MAIN"><CODE>Ddi_MgrAlign()</CODE></A>
+<DD> Aligns the order of two managers.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrAutodynResume" TARGET="MAIN"><CODE>Ddi_MgrAutodynResume()</CODE></A>
+<DD> Resume autodyn if suspended.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrAutodynSuspend" TARGET="MAIN"><CODE>Ddi_MgrAutodynSuspend()</CODE></A>
+<DD> Suspend autodyn if active.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrCheckExtRef" TARGET="MAIN"><CODE>Ddi_MgrCheckExtRef()</CODE></A>
+<DD> Check number of externally referenced DDI handles
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrConsistencyCheck" TARGET="MAIN"><CODE>Ddi_MgrConsistencyCheck()</CODE></A>
+<DD> make checks on DDI manager. Return 0 for failure
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrCreateGroups2" TARGET="MAIN"><CODE>Ddi_MgrCreateGroups2()</CODE></A>
+<DD> Create groups of 2 variables
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrDup" TARGET="MAIN"><CODE>Ddi_MgrDup()</CODE></A>
+<DD> Creates a copy of a DdManager.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrInit" TARGET="MAIN"><CODE>Ddi_MgrInit()</CODE></A>
+<DD> Creates a DdManager.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrOperation" TARGET="MAIN"><CODE>Ddi_MgrOperation()</CODE></A>
+<DD> 
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrOrdWrite" TARGET="MAIN"><CODE>Ddi_MgrOrdWrite()</CODE></A>
+<DD> Stores the variable ordering
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrPeakProdLocalReset" TARGET="MAIN"><CODE>Ddi_MgrPeakProdLocalReset()</CODE></A>
+<DD> Reset peak product local
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrPeakProdUpdate" TARGET="MAIN"><CODE>Ddi_MgrPeakProdUpdate()</CODE></A>
+<DD> Update peak product stats
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrPrintAllocStats" TARGET="MAIN"><CODE>Ddi_MgrPrintAllocStats()</CODE></A>
+<DD> Print DDI manager allocation statistics
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrPrintExtRef" TARGET="MAIN"><CODE>Ddi_MgrPrintExtRef()</CODE></A>
+<DD> print ids of external refs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrPrintStats" TARGET="MAIN"><CODE>Ddi_MgrPrintStats()</CODE></A>
+<DD> Prints on standard outputs statistics on a DD manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrQuit" TARGET="MAIN"><CODE>Ddi_MgrQuit()</CODE></A>
+<DD> Close a DdManager.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadCurrNodeId" TARGET="MAIN"><CODE>Ddi_MgrReadCurrNodeId()</CODE></A>
+<DD> Read current node id field
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadDynordThresh" TARGET="MAIN"><CODE>Ddi_MgrReadDynordThresh()</CODE></A>
+<DD> Returns the threshold for the next dynamic reordering.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadExistClustThresh" TARGET="MAIN"><CODE>Ddi_MgrReadExistClustThresh()</CODE></A>
+<DD> Read part clustering threshold
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadExtBddRef" TARGET="MAIN"><CODE>Ddi_MgrReadExtBddRef()</CODE></A>
+<DD> Read the counter of external references to BDDs
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadExtBddarrayRef" TARGET="MAIN"><CODE>Ddi_MgrReadExtBddarrayRef()</CODE></A>
+<DD> Read the counter of external references to BDD arrays
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadExtRef" TARGET="MAIN"><CODE>Ddi_MgrReadExtRef()</CODE></A>
+<DD> Read the counter of external references
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadExtVarsetRef" TARGET="MAIN"><CODE>Ddi_MgrReadExtVarsetRef()</CODE></A>
+<DD> Read the counter of external references to varsets
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadMgrCU" TARGET="MAIN"><CODE>Ddi_MgrReadMgrCU()</CODE></A>
+<DD> Reads the Cudd Manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadOne" TARGET="MAIN"><CODE>Ddi_MgrReadOne()</CODE></A>
+<DD> Reads one constant
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadOrdNamesAuxids" TARGET="MAIN"><CODE>Ddi_MgrReadOrdNamesAuxids()</CODE></A>
+<DD> Reads the variable ordering
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadPeakProdGlobal" TARGET="MAIN"><CODE>Ddi_MgrReadPeakProdGlobal()</CODE></A>
+<DD> Read peak product global
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadPeakProdLocal" TARGET="MAIN"><CODE>Ddi_MgrReadPeakProdLocal()</CODE></A>
+<DD> Read peak product local
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadVarauxids" TARGET="MAIN"><CODE>Ddi_MgrReadVarauxids()</CODE></A>
+<DD> Reads the variable auxiliary ids
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadVarnames" TARGET="MAIN"><CODE>Ddi_MgrReadVarnames()</CODE></A>
+<DD> Reads the variable names
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadVerbosity" TARGET="MAIN"><CODE>Ddi_MgrReadVerbosity()</CODE></A>
+<DD> Read verbosity
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrReadZero" TARGET="MAIN"><CODE>Ddi_MgrReadZero()</CODE></A>
+<DD> Reads zero constant
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetDynordThresh" TARGET="MAIN"><CODE>Ddi_MgrSetDynordThresh()</CODE></A>
+<DD> Returns the threshold for the next dynamic reordering.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetExistClustThresh" TARGET="MAIN"><CODE>Ddi_MgrSetExistClustThresh()</CODE></A>
+<DD> Set part clustering threshold
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetMgrCU" TARGET="MAIN"><CODE>Ddi_MgrSetMgrCU()</CODE></A>
+<DD> Sets the CUDD manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetOne" TARGET="MAIN"><CODE>Ddi_MgrSetOne()</CODE></A>
+<DD> Sets the one constant
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetTracedId" TARGET="MAIN"><CODE>Ddi_MgrSetTracedId()</CODE></A>
+<DD> Set traced node id field
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetVarauxids" TARGET="MAIN"><CODE>Ddi_MgrSetVarauxids()</CODE></A>
+<DD> Sets the auxiliary variable ids
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetVarnames" TARGET="MAIN"><CODE>Ddi_MgrSetVarnames()</CODE></A>
+<DD> Sets the names of variables
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetVerbosity" TARGET="MAIN"><CODE>Ddi_MgrSetVerbosity()</CODE></A>
+<DD> Set verbosity
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrSetZero" TARGET="MAIN"><CODE>Ddi_MgrSetZero()</CODE></A>
+<DD> Sets the zero constant
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrShuffle" TARGET="MAIN"><CODE>Ddi_MgrShuffle()</CODE></A>
+<DD> Reorders all DDs in a manager.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_MgrUpdate" TARGET="MAIN"><CODE>Ddi_MgrUpdate()</CODE></A>
+<DD> update DDI manager after directly working on CUDD manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_PrintCuddVersion" TARGET="MAIN"><CODE>Ddi_PrintCuddVersion()</CODE></A>
+<DD> Returns the version of CUDD package
+
+<DT> <A HREF="ddiAllDet.html#Ddi_PrintDdArray" TARGET="MAIN"><CODE>Ddi_PrintDdArray()</CODE></A>
+<DD> Prints the size of each function in a DdArray
+
+<DT> <A HREF="ddiAllDet.html#Ddi_PrintVararray" TARGET="MAIN"><CODE>Ddi_PrintVararray()</CODE></A>
+<DD> Prints the indices of a Vararray
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ProfileHeuristicEnum2String" TARGET="MAIN"><CODE>Ddi_ProfileHeuristicEnum2String()</CODE></A>
+<DD> Given an Enumerated type Returns a string
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ProfileHeuristicString2Enum" TARGET="MAIN"><CODE>Ddi_ProfileHeuristicString2Enum()</CODE></A>
+<DD> Given a string it Returns an Enumerated type
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadCacheHits" TARGET="MAIN"><CODE>Ddi_ReadCacheHits()</CODE></A>
+<DD> Returns the number of cache hits.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadCacheLookUps" TARGET="MAIN"><CODE>Ddi_ReadCacheLookUps()</CODE></A>
+<DD> Returns the number of cache look-ups.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadCacheSlots" TARGET="MAIN"><CODE>Ddi_ReadCacheSlots()</CODE></A>
+<DD> Reads the number of slots in the cache.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadCube" TARGET="MAIN"><CODE>Ddi_ReadCube()</CODE></A>
+<DD> Reads a cube from stdin
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadDdiName" TARGET="MAIN"><CODE>Ddi_ReadDdiName()</CODE></A>
+<DD> Returns the threshold for the next dynamic reordering.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadMaxCacheHard" TARGET="MAIN"><CODE>Ddi_ReadMaxCacheHard()</CODE></A>
+<DD> Reads the maxCacheHard parameter of the manager.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadMaxCache" TARGET="MAIN"><CODE>Ddi_ReadMaxCache()</CODE></A>
+<DD> Returns the soft limit for the cache size.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadMinHit" TARGET="MAIN"><CODE>Ddi_ReadMinHit()</CODE></A>
+<DD> Reads the hit ratio that causes resizing of the computed
+  table.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReadVarset" TARGET="MAIN"><CODE>Ddi_ReadVarset()</CODE></A>
+<DD> Reads a variable set from file
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReorderingMethodEnum2String" TARGET="MAIN"><CODE>Ddi_ReorderingMethodEnum2String()</CODE></A>
+<DD> Given an Enumerated type Returns a string
+
+<DT> <A HREF="ddiAllDet.html#Ddi_ReorderingMethodString2Enum" TARGET="MAIN"><CODE>Ddi_ReorderingMethodString2Enum()</CODE></A>
+<DD> Given a string it Returns an Enumerated type
+
+<DT> <A HREF="ddiAllDet.html#Ddi_SetDdiName" TARGET="MAIN"><CODE>Ddi_SetDdiName()</CODE></A>
+<DD> Returns the threshold for the next dynamic reordering.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarAtLevel" TARGET="MAIN"><CODE>Ddi_VarAtLevel()</CODE></A>
+<DD> Return variable at a given level in the order
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarAttachAuxid" TARGET="MAIN"><CODE>Ddi_VarAttachAuxid()</CODE></A>
+<DD> Set the variable auxid of a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarAttachName" TARGET="MAIN"><CODE>Ddi_VarAttachName()</CODE></A>
+<DD> Attach a given name to the variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarAuxid" TARGET="MAIN"><CODE>Ddi_VarAuxid()</CODE></A>
+<DD> Return the variable auxid (-1 if auxids not defined)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarCopy" TARGET="MAIN"><CODE>Ddi_VarCopy()</CODE></A>
+<DD> Copy a variable to a destination dd manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarCurrPos" TARGET="MAIN"><CODE>Ddi_VarCurrPos()</CODE></A>
+<DD> Return current position of var in variable order
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarDetachName" TARGET="MAIN"><CODE>Ddi_VarDetachName()</CODE></A>
+<DD> Clear the name of a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarFromAuxid" TARGET="MAIN"><CODE>Ddi_VarFromAuxid()</CODE></A>
+<DD> Search a variable given the auxid
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarFromCU" TARGET="MAIN"><CODE>Ddi_VarFromCU()</CODE></A>
+<DD> Convert a CUDD variable to a DDI variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarFromName" TARGET="MAIN"><CODE>Ddi_VarFromName()</CODE></A>
+<DD> Search a variable given the name
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarInVarset" TARGET="MAIN"><CODE>Ddi_VarInVarset()</CODE></A>
+<DD> Return true (non 0) if var is in varset
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarIndex" TARGET="MAIN"><CODE>Ddi_VarIndex()</CODE></A>
+<DD> Return the variable index (CUDD variable index)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarIsGrouped" TARGET="MAIN"><CODE>Ddi_VarIsGrouped()</CODE></A>
+<DD> Return true (non 0) if variable is in variable group
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarMakeGroupFixed" TARGET="MAIN"><CODE>Ddi_VarMakeGroupFixed()</CODE></A>
+<DD> Create a variable group with fixed inner order
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarMakeGroup" TARGET="MAIN"><CODE>Ddi_VarMakeGroup()</CODE></A>
+<DD> Create a variable group
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarName" TARGET="MAIN"><CODE>Ddi_VarName()</CODE></A>
+<DD> Return the name of a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarNewAfterVar" TARGET="MAIN"><CODE>Ddi_VarNewAfterVar()</CODE></A>
+<DD> Create a new variable after (in the variable order)
+    the given variable.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarNewAtLevel" TARGET="MAIN"><CODE>Ddi_VarNewAtLevel()</CODE></A>
+<DD> Returns a new variable at a given level in the order
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarNewBeforeVar" TARGET="MAIN"><CODE>Ddi_VarNewBeforeVar()</CODE></A>
+<DD> Create a new variable before (in the variable order)
+    the given variable.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarNew" TARGET="MAIN"><CODE>Ddi_VarNew()</CODE></A>
+<DD> Create a new variable (generated within a CUDD manager)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarReadGroup" TARGET="MAIN"><CODE>Ddi_VarReadGroup()</CODE></A>
+<DD> Return variable group including v. NULL if v is not in a group
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarSubst" TARGET="MAIN"><CODE>Ddi_VarSubst()</CODE></A>
+<DD> The function does a substitution of variables of a BDD
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarToCU" TARGET="MAIN"><CODE>Ddi_VarToCU()</CODE></A>
+<DD> Return the CUDD bdd node of a variable
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayAlloc" TARGET="MAIN"><CODE>Ddi_VararrayAlloc()</CODE></A>
+<DD> Allocate a new array of variables of given length
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayAppend" TARGET="MAIN"><CODE>Ddi_VararrayAppend()</CODE></A>
+<DD> Append the elements of array2 at the end of array1
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayClear" TARGET="MAIN"><CODE>Ddi_VararrayClear()</CODE></A>
+<DD> clear array at given position (variable is replaced by NULL)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayCopy" TARGET="MAIN"><CODE>Ddi_VararrayCopy()</CODE></A>
+<DD> Copy an array of variables to a destination maneger
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayDup" TARGET="MAIN"><CODE>Ddi_VararrayDup()</CODE></A>
+<DD> Duplicate an array of variables
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayExtract" TARGET="MAIN"><CODE>Ddi_VararrayExtract()</CODE></A>
+<DD> Extract the variable at i-th position in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayInsertLast" TARGET="MAIN"><CODE>Ddi_VararrayInsertLast()</CODE></A>
+<DD> Insert a variable in array at last (new) position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayInsert" TARGET="MAIN"><CODE>Ddi_VararrayInsert()</CODE></A>
+<DD> Insert a variable in array at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayMakeFromCU" TARGET="MAIN"><CODE>Ddi_VararrayMakeFromCU()</CODE></A>
+<DD> Generate a variable array from CU vars (BDD nodes)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayMakeFromInt" TARGET="MAIN"><CODE>Ddi_VararrayMakeFromInt()</CODE></A>
+<DD> Generate a variable array from array of integer indexes
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayNum" TARGET="MAIN"><CODE>Ddi_VararrayNum()</CODE></A>
+<DD> Return the number of variables (entries) in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayRead" TARGET="MAIN"><CODE>Ddi_VararrayRead()</CODE></A>
+<DD> Return the variable at i-th position in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayRemove" TARGET="MAIN"><CODE>Ddi_VararrayRemove()</CODE></A>
+<DD> Remove array entry at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayToCU" TARGET="MAIN"><CODE>Ddi_VararrayToCU()</CODE></A>
+<DD> Generate an array of pointers to CUDD variables
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayToInt" TARGET="MAIN"><CODE>Ddi_VararrayToInt()</CODE></A>
+<DD> Generate an array of integer variable indexes
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VararrayWrite" TARGET="MAIN"><CODE>Ddi_VararrayWrite()</CODE></A>
+<DD> Write a variable in array at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetAddAcc" TARGET="MAIN"><CODE>Ddi_VarsetAddAcc()</CODE></A>
+<DD> Add variable to var-set. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetAdd" TARGET="MAIN"><CODE>Ddi_VarsetAdd()</CODE></A>
+<DD> Add variable to var-set. Result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetBottom" TARGET="MAIN"><CODE>Ddi_VarsetBottom()</CODE></A>
+<DD> Return the bottom variable in the ordering
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetCopy" TARGET="MAIN"><CODE>Ddi_VarsetCopy()</CODE></A>
+<DD> Copy a var-set to another manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetDiffAcc" TARGET="MAIN"><CODE>Ddi_VarsetDiffAcc()</CODE></A>
+<DD> Return difference of two var-sets. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetDiff" TARGET="MAIN"><CODE>Ddi_VarsetDiff()</CODE></A>
+<DD> Return difference of two var-sets. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetDup" TARGET="MAIN"><CODE>Ddi_VarsetDup()</CODE></A>
+<DD> Duplicate a var-set
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetEqual" TARGET="MAIN"><CODE>Ddi_VarsetEqual()</CODE></A>
+<DD> Return true (non 0) if the two var-sets are equal
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetEvalFree" TARGET="MAIN"><CODE>Ddi_VarsetEvalFree()</CODE></A>
+<DD> Evaluates an expression and frees first argument
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetIntersectAcc" TARGET="MAIN"><CODE>Ddi_VarsetIntersectAcc()</CODE></A>
+<DD> Return intersection of two var-sets. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetIntersect" TARGET="MAIN"><CODE>Ddi_VarsetIntersect()</CODE></A>
+<DD> Return intersection of two var-sets. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetIsVoid" TARGET="MAIN"><CODE>Ddi_VarsetIsVoid()</CODE></A>
+<DD> Return true (non 0) if var-set is empty
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetMakeFromArray" TARGET="MAIN"><CODE>Ddi_VarsetMakeFromArray()</CODE></A>
+<DD> Build a Ddi_Varset_t from a given variable array.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetMakeFromCU" TARGET="MAIN"><CODE>Ddi_VarsetMakeFromCU()</CODE></A>
+<DD> Build a Ddi_Varset_t from a given CUDD cube.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetMakeFromVar" TARGET="MAIN"><CODE>Ddi_VarsetMakeFromVar()</CODE></A>
+<DD> Build a Ddi_Varset_t from a given variable.
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetNextAcc" TARGET="MAIN"><CODE>Ddi_VarsetNextAcc()</CODE></A>
+<DD> Remove top variable from var-set. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetNext" TARGET="MAIN"><CODE>Ddi_VarsetNext()</CODE></A>
+<DD> Remove top variable from var-set. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetNum" TARGET="MAIN"><CODE>Ddi_VarsetNum()</CODE></A>
+<DD> Return the number of variables in varset
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetPrint" TARGET="MAIN"><CODE>Ddi_VarsetPrint()</CODE></A>
+<DD> Print the varset variables sorted by id
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetRemoveAcc" TARGET="MAIN"><CODE>Ddi_VarsetRemoveAcc()</CODE></A>
+<DD> Remove variable from var-set. Result is accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetRemove" TARGET="MAIN"><CODE>Ddi_VarsetRemove()</CODE></A>
+<DD> Remove variable from var-set. Result is generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetSubstVarsAcc" TARGET="MAIN"><CODE>Ddi_VarsetSubstVarsAcc()</CODE></A>
+<DD> Variable substitution in varset. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetSubstVars" TARGET="MAIN"><CODE>Ddi_VarsetSubstVars()</CODE></A>
+<DD> Variable substitution in varset. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetSwapVarsAcc" TARGET="MAIN"><CODE>Ddi_VarsetSwapVarsAcc()</CODE></A>
+<DD> Swap two sets of variables in varset. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetSwapVars" TARGET="MAIN"><CODE>Ddi_VarsetSwapVars()</CODE></A>
+<DD> Swap two sets of variables in varset. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetToCU" TARGET="MAIN"><CODE>Ddi_VarsetToCU()</CODE></A>
+<DD> Convert a varset to a Cudd cube
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetTop" TARGET="MAIN"><CODE>Ddi_VarsetTop()</CODE></A>
+<DD> Return the top variable (in the ordering) in varset
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetUnionAcc" TARGET="MAIN"><CODE>Ddi_VarsetUnionAcc()</CODE></A>
+<DD> Return union of two var-sets. Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetUnion" TARGET="MAIN"><CODE>Ddi_VarsetUnion()</CODE></A>
+<DD> Return union of two var-sets. Result generated
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetVoid" TARGET="MAIN"><CODE>Ddi_VarsetVoid()</CODE></A>
+<DD> Return an empty var-set
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetWalkCurr" TARGET="MAIN"><CODE>Ddi_VarsetWalkCurr()</CODE></A>
+<DD> Return curr var in varset walk
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetWalkEnd" TARGET="MAIN"><CODE>Ddi_VarsetWalkEnd()</CODE></A>
+<DD> test for varset walk end
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetWalkStart" TARGET="MAIN"><CODE>Ddi_VarsetWalkStart()</CODE></A>
+<DD> Start Varset walk process
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetWalkStep" TARGET="MAIN"><CODE>Ddi_VarsetWalkStep()</CODE></A>
+<DD> Varset walk process step
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayAlloc" TARGET="MAIN"><CODE>Ddi_VarsetarrayAlloc()</CODE></A>
+<DD> Allocate a new array of varsets
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayClear" TARGET="MAIN"><CODE>Ddi_VarsetarrayClear()</CODE></A>
+<DD> clear array at given position (BDD freed and replaced by NULL)
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayCopy" TARGET="MAIN"><CODE>Ddi_VarsetarrayCopy()</CODE></A>
+<DD> Copy an array of varsets to a destination manager
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayDup" TARGET="MAIN"><CODE>Ddi_VarsetarrayDup()</CODE></A>
+<DD> Duplicate an array of Varsets
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayInsertLast" TARGET="MAIN"><CODE>Ddi_VarsetarrayInsertLast()</CODE></A>
+<DD> Insert varset in array at last position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayInsert" TARGET="MAIN"><CODE>Ddi_VarsetarrayInsert()</CODE></A>
+<DD> Insert varset in array at given position
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayNum" TARGET="MAIN"><CODE>Ddi_VarsetarrayNum()</CODE></A>
+<DD> Return the number of entries in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayRead" TARGET="MAIN"><CODE>Ddi_VarsetarrayRead()</CODE></A>
+<DD> Read varset at i-th position in array
+
+<DT> <A HREF="ddiAllDet.html#Ddi_VarsetarrayWrite" TARGET="MAIN"><CODE>Ddi_VarsetarrayWrite()</CODE></A>
+<DD> Write varset in array at given position
+
+<DT> <A HREF="ddiAllDet.html#GenBddRootsRecur" TARGET="MAIN"><CODE>GenBddRootsRecur()</CODE></A>
+<DD> Recursive step of root pointers generation
+
+<DT> <A HREF="ddiAllDet.html#GenBddRoots" TARGET="MAIN"><CODE>GenBddRoots()</CODE></A>
+<DD> Generate root pointers of leave BDDs for partitioned DDs
+
+<DT> <A HREF="ddiAllDet.html#GenericDupIntern" TARGET="MAIN"><CODE>GenericDupIntern()</CODE></A>
+<DD> Duplicate a DDI node
+
+<DT> <A HREF="ddiAllDet.html#GenericFreeIntern" TARGET="MAIN"><CODE>GenericFreeIntern()</CODE></A>
+<DD> Frees a generic block
+
+<DT> <A HREF="ddiAllDet.html#MetaConstrainOpt" TARGET="MAIN"><CODE>MetaConstrainOpt()</CODE></A>
+<DD> Optimized constrain cofactor.
+
+<DT> <A HREF="ddiAllDet.html#MetaConvertBdd" TARGET="MAIN"><CODE>MetaConvertBdd()</CODE></A>
+<DD> Conversion between BDD and Meta BDD
+
+<DT> <A HREF="ddiAllDet.html#MetaConvert" TARGET="MAIN"><CODE>MetaConvert()</CODE></A>
+<DD> Transform between generic DDI node and Meta BDD. 
+    Result accumulated
+
+<DT> <A HREF="ddiAllDet.html#MetaFromMono" TARGET="MAIN"><CODE>MetaFromMono()</CODE></A>
+<DD> Transform a BDD to Meta BDD
+
+<DT> <A HREF="ddiAllDet.html#MetaLinearAndExistAcc" TARGET="MAIN"><CODE>MetaLinearAndExistAcc()</CODE></A>
+<DD> Operate And-Exist between Meta BDD and conj. part. BDD
+
+<DT> <A HREF="ddiAllDet.html#MetaReduce" TARGET="MAIN"><CODE>MetaReduce()</CODE></A>
+<DD> Apply bottom-up reduction process to meta BDD
+
+<DT> <A HREF="ddiAllDet.html#MetaSetConj" TARGET="MAIN"><CODE>MetaSetConj()</CODE></A>
+<DD> Apply top-down reduction of ones to bottom layer
+
+<DT> <A HREF="ddiAllDet.html#MetaSimplify" TARGET="MAIN"><CODE>MetaSimplify()</CODE></A>
+<DD> Apply top-down cofactor based simplification
+
+<DT> <A HREF="ddiAllDet.html#MetaToMono" TARGET="MAIN"><CODE>MetaToMono()</CODE></A>
+<DD> Transform a Meta BDD to monolitic BDD
+
+<DT> <A HREF="ddiAllDet.html#MetaUpdate" TARGET="MAIN"><CODE>MetaUpdate()</CODE></A>
+<DD> Update Meta handling by calling Init
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Compute Operation generating a BDD (Ddi_Bdd_t).
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Compute Operation on all entries of an Array of BDDs.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Free DDI node.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Lock DDI node.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Read handle code.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Read name field of DDI node
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Read the DDI Manager field.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Read the name field.
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Set name field of DDI node
+
+<DT> <A HREF="ddiAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Unlock DDI node.
+
+</DL>
+
+<HR>
+
+Last updated on 1010515 11h48
+</BODY></HTML>

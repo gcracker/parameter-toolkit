@@ -1,0 +1,35 @@
+README file for the exp directory of the PdTRAV-1.2 package
+Revision: version 1.2 June 01, 1999
+
+
+
+This directory contains:
+* a few blif files on which to run PdTRAV-1.2 (file extension: blif).
+* a few script files showing how to run it (file extension: cmd).
+* a few examples of outputs obtained running the program with the script
+  files in a correct way (file extension: out).
+* a link to the cmdHelp.txt file (in the cmd directory) to have the on-line
+  help for PdTRAV.
+
+After build PdTRAV execute it from this directory as:
+../bin/pdtrav
+
+Run the source files <name> with the command:
+source <name>.cmd
+or with the command
+@<name>.cmd
+
+A few source files may require one or more parameters (see comments inside
+the source files themselves).
+In this case run them as:
+@<name>.cmd <parameter1> <parameter2> ...
+
+Inside each command file you can find comments describing the operation done.
+Comments are indicated with the starting character '#'.
+
+Notice that to have the help command working correctly the cmdHelp.txt
+file (or a symbolic link to it), must be in the working directory.
+The cmdHelp.txt file can be found in the cmd directory.
+Copy it in the working directory or make a link to it with the following
+command:
+ln -s <path to cmd directory>cmdHelp.txt .

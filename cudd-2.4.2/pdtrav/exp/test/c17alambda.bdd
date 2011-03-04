@@ -1,0 +1,26 @@
+.ver DDDMP-1.0
+.mode A
+.varinfo 0
+.dd c17alambda.bdd
+.nnodes 11
+.nvars 5
+.nsuppvars 5
+.varnames 1GAT(0) 2GAT(1) 3GAT(2) 6GAT(3) 7GAT(4)
+.ids 0 1 2 3 4
+.permids 0 1 2 3 4
+.auxids 0 1 2 3 4
+.nroots 2
+.rootids 7 -11
+.nodes
+1 T 1 0 0
+2 2 2 1 -1
+3 1 1 1 2
+4 3 3 1 -1
+5 2 2 4 -1
+6 1 1 5 1
+7 0 0 3 -6
+8 4 4 1 -1
+9 3 3 1 -8
+10 2 2 9 -8
+11 1 1 5 10
+.end

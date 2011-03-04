@@ -1,0 +1,297 @@
+The pdtutil package
+
+Utility functions for the PdTRAV package.
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Pdtutil_AllocCheck()           Check The Pdtutil_Alloc Macro.
+
+Pdtutil_ChrPrint()             Print on fp the desired number of charaters on
+                               a file.
+
+Pdtutil_FileClose()            Closes a file.
+
+Pdtutil_FileName()             Returns a complete file name (name, attribute,
+                               extension.
+
+Pdtutil_FileOpen()             Opens a file checking for files already opened
+                               or impossible    to open.
+
+Pdtutil_IntArrayDup()          Duplicates an array of ints
+
+Pdtutil_IntArrayRead()         Inputs an array of ints
+
+Pdtutil_IntArrayWrite()        Outputs an array of ints
+
+Pdtutil_OrdRead()              Reads the order in the <em>.ord</em> file.
+
+Pdtutil_OrdWrite()             Write the order in the <em>.ord</em> file.
+
+Pdtutil_ReadName()             parses hierarchical names separated by '.'
+
+Pdtutil_ReadSubstring()        Parses hierarchical names separated by '.'
+
+Pdtutil_StrArrayDup()          Duplicates an array of strings
+
+Pdtutil_StrArrayFree()         Frees an array of strings
+
+Pdtutil_StrArrayRead()         Inputs an array of strings
+
+Pdtutil_StrArrayWrite()        Outputs an array of strings
+
+Pdtutil_StrDup()               Duplicates a string
+
+Pdtutil_VariableOrderFormatEnum2String()
+                               Given an Enumerated type Returns a string
+
+Pdtutil_VariableOrderFormatString2Enum()
+                               Given an Enumerated type Returns an Integer
+
+Pdtutil_VerbosityEnum2String() Given an Enumerated type Returns a string
+
+Pdtutil_VerbosityString2Enum() Given a string it Returns an Enumerated type
+                               for the verbosity     type.
+
+**********************************************************************
+
+This package contains a set of <em>utility functions</em>     shared in the
+<b>PdTRAV</b> package.<br>     In this package are contained functions to
+allocate and free memory,     open and close files, deal with strings, read
+and write variable orders,     etc.
+
+void *
+Pdtutil_AllocCheck(
+  void *            pointer
+)
+  The Alloc mecanism is actually implemented this way in PdTRAV. We call
+  Pdtutil_Alloc that it is a macro that basically maps the call on the Alloc
+  function of the Cudd package. To check for a null result we use
+  Pdtutil_AllocCheck.
+
+  Side Effects: none
+
+void
+Pdtutil_ChrPrint(
+  FILE *            fp,              Where to Print
+  char              c,               Which character to Print
+  int               n                How many Times
+)
+  Print on fp the desired number of charaters on a file.
+
+  Side Effects: none
+
+void
+Pdtutil_FileClose(
+  FILE *            fp,              IN: File Pointer
+  int *             flag             IN-OUT: File to be Closed
+)
+  It closes a file if it is not the standard input or output and flag is 1.
+  This flag has to be used with the one returned by Pdtutil_FileOpen: If a
+  file has been opened is closed too.
+
+  Side Effects: none
+
+char *
+Pdtutil_FileName(
+  char *            filename,        file name
+  char *            attribute,       attribute
+  char *            extension,       extension
+  int               overwrite        overwrite the extension if 1
+)
+  Takes a file name, an attribute, an extension, and an overwrite flag. If the
+  name is stdin or stdout return the name as it is. Add the attribute to the
+  name. Add the extension to the name if it doesn't contains an extension
+  already. If there is an extension it substitutes it if overwrite = 1. Create
+  and returns the new name.
+
+  Side Effects: none
+
+FILE *
+Pdtutil_FileOpen(
+  FILE *            fp,              IN: File Pointer
+  char *            filename,        IN: File Name
+  char *            mode,            IN: Open Mode
+  int *             flag             OUT: File Opened (if 1)
+)
+  It receives a file pointer, a file name, and a mode. If the file pointer is
+  not null, the file has been already opened at this pointer is returned. If
+  the filename is "stdin" or "stdout" it considers that as a synonym for
+  standard input/output. Open mode can be "r" for read or "w" for write. In
+  particularly, "rt" open for read a text file and "rb" open for read a binary
+  file; "wt" write a text file and "wb" write a binary file.<BR> Returns a
+  pointer to the file and an integer flag that is 1 if a file has been opened.
+
+  Side Effects: none
+
+int *
+Pdtutil_IntArrayDup(
+  int *             array,           Array of Integers to be Duplicated
+  int               n                size of the array
+)
+  Allocates memory and copies source array
+
+  Side Effects: None
+
+int
+Pdtutil_IntArrayRead(
+  int **            parray,          array of strings (by reference)
+  FILE *            fp               file pointer
+)
+  Allocates memory and inputs source array. Skips anything from '#' to the
+  end-of-line (a comment).
+
+  Side Effects: None
+
+int
+Pdtutil_IntArrayWrite(
+  FILE *            fp,              output file
+  int *             array,           array of ints
+  int               n                size of the array
+)
+  Outputs an array of ints
+
+  Side Effects: None
+
+int
+Pdtutil_OrdRead(
+  char ***          pvarnames,       Varnames Array
+  int **            pvarauxids,      Varauxids Array
+  char *            filename,        File Name
+  FILE *            fp,              File Pointer
+  Pdtutil_VariableO ordFileFormat    File Format
+)
+  Reads the order in the <em>.ord</em> file.
+
+
+int
+Pdtutil_OrdWrite(
+  char **           varnames,        Varnames Array
+  int *             varauxids,       Varauxids Array
+  int *             sortedIds,       Variable Permutations
+  int               nvars,           Number of Variables
+  char *            filename,        File Name
+  FILE *            fp,              File Pointer
+  Pdtutil_VariableO ordFileFormat    File Format
+)
+  Write the order to file, using variable names or auxids (or both of them).
+  Array of sorted ids is used if the sortedIds parameter is not NULL. Produce
+  different slightly different format depending on the format parameter:
+  Pdtutil_VariableOrderPiPs_c only variables names for Primary Input and
+  Present State Variables are stored (one for each row)
+  Pdtutil_VariableOrderPiPsNs_c store previous information + Next State
+  Variables Names Pdtutil_VariableOrderIndex_c store previous information +
+  Variable Auxiliary Index Pdtutil_VariableOrderComment_c store previous
+  information + Comments (row starting for #)
+
+
+void
+Pdtutil_ReadName(
+  char *            extName,
+  int *             nstr,
+  char **           names,
+  int               maxNstr          Maximum number of names
+)
+  parses hierarchical names separated by '.'
+
+  Side Effects: None
+
+void
+Pdtutil_ReadSubstring(
+  char *            stringIn,        String to be parsed
+  char **           stringFirstP,    First Sub-String Pointer
+  char **           stringSecondP    Second Sub-String Pointer
+)
+  It receives a string. It returns two strings: The first one is the content
+  of the original string before the first character "." found in the string.
+  The second one is the remaining part of the string. If the initial string is
+  NULL two NULL pointers are returned. If the initial string doen't contain a
+  sharater '.' the first string is equal to the original one and the second is
+  NULL.
+
+  Side Effects: None
+
+char **
+Pdtutil_StrArrayDup(
+  char **           array,           array of strings to be duplicated
+  int               n                size of the array
+)
+  Allocates memory and copies source array
+
+  Side Effects: None
+
+void
+Pdtutil_StrArrayFree(
+  char **           array,           array of strings
+  int               n                size of the array
+)
+  Frees memory for strings and the array of pointers
+
+  Side Effects: None
+
+int
+Pdtutil_StrArrayRead(
+  char ***          parray,          array of strings (by reference)
+  FILE *            fp               file pointer
+)
+  Allocates memory and inputs source array. Skips anything from '#' to the
+  end-of-line (a comment).
+
+  Side Effects: None
+
+int
+Pdtutil_StrArrayWrite(
+  FILE *            fp,              output file
+  char **           array,           array of strings
+  int               n                size of the array
+)
+  Allocates memory and inputs source array
+
+  Side Effects: None
+
+char *
+Pdtutil_StrDup(
+  char *            str
+)
+  Duplicates a string and returns it.
+
+  Side Effects: none
+
+char *
+Pdtutil_VariableOrderFormatEnum2String(
+  Pdtutil_VariableO enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Pdtutil_VariableOrderFormat_e
+Pdtutil_VariableOrderFormatString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the variable file format method type.
+
+  Side Effects: none
+
+char *
+Pdtutil_VerbosityEnum2String(
+  Pdtutil_VerbLevel enumType
+)
+  Given an Enumerated type Returns a string
+
+  Side Effects: none
+
+Pdtutil_VerbLevel_e
+Pdtutil_VerbosityString2Enum(
+  char *            string           String to Analyze
+)
+  It receives a string; to facilitate the user that string can be an easy-to-
+  remember predefined code or an integer number (interpreted as a string). It
+  returns the verbosity enumerated type. This verbosity mechanism is used all
+  over the PdTRAV package.
+
+  Side Effects: none
+

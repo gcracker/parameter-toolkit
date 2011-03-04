@@ -1,0 +1,723 @@
+.c blif_write
+  Stores an FSM description into a file using the blif format.
+  Each next state and output functions is written as a single
+  PLA.
+.o reduceDelta
+  If this parameter is 1 next state and output funcitions are stored
+  with a single minterm for each of them.
+.p filename
+  The filename containing the decription. 
+  If it is stdout the blif file is printed on standard output.
+
+.c ddm_init
+  It inits the DD manager, settings main features.
+  See also ddm_delete, ddm_dup and ddm_share.
+.o varNum
+  Define the initial number of variables of the BDD manager.
+.o slotNum
+  Define the initial size of the unique table (number of
+  entries).
+.o cacheSize
+  Initial size of the cache (number of entries).
+.o memorySizeMax;
+  It specifies the target maximum memory occupation in bytes.
+.p none
+
+.c ddm_share
+  It copies a DD manager from a source to a destination.
+.o none
+.p source
+  Source for the DD manager.
+.p destination
+  Destination for the DD manager.
+
+.c ddm_dup
+  Duplicate a DD manager.
+.o none
+.p destination
+  It specifies the destination DD manager.
+.p source
+  It specifies the source DD manager.
+
+.c ddm_align
+  Allign a DD manager (destination) to another one (source)
+.o none
+.p destination
+  It specifies the destination DD manager.
+.p source
+  It specifies the source DD manager.
+
+.c ddm_set
+  It controls the cache size and the maximum memory allowed
+  for a certain DD manager.
+.o cacheSize
+  Maximum cache size for the CUDD manager.
+.o memoryMax
+  Maximum memory usable (in Mbytes).
+.p destination
+  Destination Decision Diagram Manager (i.e., ddm, fsm.ddm,
+  tr.ddm, etc.).
+
+.c ddm_dynord
+  It controls (enables, disables, etc.) dynamic variable reordering
+  for a certain DD manager.
+.o method
+  See variable ordering method for the Cudd. Strings (or integer
+  number) are used to specify the method: same (0), none (1),
+  random (2), pivot (3), sift (4), siftCon (5), siftSym (6),
+  siftSymCon (7), win2 (8), win3 (9), win4 (10)10, win2Con (11),
+  win3Con (12), win4Con (13), siftGroup (14), siftGroupCon (15),
+  annealing (16), genetic (17), linear (18),
+  linearCon (19), exact (20).
+.o enable
+  It enables variable reordering.
+  Boolean option: just write --enable, -e to activate it.
+.o disable
+  It disables variable reordering.
+  Boolean option: just write --disable, -d to activate it.
+.o force 
+  It force variable reordering.
+  Boolean option: just write --force, -f to activate it.
+.o threshold
+  Fix the threshold for the next variable reordering.
+.o nextThreshold
+  Next Reordering Threshold.
+.p destination
+  Destination Decision Diagram Manager (i.e., ddm, fsm.ddm,
+  tr.ddm, etc.).
+
+.c ddm_group
+  Notice: This Operation is NOT YET supported.
+  It fixes groups in a DD manager.
+.o none
+.p destination
+.p source
+
+.c ddm_delete
+  It frees the DD manager.
+  See also ddm_init and ddm_dup.
+.o none
+.p manager
+  It specifies the ddm manager to delete (e.g. ddm, fsm.ddm,
+  trav.ddmtr, trav.ddmr, etc).
+  Notice: ddm_init creates the default Decision Diagram Manager,
+  whereas ddm_delete deletes a specific manager.
+
+.c bdd_read
+  Loads a BDD from a BDD file (DDDMP format - see dddmp directory
+  in the Cudd package).
+.o matchmode
+.o array
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.o loadmode 
+.p destination
+  Destination BDD.
+.p source
+  This parameter specifies the filename containing the BDD File
+
+.c bdd_write
+  Stores a BDD to a BDD file (DDDMP format - see dddmp directory
+  in the Cudd package).
+.o format
+  Values: default (0), text (1), binary (2)
+  Defines the BDD format on files. If default the default setting
+  of the FSM manager is used
+.p source
+  It specifies the BDD to store (e.g., fsm.tr, fsm.delta, etc.).
+.p destination
+  It specifies the filename to store a BDD.
+
+.c bdd_not
+  Complements the specified BDD.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p destination 
+  It specifies the source and destination BDD.
+  destination = <NOT> destination
+
+.c bdd_and
+  It takes the logical and between the source and the destination BDD.
+  It assign the result to the destination BDD.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p source
+  It specifies the source BDD.
+.p destination
+  It specifies the destination BDD.
+  The operation done is the following one:
+  destination = destination <AND> source
+
+.c bdd_or
+  It takes the logical or between the source and the destination BDD.
+  It assign the result to the destination BDD.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p source
+  It specifies the source BDD.
+.p destination
+  It specifies the destination BDD.
+  The operation done is the following one:
+  destination = destination <OR> source
+
+.c bdd_cof
+  It takes the cofactor of the first parameter respect to the second
+  one.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p source
+  It specifies the source BDD.
+.p destination
+  It specifies the destination BDD.
+  The operation done is the following one:
+  destination = destination <COF> source
+
+.c bdd_res
+  It takes the restrict cofactor of the first parameter respect
+  to the second one.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p source
+  It specifies the source BDD.
+.p destination
+  It specifies the destination BDD.
+  The operation done is the following one:
+  destination = destination <RES> source
+
+.c bdd_delete
+  Deletes a BDD.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p bdd
+  BDD to delete.
+
+.c bdd_copy
+  It moves a BDD from a source to a destination.
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.p source
+  It specifies the source BDD.
+.p destination
+  It specifies the destination BDD.
+
+.c bdd_denseset
+.o array
+  Notice: This Operation is NOT YET supported on an array.
+  This option specifies that the operation involves array of BDDs.
+  Boolean option: just write --array, -a to activate it.
+.o method
+  One of the following (integer value or string):
+  none (0), SubHeavyBranch (1), SupHeavyBranch (2), SubShortPath (3),
+  SupShortPath (4), UnderApprox (5), OverApprox (6), RemapUnder (7),
+  RemapOver (8), SubCompress (9), SupCompress (10).
+.o threshold
+  Threshold size beyond which take the dense subset.
+.o safe
+  For a certain number of function this parametrer is required: See
+  CUDD for further details. 
+.o quality
+  For a certain number of function this parametrer is required: See
+  CUDD for further details. 
+.o hardlimit
+  For a certain number of function this parametrer is required: See
+  CUDD for further details. 
+.p destination
+  It specifies the source and destination BDD; the operation
+  performed is the following ones:
+  destination = Dense (destination)
+
+.c part_make
+  Partition a BDD in a disjunctive or conjuctive form.
+  It allows the user to use partitioning routines implemented
+  internally or in the CUDD package.
+  A few of them are slightly differently implemented, but are based
+  on the same methodology.
+.o verbosity
+  It specifies the verbosity level for the command.
+  See "set" and "show" commands for detail on the verbosity level.
+.o threshold
+  Threshold value for BDD size (integer value beyoind which
+  partitioning is performed)
+.o method
+  Specifies the routine used to perform partitioning using
+  "internal" function or Cudd ones.
+  Internal: none (0), manual (1), cofactor (2), estimate (3),
+  complex (4), fast (5), free (6), comparison (7).
+  Cudd: cuddAppCon (8), cuddAppDis (9), cuddGenCon (10),
+  cuddGenDis (11), cuddIteCon (12), cuddIteDis (13), cuddVarCon (14),
+  cuddVarDis (15).
+  Notice: Routine free (6) anc comparison (7) are not correctly
+  implemented in the present release.
+.p destination
+  Source and destination BDD to partition:
+  destination = Partition (destination)
+
+.c part_add
+  Add a partition to a disjoined or conjoined BDD.
+.o index
+  Specify the partition position where to store the new partition.
+.o disjunction
+  Boolean option: just write --conjunction, -c to activate it.
+.o conjunction
+  Boolean option: just write --disjunction, -d to activate it.
+.p destination
+  Partitioned BDD where to set the new partition.
+.p source
+  New partition to add to destination.
+
+.c part_read
+  Read a partition from a disjunctive or conjuctive form (source
+  operand) and set it in the destination.
+.o index
+  Specify the partition position to get from the source operand
+  (default value is 0).
+.p destination
+  Obtained partition
+.p source
+  Partitioned BDD from which to get the partition.
+
+.c part_delete
+  Delete a partition from a disjunctive or conjuctive form.
+.o index
+  Specify the partition position to delete.
+.p destination
+  Partitioned BDD from which the partition is deleted
+
+.c fsm_auxvarrm
+  FSM Auxiliary Variable Remove.
+  Remove auxiliary variable from the default FSM structure.
+
+.c fsm_read
+  Loads an FSM description from a file.
+  This command must follow the ddm_init command.
+.o ord
+  This option is followed by a string.
+  If the source file is a blif file (see option blif), and the string
+  is "file" the initial variable order used is the one specified in
+  the blif file.
+  If the source file is a blif file, and the string is "dfs" the initial
+  variable order used is the one obtained by a Deopth First Search.
+  This option can give problems for large circuit.
+  In the other cases, the string specifies a file name containing a
+  variable order used initially.
+.o ordFormat
+  See comment for the same option on the ord_read command.
+.o blif
+  Load the FSM reading a blif file.
+  Boolean option: just write --blif, -f to activate it.
+.o nogroup
+  Avoid forming variable groups during FSM creation.
+.o bdd
+  If the option "blif" is not present the fsm_read command reads the
+  FSM structure froma FSM file.
+  In this case the BDD can be loaded or not.
+  With this option all the BDDs are loaded together with the FSM
+  structure.
+  Boolean option: just write --bdd, -b to activate it.
+.p filename
+  The filename containing the decription. 
+
+.c fsm_retime
+  Retime a FSM for reachability analysis.
+.o removeLatches
+  Remove Input Border Latches (if 1).
+.o retimeEqual
+  Retime also if the number of latches is not reduced.
+
+.c fsm_write
+  Stores an FSM description into a file.
+  This command must follow a fsm_read command to have the FSM
+  manager set.
+.o bdd
+  Store all BDDs in the FSM structure (initial state set, next
+  state and output functions, reached state set, etc.).
+  Boolean option: just write --bdd, -b to activate it.
+.o bddFormat
+  Values (string or integer): default (0), text (1), binary (2).
+  Defines the BDD format on files. If default the default setting of
+  the FSM manager is used.
+.o ordFormat
+  See comment for the same option on the ord_read command.
+
+.c fsm_pmbuild
+  Notice: This Operation is NOT YET supported.
+  Builds the Product Machine given two FSMs. The first FSM (the
+  default one) is pointed by the command manager structure.
+  The second one is read from a FSM or a blif file.
+.o blif
+  Read the second FSM from a blif file.
+  Boolean option: just write --blif, -f to activate it.
+.o bdd
+  Boolean option: just write --bdd, -b to activate it.
+.o ord
+  If the second FSM is read from the file this option specifies the
+  file from which to read the ord file.
+.p filename
+  The destination filename. It allows for "stdout" to print out on
+  standard output.
+
+.c fsm_delete
+  It frees the FSM manager.
+.o none
+.p none
+
+.c ord_read
+  Read a variable order contained into a file.
+  It automatically accepts all the format specified in the ord_write
+  command (see ord_write).
+.o ordFormat
+  Specify the format of the file containing the variable order
+  The following formats are possible:
+    oneRow
+      only variables names for Primary Input (i) and Present State (p)
+      Variables. Each row can contains one or more names.
+    ip
+      previous information but just one for each row.
+    ipn
+      previous information + Next State Variables Names (n)
+    index
+      previous information + Variable Auxiliary Index
+    comment
+      previous information + Comments (row starting for #)
+  Notice that the reading process is anyhow succesfull if the format
+  is any of the previously indicated but the oneRow one (that has to be
+  indicated esplicitely).
+.p source
+  File name containing the variable order.
+.p destination
+  Decision Diagram manager where to set the new variable order (e.g.,
+  ddm, fsm.ddm, tr.ddm, trav.ddmtr, trav.ddmr, etc.).
+
+.c ord_write
+  Write a variable order into a file.
+  Different format are available for compatibility with other packages.
+.o ordFormat
+  See comment for the same option on the ord_read command.
+.p none
+
+.c tr_init
+  Sorts a partitioned or clustered Transition Relation
+  This command must follow the fsm_read command.
+.o build
+  Start from delta and re-build otherwise copy from FSM structure.
+  Boolean option: just write --build, -b to activate it.
+.o file
+  Notice: This Option is NOT YET supported.
+  Read the Transition Relation from a file and take variables from the
+  FSM manager.
+  Boolean option: just write --file, -f to activate it.
+.p none
+
+.c tr_cluster_extract
+  Extracts a Transition Relation Cluster
+  This command must follow the tr_init command.
+.o none
+.p none
+
+.c remove_lambda_latches
+  Removes Lambda Latches as in the ICCAD'96 paper from Cabodi, Camurati
+  and Quer.
+.o none
+.p none
+
+.c tr_cluster
+  Builds a clustered Transition Relation
+.o mono
+  It builds the monolithic Transition Relation
+.o sort
+  Specifies the kind of sorting heuristic for clusters (string or
+  integer value):
+  none (0), default (1), minMax (2), size (3), weight (4), weightDac99.
+.o threshold
+  Specifies the threshold for the sorting heuristic
+.p none
+
+.c tr_partition
+  Partitions the Transition Relation.
+.o none
+.p none
+
+.c tr_closure
+  Computes the transitive closure.
+.o linear
+.o iter
+.o squaring
+.p none
+
+.c tr_delete
+  It frees the TR manager.
+  See the tr_init command.
+.o none
+.p none
+
+.c trav_init
+  Initializes the traversal manager. This command is mandatory before
+  issuing a traversal command (see traverse)
+  This command must follow the tr_init command.
+.o tr
+  Read the transition relation from file
+.o reached
+  Read the reachable state set from file
+.o from
+  Read the from state set from file
+.o backward
+  Set the transition relation to perform a backward reachability
+  analysis.
+  Notice: This option is not working in the present version.
+.p none
+
+.c trav_delete
+  It frees the TRAV manager.
+.o none
+.p none
+
+.c traverse 
+  Executes a Reachability Analysis of the FSM. 
+  This command must follow the trav_init command.
+.o verbosity
+  Set the current verbosity level.
+  If the level is "same" the level is not set and the default one is
+  unchanged.
+.o logPeriod
+  Set the number of traversal images after which the fixed verbosity
+  level is used (otherwise the verbodity level is fixed to "none" and
+  no print out is done).
+.o fromSelect
+  It indicates how to choose the From set for the next reachability
+  analysis iteration.
+  Possible value (string or integfer) are:
+  new (0), reached (1), to (2), cofactor (3), restrict (4), best (5).
+.o depth
+  It indicates the number of steps to perform.
+.o partMethod
+  It specifies the partition method to use during traversal (see the
+  part_make command).
+.o partThreshold
+  It specifies the threshold to partition the From set.
+.o auxMgr
+  It enables the use of an auxiliary-temporary manager inside the
+  traversal provedure.
+.p none
+
+.c simulate
+  Executes a Simbolic Symulation of the FSM.
+  This command must follow the trav_init command (for further details
+  see the traverse command).
+.o simFlag
+  Select different simulation engines:
+  0 - print output with time flying along y direction (KISS format)
+  1 - print output with time flying along x direction - bit format
+  2 - print output with time flying along x direction - print waveforms
+  3 - use DAC'99 algorithm ...
+.o depth
+  Specify the number of simulation iteration after which ending the program
+  (the program iterates till the depth parameter is reach).
+  -1 indicates go on with iteration for ever or till the deadEnd parameter
+  is reached.
+.o deadEnd
+  Specify the number of dead ends after which ending the program
+  (the program iterates till the depth or deadEnd parameter is reach).
+  -1 indicates go on with iteration for ever or till the depth parameter
+  is reached.
+.o depthBreadth
+  Used with simulaWithDac99: If 0 use a depth first search,
+  if 1 a breadth first.
+.o random
+  Used with simulaWithDac99: If 0 keep track of pi-ps already given, if 1
+  use only random values.
+.o logPeriod
+  Set the number of traversal images after which the fixed verbosity
+  level is used (otherwise the verbodity level is fixed to "none" and
+  no print out is done).
+.o verbosity
+  Verbosity level.
+.o init
+  Init state for the Bove format.
+.o pattern
+  Input pattern file or "random" if random patterns has to be created.
+.o result
+  Result file (or standard output).
+.p none
+
+.c help
+  On-line Help.
+.o verbosity
+  If >=usrMin (2) makes Help give more details.
+  See "set" and "show" commands for detail on the verbosity level.
+.p command
+  Command about which informations are required.
+
+.c source
+  Loads a script containing PdTrav commands (it reads command from the
+  script files instead that from standard input).
+  An alternative to this command is:
+    @scriptfile
+.o none
+.p scriptfile
+  Script filename (usually a file with a "cmd" extension).
+
+.c set
+  Sets the global parameter specified as option.
+.p global_param
+  Indicates the name of the "field" to set.
+
+  Each name can be specified as a sequence of field separated by the
+  character `.`.
+  Possible names are the following:
+    helpName: to set the help file name. 
+    fsm, trav, tr: one field parameter names.
+      They indicate the main managers
+    fsm.ddm, fsm.reached, trav.reached, ...: two field parameters name.
+      They indicates the field inside the manager structure.
+      For example trav.ddmr specifies the DD manager inside the TRAV
+      manager dedicated to the reachable state set, whereas trav.ddmtr
+      indicates the DD manager inside the TRAV manager dedicated to the
+      transition relation.
+    fsm.reached.ddm, ...: three field parameter names.
+      Notice that fsm.reached.ddm may indicate (implicitly) trav.ddmr or
+      trav.ddmtr.
+
+  The following options are possible.
+
+  helpName <newValue>
+    Set the help file name.
+    <newValue> is the (path more) file name to use to print out the on-line
+    help.
+    The default value is cmdHelp.txt.
+    To have an on-line help there are two main options: using this command
+    to refer to the right directory/file (pdtrav-1.2/cmd/cmdHelp.txt),
+    or make a symbolic link to that file.
+
+  tr.verbosity <newValue>
+    Set the Transition Relation Manager the verbosity level.
+    The possible verbosity levels are the following: same (0), none (1),
+    usrMin (2), usrMed (3), usrMax (4), appMin (5), appMed (6),
+    appMax (7), devMin (8), devMed (9), devMax (10).
+
+  tr.sortWeights <newValue>
+    Specify weights for the clustering method (w1/w2/w3/w4).
+
+  tr.clusTh <newValue>
+    Method to perform clustering.
+
+  trav.verbosity <newValue>
+    Equivalent to the tr.verbosity setting, but for the traversal
+    manager.
+
+  trav.logPeriod <newValue>
+    Print information at every <newValue> steps of the reachability
+    computation.
+    The default value is 1.
+
+  trav.savePeriod <newValue>
+    Store the set of the from states, reached states, and variable order
+    at each <newValue> step of reachability.
+    The defaul value is -1, i.e., no file are saved.
+    If no savePeriodName is used file are automatically stored with the
+    following names: from-l<n>.bdd, reached-l<n>.bdd, ord-l<n>.bdd,
+    where <n> is the traversal level.
+
+  trav.savePeriodName  <newValue>
+    If the savePeriod has been set, this option specifies the file name
+    to use to store files.
+    The following names are used: <newValue>from-l<n>.bdd,
+    <newValue>reached-l<n>.bdd, <newValue>ord-l<n>.bdd,
+    where <n> is the traversal level.
+  
+  trav.maxIter <newValue>
+    Maximum number of iteration of reachability analysis.
+    See option depth in the traverse command.
+  
+  trav.imgMethod <newValue>
+    It specifies the image computation method used.
+    Possible values: same (0), none (1), monolithic (2), iwls (3), approx (4).
+
+  trav.ImgCofactor <newValue>
+
+  trav.FromSelect <newValue>
+    It specifies how to set the new state set for the next traversal
+    iteration.
+    Possible values are: new (0), reached (1), to (2), cofactor (3),
+    restrict (4), best (5), same (6).
+
+  trav.partTrFrom <newValue>
+
+  trav.partThTR <newValue>
+
+  trav.trProfileDynamicEnable <newValue>
+    Enable Activity Profile in a Dynamic Way
+
+  trav.trProfileThreshold <newValue>
+
+  trav.trProfileMethod <newValue>
+
+.p newValue
+  New value as previously indicated.
+
+.c show
+  Shows the global parameter and its current value
+.o none
+.p cmd_param
+  If not specified, show lists the global parameters of each
+  manager successfully initialized and 
+  of all non-empty bdd register names.
+  See "set" command for how to specify a parameter.
+
+.c stats
+  Print statistics about various things. For example, it can display
+  the size and density opf a BDD or generic information on the FSM
+  (number of variables, etc.)
+.o none
+.p topic
+  Object on which printing information.
+  When topic is fsm.tr, bear in mind that tr_init creates the
+  transition relation and stores it in the TR manager.
+  That's why you should first copy it to the FSM manager in order
+  to make "stats fsm.tr" give you any information.
+
+.c devel
+  Ghost command for developing use in order to test new commands.
+.o none
+.p none
+
+.c quit
+  Quits the PdTrav program.
+.o none
+.p none
+
+.c profile
+  To deal with "activity profile" as in the DAC'99 paper from
+  Cabodi, Camurati, Quer.
+.o dac99
+  To use the heuristic as propose in the original DAC'99 paper.
+.o heuristic
+  Heuristic number: rec (0), recShr (1), normSize (2), size (3),
+  normSizeLight (4), normSizeHeavy (5), sizeLight (6), sizeHeavy (7),
+  sizeLightNoRecur (8), sizeHeavyNoRecur (9), none (10).
+.o threshold
+  Threshold use to prune the transition relation branches whose
+  cost is higher.
+.p action
+  Three possible value: create, print, prune, to create the profile,
+  print it on stdout, prune the transition relation using it.
+
+.c !
+  It allows to execute a shell command.
+.o none
+.p shell_command
+  Type the shell command plainly.
+  This parameter can follow ! without spaces.

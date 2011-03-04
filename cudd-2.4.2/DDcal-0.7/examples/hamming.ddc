@@ -1,0 +1,50 @@
+# Dummy: used to force the variable order.
+A = x1*x2*x3*y1*y2*y3*z1*z2*z3
+
+# Exors for x and y.
+xy1 = x1 ^ y1
+xy2 = x2 ^ y2
+xy3 = x3 ^ y3
+
+# Hamming distance of x and y.
+hxy1 = xy1 ^ xy2 ^ xy3
+hxy2 = xy1*xy2 + xy1*xy3 + xy2*xy3
+
+# Exors for x and z.
+xz1 = x1 ^ z1
+xz2 = x2 ^ z2
+xz3 = x3 ^ z3
+
+# Hamming distance of x and z.
+hxz1 = xz1 ^ xz2 ^ xz3
+hxz2 = xz1*xz2 + xz1*xz3 + xz2*xz3
+
+# Comparator.
+
+# Cell 1.
+gt1 = hxy2 * hxz2'
+lt1 = hxy2' * hxz2
+
+# Cell 0.
+agtb0 = hxy1 * hxz1' * lt1'
+gt0   = gt1 + agtb0
+
+YnftZ = gt0'
+
+# The graph.
+Exy = x1' * x2' * x3' * y1' * y2 + \
+      x1' * x2' * x3 * (y1 * y2'+y1' * y2) * y3' + \
+      x1' * x2 * x3' * y1' * y3 + \
+      x1' * x2 * x3 * y1' * y2' * y3 + \
+      x1 * x2' * x3' * (y1 * y3'+y1' * y3) * y2 + \
+      x1 * x2 * x3' * y2 * y3 + \
+      x1 * x2 * x3 * (y2' * y3'+y2 * y3)
+
+# Swap y and z in E.
+Exz = (Exy * (y1==z1) * (y2==z2) * (y3==z3)) ? (y1 * y2 * y3)
+
+# Compute the reduced graph.
+Hxy = Exy * ((Exz' + YnftZ) ! (z1 * z2 * z3))
+
+# Visualize result.
+[Hxy]

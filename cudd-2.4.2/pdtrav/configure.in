@@ -1,0 +1,312 @@
+dnl	Run autoconf on this file to produce the system configuration
+dnl	script "configure"
+
+AC_PREREQ(2.13)
+
+AC_INIT(src/ddi/ddi.h)
+
+AC_CONFIG_AUX_DIR(helpers)
+
+#----------------------------------------------------------------------
+# Configuration options
+#----------------------------------------------------------------------
+
+AC_CHECKING(configure options)
+
+AC_MSG_CHECKING([whether to debug])
+AC_ARG_ENABLE(debug,
+  [  --enable-debug          enable all debug options
+                          default: disabled],
+  [debug_ok=$enableval], [debug_ok=no])
+
+if test "$debug_ok" = "yes"; then
+  AC_MSG_RESULT(yes)
+  AC_DEFINE(DD_DEBUG)
+  AC_DEFINE(DD_VERBOSE) 
+  AC_DEFINE(DD_STATS)
+  AC_DEFINE(DD_CACHE_PROFILE)
+  AC_DEFINE(DD_UNIQUE_PROFILE)
+  AC_DEFINE(DD_COUNT)
+else
+  AC_MSG_RESULT(no)
+fi
+
+#AC_MSG_CHECKING([whether to use readline library])
+#
+#AC_ARG_WITH(readline,
+#  [  --with-readline         support fancy command line editing
+#                          default: with],
+#  [readline_support=$withval], [readline_support=yes])
+#
+#if test "$readline_support" = "yes"; then
+#  AC_MSG_RESULT(yes)
+#else
+#  AC_MSG_RESULT(no)
+#fi
+
+#----------------------------------------------------------------------
+# Configuration options
+#----------------------------------------------------------------------
+
+# Give the configurer a chance to set the location of the CUDD tree
+
+AC_MSG_CHECKING([for CUDD directory])
+AC_SUBST(cudd_dir)
+AC_ARG_WITH(cudd-dir,
+[  --with-cudd-dir=<cudd_dir> Specify directories to search for CUDD.
+                          Expects to find <cudd_dir>/cudd/libcudd.a],
+[cudd_dir=$withval], [cudd_dir=../cudd-2.3.0])
+AC_MSG_RESULT([$cudd_dir])
+
+# Give the configurer a chance to set a different location for the PdTrav
+# source.  
+
+AC_MSG_CHECKING([for mainPdTrav directory])
+AC_SUBST(pdtrav_dir)
+AC_ARG_WITH(pdtrav-dir,
+[  --with-pdtrav-dir=<pdtrav_dir> Specify the root directory to search for
+                          pdtrav directories.
+			  Expects to find, e.g., <pdtrav_dir>/src],
+[pdtrav_dir=$withval],
+[pdtrav_dir=.])
+AC_MSG_RESULT([$pdtrav_dir])
+
+
+AC_MSG_CHECKING([for extdoc and extproto directory])
+AC_SUBST(ext_dir)
+AC_ARG_WITH(ext-dir,
+[  --with-ext-dir=<dir>    specify directories to search for the Ext package
+                          a relative path must be provided],
+[ext_dir=$withval], [ext_dir=""])
+AC_MSG_RESULT([$ext_dir])
+
+AC_MSG_CHECKING([whether to build])
+AC_ARG_ENABLE(build,
+  [  --enable-build          execute "make" at the end of probing
+                          default: disabled],
+  [build_ok=$enableval], [build_ok=no])
+if test "$build_ok" = "yes"; then
+  AC_MSG_RESULT(yes)
+else
+  AC_MSG_RESULT(no)
+fi
+
+AC_SUBST(ICFLAGS)
+AC_ARG_WITH(ic_flags,
+[],
+[ICFLAGS=$withval],
+[ICFLAGS="-g"])
+
+AC_SUBST(XCFLAGS)
+AC_ARG_WITH(xc_flags,
+[],
+[XCFLAGS=$withval],
+[XCFLAGS=""])
+
+AC_SUBST(MTRDEBUG)
+AC_ARG_WITH(mtr_debug,
+[],
+[MTRDEBUG=$withval],
+[MTRDEBUG=""])
+
+AC_SUBST(MFLAG)
+AC_ARG_WITH(m_flag,
+[],
+[MFLAG=$withval],
+[MFLAG=""])
+
+#----------------------------------------------------------------------
+# Checks for programs we need
+#----------------------------------------------------------------------
+
+AC_PROG_AWK
+
+AC_PROG_INSTALL
+
+AC_CHECKING(for programs)
+
+AC_PATH_PROG(AR, ar, ar)
+
+AC_PROG_RANLIB
+
+AC_PROG_LN_S
+
+AC_CANONICAL_SYSTEM
+AC_SUBST(target)
+
+# Determine the name of the C compiler we're going to use
+
+case "$target" in
+  *-pc-cygwin*)
+	CC=gcc ;;
+  alpha-*-*)
+	CC=cc ;;
+  *-*-linux*)
+	CC=gcc ;;
+  *)
+	CC=cc ;;
+esac
+
+AC_PROG_CC
+
+AC_SUBST(LINKER)
+
+LINKER="$CC"
+ 
+AC_EXEEXT
+
+# Determine the compiler flags to use and other system-dependent flags
+
+
+AC_SUBST(symbolic_link_switch)
+symbolic_link_switch="-h"
+
+
+AC_PROG_LEX
+AC_MSG_CHECKING(if $LEX accepts the -o and -P options)
+
+AC_CACHE_VAL(ac_cv_flex_accepts_op,
+[ ac_cv_flex_accepts_op=yes ;
+echo "%%\
+%%" | $LEX -Ptest -o/dev/null >/dev/null 2>&1 || ac_cv_flex_accepts_op=no ])
+if test $ac_cv_flex_accepts_op = yes ; then
+  AC_MSG_RESULT(yes)
+else
+  AC_MSG_RESULT(no)
+  AC_MSG_WARN([You either need a newer version of flex, or need to modify
+the defintion of LEX in the Makefile to point to a version that does
+accept -p -t and -o.])
+fi
+ 
+AC_PROG_YACC
+AC_MSG_CHECKING([if $YACC accepts the -p, -t, and -o options])
+AC_CACHE_VAL(ac_cv_yacc_accepts_pto,
+[ ac_cv_yacc_accepts_pto=yes ;
+echo "%token terminal\
+%%\
+nonterminal: terminal\
+%%" > config.in
+$YACC -ptest -o /dev/null config.in >/dev/null 2>&1 || ac_cv_yacc_accepts_pto=no
+rm -f config.in ])
+if test $ac_cv_yacc_accepts_pto = yes ; then
+  AC_MSG_RESULT(yes)
+else
+  AC_MSG_RESULT(no)
+  AC_MSG_WARN([You either need a newer version of bison, or need to modify
+the defintion of YACC in the Makefile to point to a version that does
+accept -p -t and -o.])
+fi
+ 
+case "$target" in
+
+  *-pc-cygwin*)
+	#XCFLAGS="-DHAVE_IEEE_754 -DHAVE_GETRLIMIT=0 -DDD_STATS -DUNIX100"
+	AC_DEFINE(HAVE_GETRLIMIT,0)
+	AC_DEFINE(DD_STATS)
+	AC_DEFINE(UNIX100)
+	LINTFLAGS="-u -n"
+	# this is to create the lint library
+	LINTSWITCH="-o" 
+        ;;
+
+  *-*-linux*)
+	#XCFLAGS = -DHAVE_IEEE_754 -DBSD  -DDD_STATS -DDDMP_DEBUG 
+	#XCFLAGS = -DHAVE_IEEE_754 -DBSD  -DDD_STATS
+	#XCFLAGS="-DHAVE_IEEE_754 -DDD_STATS"
+	AC_DEFINE(DD_STATS)
+	AC_DEFINE(HAVE_IEEE_754)
+	AC_DEFINE(BSD)
+	LINTFLAGS="-u -n"
+	# this is to create the lint library
+	LINTSWITCH="-o"
+	# This may be necessary under some old versions of Linux.
+	#LDFLAGS="-static"
+        ;;
+
+
+  *-*-solaris*)
+	#XCFLAGS = -DHAVE_IEEE_754 -DUNIX100
+	#XCFLAGS = -DHAVE_IEEE_754 -DUNIX100 -xO4 -dalign
+	#XCFLAGS = -DHAVE_IEEE_754 -DBSD -xO5 -native -dalign
+	#XCFLAGS = -DHAVE_IEEE_754 -DBSD -xO4 -dalign
+	#XCFLAGS="-DHAVE_IEEE_754 -DUNIX100 -xO5 -native -dalign"
+	XCFLAGS="-xO5 -native -dalign"
+	AC_DEFINE(UNIX100)        
+	;;
+
+  
+  alpha-*-*)
+	#MFLAG="-DMNEMOSYNE"
+	#AC_DEFINE(MNEMOSYNE)
+	ICFLAGS="$ICFLAGS -O6"
+	#XCFLAGS="-DBSD -std -DHAVE_IEEE_754 -ieee_with_no_inexact -tune host -xtaso -DSIZEOF_LONG=8 -DDD_STATS -DDD_NOIDIV"
+	XCFLAGS="-std -ieee_with_no_inexact -tune host -xtaso"
+	AC_DEFINE(HAVE_IEEE_754)
+	AC_DEFINE(BSD)
+	AC_CHECK_SIZEOF(long,8)
+	AC_DEFINE(DD_STATS)
+	AC_DEFINE(DD_NOIDIV)
+	;;
+
+
+     *)
+	# Other systems:
+	;;
+
+esac
+
+CFLAGS="$ICFLAGS $MFLAG $XCFLAGS"
+
+
+
+
+#----------------------------------------------------------------------
+# Checks for headers and libraries
+#----------------------------------------------------------------------
+
+dnl Checks for libraries.
+AC_CHECKING(for libraries)
+
+dnl Replace `main' with a function in -lm:
+AC_CHECK_LIB(m, main)
+
+dnl Cheks for add_history in the readline library
+dnl If everything's ok, adds -lreadline to LIBS 
+dnl and defines HAVE_LIBREADLINE
+if test "$readline_support" = "yes"; then
+  AC_CHECK_LIB(readline, add_history)
+fi
+
+dnl Checks for header files.
+AC_CHECKING(for header files)
+
+AC_HEADER_STDC
+
+if test "$readline_support" = "yes"; then
+
+  if test $ac_cv_lib_readline=yes; then
+    dnl Looks for readline.h
+    AC_MSG_CHECKING([for readline/readline.h])
+    AC_TRY_CPP([#include <readline/readline.h>], [AC_MSG_RESULT(found)
+      AC_DEFINE(HAVE_READLINE_READLINE_H)], AC_MSG_RESULT(missing))
+    dnl Looks for history.h
+    AC_MSG_CHECKING([for readline/history.h])
+    AC_TRY_CPP([#include <readline/history.h>], [AC_MSG_RESULT(found)
+      AC_DEFINE(HAVE_READLINE_HISTORY_H)], AC_MSG_RESULT(missing))
+  fi
+
+fi
+
+AC_CHECKING(other characteristics)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+dnl Checks for library functions.
+AC_CHECK_FUNCS(strstr)
+
+
+#----------------------------------------------------------------------
+# Create the Makefile from Makefile.in
+#----------------------------------------------------------------------
+AC_OUTPUT(Makefile)

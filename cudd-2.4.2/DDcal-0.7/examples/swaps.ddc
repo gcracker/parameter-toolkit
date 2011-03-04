@@ -1,0 +1,8 @@
+F = x+y*z
+G = y+z
+H = x+z
+W = x^y
+Fc = F / y <- W
+Gc = G / y <- W
+Hc = H / y <- W
+[F G H]

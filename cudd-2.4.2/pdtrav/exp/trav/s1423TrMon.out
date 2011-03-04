@@ -1,0 +1,275 @@
+# Running Date: Thu Jun 17 00:27:36 CEST 1999
+# HostName: localhost.localdomain
+# Command: ../bin/pdtrav 
+# PdTrav Version: 1.2
+# DD Version: Cudd-2.3.0
+Cmd Manager Init ... Done
+Reading Commands File stdin
+PdTrav> #
+@stdin: #
+PdTrav> # PdTRAV-1.2 package
+@stdin: #
+PdTrav> # Revision: Version 1.2 June 01, 1999
+@stdin: #
+PdTrav> # Authors: Gianpiero Cabodi and Stefano Quer
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # Script file for computing the reachable states at level
+@stdin: #
+PdTrav> # 10 levels of circuit s1423.
+@stdin: #
+PdTrav> # It uses a variable order optimized for representing the
+@stdin: #
+PdTrav> # transition relation in a monolithic form.
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> # Usage: run pdtrav, then on the pdtrav prompt type
+@stdin: #
+PdTrav> # @s1423TrMon.cmd
+@stdin: #
+PdTrav> # or
+@stdin: #
+PdTrav> # source s1423TrMon.cmd
+@stdin: #
+PdTrav> #
+@stdin: #
+PdTrav> ### Script starts here #################################################
+@stdin: #
+PdTrav> 
+PdTrav>   # Initialize Decision Diagram Manager
+@stdin: #
+PdTrav> 
+PdTrav> ddm_init
+@stdin: ddm_init
+Dd Manager Init ... Done
+PdTrav> 
+PdTrav>   # Read blif file and create BDD for deltas and lambdas function
+@stdin: #
+PdTrav>   # using the variable order contained in s1423TrMon.ord
+@stdin: #
+PdTrav> 
+PdTrav> fsm_read --blif --ord s1423TrMon.ord s1423.blif
+@stdin: fsm_read --blif --ord s1423TrMon.ord s1423.blif
+2975 non-zero DD reference counts after building DDs
+FSM Manager Init ... Done
+FSM Loading ...
+Done
+PdTrav> tr_init --build
+@stdin: tr_init --build
+Transition Relation Manager Init ... Done
+PdTrav> tr_cluster --sort weight --threshold 2000
+@stdin: tr_cluster --sort weight --threshold 2000
+PdTrav> tr_cluster --mono
+@stdin: tr_cluster --mono
+PdTrav> 
+PdTrav>   # Get statistics on Transition Relation Manager
+@stdin: #
+PdTrav> 
+PdTrav> stats tr
+@stdin: stats tr
+Transition Relation Manager Name tr
+Total CPU Time: 1.42 sec
+PdTrav> 
+PdTrav>   # Get statistics on Transition Relation
+@stdin: #
+PdTrav> 
+PdTrav> stats tr.tr
+@stdin: stats tr.tr
+Monolitic BDD
+Size:    45921
+Density: 9.342e+19
+PdTrav> 
+PdTrav>   # Initialize Traversal Manager
+@stdin: #
+PdTrav> 
+PdTrav> trav_init
+@stdin: trav_init
+Traversal Manager Init ... Done
+PdTrav> 
+PdTrav>   # Enable two managers during traversal
+@stdin: #
+PdTrav> 
+PdTrav> #ddm_dup trav.reached trav
+@stdin: #
+PdTrav> 
+PdTrav>   # To read in a different variable order for the second manager
+@stdin: #
+PdTrav> 
+PdTrav> #ord_read trav.reached s1423Trav.ord
+@stdin: #
+PdTrav> 
+PdTrav>   # To enable dynamic variable reordering for the two managers
+@stdin: #
+PdTrav> 
+PdTrav> #ddm_dynord --enable --method sift trav
+@stdin: #
+PdTrav> #ddm_dynord --enable --method sift trav.reached
+@stdin: #
+PdTrav> 
+PdTrav>   # Traverse first 10 level of s1423
+@stdin: #
+PdTrav> 
+PdTrav> traverse --depth 10
+@stdin: traverse --depth 10
+TravLevel 1: [|Tr|: 45921] [|From|: 75]
+
+[|To|: 142](Time: 0.05 sec)
+[|Reached|: 197][#ReachedStates: 545]
+Memory: 8938 Kbytes; Unique Table: 272968 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 2: [|Tr|: 45921] [|From|: 142]
+
+[|To|: 278](Time: 0.10 sec)
+[|Reached|: 351][#ReachedStates: 3345]
+Memory: 8938 Kbytes; Unique Table: 273866 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 3: [|Tr|: 45921] [|From|: 278]
+
+[|To|: 559](Time: 0.16 sec)
+[|Reached|: 684][#ReachedStates: 55569]
+Memory: 8970 Kbytes; Unique Table: 275782 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 4: [|Tr|: 45921] [|From|: 556]
+
+[|To|: 1228](Time: 0.24 sec)
+[|Reached|: 1397][#ReachedStates: 392225]
+Memory: 9036 Kbytes; Unique Table: 279878 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 5: [|Tr|: 45921] [|From|: 1275]
+
+[|To|: 3168](Time: 0.36 sec)
+[|Reached|: 3316][#ReachedStates: 2.08012e+06]
+Memory: 9223 Kbytes; Unique Table: 290904 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 6: [|Tr|: 45921] [|From|: 3152]
+
+[|To|: 7496](Time: 0.58 sec)
+[|Reached|: 7763][#ReachedStates: 8.49328e+06]
+Memory: 9705 Kbytes; Unique Table: 318674 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 7: [|Tr|: 45921] [|From|: 7425]
+
+[|To|: 20671](Time: 1.05 sec)
+[|Reached|: 20584][#ReachedStates: 3.36986e+07]
+Memory: 10925 Kbytes; Unique Table: 393434 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 8: [|Tr|: 45921] [|From|: 20187]
+
+[|To|: 53129](Time: 2.25 sec)
+[|Reached|: 53751][#ReachedStates: 1.111e+08]
+Memory: 14245 Kbytes; Unique Table: 129308 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 9: [|Tr|: 45921] [|From|: 51186]
+
+[|To|: 177023](Time: 7.19 sec)
+[|Reached|: 174189][#ReachedStates: 4.89606e+08]
+Memory: 14885 Kbytes; Unique Table: 289435 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+TravLevel 10: [|Tr|: 45921] [|From|: 167518]
+
+[|To|: 521425](Time: 24.50 sec)
+[|Reached|: 514491][#ReachedStates: 1.68288e+09]
+Memory: 27810 Kbytes; Unique Table: 762231 nodes; DDI-DD Num: 745;
+Cache: 262144 slots
+**************************************************
+Reachability Analysis Results Summary:
+Traversal depth       : 10
+# REACHED size        : 514491
+# REACHED states      : 1.68288e+09
+Max. Internal Product : 0
+CPU Time              : 28.67 sec
+**************************************************
+PdTrav>  
+PdTrav>   # Other solutions:
+@stdin: #
+PdTrav>   # use an auxiliary Decision Diagram Manager inside (--auxMgr)
+@stdin: #
+PdTrav>   # use partitioning (fast heuristic, 10000 node threshold)
+@stdin: #
+PdTrav> 
+PdTrav> #traverse --auxMgr --depth 10
+@stdin: #
+PdTrav> #traverse --partMethod fast --partThreshold 30000 --depth 10
+@stdin: #
+PdTrav> #traverse --auxMgr --partMethod fast --partThreshold 30000 --depth 10
+@stdin: #
+PdTrav> 
+PdTrav>   # Print statistic on the Decision Diagram Manager
+@stdin: #
+PdTrav> 
+PdTrav> stats ddm
+@stdin: stats ddm
+**************************************************
+Decision Diagram Statistics Summary:
+**** CUDD modifiable parameters ****
+Hard limit for cache size: 349525
+Cache hit threshold for resizing: 30%
+Garbage collection enabled: yes
+Limit for fast unique table growth: 209715
+Maximum number of variables sifted per reordering: 1000
+Maximum number of variable swaps per reordering: 2000000
+Maximum growth while sifting a variable: 1.2
+Dynamic reordering of BDDs enabled: no
+Default BDD reordering method: 4
+Dynamic reordering of ZDDs enabled: no
+Default ZDD reordering method: 4
+Realignment of ZDDs to BDDs enabled: no
+Realignment of BDDs to ZDDs enabled: no
+Dead nodes counted in triggering reordering: no
+Group checking criterion: 7
+Recombination threshold: 0
+Symmetry violation threshold: 0
+Arc violation threshold: 0
+GA population size: 0
+Number of crossovers for GA: 0
+**** CUDD non-modifiable parameters ****
+Memory in use: 28477648
+Peak number of nodes: 1342908
+Peak number of live nodes: 1281678
+Number of BDD variables: 165
+Number of ZDD variables: 0
+Number of cache entries: 262144
+Number of cache look-ups: 9554903
+Number of cache hits: 2750608
+Number of cache insertions: 6863960
+Number of cache collisions: 5686601
+Number of cache deletions: 1067810
+Cache used slots = 100.00% (expected 100.00%)
+Soft limit for cache size: 349525
+Number of buckets in unique table: 661504
+Used buckets in unique table: 52.41% (expected 52.36%)
+Number of BDD and ADD nodes: 764816
+Number of ZDD nodes: 0
+Number of dead BDD and ADD nodes: 12480
+Number of dead ZDD nodes: 0
+Total number of nodes allocated: 3306014
+Total number of nodes reclaimed: 1076411
+Nodes freed: 2541198
+Nodes dropped: 3586521
+Garbage collections so far: 13
+Time for garbage collection: 5.37 sec
+Reorderings so far: 0
+Time for reordering: 0.00 sec
+Next reordering threshold: 4004
+**************************************************
+PdTrav> 
+PdTrav>   # Try to optimize with reordering the final reached size (twice)
+@stdin: #
+PdTrav>   # and write final variable order on file
+@stdin: #
+PdTrav> 
+PdTrav> #ddm_dynord --force --method sift trav.reached
+@stdin: #
+PdTrav> #ddm_dynord --force --method sift trav.reached
+@stdin: #
+PdTrav> #ord_write s1423r10.ord trav.reached
+@stdin: #
+PdTrav> 
+PdTrav>   # End the program
+@stdin: #
+PdTrav> 
+PdTrav> quit
+@stdin: quit
+PdTrav end!

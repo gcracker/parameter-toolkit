@@ -1,0 +1,3 @@
+The HOOPS package is not included in this distribution due to licensing restrictions.  However, you can download the HOOPS source code at www.techsoft3d.com.
+
+A longer term solution is to replace HOOPS with QT or GTK.  The HOOPS libraries only provide ParaMeter's chrome and mouse movement operations.  Replacing HOOPS should be straight forward.  If you are able to produce a replacement solution, that has open source licensing terms, please submit your code.

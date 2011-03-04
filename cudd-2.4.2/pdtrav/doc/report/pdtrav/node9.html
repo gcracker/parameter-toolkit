@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Operators</TITLE>
+<META NAME="description" CONTENT="Operators">
+<META NAME="keywords" CONTENT="pdtrav">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pdtrav.css">
+
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node7.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html151"
+ HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html147"
+ HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html143"
+ HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html149"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html152"
+ HREF="node10.html">FSM</A>
+<B> Up:</B> <A NAME="tex2html148"
+ HREF="node7.html">The DDI package</A>
+<B> Previous:</B> <A NAME="tex2html144"
+ HREF="node8.html">Basic Data Structures</A>
+ &nbsp <B>  <A NAME="tex2html150"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00042200000000000000">
+Operators</A>
+</H3>
+
+<P>
+An operation may either generate a new result DDI node, or modify an
+existing one, following the accumulator operation style. 
+Most operations returning scalar data are provided with
+both options. They gerate a new DDI node (e.g. c = Ddi_BddAnd(a,b)), 
+or they accumulate (e.g. Ddi_BddAndAcc(a,b))
+the result in the first operand, after freeing old data). Conversely,
+operations on array data always modify an existing DDI node (explicit
+calls to proper ``Alloc'' or ``Dup'' functions are required to generate
+new arrays). Going to operand data, whenever an operation requires 
+data transfer to a destination DDI node, two options are available:
+<EM> copying</EM> or <EM> moving</EM>. In the former case, data are duplicated
+(new DDI nodes are generated and CUDD nodes implicitly referenced), in
+the latter one pointers (partitions, sub-expressions, new array
+entries) are copied and actually moved to a new owner DDI node.
+
+<P>
+ 
+<I> Make</I> is used in names to enforce creation (allocation) of new
+data (e.g. <I> Ddi_BddMakeMono</I> creates a monolitic BDD from a non
+monolitic one), <I> Set </I> is used to specify data transformation
+directly one the parameter (e.g. <I> Ddi_BddSetMono</I> transforms a non 
+monolitic BDD to monolitic). 
+
+<P>
+Manipulations on non scalar objects
+(e.g. arrays and partitioned BDDs) support both <EM> insert/extract</EM>
+and <EM> read/write</EM> operations. <I> Insert</I> always creates a new
+array slot (or partition), <I> Extract</I> removes the returned slot
+(partition), <I> Write</I> overwrites (and frees) an existing array slot
+(partition). <I> Insert</I> and <I> Write</I> always generate a duplicate
+of the manipulated object (so that the received parameter is still
+owned by the calling procedure), <I> Extract</I> and <I> Read</I> make no 
+duplicate of the returned object (but the result of <I> Extract</I> is
+owned by the calling procedure after removal from array or partitioned BDD).
+
+<P>
+The following operators are presently supported:
+
+<P>
+
+<UL>
+<LI><P>
+DDI-CUDD conversions. Functions performing conversions between
+different types are named 
+<!-- MATH
+ $Ddi\_<type>MakeFromCU$
+ -->
+<IMG
+ WIDTH="238" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.gif"
+ ALT="$Ddi\_&lt;type&gt;MakeFromCU$"> and 
+<!-- MATH
+ $Ddi\_<type>ToCU$
+ -->
+<IMG
+ WIDTH="168" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$Ddi\_&lt;type&gt;ToCU$"> 
+(being type one of the Ddi types) are provided for conversions from/to CUDD 
+objects. Conversions from CUDD always generate a new DDI node (with
+implicit node referencing), whereas
+their dual ...ToCU counterparts simply read CUDD node pointers (with
+no node referencing). Memory allocation is done only in case of
+arrays (e.g. Ddi_BddarrayToCU), which require a dynamically allocated
+array of pointers.
+
+<P>
+ </LI>
+<LI><P>
+Management of (conjunctively and disjunctively) partitioned forms. 
+
+<P>
+ </LI>
+<LI>Standard BDD operators: ITE, AND, OR, ... AND-EXIST, ..., constrain, 
+restrict ...
+They are implemented by resorting to the corresponding CUDD functions.
+Most operators support partitioned BDDs, with restrictions as
+described in the DDI package documentation.
+
+<P>
+ </LI>
+<LI>Load/store to file. Boolean functions and variables may be stored to file.
+The functions are implemented through the <EM> dddmp</EM> package
+(distributed with CUDD) which provides efficient dumping of BDDs and arrays of BDDs.
+Partitioned forms are managed by proper headers (considered as comments by dddmp)
+
+<P></LI>
+</UL>
+
+<P>
+It must be noted that the results of all operators are implicitly referenced
+(unless explicitly stated in the function documentation), while explicit 
+free-ing is required for all types.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html151"
+ HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html147"
+ HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html143"
+ HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html149"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html152"
+ HREF="node10.html">FSM</A>
+<B> Up:</B> <A NAME="tex2html148"
+ HREF="node7.html">The DDI package</A>
+<B> Previous:</B> <A NAME="tex2html144"
+ HREF="node8.html">Basic Data Structures</A>
+ &nbsp <B>  <A NAME="tex2html150"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Gianpiero Cabodi</I>
+<BR><I>2001-03-25</I>
+</ADDRESS>
+</BODY>
+</HTML>

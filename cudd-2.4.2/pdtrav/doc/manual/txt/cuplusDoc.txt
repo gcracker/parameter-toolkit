@@ -1,0 +1,177 @@
+The cuplus package
+
+Extensions of the CU package
+
+Gianpiero Cabodi and Stefano Quer
+
+**********************************************************************
+
+Cuplus_CofexistMask()
+
+Cuplus_DoAbortHookFun()
+
+Cuplus_ProfileAndAbstract()    Takes the AND of two BDDs and simultaneously
+                               abstracts the     variables in cube.
+
+Cuplus_ProfileInfoFree()       Free a profile
+
+Cuplus_ProfileInfoGen()        Create a new profile
+
+Cuplus_ProfileInfoPrintByVar() Print global profile statistics
+
+Cuplus_ProfileInfoPrintOriginal()
+                               Print global profile statistics
+
+Cuplus_ProfileInfoPrint()      Print global profile statistics
+
+Cuplus_ProfilePrune()
+
+Cuplus_ProfileReadCurrentPart()
+
+
+Cuplus_ProfileSetCurrentPart()
+
+Cuplus_bddAndAbstract()        Takes the AND of two BDDs and simultaneously
+                               abstracts the   variables in cube.
+
+Cuplus_bddOpDisableAbortOnSift()
+
+
+Cuplus_bddOpEnableAbortOnSift()
+
+
+**********************************************************************
+
+
+
+DdNode *
+Cuplus_CofexistMask(
+  DdManager *       manager,
+  DdNode *          f,
+  DdNode *          cube
+)
+
+  Side Effects: None
+
+int
+Cuplus_DoAbortHookFun(
+  DdManager *       manager,
+  char *            str,
+  void *            heuristic
+)
+
+  Side Effects: None
+
+DdNode *
+Cuplus_ProfileAndAbstract(
+  DdManager *       manager,
+  DdNode *          f,
+  DdNode *          g,
+  DdNode *          cube,
+  cuplus_profile_in profile
+)
+  A patched version of the original CUDD function.
+
+  Side Effects: None
+
+void
+Cuplus_ProfileInfoFree(
+  cuplus_profile_in profile
+)
+  Free a profile struct and the associated symbol table.
+
+  Side Effects: None
+
+cuplus_profile_info_t *
+Cuplus_ProfileInfoGen(
+  unsigned char     dac99Compatible,
+  int               nVar,
+  int               nPart
+)
+  Allocate a structure for global statistics of a profile. Initialize fields.
+  Create a symbol table for the correspondence node-profile info. The
+  dac99Compatible flag must be 1 for experimental results as in the dac99
+  paper. It must be set now.
+
+  Side Effects: None
+
+void
+Cuplus_ProfileInfoPrintByVar(
+  cuplus_profile_in profile
+)
+  Print some global statistics about a profile, e.g. average and max values of
+  activity indicators.
+
+  Side Effects: None
+
+void
+Cuplus_ProfileInfoPrintOriginal(
+  cuplus_profile_in profile
+)
+  Print some global statistics about a profile, e.g. average and max values of
+  activity indicators. Profile By Node (original profile) Section
+
+  Side Effects: None
+
+void
+Cuplus_ProfileInfoPrint(
+  cuplus_profile_in profile
+)
+  Print some global statistics about a profile, e.g. average and max values of
+  activity indicators.
+
+  Side Effects: None
+
+DdNode *
+Cuplus_ProfilePrune(
+  DdManager *       manager,
+  DdNode *          f,
+  cuplus_profile_in profile,
+  Cuplus_PruneHeuri pruneHeuristic,
+  int               threshold
+)
+
+  Side Effects: None
+
+int
+Cuplus_ProfileReadCurrentPart(
+  cuplus_profile_in profile
+)
+
+  Side Effects: None
+
+void
+Cuplus_ProfileSetCurrentPart(
+  cuplus_profile_in profile,
+  int               currentPart
+)
+
+  Side Effects: None
+
+DdNode *
+Cuplus_bddAndAbstract(
+  DdManager *       manager,
+  DdNode *          f,
+  DdNode *          g,
+  DdNode *          cube
+)
+  Takes the AND of two BDDs and simultaneously abstracts the variables in
+  cube. The variables are existentially abstracted. Returns a pointer to the
+  result is successful; NULL otherwise.
+
+  Side Effects: None
+
+void
+Cuplus_bddOpDisableAbortOnSift(
+  DdManager *       manager
+)
+
+  Side Effects: None
+
+void
+Cuplus_bddOpEnableAbortOnSift(
+  DdManager *       manager
+)
+
+  Side Effects: None
+

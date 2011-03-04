@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>FSM</TITLE>
+<META NAME="description" CONTENT="FSM">
+<META NAME="keywords" CONTENT="pdtrav">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pdtrav.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html159"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html153"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html161"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+ HREF="node11.html">TR management</A>
+<B> Up:</B> <A NAME="tex2html160"
+ HREF="node5.html">User's Manual</A>
+<B> Previous:</B> <A NAME="tex2html154"
+ HREF="node9.html">Operators</A>
+ &nbsp <B>  <A NAME="tex2html162"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00043000000000000000">
+FSM</A>
+</H2>
+
+<P>
+Each FSM has an internal representation.
+Each internal representation can be stored on secondary memory on what we
+call a FSM file.
+This gives the user the possibility to store intermediate computation
+results and to exchange information on a FSM and BDD basis.
+A result of this strategy is to allow the user to perform with great
+flexibility a certain number of (expensive) operations such as partially
+traverse a FSM, store intermediate results, and restart reachability analysis
+afterwards.
+
+<P>
+Internal and external (on files) formats are pretty alike one to the other.
+They contain information about the size of the FSM (number of inputs,
+outputs, latches), names, and BDD representations (for initial state set,
+next states and output functions, transition relations, and so on).
+The current format is the following one:
+
+<P>
+ 
+<FONT SIZE="-1"> 
+</FONT><PRE>
+
+.Fsm &lt;name&gt;
+
+.Size
+  .i &lt;Number of Primary Inputs&gt;
+  .o &lt;Number of Primary Outputs&gt;
+  .l &lt;Number of Memory Elements&gt;
+.EndSize
+
+.Ord
+  .ordFile &lt;File Name for the Variable Order File&gt;
+.EndOrd
+
+.Name
+  .i &lt;Name of Primary Input Variables&gt;
+  .ps &lt;Name of Present State Variables&gt;
+  .ns &lt;Name of Next State Variables&gt;
+.EndName
+
+.Index
+  .i &lt;Variable Index for Primary Inputs&gt;
+  .ps &lt;Variable Index for Present State Variables&gt;
+  .ns &lt;Variable Index for Next State Variables&gt;
+.EndIndex
+
+.Delta
+  .bddFile &lt;File Name for the Next State Functions BDD File&gt;
+.EndDelta
+
+.Lambda
+  .bddfile &lt;File Name for the Output Functions BDD File&gt;
+.EndLambda
+
+.InitState
+  .bddFile &lt;File Name for the Initial State Set BDD File&gt;
+.EndInitState
+
+.Tr
+  .bddFile &lt;File Name for the Transition Relation BDD File&gt;
+.EndTr
+
+.Reached
+  .bddFile &lt;File Name for the Reachable State Set BDD File&gt;
+.EndReached
+
+.EndFsm
+</PRE>
+
+<P>
+In general, not all the sections are present, depending on the ``state''
+of the program.
+For example, the reachable state set at the beginning does not exist and
+storing the FSM implies not storing the section
+<FONT SIZE="-1"> 
+</FONT><PRE>
+
+.Reached
+  .bddfile &lt;File Name for the Reachable State Set BDD File&gt;
+.EndReached
+</PRE>
+
+<P>
+Functions are given to perform a certain number of operations on the
+FSM structure.
+Namely we allow the user to:
+
+<UL>
+<LI>Initialize an internal representation for the FSM</LI>
+<LI>Duplicate an internal representation for the FSM</LI>
+<LI>Destroy an internal representation for the FSM</LI>
+<LI>Store a FSM representation with the previous format</LI>
+<LI>Load a FSM representation.</LI>
+</UL>
+Given the name of the FSM the names of the various files are automatically
+created and dealt with.
+Typically if <I> name</I> is the name of the FSM file, <I> name.ord</I> is the
+name of the variable order file, <I> namedelta.bdd</I> is the name of the file
+containing the next state function BDD representation, and so on.
+During storing and loading operations two modes are permitted: In the first
+mode the FSM file and all the BDD files are loaded, in the second mode only the
+FSM file is loaded.
+This features allows the user to explicitly concentrate on the objects
+he really cares about.
+For example next state functions, the transition relation and the reachable
+state set can be loaded separately and optimized with different variable
+orders in different working sections.
+The package provides functions to manage (such as load and store or perform
+operation on) singular object belonging to a FSM (such as BDDs).
+Normally the FSM description has to be loaded or created before any other
+object belonging to it (such as the transition relation).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html159"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html153"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/previous_motif.gif"></A> 
+<A NAME="tex2html161"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/home/cabodi/latex2html/latex2html/icons.gif/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+ HREF="node11.html">TR management</A>
+<B> Up:</B> <A NAME="tex2html160"
+ HREF="node5.html">User's Manual</A>
+<B> Previous:</B> <A NAME="tex2html154"
+ HREF="node9.html">Operators</A>
+ &nbsp <B>  <A NAME="tex2html162"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Gianpiero Cabodi</I>
+<BR><I>2001-03-25</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,347 @@
+<HTML>
+<HEAD><TITLE>The trav package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#trav.h"><CODE>trav.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#travInt.h"><CODE>travInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#trav.c"><CODE>trav.c</CODE></A>
+ <DD> Main module for a simple traversal of finite state machine
+ <DT> <A HREF="#travMgr.c"><CODE>travMgr.c</CODE></A>
+ <DD> Functions to handle a Trav manager
+ <DT> <A HREF="#travSim.c"><CODE>travSim.c</CODE></A>
+ <DD> Main module for the symboic simulation
+ <DT> <A HREF="#travTrav.c"><CODE>travTrav.c</CODE></A>
+ <DD> Functions to traverse a FSM
+ <DT> <A HREF="#travUtil.c"><CODE>travUtil.c</CODE></A>
+ <DD> Utility Functions for the Traverse Package
+</DL><HR>
+<A NAME="trav.h"><H1>trav.h</H1></A>
+External header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="travInt.h"><H1>travInt.h</H1></A>
+Internal header file <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="trav.c"><H1>trav.c</H1></A>
+Main module for a simple traversal of finite state machine <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedure included in this file is:
+    <ul>
+    <li>TravReadOptions()
+    </ul> <P>
+<DL>
+ <DT> <A HREF="travAllDet.html#Trav_Main" TARGET="MAIN"><CODE>Trav_Main()</CODE></A>
+ <DD> Temporary main program to be used as interface for cmd.
+
+</DL>
+<HR>
+<A NAME="travMgr.c"><H1>travMgr.c</H1></A>
+Functions to handle a Trav manager <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="travAllDet.html#Trav_MgrInit" TARGET="MAIN"><CODE>Trav_MgrInit()</CODE></A>
+ <DD> Create a Manager.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrQuit" TARGET="MAIN"><CODE>Trav_MgrQuit()</CODE></A>
+ <DD> Closes a Manager.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrPrintStats" TARGET="MAIN"><CODE>Trav_MgrPrintStats()</CODE></A>
+ <DD> Print Statistics on the Traversal Manager.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrOperation" TARGET="MAIN"><CODE>Trav_MgrOperation()</CODE></A>
+ <DD> Perform an Operation on the Traversal Manager.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadTr" TARGET="MAIN"><CODE>Trav_MgrReadTr()</CODE></A>
+ <DD> Read transition relation
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetTr" TARGET="MAIN"><CODE>Trav_MgrSetTr()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadLevel" TARGET="MAIN"><CODE>Trav_MgrReadLevel()</CODE></A>
+ <DD> Read Number of Level
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadProductPeak" TARGET="MAIN"><CODE>Trav_MgrReadProductPeak()</CODE></A>
+ <DD> Read Product Peak Value
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetProductPeak" TARGET="MAIN"><CODE>Trav_MgrSetProductPeak()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadI" TARGET="MAIN"><CODE>Trav_MgrReadI()</CODE></A>
+ <DD> Read PI array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetI" TARGET="MAIN"><CODE>Trav_MgrSetI()</CODE></A>
+ <DD> Set the PI array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadPS" TARGET="MAIN"><CODE>Trav_MgrReadPS()</CODE></A>
+ <DD> Read PS array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetPS" TARGET="MAIN"><CODE>Trav_MgrSetPS()</CODE></A>
+ <DD> Set the PS array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadAux" TARGET="MAIN"><CODE>Trav_MgrReadAux()</CODE></A>
+ <DD> Read AUX array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetAux" TARGET="MAIN"><CODE>Trav_MgrSetAux()</CODE></A>
+ <DD> Set the aux array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetMgrAuxFlag" TARGET="MAIN"><CODE>Trav_MgrSetMgrAuxFlag()</CODE></A>
+ <DD> Set the flag to indicate that during traversal there is an
+    additional auziliary manager
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadNS" TARGET="MAIN"><CODE>Trav_MgrReadNS()</CODE></A>
+ <DD> Read NS array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetNS" TARGET="MAIN"><CODE>Trav_MgrSetNS()</CODE></A>
+ <DD> Set the NS array
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadReached" TARGET="MAIN"><CODE>Trav_MgrReadReached()</CODE></A>
+ <DD> Read reached
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetReached" TARGET="MAIN"><CODE>Trav_MgrSetReached()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadAssert" TARGET="MAIN"><CODE>Trav_MgrReadAssert()</CODE></A>
+ <DD> Read Assert.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetAssert" TARGET="MAIN"><CODE>Trav_MgrSetAssert()</CODE></A>
+ <DD> Set Assert.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadAssertFlag" TARGET="MAIN"><CODE>Trav_MgrReadAssertFlag()</CODE></A>
+ <DD> Read Assert Flag.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetAssertFlag" TARGET="MAIN"><CODE>Trav_MgrSetAssertFlag()</CODE></A>
+ <DD> Set Assert Flag.
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadNewi" TARGET="MAIN"><CODE>Trav_MgrReadNewi()</CODE></A>
+ <DD> Read newi
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetNewi" TARGET="MAIN"><CODE>Trav_MgrSetNewi()</CODE></A>
+ <DD> Set Newi
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadFrom" TARGET="MAIN"><CODE>Trav_MgrReadFrom()</CODE></A>
+ <DD> Read from
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetFrom" TARGET="MAIN"><CODE>Trav_MgrSetFrom()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadName" TARGET="MAIN"><CODE>Trav_MgrReadName()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetName" TARGET="MAIN"><CODE>Trav_MgrSetName()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadSmoothVar" TARGET="MAIN"><CODE>Trav_MgrReadSmoothVar()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadW1" TARGET="MAIN"><CODE>Trav_MgrReadW1()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadW2" TARGET="MAIN"><CODE>Trav_MgrReadW2()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadW3" TARGET="MAIN"><CODE>Trav_MgrReadW3()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadW4" TARGET="MAIN"><CODE>Trav_MgrReadW4()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadEnableDdR" TARGET="MAIN"><CODE>Trav_MgrReadEnableDdR()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadTrProfileDynamicEnable" TARGET="MAIN"><CODE>Trav_MgrReadTrProfileDynamicEnable()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetTrProfileDynamicEnable" TARGET="MAIN"><CODE>Trav_MgrSetTrProfileDynamicEnable()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadTrProfileThreshold" TARGET="MAIN"><CODE>Trav_MgrReadTrProfileThreshold()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetTrProfileThreshold" TARGET="MAIN"><CODE>Trav_MgrSetTrProfileThreshold()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadTrProfileMethod" TARGET="MAIN"><CODE>Trav_MgrReadTrProfileMethod()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetTrProfileMethod" TARGET="MAIN"><CODE>Trav_MgrSetTrProfileMethod()</CODE></A>
+ <DD> Set
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadThreshold" TARGET="MAIN"><CODE>Trav_MgrReadThreshold()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadSquaring" TARGET="MAIN"><CODE>Trav_MgrReadSquaring()</CODE></A>
+ <DD> Read
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadVerbosity" TARGET="MAIN"><CODE>Trav_MgrReadVerbosity()</CODE></A>
+ <DD> Read verbosity
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetSorting" TARGET="MAIN"><CODE>Trav_MgrSetSorting()</CODE></A>
+ <DD> Read verbosity
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadSorting" TARGET="MAIN"><CODE>Trav_MgrReadSorting()</CODE></A>
+ <DD> Read verbosity
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadBackward" TARGET="MAIN"><CODE>Trav_MgrReadBackward()</CODE></A>
+ <DD> Read the backward traversal flag
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadKeepNew" TARGET="MAIN"><CODE>Trav_MgrReadKeepNew()</CODE></A>
+ <DD> Read the keepNew  flag
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadMaxIter" TARGET="MAIN"><CODE>Trav_MgrReadMaxIter()</CODE></A>
+ <DD> Read the maximum number of traversal iterations
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadLogPeriod" TARGET="MAIN"><CODE>Trav_MgrReadLogPeriod()</CODE></A>
+ <DD> Read the period for verbosity enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadSavePeriod" TARGET="MAIN"><CODE>Trav_MgrReadSavePeriod()</CODE></A>
+ <DD> Read the period for save BDDs enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadSavePeriodName" TARGET="MAIN"><CODE>Trav_MgrReadSavePeriodName()</CODE></A>
+ <DD> Read the period for save BDDs enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadFromSelect" TARGET="MAIN"><CODE>Trav_MgrReadFromSelect()</CODE></A>
+ <DD> Read from selection
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetDdiMgrTr" TARGET="MAIN"><CODE>Trav_MgrSetDdiMgrTr()</CODE></A>
+ <DD> Set DDi Mgr TR
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetDdiMgrDefault" TARGET="MAIN"><CODE>Trav_MgrSetDdiMgrDefault()</CODE></A>
+ <DD> Set default DDi Mgr
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetDdiMgrR" TARGET="MAIN"><CODE>Trav_MgrSetDdiMgrR()</CODE></A>
+ <DD> Set DDi Mgr R
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadDdiMgrDefault" TARGET="MAIN"><CODE>Trav_MgrReadDdiMgrDefault()</CODE></A>
+ <DD> Read default DDi Mgr
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadDdiMgrTr" TARGET="MAIN"><CODE>Trav_MgrReadDdiMgrTr()</CODE></A>
+ <DD> Read DDi Mgr TR
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadDdiMgrR" TARGET="MAIN"><CODE>Trav_MgrReadDdiMgrR()</CODE></A>
+ <DD> Read DDi Mgr R
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetVerbosity" TARGET="MAIN"><CODE>Trav_MgrSetVerbosity()</CODE></A>
+ <DD> Set verbosity
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetBackward" TARGET="MAIN"><CODE>Trav_MgrSetBackward()</CODE></A>
+ <DD> Set the backward traversal flag
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetKeepNew" TARGET="MAIN"><CODE>Trav_MgrSetKeepNew()</CODE></A>
+ <DD> Set the keepNew flag
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetMaxIter" TARGET="MAIN"><CODE>Trav_MgrSetMaxIter()</CODE></A>
+ <DD> Set the maximum number of traversal iterations
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetLogPeriod" TARGET="MAIN"><CODE>Trav_MgrSetLogPeriod()</CODE></A>
+ <DD> Set the period for verbosity enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetSavePeriod" TARGET="MAIN"><CODE>Trav_MgrSetSavePeriod()</CODE></A>
+ <DD> Set the period for verbosity enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetSavePeriodName" TARGET="MAIN"><CODE>Trav_MgrSetSavePeriodName()</CODE></A>
+ <DD> Set the period for verbosity enabling
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrSetFromSelect" TARGET="MAIN"><CODE>Trav_MgrSetFromSelect()</CODE></A>
+ <DD> Set the from selection
+
+ <DT> <A HREF="travAllDet.html#Trav_MgrReadMgrAuxFlag" TARGET="MAIN"><CODE>Trav_MgrReadMgrAuxFlag()</CODE></A>
+ <DD> Read the flag to indicate that during traversal there is an
+    additional auziliary manager
+
+</DL>
+<HR>
+<A NAME="travSim.c"><H1>travSim.c</H1></A>
+Main module for the symboic simulation <P>
+<B>By: Valeria Bertacco and Maurizio Damiani and Stefano Quer</B><P>
+External procedure included in this file is:
+    <ul>
+    <li>()
+    </ul> <P>
+<DL>
+ <DT> <A HREF="travAllDet.html#Trav_SimulateMain" TARGET="MAIN"><CODE>Trav_SimulateMain()</CODE></A>
+ <DD> Temporary main program to be used as interface for cmd.
+
+ <DT> <A HREF="travAllDet.html#simulateSimple" TARGET="MAIN"><CODE>simulateSimple()</CODE></A>
+ <DD> Simulation Engine for PdTrav
+
+ <DT> <A HREF="travAllDet.html#simulateWave" TARGET="MAIN"><CODE>simulateWave()</CODE></A>
+ <DD> Simulation Engine for PdTrav
+
+ <DT> <A HREF="travAllDet.html#simulateWithDac99" TARGET="MAIN"><CODE>simulateWithDac99()</CODE></A>
+ <DD> Follow Bertacco, Damiani, Quer, DAC'99 paper to
+    peeform simbolic simulation.
+
+ <DT> <A HREF="travAllDet.html#printWave" TARGET="MAIN"><CODE>printWave()</CODE></A>
+ <DD> Print Out A Wave Depending on Present and Next Value
+
+ <DT> <A HREF="travAllDet.html#reduceNextStateFunctions" TARGET="MAIN"><CODE>reduceNextStateFunctions()</CODE></A>
+ <DD> Reduce Next PsNumber Functions
+
+ <DT> <A HREF="travAllDet.html#constrainWith1" TARGET="MAIN"><CODE>constrainWith1()</CODE></A>
+ <DD> Constraint delta (Ddi_Bddarray_t) with suppLocal (Ddi_Varset_t).
+
+ <DT> <A HREF="travAllDet.html#constrainWith2" TARGET="MAIN"><CODE>constrainWith2()</CODE></A>
+ <DD> Constraint delta (Ddi_Bddarray_t) with suppLocal (Ddi_Varset_t).
+
+ <DT> <A HREF="travAllDet.html#constrainWithAllRandomValue" TARGET="MAIN"><CODE>constrainWithAllRandomValue()</CODE></A>
+ <DD> Constraint delta (Ddi_Bddarray_t) with suppLocal (Ddi_Varset_t).
+    Use random values for each variable in suppLocal.
+    constrainIn is not used.
+
+ <DT> <A HREF="travAllDet.html#constrainWithPartialRandomValue" TARGET="MAIN"><CODE>constrainWithPartialRandomValue()</CODE></A>
+ <DD> Constraint delta (Ddi_Bddarray_t) with suppLocal (Ddi_Varset_t).
+    Use random values for each variable in suppLocal that does not appear in
+    constrain. All the new values are and-ed with constrain that is returned.
+
+ <DT> <A HREF="travAllDet.html#SimFromCompute" TARGET="MAIN"><CODE>SimFromCompute()</CODE></A>
+ <DD> Compute New From for Next Iteration.
+
+</DL>
+<HR>
+<A NAME="travTrav.c"><H1>travTrav.c</H1></A>
+Functions to traverse a FSM <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+External procedures included in this file are:
+    <ul>
+    <li>Trav_Traversal()
+    </ul> <P>
+<DL>
+ <DT> <A HREF="travAllDet.html#Trav_Traversal" TARGET="MAIN"><CODE>Trav_Traversal()</CODE></A>
+ <DD> FSM traversal given a transition relation
+
+ <DT> <A HREF="travAllDet.html#Trav_MismatchPat" TARGET="MAIN"><CODE>Trav_MismatchPat()</CODE></A>
+ <DD> Generation of a mismatch input sequence
+
+ <DT> <A HREF="travAllDet.html#Trav_UnivAlignPat" TARGET="MAIN"><CODE>Trav_UnivAlignPat()</CODE></A>
+ <DD> Find a universal alignment sequence
+
+</DL>
+<HR>
+<A NAME="travUtil.c"><H1>travUtil.c</H1></A>
+Utility Functions for the Traverse Package <P>
+<B>By: Gianpiero Cabodi and Stefano Quer</B><P>
+<DL>
+ <DT> <A HREF="travAllDet.html#Trav_FromSelectString2Enum" TARGET="MAIN"><CODE>Trav_FromSelectString2Enum()</CODE></A>
+ <DD> Given a string it Returns an Enumerated type
+
+ <DT> <A HREF="travAllDet.html#Trav_FromSelectEnum2String" TARGET="MAIN"><CODE>Trav_FromSelectEnum2String()</CODE></A>
+ <DD> Given an Enumerated type Returns a string
+
+ <DT> <A HREF="travAllDet.html#TravFromCompute" TARGET="MAIN"><CODE>TravFromCompute()</CODE></A>
+ <DD> Compute from given to and reached
+
+ <DT> <A HREF="travAllDet.html#Trav_TrPartition" TARGET="MAIN"><CODE>Trav_TrPartition()</CODE></A>
+ <DD> Partitions the Transition Relation
+
+</DL>
+<HR>
+Last updated on 1010515 11h48
+</BODY></HTML>
